@@ -30,52 +30,50 @@
     </div>
   </div> -->
 
-  <div class="charity-header clearfix">
-
   <div class="row margin-bottom-40">
     <div class="col-md-8">
       <div class="img-charity-banner" style="background-image:url(/images/bb1.jpg)"></div>
     </div>
 
     <div class="col-md-4">
-        <div class="service-block-v3 project-box">
+      <div class="service-block-v3 project-box">
 
-          <div class="statistics">
-            <h3 class="heading-xs"><strong>52,147</strong> / 100,000 บาท<span class="pull-right">67%</span></h3>
-            <div class="progress progress-u progress-xxs">
-              <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
-              </div>
+        <div class="statistics">
+          <h3 class="heading-xs"><strong>52,147</strong> / 100,000 บาท<span class="pull-right">67%</span></h3>
+          <div class="progress progress-u progress-xxs">
+            <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
             </div>
-            <!-- <small><strong>52,147</strong> / 100,000 บาท</small> -->
           </div>
-
-          <div class="clearfix margin-bottom-10"></div>
-          <div class="clearfix margin-bottom-10"></div>
-          <div class="clearfix margin-bottom-10"></div>
-
-          <i class="icon-heart"></i>
-          <span class="counter">52,147 บาท</span>
-          <span class="sub-label">จากเป้าหมาย 100000 บาท</span>
-
-          <div class="clearfix margin-bottom-10"></div>
-
-          <i class="icon-users"></i>
-          <span class="counter">219</span>
-          <span class="sub-label">ผู้บริจาค</span>
-
-          <div class="clearfix margin-bottom-10"></div>
-
-          <i class="icon-clock"></i>
-          <span class="counter">19 วัน</span>
-          <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span>
-
-          <div class="clearfix margin-bottom-10"></div>
-          <div class="clearfix margin-bottom-10"></div>
-
-          <div class="margin-bottom-20">
-            <button class="btn-u" type="button">บริจาคให้กับโครงการนี้</button>
-          </div>
+          <!-- <small><strong>52,147</strong> / 100,000 บาท</small> -->
         </div>
+
+        <div class="clearfix margin-bottom-10"></div>
+        <div class="clearfix margin-bottom-10"></div>
+        <div class="clearfix margin-bottom-10"></div>
+
+        <i class="icon-heart"></i>
+        <span class="counter">52,147 บาท</span>
+        <span class="sub-label">จากเป้าหมาย 100000 บาท</span>
+
+        <div class="clearfix margin-bottom-10"></div>
+
+        <i class="icon-users"></i>
+        <span class="counter">219</span>
+        <span class="sub-label">ผู้บริจาค</span>
+
+        <div class="clearfix margin-bottom-10"></div>
+
+        <i class="icon-clock"></i>
+        <span class="counter">19 วัน</span>
+        <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span>
+
+        <div class="clearfix margin-bottom-10"></div>
+        <div class="clearfix margin-bottom-10"></div>
+
+        <div class="margin-bottom-20">
+          <button class="btn-u" type="button">บริจาคให้กับโครงการนี้</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -180,7 +178,17 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane fade in active" id="project">
-            <h3>เกี่ยวกับโครงการ</h3>
+
+            <div class="panel panel-profile">
+              <div class="panel-heading overflow-h">
+                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>เกี่ยวกับโครงการ</h2>
+              </div>
+            </div>
+
+            <div class="padding-15">
+              {!!$project->description!!}
+            </div>
+
           </div>
           <div class="tab-pane fade in" id="timeline">
             
@@ -211,11 +219,6 @@
             <h3>ความคิดเห็น</h3>
           </div>
           <div class="tab-pane fade in" id="collaboration">
-            <div class="panel panel-profile">
-              <div class="panel-heading overflow-h">
-                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>การบริจาค</h2>
-              </div>
-            </div>
             
             <div class="row margin-bottom-10">
               <div class="col-sm-3 col-xs-6">

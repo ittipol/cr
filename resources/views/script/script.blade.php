@@ -73,6 +73,11 @@
     // 'assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css',
     // 'assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css',
     'assets/css/headers/header-default.css',
+    'assets/css/footers/footer-v3.css',
+    'assets/plugins/brand-buttons/brand-buttons.css',
+    'assets/css/pages/page_log_reg_v3.css',
+    'assets/plugins/brand-buttons/brand-buttons-inversed.css',
+    // 'assets/css/pages/page_log_reg_v4.css',
     'assets/css/pages/shortcode_timeline2.css',
     // 'assets/css/theme-colors/default.css',
     // 'assets/css/theme-skins/dark.css',
@@ -85,6 +90,7 @@
     'css/custom/button.css',
     'css/page/charity.css',
     'css/page/project.css',
+    'css/page/donate.css',
     'css/components/form.css',
   );
 

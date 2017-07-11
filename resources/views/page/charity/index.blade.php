@@ -30,7 +30,7 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <div class="margin-bottom-20">
-          <button class="btn-u" type="button">บริจาคให้กับมูลนิธินี้</button>
+          <a href="" class="btn-u">บริจาคให้กับมูลนิธินี้</a>
         </div>
         <div class="statistics">
           <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">15 วัน</span></h3>
@@ -206,9 +206,28 @@
             <h3>ความคิดเห็น</h3>
           </div>
           <div class="tab-pane fade in" id="collaboration">
-            <h3>การบริจาค</h3>
-            ranking
-            รายชื่อผู้บริจาค
+            
+            <div class="row margin-bottom-10">
+              <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                  <span class="counter">10629</span>
+                  <h4>ผูบริจาคใหม่</h4>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                  <span class="counter">277</span>
+                  <h4>ผู้ที่กลับมาบริจาค</h4>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                  <span class="counter">78</span>
+                  <h4>ผู้บริจาคโดยไม่ออกนาม</h4>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>

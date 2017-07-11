@@ -1,0 +1,18 @@
+.login-block,
+.login-block .or {
+	background-color: #37474F;
+}
+
+.wide-centered-box {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (max-width : 480px) {
+
+	.wide-centered-box {
+		width: 100%;
+	}
+
+}

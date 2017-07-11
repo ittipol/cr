@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-  <div class="container content-md">
+  <div class="container">
     
     <h2>มูลนิธิ</h2>
     <hr>
@@ -19,7 +19,7 @@
                 <a href="{{URL::to('charity')}}/{{$data->id}}">{{$data->name}}</a>
               </span>
             </h2>
-            <p>คำอธิบายแบบย่อไม่เกิน 250 ตัวอักษร</p>
+            <p>{{$data->short_desc}}</p>
             <hr>
             <div class="service-block-v3 donation-box">
               <i class="icon-heart"></i>

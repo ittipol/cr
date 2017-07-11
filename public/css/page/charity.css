@@ -135,6 +135,11 @@
 	height: 200px;
 }
 
+.news-v3 p {
+	height: 60px;
+	overflow: hidden;
+}
+
 /*.news-v3 .news-image-wrapper {
 	position: relative;
 	height: 400px;
