@@ -1,0 +1,17 @@
+.btn-u.btn-custom {
+	width: 100%;
+  line-height: 30px;
+  background-color: #05AF3C;
+  text-align: center;
+  font-size: 14px;
+}
+
+.btn-u.btn-custom:hover {
+	background-color: #05AF3C;
+}
+
+.btn-u.btn-custom > i {
+	font-size: 14px;
+	float: none;
+	margin: 0 5px 0 0;
+}

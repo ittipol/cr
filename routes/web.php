@@ -36,12 +36,12 @@ Route::group([/*'middleware' => 'admin', */'namespace' => 'Admin', 'prefix' => '
   // Route::post('edit', 'CharityController@editingSubmit');
   // Route::get('delete', 'CharityController@delete');
 
-  Route::get('goal/list', 'GoalController@listView');
-  Route::get('goal/add', 'GoalController@add');
-  Route::post('goal/add', 'GoalController@addingSubmit');
-  Route::get('goal/edit/{id}', 'GoalController@edit');
-  Route::patch('goal/edit/{id}', 'GoalController@editingSubmit');
-  Route::get('goal/delete/{id}', 'GoalController@delete');
+  Route::get('goal/list', 'ProjectController@listView');
+  Route::get('goal/add', 'ProjectController@add');
+  Route::post('goal/add', 'ProjectController@addingSubmit');
+  Route::get('goal/edit/{id}', 'ProjectController@edit');
+  Route::patch('goal/edit/{id}', 'ProjectController@editingSubmit');
+  Route::get('goal/delete/{id}', 'ProjectController@delete');
 
   Route::get('news/list', 'NewsController@listView');
   Route::get('news/add', 'NewsController@add');
@@ -61,4 +61,8 @@ Route::group(['middleware' => [/*'admin',*/'api'], 'namespace' => 'Admin', 'pref
 
 Route::get('/', 'HomeController@index');
 
+Route::get('charity/list', 'CharityController@listView');
 Route::get('charity/{id}', 'CharityController@index');
+
+Route::get('charity/project/list', 'ProjectController@listView');
+Route::get('charity/project/{id}', 'ProjectController@index');

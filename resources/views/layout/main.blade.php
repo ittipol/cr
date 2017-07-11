@@ -56,11 +56,6 @@
     </div>
   </div>
 
-  <!-- <div class="slider-inner">
-    <div id="da-slider" class="da-slider">
-    </div>
-  </div> -->
-
   <div class="container margin-top-20 margin-bottom-100">
     @yield('content')
   </div>

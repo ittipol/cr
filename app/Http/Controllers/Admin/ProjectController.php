@@ -8,11 +8,11 @@ use App\library\service;
 use App\library\date;
 use Redirect;
 
-class GoalController extends Controller
+class ProjectController extends Controller
 {
   public function listView() {
 
-    $model = Service::loadModel('Goal');
+    $model = Service::loadModel('Project');
 
     $currentPage = 1;
     if(!empty($this->query['page'])) {
@@ -47,7 +47,7 @@ class GoalController extends Controller
 
   public function addingSubmit() {
 
-    $model = Service::loadModel('Goal');
+    $model = Service::loadModel('Project');
 
     $model->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
 
@@ -60,7 +60,7 @@ class GoalController extends Controller
 
   public function edit($id) {
 
-    $data = Service::loadModel('Goal')->find($id);
+    $data = Service::loadModel('Project')->find($id);
 
     $charities = Service::loadFieldData('Charity',array(
       'key' =>'id',
@@ -86,7 +86,7 @@ class GoalController extends Controller
 
   public function editingSubmit($id) {
 
-    $data = Service::loadModel('Goal')->find($id);
+    $data = Service::loadModel('Project')->find($id);
 
     $data->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
 
@@ -102,7 +102,7 @@ class GoalController extends Controller
    
     dd('Are you sure???');
 
-    $data = Service::loadModel('Goal')->find($id);
+    $data = Service::loadModel('Project')->find($id);
 
     // ?confirm=y
     // $_GET['confirm']

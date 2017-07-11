@@ -20,6 +20,11 @@
   </div>
 
   <div class="form-group">
+    {{Form::label('short_desc', 'คำอธิบายโดยย่อ (ไม่เกิน 250 ตัวอักษร)', array('class' => 'required'))}}
+    {{Form::text('short_desc', null, array('class' => 'form-control', 'placeholder' => 'คำอธิบายโดยย่อ','autocomplete' => 'off'))}}
+  </div>
+
+  <div class="form-group">
     {{Form::label('description', 'รายละเอียด', array('class' => 'required'))}}
     {{Form::textarea('description', null, array('class' => 'form-control'))}}
   </div>

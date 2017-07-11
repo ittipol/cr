@@ -15,13 +15,13 @@
   </div>
 
   <div class="form-group">
-    {{Form::label('description', 'รายละเอียด')}}
-    {{Form::textarea('description', null, array('class' => 'form-control'))}}
+    {{Form::label('short_desc', 'คำอธิบายโดยย่อ (ไม่เกิน 250 ตัวอักษร)', array('class' => 'required'))}}
+    {{Form::text('short_desc', null, array('class' => 'form-control', 'placeholder' => 'คำอธิบายโดยย่อ','autocomplete' => 'off'))}}
   </div>
 
   <div class="form-group">
-    {{Form::label('donation_description', 'รายละเอียดการบริจาค')}}
-    {{Form::textarea('donation_description')}}
+    {{Form::label('description', 'รายละเอียด')}}
+    {{Form::textarea('description', null, array('class' => 'form-control'))}}
   </div>
 
   <div class="form-group">

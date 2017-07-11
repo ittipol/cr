@@ -1,3 +1,11 @@
+hr {
+	border-color: #05AF3C;
+}
+
+.padding-15 {
+	padding: 15px !important;
+}
+
 .header .logo img {
 	margin: 0;
 	height: 60px;

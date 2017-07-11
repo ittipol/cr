@@ -49,6 +49,14 @@
 	float: left;
 }
 
+.charity-header .charity-info .name-location {
+	font-size: 14px;
+}
+
+.charity-header .charity-short-desc {
+	font-size: 14px;
+}
+
 .charity-header .charity-short-desc.display-mobile {
 	display: none;
 }
@@ -77,27 +85,97 @@
 	background-color: #444;
 }
 
-.service-block-v3.white-style {
-	border-top: 4px solid green;
-}
+/*.service-block-v3.donation-box {
+	border-top: 4px solid #05AF3C;
+}*/
 
-.service-block-v3.white-style .icon-users,
-.service-block-v3.white-style .service-heading,
-.service-block-v3.white-style .statistics .heading-xs {
+.service-block-v3.donation-box .icon-users,
+.service-block-v3.donation-box .service-heading,
+.service-block-v3.donation-box .statistics .heading-xs {
 	color: #000;
 }
 
-.service-block-v3.white-style .counter {
+.service-block-v3.donation-box .counter {
 	color: #05AF3C;
 }
 
-.service-block-v3.white-style .statistics .progress-bar-light {
-	background-color: #337ab7;
+.service-block-v3 .statistics .progress-bar-light {
+	background-color: #05AF3C;
 }
 
-.service-block-v3.white-style .btn-u {
+.service-block-v3 .btn-u {
 	width: 100%;
 	line-height: 30px;
+	background-color: #05AF3C;
+}
+
+.service-block-v3 .btn-u:hover {
+	background-color: #05AF3C;
+}
+
+.service-block-v3 .sub-label {
+	color: #626369;
+	font-size: 14px;
+}
+
+.service-block-v3 .statistics small {
+	color: #000;
+}
+
+.service-block-v3.donation-box > i {
+	color: #000;
+}
+
+.news-v3 .news-v3-in-sm {
+	border: 1px solid #E8E8E8;
+	background-color: #ececec;
+}
+
+.news-v3 .full-width {
+	height: 200px;
+}
+
+/*.news-v3 .news-image-wrapper {
+	position: relative;
+	height: 400px;
+}
+
+.news-v3 .news-image-wrapper .fixed-bottom-content {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	background-color: rgba(20,27,32,.5);
+	padding: 10px;
+}
+
+.news-image-wrapper .fixed-bottom-content > h2 {
+	margin: 0;
+	line-height: 20px;
+}
+
+.news-image-wrapper .fixed-bottom-content h2 > a {
+	margin-right: 10px;
+}
+
+.news-image-wrapper .fixed-bottom-content h2 a {
+	color: #fff;
+	font-size: 18px;
+}
+
+.news-image-wrapper .fixed-bottom-content p {
+	color: #fff;
+	font-size: 14px;
+	margin: 0;
+}*/
+
+.news-v3 .service-block-v3 {
+	padding: 0;
+}
+
+.new-title img {
+	width: 30px;
+	border-radius: 30px;
 }
 
 /* Medium Devices, Desktops */
@@ -112,10 +190,9 @@
   }
 }
 
-/* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
 
-	.service-block-v3.white-style {
+	.service-block-v3.donation-box {
 		padding: 20px 0;
 	}
 

@@ -3,18 +3,34 @@
   
 <div class="container content profile">
 
-  <div class="charity-header clearfix">
-    <img class="charity-logo" src="/assets/img/team/img32-md.jpg">
-    <div class="charity-info">
-      <h2 class="charity-name">{{$charity->name}}
-        <div class="name-location">
-          <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
-        </div>
-      </h2>
-      <p class="charity-short-desc">{{$charity->short_desc}}</p>
+  <div class="testimonials-v4 md-margin-bottom-50">
+    <div class="testimonials-v4-in">
+      <h2>โครงการ: {{$project->name}}</h2>
+      <p>{{$project->short_desc}}</p>
     </div>
-    <p class="charity-short-desc display-mobile">{{$charity->short_desc}}</p>
+    <img class="rounded-x" src="/assets/img/team/img32-md.jpg">
+    <span class="testimonials-author">
+      โครงการจาก<br>
+      <a href="{{URL::to('charity')}}/{{$project->id}}">ชื่อมูลนิธิ</a>
+    </span>
   </div>
+
+  <hr>
+
+  <!-- <div class="project-header">
+    <h2 class="project-name">{{$project->name}}</h2>
+    <p class="project-short-desc">คำอธิบายแบบย่อไม่เกิน 250 ตัวอักษร</p>
+    <div class="project-by-charity">
+      <a href="">
+        <img class="charity-logo" src="/assets/img/team/img32-md.jpg">
+      </a>
+      <span>
+        โดย <a href="{{URL::to('charity')}}/{{$project->id}}">ชื่อมูลนิธิ</a>
+      </span>
+    </div>
+  </div> -->
+
+  <div class="charity-header clearfix">
 
   <div class="row margin-bottom-40">
     <div class="col-md-8">
@@ -22,28 +38,48 @@
     </div>
 
     <div class="col-md-4">
-      <div class="service-block-v3 donation-box">
-        <i class="icon-heart"></i>
-        <span class="service-heading">การบริจาคในเดือนนี้</span>
-        <span class="counter">52,147 บาท</span>
+        <div class="service-block-v3 project-box">
 
-        <div class="clearfix margin-bottom-10"></div>
-
-        <div class="margin-bottom-20">
-          <button class="btn-u" type="button">บริจาคให้กับมูลนิธินี้</button>
-        </div>
-        <div class="statistics">
-          <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">15 วัน</span></h3>
-          <div class="progress progress-u progress-xxs">
-            <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
+          <div class="statistics">
+            <h3 class="heading-xs"><strong>52,147</strong> / 100,000 บาท<span class="pull-right">67%</span></h3>
+            <div class="progress progress-u progress-xxs">
+              <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
+              </div>
             </div>
+            <!-- <small><strong>52,147</strong> / 100,000 บาท</small> -->
+          </div>
+
+          <div class="clearfix margin-bottom-10"></div>
+          <div class="clearfix margin-bottom-10"></div>
+          <div class="clearfix margin-bottom-10"></div>
+
+          <i class="icon-heart"></i>
+          <span class="counter">52,147 บาท</span>
+          <span class="sub-label">จากเป้าหมาย 100000 บาท</span>
+
+          <div class="clearfix margin-bottom-10"></div>
+
+          <i class="icon-users"></i>
+          <span class="counter">219</span>
+          <span class="sub-label">ผู้บริจาค</span>
+
+          <div class="clearfix margin-bottom-10"></div>
+
+          <i class="icon-clock"></i>
+          <span class="counter">19 วัน</span>
+          <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span>
+
+          <div class="clearfix margin-bottom-10"></div>
+          <div class="clearfix margin-bottom-10"></div>
+
+          <div class="margin-bottom-20">
+            <button class="btn-u" type="button">บริจาคให้กับโครงการนี้</button>
           </div>
         </div>
-      </div>
     </div>
   </div>
 
-  <div>
+  <div class="container content">
     <div class="text-center margin-bottom-50">
       <h2 class="title-v2 title-center">รูปภาพมูลนิธิ(เพิ่มเติม)</h2>
     </div>
@@ -135,80 +171,73 @@
 
     <div class="col-md-8">
 
-      <div class="tab-v1">
+      <div class="tab-v1 margin-bottom-40">
         <ul class="nav nav-tabs margin-bottom-20">
-          <li class="active"><a href="#about" data-toggle="tab">เกี่ยวกับ</a></li>
-          <li><a href="#news" data-toggle="tab">ข่าวสาร</a></li>
+          <li class="active"><a href="#project" data-toggle="tab">โครงการ</a></li>
+          <li><a href="#timeline" data-toggle="tab">ไทม์ไลน์</a></li>
           <li><a href="#comment" data-toggle="tab">ความคิดเห็น</a></li>
           <li><a href="#collaboration" data-toggle="tab">การบริจาค</a></li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane fade in active" id="about">
-            <div class="panel panel-profile">
-              <div class="panel-heading overflow-h">
-                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>เกี่ยวกับมูลนิธิ</h2>
-              </div>
-            </div>
-
-            <div class="padding-15">
-              {!!$charity->description!!}
-            </div>
-
+          <div class="tab-pane fade in active" id="project">
+            <h3>เกี่ยวกับโครงการ</h3>
           </div>
-          <div class="tab-pane fade in" id="news">
-            <div class="panel panel-profile">
-              <div class="panel-heading overflow-h">
-                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>ข่าวสาร</h2>
-                <a href="page_profile_users.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right">View All</a>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="profile-blog blog-border">
-                      <img class="rounded-x" src="assets/img/testimonials/img1.jpg" alt="">
-                      <div class="name-location">
-                        <strong>Mikel Andrews</strong>
-                        <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                      </div>
-                      <div class="clearfix margin-bottom-20"></div>
-                      <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                      <hr>
-                      <ul class="list-inline share-list">
-                        <li><i class="fa fa-bell"></i><a href="#">12 Notifications</a></li>
-                        <li><i class="fa fa-group"></i><a href="#">54 Followers</a></li>
-                        <li><i class="fa fa-twitter"></i><a href="#">Retweet</a></li>
-                      </ul>
-                    </div>
-                  </div>
+          <div class="tab-pane fade in" id="timeline">
+            
+            <div class="col-md-9">
+              <ul class="timeline-v2">
 
-                  <div class="col-sm-6">
-                    <div class="profile-blog blog-border">
-                      <img class="rounded-x" src="assets/img/testimonials/img4.jpg" alt="">
-                      <div class="name-location">
-                        <strong>Natasha Kolnikova</strong>
-                        <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                      </div>
-                      <div class="clearfix margin-bottom-20"></div>
-                      <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                      <hr>
-                      <ul class="list-inline share-list">
-                        <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
-                        <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
-                        <li><i class="fa fa-twitter"></i><a href="#">Retweet</a></li>
-                      </ul>
-                    </div>
+                <li class="equal-height-columns">
+                  <div class="cbp_tmtime equal-height-column"><span>2/4/11</span> <span>April</span></div>
+                  <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                  <div class="cbp_tmlabel equal-height-column">
+                    <h2>Back to the past</h2>
+                    <p>Peanut gourd nori welsh onion rock melon mustard jícama. Desert raisin amaranth kombu aubergine kale seakale brussels sprout pea. Black-eyed pea celtuce bamboo shoot salad kohlrabi leek squash prairie turnip catsear rock melon chard taro broccoli turnip greens. Fennel quandong potato watercress ricebean swiss chard garbanzo. Endive daikon brussels sprout lotus root silver beet epazote melon shallot.</p>
                   </div>
-                </div>
-              </div>
+                </li>
+
+                <li class="equal-height-columns">
+                  <div class="cbp_tmtime equal-height-column"><span>18/7/13</span> <span>June</span></div>
+                  <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                  <div class="cbp_tmlabel equal-height-column">
+                    <h2>เปิดรับบริจาค</h2>
+                  </div>
+                </li>
+              </ul>
             </div>
+
           </div>
           <div class="tab-pane fade in" id="comment">
             <h3>ความคิดเห็น</h3>
           </div>
           <div class="tab-pane fade in" id="collaboration">
-            <h3>การบริจาค</h3>
-            ranking
-            รายชื่อผู้บริจาค
+            <div class="panel panel-profile">
+              <div class="panel-heading overflow-h">
+                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>การบริจาค</h2>
+              </div>
+            </div>
+            
+            <div class="row margin-bottom-10">
+              <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                  <span class="counter">10629</span>
+                  <h4>ผูบริจาคใหม่</h4>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                  <span class="counter">277</span>
+                  <h4>ผู้ที่กลับมาบริจาค</h4>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                  <span class="counter">78</span>
+                  <h4>ผู้บริจาคโดยไม่ออกนาม</h4>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
