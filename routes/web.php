@@ -71,3 +71,4 @@ Route::get('charity/project/list', 'ProjectController@listView');
 Route::get('charity/project/{id}', 'ProjectController@index');
 
 Route::get('donate', 'DonateController@index');
+Route::post('donate', 'DonateController@donationSubmit');

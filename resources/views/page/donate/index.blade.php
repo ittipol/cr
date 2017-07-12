@@ -147,7 +147,7 @@
           <p>หากต้องการบริจาคโดยไม่ออกนามให้เว้นการกรอก "ชื่อ นามสกุล" ของคุณ</p>
         </div>
 
-        {{Form::open(['id' => 'main_form', 'class' => 'sky-form sky-changes-3', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
+        {{Form::open(['url' => Request::fullUrl(), 'id' => 'donation_form', 'class' => 'sky-form sky-changes-3', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
 
           <fieldset>
             <div class="row">
@@ -162,7 +162,7 @@
                 <label class="label">อีเมล</label>
                 <label class="input">
                   <i class="icon-append fa fa-envelope-o"></i>
-                  {{Form::text('email', null, array('placeholder' => 'อีเมล','autocomplete' => 'off'))}}
+                  {{Form::text('email', null, array('placeholder' => 'อีเมล','autocomplete' => 'off', 'class' => 'ignore'))}}
                 </label>
               </section>
             </div>
@@ -220,7 +220,7 @@
           <div class="clearfix margin-bottom-10"></div>
 
           <label class="checkbox state-success">
-            <input type="checkbox" name="reward_chkbox" id="open_address_form_chkbox"><i></i>ต้องการรับของรางวัล
+            <input type="checkbox" id="open_address_form_chkbox" name="reward_chkbox" value="1"><i></i>ต้องการรับของรางวัล
           </label>
 
           <div class="clearfix margin-bottom-20"></div>
@@ -237,7 +237,7 @@
                 <section class="col col-md-12">
                   <label class="label">ชื่อ นามสกุลผู้รับ</label>
                   <label class="input">
-                    {{Form::text('address[receiver_name]', null, array('placeholder' => 'ชื่อผู้รับ','autocomplete' => 'off'))}}
+                    {{Form::text('receiver_name', null, array('placeholder' => 'ชื่อผู้รับ','autocomplete' => 'off'))}}
                   </label>
                 </section>
               </div>
@@ -247,73 +247,88 @@
                 <section class="col-md-6 col-xs-6">
                   <label class="label">บ้านเลขที่</label>
                   <label class="input">
-                    {{Form::text('address[address_no]', null, array('placeholder' => 'บ้านเลขที่','autocomplete' => 'off'))}}
+                    {{Form::text('address_no', null, array('placeholder' => 'บ้านเลขที่','autocomplete' => 'off'))}}
                   </label>
                 </section>
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">อาคาร/หมู่บ้าน</label>
                   <label class="input">
-                    {{Form::text('address[building]', null, array('placeholder' => 'อาคาร/หมู่บ้าน','autocomplete' => 'off'))}}
+                    {{Form::text('building', null, array('placeholder' => 'อาคาร/หมู่บ้าน','autocomplete' => 'off'))}}
                   </label>
                 </section>
+
+              </div>
+
+              <div class="row">
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">ชั้น</label>
                   <label class="input">
-                    {{Form::text('address[floor]', null, array('placeholder' => 'ชั้น','autocomplete' => 'off'))}}
+                    {{Form::text('floor', null, array('placeholder' => 'ชั้น','autocomplete' => 'off'))}}
                   </label>
                 </section>
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">หมู่ที่</label>
                   <label class="input">
-                    {{Form::text('address[squad]', null, array('placeholder' => 'หมู่ที่','autocomplete' => 'off'))}}
+                    {{Form::text('squad', null, array('placeholder' => 'หมู่ที่','autocomplete' => 'off'))}}
                   </label>
                 </section>
+
+              </div>
+
+              <div class="row">
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">ถนน</label>
                   <label class="input">
-                    {{Form::text('address[road]', null, array('placeholder' => 'ถนน','autocomplete' => 'off'))}}
+                    {{Form::text('road', null, array('placeholder' => 'ถนน','autocomplete' => 'off'))}}
                   </label>
                 </section>
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">ซอย</label>
                   <label class="input">
-                    {{Form::text('address[alley]', null, array('placeholder' => 'ซอย','autocomplete' => 'off'))}}
+                    {{Form::text('alley', null, array('placeholder' => 'ซอย','autocomplete' => 'off'))}}
                   </label>
                 </section>
+
+              </div>
+
+              <div class="row">
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">จังหวัด</label>
                   <label class="select">
-                    {{Form::select('address[province]', $provinces ,null, array('id' => 'province'))}}<i></i>
+                    {{Form::select('province', $provinces ,null, array('id' => 'province'))}}<i></i>
                   </label>
                 </section>
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">อำเภอ/เขต</label>
                   <label class="select">
-                    {{Form::select('address[district]', array() ,null, array('id' => 'district'))}}<i></i>
+                    {{Form::select('district', array() ,null, array('id' => 'district'))}}<i></i>
                   </label>
                 </section>
+
+              </div>
+
+              <div class="row">
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">ตำบล/แขวง</label>
                   <label class="input">
-                    {{Form::text('address[sub_district]', null, array('placeholder' => 'ตำบล/แขวง','autocomplete' => 'off'))}}
+                    {{Form::text('sub_district', null, array('placeholder' => 'ตำบล/แขวง','autocomplete' => 'off'))}}
                   </label>
                 </section>
 
                 <section class="col-md-6 col-xs-6">
                   <label class="label">รหัสไปรษณีย์</label>
                   <label class="input">
-                    {{Form::text('address[post_code]', null, array('placeholder' => 'รหัสไปรษณีย์','autocomplete' => 'off'))}}
+                    {{Form::text('post_code', null, array('placeholder' => 'รหัสไปรษณีย์','autocomplete' => 'off'))}}
                   </label>
                 </section>
-
 
               </div>
 
@@ -442,6 +457,9 @@
 
 @endif
 
+<script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/validation.js"></script>
+
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/assets/js/plugins/datepicker.js"></script>
 
@@ -468,7 +486,7 @@
 
       });
 
-      $('#open_address_form_chkbox').click('click',function(){
+      $('#open_address_form_chkbox').on('click',function(){
         if($(this).is(':checked')) {
           $('#address_form').stop().slideDown(300);
         }else{
@@ -476,58 +494,70 @@
         }
       });
 
-    }
+      $("#donation_form").on('submit',function(e){
+        // e.preventDefault();
+        // console.log($('#open_address_form_chkbox').is(':checked'));
 
-  }
+        // if($('#open_address_form_chkbox').is(':checked')) {
 
-  class Facebook {
+        // }
+        // console.log('ssd');
+        // return false;
 
-    constructor(fb) {
-      this.fb = fb;
-    }
-
-    load() {
-      this.bind();
-    }
-
-    bind() {
-
-      this.fb.getLoginStatus(function(response) {
-        console.log('xx');
-      });
-
-      $('#fb_login_btn').on('click',function(){
-
-        FB.login(function(response) {
-          console.log(response.authResponse);
-          if (response.authResponse) {
-              //user just authorized your app
-
-              console.log('dssds');
-
-            FB.api("/me/feed","POST",
-                {
-                    message: "This is a test message",
-                    privacy: {value:"SELF"},
-                    access_token: response.authResponse.accessToken
-                },
-                function (response) {
-
-                  console.log(response.error);
-
-                  if (response && !response.error) {
-                    /* handle the result */
-                  }
-                }
-            );
-
-          }
-        }, {scope: 'email,public_profile'});
       });
 
     }
 
   }
+
+  // class Facebook {
+
+  //   constructor(fb) {
+  //     this.fb = fb;
+  //   }
+
+  //   load() {
+  //     this.bind();
+  //   }
+
+  //   bind() {
+
+  //     this.fb.getLoginStatus(function(response) {
+  //       console.log('xx');
+  //     });
+
+  //     $('#fb_login_btn').on('click',function(){
+
+  //       FB.login(function(response) {
+  //         console.log(response.authResponse);
+  //         if (response.authResponse) {
+  //             //user just authorized your app
+
+  //             console.log('dssds');
+
+  //           FB.api("/me/feed","POST",
+  //               {
+  //                   message: "This is a test message",
+  //                   privacy: {value:"SELF"},
+  //                   access_token: response.authResponse.accessToken
+  //               },
+  //               function (response) {
+
+  //                 console.log(response.error);
+
+  //                 if (response && !response.error) {
+  //                   /* handle the result */
+  //                 }
+  //               }
+  //           );
+
+  //         }
+  //       }, {scope: 'email,public_profile'});
+  //     });
+
+  //   }
+
+  // }
 
   $(document).ready(function(){
     const donate = new Donate();
@@ -539,19 +569,20 @@
     // const fb = new Facebook(FB);
     // fb.load();
 
+    Validation.initValidation();
     Datepicker.initDatepicker();
   });
 
-  $('#fb_login_btn').on('click',function(){
-console.log('sss');
-    FB.login(function(response) {
-      console.log(response.authResponse);
-      if (response.authResponse) {
-        //user just authorized your app
-      }
-    }, {scope: 'email,public_profile'});
+//   $('#fb_login_btn').on('click',function(){
+// console.log('sss');
+//     FB.login(function(response) {
+//       console.log(response.authResponse);
+//       if (response.authResponse) {
+//         //user just authorized your app
+//       }
+//     }, {scope: 'email,public_profile'});
 
-  });
+//   });
 
 </script>
 

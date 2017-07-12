@@ -1,8 +1,13 @@
-#guest_donate_form {
+/*#guest_donate_form {
+	display: none;
+}*/
+
+#address_form {
 	display: none;
 }
 
-#address_form {
+/*temp*/
+#guest_donate_message {
 	display: none;
 }
 

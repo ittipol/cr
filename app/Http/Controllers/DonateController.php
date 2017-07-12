@@ -91,7 +91,33 @@ class DonateController extends Controller
   }
 
   public function donationSubmit() {
-    dd(request()->all());
+
+    $model = Service::loadModel('Donation');
+
+    // dd(request()->all());
+  
+    // reward_chkbox
+
+    if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
+
+      $model->address = json_encode(array(
+        'receiver_name' => request()->receiver_name,
+        'address_no' => request()->address_no,
+        'building' => request()->building,
+        'floor' => request()->floor,
+        'squad' => request()->squad,
+        'road' => request()->road,
+        'alley' => request()->alley,
+        'province' => request()->province,
+        'district' => request()->district,
+        'sub_district' => request()->sub_district,
+        'post_code' => request()->post_code
+      ));
+
+    }
+
+    dd($model);
+
   }
 
 }
