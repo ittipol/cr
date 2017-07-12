@@ -1,6 +1,15 @@
-#guest_donate_form {
+/*#guest_donate_form {
+	display: none;
+}*/
+
+/*TEmp*/
+#guest_donate_message {
 	display: none;
 }
+
+/*#address_form {
+	display: none;
+}*/
 
 .login-block,
 .login-block .or {

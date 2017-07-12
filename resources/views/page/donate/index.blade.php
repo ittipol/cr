@@ -114,8 +114,12 @@
     <div class="row">
       <div class="col-md-8">
 
-        <!-- <h3>แจ้งการบริจาค</h3> -->
-        <h4>วิธีการบริจาค</h4>
+        @if($for == 'charity')
+          <h4>บริจาคให้กับมูลนิธิ</h4>
+        @elseif($for == 'project')
+          <h4>บริจาคให้กับโครงการ</h4>
+        @endif
+
         <p>
           1.โอนเงินมายังบัญชีธนาคาร <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">บัญชีธนาคาร</a>
         </p>
@@ -139,11 +143,12 @@
           </div>
         </div>
 
-        <div class="tag-box tag-box-v2">
-          <p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.</p>
-        </div>
-
         <p>2. แจ้งการบริจาคของคุณ</p>
+
+        <div class="tag-box tag-box-v2">
+          <h4>บริจาคโดยไม่ออกนาม</h4>
+          <p>หากต้องการบริจาคโดยไม่ออกนามให้เว้นการกรอก "ชื่อ นามสกุล" ของคุณ</p>
+        </div>
 
         {{Form::open(['id' => 'main_form', 'class' => 'sky-form sky-changes-3', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
 
@@ -169,24 +174,32 @@
               <section class="col col-6">
                 <label class="label">วันที่โอน</label>
                 <label class="input">
-                  <i class="icon-append fa fa-user"></i>
-                  <input type="text" name="name" id="name">
+                  <i class="icon-append fa fa-calendar"></i>
+                  <input type="text" name="date" id="date">
                 </label>
               </section>
               <section class="col col-6">
                 <label class="label">เวลา</label>
                 <label class="input">
-                  <i class="icon-append fa fa-envelope-o"></i>
-                  <input type="email" name="email" id="email">
+                  
+                  <div class="select-group half">
+                    <label class="select">
+                    {{Form::select('time_hour', $hours)}}<i></i>
+                    </label>
+                    <label class="select">
+                    {{Form::select('time_min', $mins)}}<i></i>
+                    </label>
+                  </div>
+
                 </label>
               </section>
             </div>
 
             <section>
               <label class="label">จำนวนเงิน</label>
-              <label class="input">
-                <i class="icon-append fa fa-tag"></i>
-                <input type="text" name="subject" id="subject">
+              <label class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">บาท</span>
               </label>
             </section>
             
@@ -202,51 +215,114 @@
           <hr>
 
           <div class="tag-box tag-box-v2">
-            <p>การบริจาคให้กับมูลนิธินรี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
+            <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
           </div>
 
-          <div class="modal fade" id="reward_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                  <h4 id="myModalLabel1" class="modal-title">การบริจาค</h4>
-                </div>
-                <div class="modal-body">
+          @include('content.donate_reward')
 
-                  <div class="clearfix margin-bottom-40"></div>
+          <div class="clearfix margin-bottom-10"></div>
 
-                  <div class="donate-box">
-                    <div class="donate-info">
-                      <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>
-                      <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>
-                      <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
-                    </div>
-                  </div>
+          <label class="checkbox state-success">
+            <input type="checkbox" name="checkbox" id="open_address_form_chkbox"><i></i>ต้องการรับของรางวัล
+          </label>
 
-                  <div class="clearfix margin-bottom-40"></div>
+          <div class="clearfix margin-bottom-20"></div>
 
-                </div>
-                <div class="modal-footer">
-                  <button data-dismiss="modal" class="btn-u btn-u-default" type="button">ปิด</button>
-                </div>
+          <div id="address_form">
+
+            <div class="clearfix margin-bottom-10"></div>
+            <h4 class="no-margin">ที่อยู่สำหรับการจัดส่งของรางวัล</h4>
+            <div class="clearfix margin-bottom-20"></div>
+
+            <fieldset>
+
+              <div class="row">
+                <section class="col col-md-12">
+                  <label class="label">ชื่อ นามสกุลผู้รับ</label>
+                  <label class="input">
+                    {{Form::text('receiver_name', null, array('placeholder' => 'ชื่อผู้รับ','autocomplete' => 'off'))}}
+                  </label>
+                </section>
               </div>
-            </div>
+
+              <div class="row">
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">บ้านเลขที่</label>
+                  <label class="input">
+                    {{Form::text('address_no', null, array('placeholder' => 'บ้านเลขที่','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">อาคาร/หมู่บ้าน</label>
+                  <label class="input">
+                    {{Form::text('building', null, array('placeholder' => 'อาคาร/หมู่บ้าน','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">ชั้น</label>
+                  <label class="input">
+                    {{Form::text('floor', null, array('placeholder' => 'ชั้น','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">หมู่ที่</label>
+                  <label class="input">
+                    {{Form::text('squad', null, array('placeholder' => 'หมู่ที่','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">ถนน</label>
+                  <label class="input">
+                    {{Form::text('road', null, array('placeholder' => 'ถนน','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">ซอย</label>
+                  <label class="input">
+                    {{Form::text('alley', null, array('placeholder' => 'ซอย','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">จังหวัด</label>
+                  <label class="select">
+                    {{Form::select('province', $provinces ,null, array('id' => 'province'))}}<i></i>
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">อำเภอ/เขต</label>
+                  <label class="select">
+                    {{Form::select('district', array() ,null, array('id' => 'district'))}}<i></i>
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">ตำบล/แขวง</label>
+                  <label class="input">
+                    {{Form::text('sub_district', null, array('placeholder' => 'ตำบล/แขวง','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+                <section class="col-md-6 col-xs-6">
+                  <label class="label">รหัสไปรษณีย์</label>
+                  <label class="input">
+                    {{Form::text('post_code', null, array('placeholder' => 'รหัสไปรษณีย์','autocomplete' => 'off'))}}
+                  </label>
+                </section>
+
+
+              </div>
+
+            </fieldset>
+
           </div>
-
-          <h5>ที่อยู่สำหรับการจัดส่งของรางวัล</h5>
-
-          <fieldset>
-
-            <section class="col col-6">
-              <label class="label">บ้านเลขที่</label>
-              <label class="input">
-                <i class="icon-append fa fa-user"></i>
-                {{Form::text('address', null, array('placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
-              </label>
-            </section>
-
-          </fieldset>
 
           {{Form::submit('แจ้งการบริจาค', array('class' => 'btn-u btn-custom'))}}
 
@@ -254,6 +330,9 @@
       </div>
 
       <div class="col-md-4">
+
+        <div class="clearfix sm-margin-bottom-40"></div>
+        <div class="clearfix sm-margin-bottom-40"></div>
 
         <h4>การบริจาค</h4>
         
@@ -366,6 +445,9 @@
 
 @endif
 
+<script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/datepicker.js"></script>
+
 <script type="text/javascript">
 
   class Donate {
@@ -377,6 +459,7 @@
     }
 
     bind() {
+
       $('#display_guest_donate_form_btn').on('click',function(){
         $('#guest_donate_form').slideDown(300);
         // $('#guest_donate_message').delay(350).slideUp(300);
@@ -386,7 +469,16 @@
           $('#guest_donate_message').remove();
         },4000);
 
-      })
+      });
+
+      $('#open_address_form_chkbox').click('click',function(){
+        if($(this).is(':checked')) {
+          $('#address_form').stop().slideDown(300);
+        }else{
+          $('#address_form').stop().slideUp(300);
+        }
+      });
+
     }
 
   }
@@ -394,6 +486,11 @@
   $(document).ready(function(){
     const donate = new Donate();
     donate.load();
+
+    const address = new Address();
+    address.load();
+
+    Datepicker.initDatepicker();
   });
 
 </script>

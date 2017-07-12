@@ -14,16 +14,17 @@
     'assets/plugins/jquery/jquery.min.js',
     'assets/plugins/jquery/jquery-migrate.min.js',
     'assets/plugins/bootstrap/js/bootstrap.min.js',
-    'js/app/app.js', // tinymce
-    'js/app/loader.js', // tinymce loader
+    // 'js/app/app.js', // tinymce
+    // 'js/app/loader.js', // tinymce loader
     'js/library/token.js',
-    'js/form/stock-images.js',
+    'js/form/address.js',
+    // 'js/form/stock-images.js',
     // 'assets/plugins/owl-carousel/owl-carousel/owl.carousel.js',
     // 'assets/js/plugins/owl-carousel.js',
     // 'assets/plugins/parallax-slider/js/modernizr.js',
     // 'assets/plugins/parallax-slider/js/jquery.cslider.js',
     // 'assets/js/plugins/parallax-slider.js',
-    'assets/js/plugins/style-switcher.js',
+    // 'assets/js/plugins/style-switcher.js',
     'assets/js/custom.js',
     'assets/js/app.js',
   );
@@ -94,7 +95,7 @@
     'css/page/charity.css',
     'css/page/project.css',
     'css/page/donate.css',
-    'css/components/form.css',
+    // 'css/components/form.css',
   );
 
   if($combine){

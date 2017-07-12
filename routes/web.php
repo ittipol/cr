@@ -13,8 +13,11 @@
 
 Route::get('image/{file}', 'StaticFileController@serveImages');
 
-Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function ()
-{
+Route::group(['prefix' => 'api/v1', 'middleware' => 'api'], function () {
+  Route::get('get_district/{provinceId}', 'ApiController@getDistrict');
+});
+
+Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
   Route::get('login', 'AdminController@login');
 });
 

@@ -44,15 +44,47 @@ class DonateController extends Controller
         break;
     }
 
-    $guest = false;
-    if(!empty(request()->as == 'guest')) {
-      $guest = true;
+    $hours = array();
+    $mins = array();
+
+    for ($i=0; $i <= 23; $i++) { 
+
+      if($i < 10) {
+        $hours['0'.$i] = $i;
+      }else{
+        $hours[$i] = $i;
+      }
+
     }
+
+    for ($i=0; $i <= 59; $i++) {
+
+      if($i < 10) {
+        $mins['0'.$i] = '0'.$i;
+      }else{
+        $mins[$i] = $i;
+      }
+      
+    }
+
+    $this->setData('hours',$hours);
+    $this->setData('mins',$mins);
+
+    $provinces = Service::loadFieldData('Province',array(
+      'key' =>'id',
+      'field' => 'name',
+      'order' => array(
+        array('top','ASC'),
+        array('id','ASC')
+      )
+    ));
+
+    $this->setData('provinces', $provinces);
 
     $this->setData('name',$data->name);
     $this->setData('id',request()->id);
     $this->setData('for',request()->for);
-    $this->setData('guest',$guest);
+    $this->setData('guest',false); // not use
 
     return $this->view('page.donate.index');
 
