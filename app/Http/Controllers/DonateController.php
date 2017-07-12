@@ -89,4 +89,9 @@ class DonateController extends Controller
     return $this->view('page.donate.index');
 
   }
+
+  public function donationSubmit() {
+    dd(request()->all());
+  }
+
 }
