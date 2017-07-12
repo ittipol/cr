@@ -10,8 +10,14 @@
 	background-color: #05AF3C;
 }
 
+.btn-u.btn-custom.half {
+	width: 50%;
+}
+
 .btn-u.btn-custom > i {
 	font-size: 14px;
 	float: none;
 	margin: 0 5px 0 0;
 }
+
+/*.btn-u.btn-donat {}*/

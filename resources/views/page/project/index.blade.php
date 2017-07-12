@@ -5,7 +5,7 @@
 
   <div class="testimonials-v4 md-margin-bottom-50">
     <div class="testimonials-v4-in">
-      <h2>โครงการ: {{$project->name}}</h2>
+      <h2>{{$project->name}}</h2>
       <p>{{$project->short_desc}}</p>
     </div>
     <img class="rounded-x" src="/assets/img/team/img32-md.jpg">
@@ -71,15 +71,18 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <div class="margin-bottom-20">
-          <button class="btn-u" type="button">บริจาคให้กับโครงการนี้</button>
+          <a href="{{URL::to('donate')}}?for=project&id={{$project->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
+          <a href="javascript:void(0);" data-toggle="modal" data-target="#donation_modal">วิธีการบริจาค</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container content">
+  @include('content.bank_account_modal_project')
+
+  <!-- <div class="container content">
     <div class="text-center margin-bottom-50">
-      <h2 class="title-v2 title-center">รูปภาพมูลนิธิ(เพิ่มเติม)</h2>
+      <h2 class="title-v2 title-center">รูปภาพโครงการ(เพิ่มเติม)</h2>
     </div>
     
     <div class="cube-portfolio container margin-bottom-60">
@@ -161,7 +164,7 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
 
   <hr>
 

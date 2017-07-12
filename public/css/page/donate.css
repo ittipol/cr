@@ -1,3 +1,7 @@
+#guest_donate_form {
+	display: none;
+}
+
 .login-block,
 .login-block .or {
 	background-color: #37474F;

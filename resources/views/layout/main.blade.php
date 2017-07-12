@@ -9,6 +9,15 @@
 </head>
 <body>
 
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9&appId=227375124451364";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
   <div class="fixed-header">
     <div class="header-logo-mobile">
       <a class="site-nav__item site-nav__item--logo site-nav__item--logo--mobile" href="/?ref=nav">
@@ -176,7 +185,7 @@
   </div>
 
   <script type="text/javascript">
-    jQuery(document).ready(function() {
+    $(document).ready(function() {
       App.init();
     });
   </script>

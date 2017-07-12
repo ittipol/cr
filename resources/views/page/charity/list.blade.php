@@ -29,7 +29,7 @@
               <div class="clearfix margin-bottom-10"></div>
 
               <div class="margin-bottom-20">
-                <a class="btn-u btn-custom" href=""><i class="fa fa-heart"></i> บริจาคให้กับมูลนิธินี้</a>
+                <a href="{{URL::to('donate')}}?for=charity&id={{$data->id}}" class="btn-u margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
               </div>
               <div class="statistics">
                 <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">15 วัน</span></h3>

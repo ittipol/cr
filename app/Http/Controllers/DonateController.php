@@ -44,13 +44,15 @@ class DonateController extends Controller
         break;
     }
 
+    $guest = false;
     if(!empty(request()->as == 'guest')) {
-      // $this->setData('guest',true);
+      $guest = true;
     }
 
     $this->setData('name',$data->name);
     $this->setData('id',request()->id);
     $this->setData('for',request()->for);
+    $this->setData('guest',$guest);
 
     return $this->view('page.donate.index');
 

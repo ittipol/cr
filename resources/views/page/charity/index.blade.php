@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
   
-<div class="container content profile">
+<div class="container charity content profile">
 
   <div class="charity-header clearfix">
     <img class="charity-logo" src="/assets/img/team/img32-md.jpg">
@@ -18,7 +18,11 @@
 
   <div class="row margin-bottom-40">
     <div class="col-md-8">
-      <div class="img-charity-banner" style="background-image:url(/images/bb1.jpg)"></div>
+      <!-- <div class="img-charity-banner" style="background-image:url(/images/bb1.jpg)"></div> -->
+      <div class="embedded-video">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0" allowfullscreen></iframe>
+      </div>
+      
     </div>
 
     <div class="col-md-4">
@@ -30,8 +34,10 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <div class="margin-bottom-20">
-          <a href="" class="btn-u">บริจาคให้กับมูลนิธินี้</a>
+          <a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
+          <a href="javascript:void(0);" data-toggle="modal" data-target="#donation_modal">วิธีการบริจาค</a>
         </div>
+        
         <div class="statistics">
           <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">15 วัน</span></h3>
           <div class="progress progress-u progress-xxs">
@@ -43,11 +49,13 @@
     </div>
   </div>
 
+  @include('content.bank_account_modal')
+
   <div>
     <div class="text-center margin-bottom-50">
       <h2 class="title-v2 title-center">รูปภาพมูลนิธิ(เพิ่มเติม)</h2>
     </div>
-    
+
     <div class="cube-portfolio container margin-bottom-60">
       <div id="grid-container" class="cbp-l-grid-agency">
 
@@ -135,7 +143,7 @@
 
     <div class="col-md-8">
 
-      <div class="tab-v1">
+      <div class="tab-v1 margin-bottom-60">
         <ul class="nav nav-tabs margin-bottom-20">
           <li class="active"><a href="#about" data-toggle="tab">เกี่ยวกับ</a></li>
           <li><a href="#news" data-toggle="tab">ข่าวสาร</a></li>
@@ -165,7 +173,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="profile-blog blog-border">
-                      <img class="rounded-x" src="assets/img/testimonials/img1.jpg" alt="">
+                      <img class="rounded-x" src="/assets/img/testimonials/img1.jpg" alt="">
                       <div class="name-location">
                         <strong>Mikel Andrews</strong>
                         <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
@@ -183,7 +191,7 @@
 
                   <div class="col-sm-6">
                     <div class="profile-blog blog-border">
-                      <img class="rounded-x" src="assets/img/testimonials/img4.jpg" alt="">
+                      <img class="rounded-x" src="/assets/img/testimonials/img4.jpg" alt="">
                       <div class="name-location">
                         <strong>Natasha Kolnikova</strong>
                         <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
@@ -206,24 +214,22 @@
             <h3>ความคิดเห็น</h3>
           </div>
           <div class="tab-pane fade in" id="collaboration">
+
+            <div class="panel-heading overflow-h">
+              <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>การบริจาค</h2>
+            </div>
             
             <div class="row margin-bottom-10">
-              <div class="col-sm-3 col-xs-6">
+              <div class="col-sm-6 col-xs-6">
                 <div class="counters">
                   <span class="counter">10629</span>
                   <h4>ผูบริจาคใหม่</h4>
                 </div>
               </div>
-              <div class="col-sm-3 col-xs-6">
+              <div class="col-sm-6 col-xs-6">
                 <div class="counters">
                   <span class="counter">277</span>
                   <h4>ผู้ที่กลับมาบริจาค</h4>
-                </div>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <div class="counters">
-                  <span class="counter">78</span>
-                  <h4>ผู้บริจาคโดยไม่ออกนาม</h4>
                 </div>
               </div>
             </div>
@@ -254,5 +260,14 @@
 
 <script type="text/javascript" src="/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 <script type="text/javascript" src="/assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
+
+<script src="/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/owl-carousel.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    OwlCarousel.initOwlCarousel();
+  });
+</script>
 
 @stop
