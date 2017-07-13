@@ -5,7 +5,7 @@
   เพิ่มสินค้า
 </h1>
 
-@include('components.form_error') 
+@include('component.form_error') 
 
 {{Form::model($data, ['id' => 'main_form', 'method' => 'PATCH', 'enctype' => 'multipart/form-data'])}}
 

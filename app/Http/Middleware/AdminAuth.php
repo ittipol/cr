@@ -15,8 +15,10 @@ class AdminAuth
      */
     public function handle($request, Closure $next)
     {
+        if(!session()->has('admin_auth') || empty(session()->get('admin_auth'))){
+            return redirect('/');
+        }
 
-        dd('zzz');
         return $next($request);
     }
 }

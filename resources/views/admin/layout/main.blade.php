@@ -18,26 +18,19 @@
       <!-- End Logo -->
 
       <!-- Topbar -->
+      @if(session()->has('admin_auth') && !empty(session()->get('admin_auth')))
       <div class="topbar">
         <ul class="loginbar pull-right">
-          <li class="hoverSelector">
-            <i class="fa fa-globe"></i>
-            <a>Languages</a>
-            <ul class="languages hoverSelectorBlock">
-              <li class="active">
-                <a href="#">English <i class="fa fa-check"></i></a>
-              </li>
-              <li><a href="#">Spanish</a></li>
-              <li><a href="#">Russian</a></li>
-              <li><a href="#">German</a></li>
-            </ul>
-          </li>
-          <li class="topbar-devider"></li>
-          <li><a href="page_faq.html">Help</a></li>
-          <li class="topbar-devider"></li>
-          <li><a href="page_login.html">Login</a></li>
+          <li><a href="{{URL::to('admin/logout')}}">Logout</a></li>
         </ul>
       </div>
+      @else
+      <div class="topbar">
+        <ul class="loginbar pull-right">
+          <li><a href="#">Login</a></li>
+        </ul>
+      </div>
+      @endif
       <!-- End Topbar -->
 
       <!-- Toggle get grouped for better mobile display -->
@@ -53,11 +46,63 @@
       <div class="container">
         <ul class="nav navbar-nav">
           <!-- Home -->
+          @if(session()->has('admin_auth') && !empty(session()->get('admin_auth')))
+
+          <li class="dropdown">
+            <a href="{{URL::to('admin/charity/list')}}" class="dropdown-toggle" data-toggle="dropdown">
+              Charitys
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{URL::to('admin/charity/list')}}">list</a></li>
+              <li><a href="{{URL::to('admin/charity/add')}}">add</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="{{URL::to('admin/project/list')}}" class="dropdown-toggle" data-toggle="dropdown">
+              Projects
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{URL::to('admin/project/list')}}">list</a></li>
+              <li><a href="{{URL::to('admin/project/add')}}">add</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="{{URL::to('admin/news/list')}}" class="dropdown-toggle" data-toggle="dropdown">
+              News
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{URL::to('admin/news/list')}}">list</a></li>
+              <li><a href="{{URL::to('admin/news/add')}}">add</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="{{URL::to('admin/donation/list')}}" class="dropdown-toggle" data-toggle="dropdown">
+              donations
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{URL::to('admin/donation/list')}}">list</a></li>
+              <li><a href="{{URL::to('admin/donation/add')}}">add</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="{{URL::to('admin/stock_image/list')}}" class="dropdown-toggle" data-toggle="dropdown">
+              Stock Images
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{URL::to('admin/stock_image/list')}}">list</a></li>
+              <li><a href="{{URL::to('admin/stock_image/add')}}">add</a></li>
+            </ul>
+          </li>
+
+          @else
+
           <li class="dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
               Home
             </a>
           </li>
+
+          @endif
           <!-- End Search Block -->
         </ul>
       </div><!--/end container-->

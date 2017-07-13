@@ -61,17 +61,6 @@
 	display: none;
 }
 
-/*.charity-header .charity-info > .charity-name {
-	font-size: 32px;
-	font-weight: normal;
-	color: #020621;
-	position: static;
-	padding: 0;
-	height: auto;
-	line-height: 40px;
-	margin-bottom: 10px;
-}*/
-
 .charity-header .charity-info > p.charity-short-desc {
 	font-size: 16px
 }
@@ -99,12 +88,6 @@
 	background-color: #05AF3C;
 }
 
-/*.service-block-v3 .btn-u {
-	width: 100%;
-	line-height: 30px;
-	background-color: #05AF3C;
-}*/
-
 .service-block-v3 .btn-u:hover {
 	background-color: #05AF3C;
 }
@@ -120,6 +103,10 @@
 
 .service-block-v3.donation-box > i {
 	color: #000;
+}
+
+.service-block-v3 .statistics .progress {
+	border-style: solid;
 }
 
 .news-v3 .news-v3-in-sm {

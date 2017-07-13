@@ -20,6 +20,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'api'], function () {
 Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
   Route::get('login', 'AdminController@login');
   Route::post('login', 'AdminController@authenticate');
+
+  Route::get('logout', 'AdminController@logout');
 });
 
 Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function ()
@@ -40,12 +42,12 @@ Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 
   // Route::post('edit', 'CharityController@editingSubmit');
   // Route::get('delete', 'CharityController@delete');
 
-  Route::get('goal/list', 'ProjectController@listView');
-  Route::get('goal/add', 'ProjectController@add');
-  Route::post('goal/add', 'ProjectController@addingSubmit');
-  Route::get('goal/edit/{id}', 'ProjectController@edit');
-  Route::patch('goal/edit/{id}', 'ProjectController@editingSubmit');
-  Route::get('goal/delete/{id}', 'ProjectController@delete');
+  Route::get('project/list', 'ProjectController@listView');
+  Route::get('project/add', 'ProjectController@add');
+  Route::post('project/add', 'ProjectController@addingSubmit');
+  Route::get('project/edit/{id}', 'ProjectController@edit');
+  Route::patch('project/edit/{id}', 'ProjectController@editingSubmit');
+  Route::get('project/delete/{id}', 'ProjectController@delete');
 
   Route::get('news/list', 'NewsController@listView');
   Route::get('news/add', 'NewsController@add');

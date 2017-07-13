@@ -436,7 +436,7 @@ button.btn-u-lg {
 		padding: 7px 15px;
 	}
 	.one-page-header.charity-header.top-nav-collapse .navbar-collapse .navbar-nav > li > a {
-		padding: 7px 0;
+		/*padding: 7px 0;*/
 	}
 }
 
@@ -813,7 +813,7 @@ button.btn-u-lg {
 /* Progress bar */
 .progress {
 	background: #333;
-	border: dashed 1px #3b3b3b;
+	/*border: dashed 1px #3b3b3b;*/
 	overflow: inherit;
 }
 .progress .progress-bar {

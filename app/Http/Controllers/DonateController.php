@@ -112,6 +112,8 @@ class DonateController extends Controller
 
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
 
+      $model->reward = 1;
+
       $model->address = json_encode(array(
         'receiver_name' => request()->receiver_name,
         'address_no' => request()->address_no,

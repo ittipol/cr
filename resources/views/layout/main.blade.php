@@ -18,7 +18,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-  <div class="fixed-header">
+  <!-- <div class="fixed-header">
     <div class="header-logo-mobile">
       <a class="site-nav__item site-nav__item--logo site-nav__item--logo--mobile" href="/?ref=nav">
         <img src="/images/logo.png" alt="Logo">
@@ -63,6 +63,60 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+  <div class="fixed-header">
+  <nav class="charity-header one-page-header navbar navbar-default navbar-fixed-top one-page-nav-scrolling one-page-nav__fixed" data-role="navigation">
+    <div class="container">
+      <div class="menu-container page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#body">
+          <img class="default-logo" src="/images/logo/logo-light.png" alt="Logo">
+          <img class="shrink-logo" src="/images/logo/logo-dark.png" alt="Logo">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="menu-container">
+          <ul class="nav navbar-nav">
+            <li class="page-scroll home active">
+              <a href="#body">Home</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#your-help">Your help</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#our-projects">Our projects</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#success-stories">Success stories</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#donators">Donators</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#events">Events</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#blog">Blog&amp;News</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#subscription">Subscription</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
   </div>
 
   <div class="container margin-top-20 margin-bottom-100">

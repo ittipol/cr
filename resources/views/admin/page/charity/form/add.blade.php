@@ -5,7 +5,7 @@
   เพิ่มมูลนิธิ
 </h1>
 
-@include('components.form_error') 
+@include('component.form_error') 
 
 {{Form::open(['id' => 'main_form','method' => 'post', 'enctype' => 'multipart/form-data'])}}
 

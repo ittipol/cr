@@ -52,7 +52,7 @@ class ProjectController extends Controller
     $model->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
 
     if($model->fill(request()->all())->save()) {
-      return Redirect::to('admin/goal/list');
+      return Redirect::to('admin/project/list');
     }
 
     return Redirect::back();
@@ -91,7 +91,7 @@ class ProjectController extends Controller
     $data->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
 
     if($data->fill(request()->all())->save()) {
-      return Redirect::to('admin/goal/list');
+      return Redirect::to('admin/project/list');
     }
 
     return Redirect::back();
@@ -110,7 +110,7 @@ class ProjectController extends Controller
     if(!empty($_GET['confirm']) && ($_GET['confirm'] == 'y')) {
       //delete
       dd('deleted');
-      return Redirect::to('admin/goal/list');
+      return Redirect::to('admin/project/list');
     }
 
     // Go to confirm page

@@ -7,7 +7,7 @@
   </div>
 
   <?php
-    echo Form::open(['method' => 'post', 'enctype' => 'multipart/form-data', 'id' => 'register_form']);
+    echo Form::open(['method' => 'post', 'enctype' => 'multipart/form-data']);
   ?>
 
   <div class="input-group margin-bottom-20">
