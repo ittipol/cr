@@ -84,7 +84,6 @@ class DonateController extends Controller
     $this->setData('name',$data->name);
     $this->setData('id',request()->id);
     $this->setData('for',request()->for);
-    $this->setData('guest',false); // not use
 
     return $this->view('page.donate.index');
 
@@ -132,6 +131,14 @@ class DonateController extends Controller
 
     dd($model);
 
+    if($model->save()) {
+
+    }
+
+  }
+
+  public function complete() {
+    // return $this->view();
   }
 
 }
