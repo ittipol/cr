@@ -1,12 +1,10 @@
 @if(!empty($errors->all()))
-  <div class="form-error-messages">
-    <div class="form-error-messages-inner">
-      <h3>พบข้อผิดพลาด!!!</h3>
-        <ul>
-        <?php foreach ($errors->all() as $message) { ?>
-          <li class="error-messages"><?php echo $message; ?></li>
-        <?php } ?>
-      </ul>
-    </div>
+  <div class="alert alert-danger fade in">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4>พบข้อผิดพลาด</h4>
+      @foreach ($errors->all() as $message)
+        <p><i class="fa fa-genderless"></i> {{$message}}</p>
+      @endforeach
   </div>
 @endif
+

@@ -19,11 +19,12 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'api'], function () {
 
 Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
   Route::get('login', 'AdminController@login');
+  Route::post('login', 'AdminController@authenticate');
 });
 
-Route::group([/*'middleware' => 'admin', */'namespace' => 'Admin', 'prefix' => 'admin'], function ()
+Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function ()
 {
-  Route::get('menu', 'MenuController@index');
+  Route::get('dashboard', 'DashboardController@index');
 
   Route::get('charity/list', 'CharityController@listView');
   Route::get('charity/add', 'CharityController@add');
@@ -56,19 +57,23 @@ Route::group([/*'middleware' => 'admin', */'namespace' => 'Admin', 'prefix' => '
   // Route::get('donation_inform/list', 'DonationController@listView');
 });
 
-Route::group(['middleware' => [/*'admin',*/'api'], 'namespace' => 'Admin', 'prefix' => 'admin'],  function () {
+Route::group(['middleware' => ['admin.auth'], 'namespace' => 'Admin', 'prefix' => 'admin'],  function () {
   Route::post('stock_image/upload', 'StockImageController@upload');
 });
 
 // =====================================================================
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
-Route::get('/login', 'UserController@login');
-Route::post('/login', 'UserController@auth');
+Route::group(['middleware' => 'guest'], function () {
+  Route::get('/login', 'UserController@login');
+  Route::post('/login', 'UserController@authenticate');
 
-Route::get('/register', 'UserController@register');
-Route::post('/register', 'UserController@registering');
+  Route::get('/register', 'UserController@register');
+  Route::post('/register', 'UserController@registering');
+});
+
 
 Route::get('charity/list', 'CharityController@listView');
 Route::get('charity/{id}', 'CharityController@index');

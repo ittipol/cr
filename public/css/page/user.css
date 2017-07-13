@@ -1,27 +1,27 @@
-#login_form > .login-block {
+.user-form > .user-form {
 	width: 470px;
 	padding: 55px;
 	background-color: transparent;
 }
 
-#login_form > .login-block h2 {
+.user-form > .user-form h2 {
 	color: #000;
-	font-size: 28px;
+	font-size: 26px;
 }
 
-#login_form > .login-block .input-group-addon {
-	color: #000;
-	/*border-color: rgb(218, 215, 212);*/
-	border-color: rgb(187, 187, 187);
-}
-
-#login_form > .login-block .input-group input.form-control {
+.user-form > .user-form .input-group-addon {
 	color: #000;
 	/*border-color: rgb(218, 215, 212);*/
 	border-color: rgb(187, 187, 187);
 }
 
-#login_form > .login-block .or {
+.user-form > .user-form .input-group input.form-control {
+	color: #000;
+	/*border-color: rgb(218, 215, 212);*/
+	border-color: rgb(187, 187, 187);
+}
+
+.user-form > .user-form .or {
 	color: #3D3D66;
 	background-color: #fff;
 	border: 0; 
@@ -35,36 +35,34 @@
 	z-index: 1;
 }
 
-#login_form > .login-block .social-login {
+.user-form > .user-form .social-login {
 	/*border-color: #ececec;*/
 	border-color: #e8e8e8;
 	padding-top: 40px;
 }
 
-/* Placeholder */
-#login_form > .login-block ::-webkit-input-placeholder {
-  color: #888;
-}
-#login_formlogin-block ::-moz-placeholder {
-  color: #888;
-}
-#login_formlogin-block :-ms-input-placeholder {
-  color: #888;
+.user-form  > .user-form > .login-block {
+	background-color: transparent;
 }
 
-/*.reg-block ::-webkit-input-placeholder {
-  color: #aaa;
+.user-form .sky-form {
+	border: 0;
 }
-.reg-block ::-moz-placeholder {
-  color: #aaa;
+
+/* Placeholder */
+.user-form ::-webkit-input-placeholder {
+  color: #888;
 }
-.reg-block :-ms-input-placeholder {
-  color: #aaa;
-}*/
+.user-form ::-moz-placeholder {
+  color: #888;
+}
+.user-form :-ms-input-placeholder {
+  color: #888;
+}
 
 @media only screen and (max-width : 480px) {
 
-	#login_form > .form-block.login-block {
+	.user-form > .user-form {
 		width: 100%;
 		padding: 55px 15px;
 	}

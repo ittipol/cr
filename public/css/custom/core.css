@@ -21,6 +21,16 @@ hr {
 
 .padding-15 {padding: 15px !important;}
 
+form .state-error + em {
+	color: red;
+	font-size: 13px;
+	display: block;
+  margin-top: 6px;
+  padding: 0 1px;
+  font-style: normal;
+  line-height: 15px;
+}
+
 .tag-box-v2 {
 	background-color: #E0F2F1;
 	margin-bottom: 10px;

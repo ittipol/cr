@@ -11,7 +11,7 @@
 	display: none;
 }
 
-.login-block,
+/*.login-block,
 .login-block .or {
 	background-color: #37474F;
 }
@@ -20,7 +20,7 @@
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
-}
+}*/
 
 .sky-form .state-error + em {
 	color: red;

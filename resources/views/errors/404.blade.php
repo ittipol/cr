@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<title>404 Error Page 5 | Unify - Responsive Website Template</title>
+	<title>404 Error</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -45,11 +45,11 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="error-v6 valign__middle">
 					<a href="#" class="logo-a"><img class="logo" src="assets/img/themes/logo2-red.png" alt=""></a>
-					<h1>That's an error!</h1>
-					<span class="sorry">The requested URL was not found on this server.<br> That's all we know.</span>
+					<h1>ไม่พบ URL นี้!</h1>
+					<span class="sorry">ไม่พบ URL ที่ร้องขอในเซิร์ฟเวอร์นี้</span>
 					<strong class="h1">4 <img src="assets/img/error/o-icon.png" alt="error"> 4</strong>
 					<span class="input-group-btn">
-						<a href="index.html" class="btn-u btn-u-red">Back Home</a>
+						<a href="{{URL::to('/')}}" class="btn-u btn-u-red">ไปยังหน้าแรก</a>
 					</span>
 				</div>
 			</div>
@@ -57,13 +57,6 @@
 	</div><!--/container-->
 	<!--End Error Block-->
 
-	<!--=== Sticky Footer ===-->
-	<div class="container sticky-footer">
-		<p class="copyright-space">
-			2016 &copy; All Rights Reserved. Unify Template by <a href="http://htmlstream.com/" target="_blank" class="color-red">Htmlstream</a>
-		</p>
-	</div>
-	<!--=== End Sticky Footer ===-->
 
 	<!-- JS Global Compulsory -->
 	<script src="assets/plugins/jquery/jquery.min.js"></script>

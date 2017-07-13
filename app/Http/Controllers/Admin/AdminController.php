@@ -2,10 +2,39 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Hash;
+use Redirect;
 
 class AdminController extends Controller
 {
-    //
+  public function login() {
+
+    // if(Auth::check()){
+    //   return redirect('/');
+    // }
+    // dd(session()->all());
+    return $this->view('admin.page.user.login');
+
+  }
+
+  public function authenticate() {
+
+    $email = request()->email;
+    $password = request()->password;
+    // $password = Hash::make(request()->password);
+
+    if(($email == '1') && (md5($password) == 'c4ca4238a0b923820dcc509a6f75849b')) {
+      session()->put('admin_auth', true);
+      return Redirect::to('/admin/dashboard');
+    }
+
+  }
+
+  public function logout() {
+    // Session::flush();
+    session()->forget('admin_auth');
+    return Redirect::to('/admin/login');
+  }
+
 }

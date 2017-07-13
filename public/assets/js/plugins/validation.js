@@ -7,7 +7,7 @@ var Validation = function () {
 
           $.validator.addMethod("regx", function(value, element, regexpr) {          
               return regexpr.test(value);
-          }, "Please enter a valid pasword.");
+          }, "");
 
 	        $("#donation_form").validate({  
 
