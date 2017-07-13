@@ -58,7 +58,7 @@ form .state-error + em {
 	height: 60px;
 }
 
-.fixed-header > .header-logo-mobile {
+/*.fixed-header > .header-logo-mobile {
 	height: 60px;
 	background-color: #fff;
 	border-bottom: 1px solid #F1EEEA;
@@ -85,7 +85,7 @@ form .state-error + em {
 
 .header .navbar-toggle {
 	margin: 14px 0;
-}
+}*/
 
 .login-block, .reg-block {
 	min-width: 200px; 
@@ -115,6 +115,121 @@ h2 > img.provider-logo {
 
 .select-group.half > label.select:nth-child(2) {
 	margin-left: 1%;
+}
+
+/* Header background */
+.charity-header.one-page-header.navbar {
+  background: transparent;
+}
+
+/* Logo */
+.one-page-header.charity-header .navbar-brand {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: bold;
+	height: auto;
+	padding: 10px 15px 10px 0;
+}
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+	margin-left: 0;
+}
+
+.one-page-header.charity-header .navbar-brand img {
+	margin: 0 auto;
+	max-height: 43px;
+}
+.navbar-brand > img.shrink-logo {
+	display: none;
+}
+.top-nav-collapse .navbar-brand > img.shrink-logo {
+	display: block;
+}
+.top-nav-collapse .navbar-brand > img.default-logo {
+	display: none;
+}
+
+/* Header menu and menu items */
+.one-page-header.charity-header .navbar-collapse {
+  padding-top: 10px;
+}
+.one-page-header.charity-header .navbar-nav > li > a {
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 17px 0 17px 24px;
+}
+
+@media (max-width: 991px) {
+	.one-page-header.charity-header .navbar-collapse {
+	  padding: 10px 0 5px;
+	  background: rgba(255,255,255,1);
+	}
+	.one-page-header.charity-header .navbar-collapse .navbar-nav > li > a {
+		color: #777;
+		padding: 7px 15px;
+	}
+	.one-page-header.charity-header.top-nav-collapse .navbar-collapse .navbar-nav > li > a {
+		/*padding: 7px 0;*/
+	}
+}
+
+/* Removing the little circles */
+.one-page-header.charity-header .navbar-nav > li > a:before {
+    display: none;
+}
+
+/* Menu items on hover and active */
+.one-page-header.charity-header .navbar-nav > li > a:hover,
+.one-page-header.charity-header .navbar-nav > li.active > a:hover,
+.one-page-header.charity-header .navbar-nav > li.active > a:focus,
+.one-page-header.charity-header .navbar-nav > li.active > a {
+	color: #f5f219 !important;
+}
+
+/* Toggle button below 992px */
+.charity-header .navbar-toggle {
+	margin: 15px 0 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) and (min-width: 992px) {
+	.charity-header.one-page-header .navbar-brand {
+		font-size: 15px;
+	}
+
+	.one-page-header.charity-header .navbar-nav > li > a {
+    padding: 17px 8px;
+    font-size: 9px;
+	}
+}
+
+/* header on scroll */
+.charity-header.one-page-header.top-nav-collapse {
+    background: #fff;
+}
+
+.one-page-header.top-nav-collapse .navbar-brand,
+.one-page-header.top-nav-collapse .navbar-nav > li > a {
+    color: #777;
+}
+
+.one-page-header.top-nav-collapse .navbar-toggle:hover .icon-bar {
+    background: #f5f219;
+}
+
+/* Header transition on scroll */
+@media (min-width: 992px) {
+	.charity-header.one-page-header.navbar {
+    padding: 8px 0px;
+    transition: background 0.3s ease-in-out 0s, padding 0.3s ease-in-out 0s;
+	}
+
+	.charity-header.one-page-header.top-nav-collapse {
+	  padding: 5px 0px;
+	}
 }
 
 @media only screen and (max-width : 480px) {

@@ -35,13 +35,11 @@ class CharityController extends Controller
     $charityTypes = Service::loadFieldData('CharityType',array(
       'key' =>'id',
       'field' => 'name',
-      // 'index' => 'charityTypes'
     ));
 
     $provinces = Service::loadFieldData('Province',array(
       'key' =>'id',
       'field' => 'name',
-      // 'index' => 'provinces',
       'order' => array(
         array('top','ASC'),
         array('id','ASC')

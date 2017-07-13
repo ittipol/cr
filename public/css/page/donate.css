@@ -1,36 +1,28 @@
-/*#guest_donate_form {
-	display: none;
-}*/
-
 #address_form {
 	display: none;
 }
-
-/*temp*/
-#guest_donate_message {
-	display: none;
-}
-
-/*.login-block,
-.login-block .or {
-	background-color: #37474F;
-}
-
-.wide-centered-box {
-	width: 60%;
-	margin-left: auto;
-	margin-right: auto;
-}*/
 
 .sky-form .state-error + em {
 	color: red;
 	font-size: 13px;
 }
 
-@media only screen and (max-width : 480px) {
-
-	.wide-centered-box {
-		width: 100%;
-	}
-
+.floating-label {
+	position: relative;
 }
+
+.floating-label > .floating-label-box {
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	width: 358px;
+	height: 32px;
+	font-size: 14px;
+	font-weight: 100;
+	padding: 6px 12px;
+	background-color: #fff;
+}
+
+/*@media only screen and (max-width : 480px) {
+
+}*/

@@ -15,7 +15,8 @@
     'assets/plugins/jquery/jquery-migrate.min.js',
     'assets/plugins/bootstrap/js/bootstrap.min.js',
     // 'js/app/app.js', // tinymce
-    // 'js/app/loader.js', // tinymce loader
+    // 'js/app/loader.js', // tinymce loader,
+    // 'js/plugins/one.app.js',
     'js/library/token.js',
     'js/form/address.js',
     // 'assets/plugins/circles-master/circles.min.js',
@@ -78,7 +79,7 @@
     'assets/css/pages/page_contact.css',
     // 'assets/css/theme-colors/default.css',
     // 'assets/css/theme-skins/dark.css',
-    'css/style/custom/charity.style.css',
+    // 'css/style/custom/charity.style.css',
     // 'css/style/custom/custom.css',
     'assets/css/pages/profile.css',
     'assets/css/custom.css',

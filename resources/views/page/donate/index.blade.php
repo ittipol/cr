@@ -93,9 +93,10 @@
           <div class="row">
             <section class="col col-6">
               <label class="label">วันที่โอน</label>
-              <label class="input">
+              <label class="input floating-label">
                 <i class="icon-append fa fa-calendar"></i>
                 {{Form::text('date', null, array('id' => 'date' ,'autocomplete' => 'off'))}}
+                <div class="floating-label-box" id="date-input-label"></div>
               </label>
             </section>
             <section class="col col-6">
@@ -286,10 +287,10 @@
 </div>
 
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/assets/js/plugins/validation.js"></script>
+<script type="text/javascript" src="/js/form/donation-form-validation.js"></script>
 
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/assets/js/plugins/datepicker.js"></script>
+<script type="text/javascript" src="/js/form/donation-form-datepicker.js"></script>
 
 <script type="text/javascript">
 
@@ -303,14 +304,16 @@
 
     bind() {
 
-      $('#display_guest_donate_form_btn').on('click',function(){
-        $('#guest_donate_form').slideDown(300);
-        // $('#guest_donate_message').delay(350).slideUp(300);
-        $('#guest_donate_message').delay(250).slideUp(800);
+      let _this = this;
 
-        setTimeout(function(){
-          $('#guest_donate_message').remove();
-        },4000);
+      $('#date').on('change',function(){
+
+        if($(this).val() != '') {
+
+          let date = $(this).val().split('-');
+          $('#date-input-label').text(parseInt(date[2])+' '+_this.findMonthName(parseInt(date[1]))+' '+(parseInt(date[0])+543));
+
+        }
 
       });
 
@@ -322,18 +325,25 @@
         }
       });
 
-      $("#donation_form").on('submit',function(e){
-        // e.preventDefault();
-        // console.log($('#open_address_form_chkbox').is(':checked'));
+    }
 
-        // if($('#open_address_form_chkbox').is(':checked')) {
+    findMonthName(month) {
+      let monthName = [
+        'มกราคม',
+        'กุมภาพันธ์',
+        'มีนาคม',
+        'เมษายน',
+        'พฤษภาคม',
+        'มิถุนายน',
+        'กรกฎาคม',
+        'สิงหาคม',
+        'กันยายน',
+        'ตุลาคม',
+        'พฤศจิกายน',
+        'ธันวาคม',
+      ];
 
-        // }
-        // console.log('ssd');
-        // return false;
-
-      });
-
+      return monthName[month-1];
     }
 
   }
