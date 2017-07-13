@@ -143,9 +143,11 @@
         <p>2. แจ้งการบริจาคของคุณ</p>
 
         <div class="tag-box tag-box-v2">
-          <h4>บริจาคโดยไม่ออกนาม</h4>
+          <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
           <p>หากต้องการบริจาคโดยไม่ออกนามให้เว้นการกรอก "ชื่อ นามสกุล" ของคุณ</p>
         </div>
+
+        @include('component.form_error')
 
         {{Form::open(['url' => Request::fullUrl(), 'id' => 'donation_form', 'class' => 'sky-form sky-changes-3', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
 
@@ -339,6 +341,7 @@
           {{Form::submit('แจ้งการบริจาค', array('class' => 'btn-u btn-custom'))}}
 
         {{Form::close()}}
+
       </div>
 
       <div class="col-md-4">
@@ -389,7 +392,7 @@
           </div>
 
           <div class="input-group margin-bottom-20">
-            <span class="input-group-addon rounded-left"><i class="icon-envelope color-white"></i></span>
+            <i class="icon-append fa fa-envelope-o"></i>
             <input type="text" class="form-control rounded-right" placeholder="อีเมล">
           </div>
 
@@ -400,7 +403,7 @@
 
           <div class="row margin-bottom-70">
             <div class="col-md-12">
-              <button type="submit" class="btn-u btn-block rounded">เข้าสู่ระบบ</button>
+              {{Form::submit('เข้าสู่ระบบ', array('class' => 'btn-u btn-block rounded'))}}
             </div>
           </div>
           <div class="social-login">

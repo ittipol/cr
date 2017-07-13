@@ -1,0 +1,72 @@
+#login_form > .login-block {
+	width: 470px;
+	padding: 55px;
+	background-color: transparent;
+}
+
+#login_form > .login-block h2 {
+	color: #000;
+	font-size: 28px;
+}
+
+#login_form > .login-block .input-group-addon {
+	color: #000;
+	/*border-color: rgb(218, 215, 212);*/
+	border-color: rgb(187, 187, 187);
+}
+
+#login_form > .login-block .input-group input.form-control {
+	color: #000;
+	/*border-color: rgb(218, 215, 212);*/
+	border-color: rgb(187, 187, 187);
+}
+
+#login_form > .login-block .or {
+	color: #3D3D66;
+	background-color: #fff;
+	border: 0; 
+	width: 40px;
+	height: 40px;
+	top: -20px;
+	left: 50%;
+	margin-left: -20px;
+	line-height: 40px;
+	padding: 0 10px;
+	z-index: 1;
+}
+
+#login_form > .login-block .social-login {
+	/*border-color: #ececec;*/
+	border-color: #e8e8e8;
+	padding-top: 40px;
+}
+
+/* Placeholder */
+#login_form > .login-block ::-webkit-input-placeholder {
+  color: #888;
+}
+#login_formlogin-block ::-moz-placeholder {
+  color: #888;
+}
+#login_formlogin-block :-ms-input-placeholder {
+  color: #888;
+}
+
+/*.reg-block ::-webkit-input-placeholder {
+  color: #aaa;
+}
+.reg-block ::-moz-placeholder {
+  color: #aaa;
+}
+.reg-block :-ms-input-placeholder {
+  color: #aaa;
+}*/
+
+@media only screen and (max-width : 480px) {
+
+	#login_form > .form-block.login-block {
+		width: 100%;
+		padding: 55px 15px;
+	}
+
+}

@@ -64,6 +64,12 @@ Route::group(['middleware' => [/*'admin',*/'api'], 'namespace' => 'Admin', 'pref
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/login', 'UserController@login');
+Route::post('/login', 'UserController@auth');
+
+Route::get('/register', 'UserController@register');
+Route::post('/register', 'UserController@registering');
+
 Route::get('charity/list', 'CharityController@listView');
 Route::get('charity/{id}', 'CharityController@index');
 
@@ -72,3 +78,5 @@ Route::get('charity/project/{id}', 'ProjectController@index');
 
 Route::get('donate', 'DonateController@index');
 Route::post('donate', 'DonateController@donationSubmit');
+
+Route::get('donate/{code}', 'DonateController@detail');

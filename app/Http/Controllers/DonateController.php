@@ -94,6 +94,18 @@ class DonateController extends Controller
 
     $model = Service::loadModel('Donation');
 
+    // $validator = Validator::make(Input::all(), $validation['rules'],$validation['messages']);
+    
+    // if($validator->fails()) {
+    //   return array(
+    //     'success' => false,
+    //     'type' => 'html',
+    //     'errorMessage' => view('components.form_error',array(
+    //       'errors' => $validator->getMessageBag()
+    //     ))->render()
+    //   );
+    // }
+
     // dd(request()->all());
   
     // reward_chkbox

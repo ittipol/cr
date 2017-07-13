@@ -22,6 +22,11 @@
 	margin-right: auto;
 }
 
+.sky-form .state-error + em {
+	color: red;
+	font-size: 13px;
+}
+
 @media only screen and (max-width : 480px) {
 
 	.wide-centered-box {

@@ -92,6 +92,7 @@
     'css/custom/core.css',
     'css/custom/tab.css',
     'css/custom/button.css',
+    'css/page/user.css',
     'css/page/charity.css',
     'css/page/project.css',
     'css/page/donate.css',
