@@ -15,8 +15,10 @@
 	position: absolute;
 	top: 1px;
 	left: 1px;
-	width: 358px;
-	height: 32px;
+	/*width: 358px;
+	height: 32px;*/
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
 	font-size: 14px;
 	font-weight: 100;
 	padding: 6px 12px;
@@ -26,3 +28,11 @@
 /*@media only screen and (max-width : 480px) {
 
 }*/
+
+@media only screen and (max-width : 320px) {
+
+	.select-group.half > label.select:nth-child(2) {
+		margin-left: 0;
+	}
+
+}

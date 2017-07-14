@@ -191,6 +191,8 @@
     </div><!--/copyright-->
   </div>
 
+  <script type="text/javascript" src="/js/plugins/one.app.js"></script>
+
   <script type="text/javascript">
     $(document).ready(function() {
       App.init();

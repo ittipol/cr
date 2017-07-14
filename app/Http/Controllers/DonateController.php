@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\library\service;
+use App\library\token;
 use Redirect;
 use Auth;
 
@@ -11,7 +12,7 @@ class DonateController extends Controller
   public function index() {
 
     if(empty(request()->for) || empty(request()->id)) {
-      return null;
+      return $this->error('URL ไม่ถูกต้อง');
     }
 
     switch (request()->for) {
@@ -20,7 +21,7 @@ class DonateController extends Controller
         $data = Service::loadModel('Charity')->select('name')->find(request()->id);
 
         if(empty($data)) {
-          return null;
+          return $this->error('ไม่พบมูลนิธินี้');
         }
 
         break;
@@ -30,7 +31,7 @@ class DonateController extends Controller
         $data = Service::loadModel('Project')->select('name','charity_id')->find(request()->id);
 
         if(empty($data)) {
-          return null;
+          return $this->error('ไม่พบโครงการนี้');
         }
 
         $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
@@ -91,6 +92,10 @@ class DonateController extends Controller
 
   public function donationSubmit() {
 
+    if(empty(request()->for) || empty(request()->id)) {
+      return $this->error('URL ไม่ถูกต้อง');
+    }
+
     $donation = Service::loadModel('Donation');
 
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
@@ -105,10 +110,17 @@ class DonateController extends Controller
     //   // return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
     //   return Redirect::back()->withErrors($validator->getMessageBag());
     // }
-// dd(request()->all());
+dd(request()->all());
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
 
-      $donation->reward = 1;
+      $donation->get_reward = 1;
+
+      $donation->reward = array(
+        'selected' => 'shirt',
+        'option' => array(
+          'size' => 's'
+        )
+      );
 
       $donation->address = json_encode(array(
         'receiver_name' => request()->receiver_name,
@@ -129,30 +141,23 @@ class DonateController extends Controller
     switch (request()->for) {
       case 'charity':
 
-        $donation->model = 'Charity';
-        $donation->charity_id = request()->id;
-        // $data = Service::loadModel('Charity')->select('name')->find(request()->id);
+        if(empty(Service::loadModel('Charity')->select('name')->find(request()->id))) {
+          return $this->error('ไม่พบมูลนิธินี้');
+        }
 
-        // if(empty($data)) {
-        //   return null;
-        // }
+        $donation->model = 'Charity';
+        $donation->model_id = request()->id;
 
         break;
 
       case 'project':
 
+        if(empty(Service::loadModel('Project')->select('id')->find(request()->id))) {
+          return $this->error('ไม่พบโครงการนี้');
+        }
+
         $donation->model = 'Project';
-        $donation->project_id = request()->id;
-        // $donation->charity_id = ;
-        // $data = Service::loadModel('Project')->select('name','charity_id')->find(request()->id);
-
-        // if(empty($data)) {
-        //   return null;
-        // }
-
-        // $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
-
-        // $this->setData('charityName',$charity->name);
+        $donation->model_id = request()->id;
 
         break;
       
@@ -169,17 +174,37 @@ class DonateController extends Controller
     if(Auth::check()) {
       $donation->user_id = Auth::user()->id;
     }
-dd($donation);
+
+
+    $date = date('Y m d');
+    $date = str_replace('0', 'X', $date);
+    $date = explode(' ', $date);
+    dd($date);
+
     if($donation->save()) {
+
+      // if(Auth::check()) {}
 
       // If logged in and address is empty
       // add address to user address field
       // $user = Service::loadModel('User')->find();
-      // $user->address = $donation->address;
+      // $user->shipping_address = $donation->address;
       // $user->save();
+
+      // Code 2XDX5R1517
+      // 2X year first 2 letter
+      // D random
+      // X5 month
+      // R randomm
+      // 15 date
+      // 17 year latest 2 letter
+      // replace 0 as X or random char
+
+      return Redirect::to('donate/'.$code);
+
     }
 
-    return Redirect::to('admin/charity/list');
+    return Redirect::to('/donate');
 
   }
 

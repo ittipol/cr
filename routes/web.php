@@ -86,4 +86,4 @@ Route::get('charity/project/{id}', 'ProjectController@index');
 Route::get('donate', 'DonateController@index');
 Route::post('donate', 'DonateController@donationSubmit');
 
-Route::get('donate/complete/{code}', 'DonateController@complete');
+Route::get('donate/{code}', 'DonateController@complete');

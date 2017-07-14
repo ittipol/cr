@@ -1,47 +1,82 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Be right back.</title>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <title>503 Error</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico">
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato', sans-serif;
-            }
+  <!-- Web Fonts -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700,200&amp;subset=cyrillic,latin">
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+  <!-- CSS Global Compulsory -->
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+  <!-- CSS Header and Footer -->
+  <link rel="stylesheet" href="assets/css/headers/header-default.css">
+  <link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Be right back.</div>
-            </div>
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="assets/plugins/animate.css">
+  <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+
+  <!-- CSS Page Style -->
+  <link rel="stylesheet" href="assets/css/pages/page_404_error5.css">
+
+  <!-- CSS Customization -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+  <!--=== Error V6 ===-->
+  <div class="container valign__middle">
+    <!--Error Block-->
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="error-v6 valign__middle">
+          <a href="#" class="logo-a"><img class="logo" src="/images/logo/logo-light.png" alt=""></a>
+          <h1>Service Unavailable Error</h1>
+          <span class="sorry">Be right back, Soon</span>
+          <strong class="h1">5 <img src="assets/img/error/o-icon.png" alt="error"> 3</strong>
+          <span class="input-group-btn">
+            <a href="{{URL::to('/')}}" class="btn-u btn-u-red">ไปยังหน้าแรก</a>
+          </span>
         </div>
-    </body>
+      </div>
+    </div>
+  </div><!--/container-->
+  <!--End Error Block-->
+
+
+  <!-- JS Global Compulsory -->
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="assets/plugins/back-to-top.js"></script>
+
+  <!-- JS Page Level -->
+  <script src="assets/js/app.js"></script>
+  <script>
+    jQuery(document).ready(function() {
+      App.init();
+    });
+  </script>
+  <!--[if lt IE 9]>
+  <script src="assets/plugins/respond.js"></script>
+  <script src="assets/plugins/html5shiv.js"></script>
+  <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+  <![endif]-->
+</body>
 </html>

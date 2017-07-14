@@ -5,7 +5,7 @@ namespace App\Models;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['charity_id','project_id','user_id','donator_name','email','acc_no','amount','transfer_date','reward','address','verified'];
+  protected $fillable = ['model','model_id','user_id','donator_name','email','acc_no','amount','transfer_date','get_reward','reward','address','verified'];
 
   public $validation = array(
     'rules' => array(

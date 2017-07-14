@@ -44,10 +44,10 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="error-v6 valign__middle">
-					<a href="#" class="logo-a"><img class="logo" src="assets/img/themes/logo2-red.png" alt=""></a>
+					<a href="#" class="logo-a"><img class="logo" src="" alt=""></a>
 					<h1>ไม่พบ URL นี้!</h1>
 					<span class="sorry">ไม่พบ URL ที่ร้องขอในเซิร์ฟเวอร์นี้</span>
-					<strong class="h1">4 <img src="assets/img/error/o-icon.png" alt="error"> 4</strong>
+					<strong class="h1">4 <img src="/images/logo/logo-light.png" alt="error"> 4</strong>
 					<span class="input-group-btn">
 						<a href="{{URL::to('/')}}" class="btn-u btn-u-red">ไปยังหน้าแรก</a>
 					</span>

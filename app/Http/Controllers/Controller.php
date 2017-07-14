@@ -15,16 +15,21 @@ class Controller extends BaseController
 
   protected $botDisallowed = true;
 
-  // protected $modelData;
-  // protected $paginator;
-  // protected $formHelper;
-
   // protected function botAllowed() {
   //   $this->botDisallowed = false;
   // }
 
   protected function setData($index,$value) {
     $this->data[$index] = $value;
+  }
+
+  protected function error($message) {
+
+    $data = array(
+      'message' => $message
+    );
+
+    return view('errors.error',$data);
   }
 
   protected function view($view = null) {

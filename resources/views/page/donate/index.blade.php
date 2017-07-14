@@ -159,6 +159,38 @@
 
             <div class="row">
               <section class="col col-md-12">
+                <label class="label">ระบุ size เสื้อ <a href="javascript:void(0);" data-toggle="modal" data-target="#chart_size_model">ตาราง size เสื้อ (uniqlo thai)</a></label>
+                <label class="radio">
+                  <input type="radio" name="size" value="s" checked><i></i>S
+                </label>
+                <label class="radio">
+                  <input type="radio" name="size" value="m"><i></i>M
+                </label>
+                <label class="radio">
+                  <input type="radio" name="size" value="l"><i></i>L
+                </label>
+              </section>
+            </div>
+
+            <div class="modal fade" id="chart_size_model" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                    <h4 id="myModalLabel1" class="modal-title">บัญชีธนาคาร</h4>
+                  </div>
+                  <div class="modal-body">
+                    xxx
+                  </div>
+                  <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn-u btn-u-default" type="button">ปิด</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <section class="col col-md-12">
                 <label class="label">ชื่อ นามสกุลผู้รับ</label>
                 <label class="input">
                   {{Form::text('receiver_name', null, array('placeholder' => 'ชื่อผู้รับ','autocomplete' => 'off'))}}
