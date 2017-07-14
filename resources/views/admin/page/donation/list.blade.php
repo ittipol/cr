@@ -1,6 +1,10 @@
 @extends('admin.layout.main')
 @section('content')
 
+<?php
+$date = new \App\library\Date;
+?>
+
 <h1 class="margin-bottom-20">
   การบริจาค
 </h1>
@@ -8,19 +12,17 @@
 @if(!empty($donations))
 
   <div class="panel panel-red margin-bottom-40">
-    <!-- <div class="panel-heading">
-      <h3 class="panel-title"><i class="fa fa-user"></i> มูลนิธิ</h3>
-    </div> -->
     <div class="panel-body">
       <table class="table">
         <thead>
           <tr>
             <th>#</th>
-            <th>บริจาคไปยัง</th>
+            <th>ชื่อมูลนิธิ / โครงการ</th>
             <th>ชื่อผู้บริจาค</th>
             <th>จำนวนเงินบริจาค</th>
+            <th>วันที่โอน</th>
             <th>ต้องการรางวัล</th>
-            <th>ตรวจสอบแล้ว</th>
+            <th>ตรวจสอบการบริจาค</th>
             <th>เครื่องมือ</th>
           </tr>
         </thead>
@@ -29,9 +31,10 @@
             <div>
               <tr>
                 <td>{{$data->id}}</td>
-                <td>{{$data->model}}</td>
-                <td>@if(!empty($data->donator_name)) {{$data->donator_name}} @else ไม่ออกนาม @endif</td>
+                <td>{{$data->model}}, {{$data->{strtolower($data->model)}->name}}</td>
+                <td>@if(!empty($data->donor_name)) {{$data->donor_name}} @else ไม่ออกนาม @endif</td>
                 <td>{{$data->amount}}</td>
+                <td>{{$date->covertDateTimeToSting($data->transfer_date)}}</td>
                 <td>@if($data->get_reward) ต้องการ @else ไม่ต้องการ @endif</td>
                 <td>@if($data->verified) ตรจวสอบแล้ว @else ยังไม่ได้ตรวจสอบ @endif</td>
                 <td>

@@ -8,10 +8,10 @@
       <h2>{{$project->name}}</h2>
       <p>{{$project->short_desc}}</p>
     </div>
-    <img class="rounded-x" src="/assets/img/team/img32-md.jpg">
+    <img class="rounded-x" src="{{$charity->logo}}">
     <span class="testimonials-author">
       โครงการจาก<br>
-      <a href="{{URL::to('charity')}}/{{$project->id}}">ชื่อมูลนิธิ</a>
+      <a href="{{URL::to('charity')}}/{{$charity->id}}">{{$charity->name}}</a>
     </span>
   </div>
 
@@ -39,9 +39,9 @@
       <div class="service-block-v3 project-box">
 
         <div class="statistics">
-          <h3 class="heading-xs"><strong>52,147</strong> / 100,000 บาท<span class="pull-right">67%</span></h3>
+          <h3 class="heading-xs"><strong>{{$amount}}</strong> / {{$targetAmount}} บาท<span class="pull-right">{{$percent}}%</span></h3>
           <div class="progress progress-u progress-xxs">
-            <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
+            <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
             </div>
           </div>
           <!-- <small><strong>52,147</strong> / 100,000 บาท</small> -->
@@ -52,8 +52,8 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <i class="icon-heart"></i>
-        <span class="counter">52,147 บาท</span>
-        <span class="sub-label">จากเป้าหมาย 100000 บาท</span>
+        <span class="counter">{{$amount}} บาท</span>
+        <span class="sub-label">จากเป้าหมาย {{$targetAmount}} บาท</span>
 
         <div class="clearfix margin-bottom-10"></div>
 
@@ -64,7 +64,7 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <i class="icon-clock"></i>
-        <span class="counter">19 วัน</span>
+        <span class="counter">{{$remainingDate}}</span>
         <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span>
 
         <div class="clearfix margin-bottom-10"></div>

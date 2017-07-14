@@ -58,6 +58,8 @@ Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 
 
   Route::get('donation/list', 'DonationController@listView');
   Route::get('donation/detail/{id}', 'DonationController@detail');
+
+  Route::get('donation/verify/{id}', 'DonationController@verify');
 });
 
 Route::group(['middleware' => ['admin.auth'], 'namespace' => 'Admin', 'prefix' => 'admin'],  function () {

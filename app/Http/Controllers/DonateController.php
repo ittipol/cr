@@ -131,8 +131,8 @@ class DonateController extends Controller
         'squad' => request()->squad,
         'road' => request()->road,
         'alley' => request()->alley,
-        'province' => request()->province,
-        'district' => request()->district,
+        'province' => Service::loadModel('Province')->find(request()->province)->name,
+        'district' => Service::loadModel('District')->find(request()->district)->name,
         'sub_district' => request()->sub_district,
         'post_code' => request()->post_code
       ));
@@ -167,7 +167,7 @@ class DonateController extends Controller
         break;
     }
 
-    $donation->donator_name = request()->name;
+    $donation->donor_name = request()->name;
     $donation->email = request()->email;
     $donation->transfer_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
     $donation->amount = request()->amount;

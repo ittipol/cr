@@ -33,16 +33,21 @@ class DonationController extends Controller
   public function detail($id) {
     
     $data = Service::loadModel('Donation')->find($id);
-dd($data);
+
     $this->setData('donation',$data);
+    $this->setData('reward',json_decode($data->reward,true));
+    $this->setData('address',json_decode($data->address,true));
 
     return $this->view('admin.page.donation.detail');
   }
 
-  public function varify($id) {
-    
-    $data = Service::loadModel('Donation')->find($id);
+  public function verify($id) {
+
+    $data = Service::loadModel('Donation')->select('id','verified')->find($id);
     $data->verified = 1;
     $data->save();
+
+    return Redirect::to('admin/donation/detail/'.$data->id);
+
   }
 }

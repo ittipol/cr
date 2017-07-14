@@ -29,7 +29,7 @@
       <div class="service-block-v3 donation-box">
         <i class="icon-heart"></i>
         <span class="service-heading">การบริจาคในเดือนนี้</span>
-        <span class="counter">52,147 บาท</span>
+        <span class="counter">{{$amount}} บาท</span>
 
         <div class="clearfix margin-bottom-10"></div>
 
@@ -232,6 +232,10 @@
                   <h4>ผู้ที่กลับมาบริจาค</h4>
                 </div>
               </div>
+            </div>
+
+            <div class="panel-heading overflow-h">
+              <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>การบริจาคในเดือน</h2>
             </div>
             
           </div>

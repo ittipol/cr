@@ -19,8 +19,8 @@
 @if(!Auth::check())
 <div class="alert alert-info fade in">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  <h4>ไม่มีบัญชีใช้หรือไม่?</h4>
-  <p>คุณสามารถบริจาคได้โดยไม่ต้องมีบัญชี สามารถสร้างบัญชีได้ในภายหลังหากต้องการ <!-- <a href="">ต้องการสร้างบัญชี</a> --></p>
+  <h4>ไม่มีบัญชีใช่หรือไม่?</h4>
+  <p>คุณสามารถบริจาคได้โดยไม่ต้องมีบัญชี สามารถสร้างบัญชีได้ในภายหลังหากต้องการ</p>
   <p>
     <a class="btn-u btn-u-xs btn-u-dark" href="{{URL::to('login')}}"><i class="fa fa-pencil"></i> เข้าสู่ระบบ</a>
     <a class="btn-u btn-u-xs btn-u-red" href="{{URL::to('register')}}"><i class="fa fa-cog"></i> ต้องการสร้างบัญชี</a>

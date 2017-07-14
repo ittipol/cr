@@ -56,6 +56,9 @@ class ProjectController extends Controller
     }
 
     if($model->fill(request()->all())->save()) {
+
+      // Add to timeline
+
       return Redirect::to('admin/project/list');
     }
 

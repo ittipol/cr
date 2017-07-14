@@ -5,7 +5,7 @@ namespace App\Models;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['model','model_id','code','user_id','donator_name','email','acc_no','amount','transfer_date','get_reward','reward','address','verified'];
+  protected $fillable = ['model','model_id','code','user_id','donor_name','email','acc_no','amount','transfer_date','get_reward','reward','address','verified'];
 
   public $validation = array(
     'rules' => array(
@@ -46,5 +46,95 @@ class Donation extends Model
       'post_code.numeric' => 'รหัสไปรษณีย์ไม่ถูกต้อง',
     )
   );
+
+  public function charity() {
+    return $this->hasOne('App\Models\Charity','id','model_id');
+  }
+
+  public function project() {
+    return $this->hasOne('App\Models\Project','id','model_id');
+  }
+
+  public function countDonation($model,$modelId) {
+    return $this
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1]
+    ])->count();
+  }
+
+  public function countDonor($model,$modelId) {
+
+    // Get All Donation
+    // $donator = $this
+    // ->where([
+    //   ['model','like',$model],
+    //   ['model_id','=',$modelId],
+    //   ['verified','=',1]
+    // ])
+    // ->count();
+
+    // Get only who danate over 2 times
+    $donator = $this
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1],
+      ['user_id','!=',null]
+    ])
+    // ->groupBy('user_id')
+    ->havingRaw('COUNT(user_id) > 1')
+    ->distinct('user_id')
+    ->count();
+
+    dd($donator);
+
+//     $donator = $this
+//     ->where([
+//       ['model','like',$model],
+//       ['model_id','=',$modelId],
+//       ['verified','=',1],
+//       ['user_id','=',null]
+//     ])->count();
+// dd($donator);
+//     $donator = $this
+//     ->where([
+//       ['model','like',$model],
+//       ['model_id','=',$modelId],
+//       ['verified','=',1],
+//       ['user_id','!=',null]
+//     ])->distinct('user_id')->count('user_id');
+
+    dd($donator);
+
+  }
+
+  public function getTotalAmount($model,$modelId,$inMouth = false,$format = true) {
+
+    $donations = $this
+    ->select('amount')
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1]
+    ]);
+
+    if($inMouth) {
+      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+    }
+
+    $amount = 0;
+    foreach ($donations->get() as $value) {
+      $amount += $value->amount;
+    }
+
+    if($format) {
+      return number_format($amount, 0, '.', ',');
+    }
+
+    return $amount;
+
+  }
 
 }

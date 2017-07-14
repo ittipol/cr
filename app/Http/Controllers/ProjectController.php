@@ -4,16 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Pagination\Paginator;
 use App\library\service;
+use App\library\date;
 use Redirect;
 
 class ProjectController extends Controller
 {
   public function index($id) {
 
-    $data = Service::loadModel('Project')->find($id);
+    $project = Service::loadModel('Project')->find($id);
 
-    $this->setData('project',$data);
+    $date = new Date;
 
+    // Get charity Detail
+    $charity = Service::loadModel('Charity')->select('id','name','logo')->find($project->charity_id);
+
+    $donationModel = Service::loadModel('Donation');
+
+    $amount = $donationModel->getTotalAmount('Project',$id,false,false);
+    $percent = ($amount*100)/$project->target_amount;
+
+    $this->setData('project',$project);
+    $this->setData('charity',$charity);
+    $this->setData('amount',number_format($amount, 0, '.', ','));
+    $this->setData('targetAmount',number_format($project->target_amount, 0, '.', ','));
+    $this->setData('percent',round($percent));
+    $this->setData('remainingDate',$date->remainingDate($project->end_date));
+    
     return $this->view('page.project.index');
 
   }

@@ -117,97 +117,132 @@ class Date
     );
   }
 
-  public function setPeriodData($attributes) {
+  // public function setPeriodData($attributes) {
 
-    $data = array();
+  //   $data = array();
 
-    $data = array(
-      'start_year' => null,
-      'start_month' => null,
-      'start_day' => null,
-      'end_year' => null,
-      'end_month' => null,
-      'end_day' => null,
-      'current' => null,
-    );
+  //   $data = array(
+  //     'start_year' => null,
+  //     'start_month' => null,
+  //     'start_day' => null,
+  //     'end_year' => null,
+  //     'end_month' => null,
+  //     'end_day' => null,
+  //     'current' => null,
+  //   );
 
-    if(!empty($attributes['date_start'])) {
-      foreach ($attributes['date_start'] as $key => $value) {
-        $data['start_'.$key] = $value;
-      }
-    }
+  //   if(!empty($attributes['date_start'])) {
+  //     foreach ($attributes['date_start'] as $key => $value) {
+  //       $data['start_'.$key] = $value;
+  //     }
+  //   }
 
-    if(empty($attributes['current']) && !empty($attributes['date_end'])) {
-      foreach ($attributes['date_end'] as $key => $value) {
-        $data['end_'.$key] = $value;
-      }
-    }
-    elseif(!empty($attributes['current'])) {
-      $data['current'] = $attributes['current'];
-    }
+  //   if(empty($attributes['current']) && !empty($attributes['date_end'])) {
+  //     foreach ($attributes['date_end'] as $key => $value) {
+  //       $data['end_'.$key] = $value;
+  //     }
+  //   }
+  //   elseif(!empty($attributes['current'])) {
+  //     $data['current'] = $attributes['current'];
+  //   }
 
-    return $data;
+  //   return $data;
 
-  }
+  // }
 
-  public function calPassedDate($dateTime) {
+  public function remainingDate($dateTime) {
 
-    $secs = time() - strtotime($dateTime);
+    $secs = strtotime($dateTime) - time();
     $mins = (int)floor($secs / 60);
     $hours = (int)floor($mins / 60);
     $days = (int)floor($hours / 24);
+    $months = (int)floor($days / 30);
+    $years = (int)floor($months / 12);
 
-    $passed = 'เมื่อสักครู่นี้';
-    if($days == 0) {
-      $passedSecs = $secs % 60;
-      $passedMins = $mins % 60;
-      $passedHours = $hours % 24;
+    if($years > 0) {
+      $label = $years.' ปี';
+    }elseif($months > 0) {
+      // $remainingDays = $days - (30 * $months);
+      $label = $months.' เดือน ';
+    }elseif($days > 0) {
+      $label = $days.' วัน';
+    }else {
+      $remainingSecs = $secs % 60;
+      $remainingMins = $mins % 60;
+      $remainingHours = $hours % 24;
 
-      if($passedHours != 0) {
-        $passed = $passedHours.' ชั่วโมงที่แล้ว';
-      }elseif($passedMins != 0) {
-        $passed = $passedMins.' นาทีที่แล้ว';
-      }elseif($passedSecs > 30) {
-        $passed = $passedSecs.' วินาทีที่แล้ว';
-      }elseif($passedSecs > 10) {
-        $passed = 'ไม่กี่วินาทีที่แล้ว';
+      if($remainingHours != 0) {
+        $label = $remainingHours.' ชั่วโมง';
+      }elseif($remainingMins != 0) {
+        $label = $remainingMins.' นาที';
+      }elseif($remainingSecs > 30) {
+        $label = $remainingSecs.' วินาที';
+      }elseif($remainingSecs > 5) {
+        $label = 'ไม่กี่วินาที';
       }
-
-    }elseif($days == 1){
-      $passed = 'เมื่อวานนี้ เวลา '.$this->covertTimeToSting($dateTime);
-    }else{
-      $passed = $this->covertDateTimeToSting($dateTime);
     }
 
-    return $passed;
+    return $label;
   }
 
-  public function isLeapYear($year) {
-    return ((($year % 4) == 0) && ((($year % 100) != 0) || (($year % 400) == 0)));
-  }
+  // public function calPassedDate($dateTime) {
 
-  public function findDateRange($start,$end,$date = array()) {
+  //   $secs = time() - strtotime($dateTime);
+  //   $mins = (int)floor($secs / 60);
+  //   $hours = (int)floor($mins / 60);
+  //   $days = (int)floor($hours / 24);
 
-    $yearStart = $date['year'] - $end;
-    $yearEnd = $date['year'] - $start;
+  //   $passed = 'เมื่อสักครู่นี้';
+  //   if($days == 0) {
+  //     $passedSecs = $secs % 60;
+  //     $passedMins = $mins % 60;
+  //     $passedHours = $hours % 24;
 
-    if(!$this->isLeapYear($yearStart) && ((int)$date['month'] == 2) && ($date['day'] == 29)) {
-      $start = $yearStart.'-'.$date['month'].'-28 00:00:00';
-    }else{
-      $start = $yearStart.'-'.$date['month'].'-'.$date['day'].' 00:00:00';
-    }
+  //     if($passedHours != 0) {
+  //       $passed = $passedHours.' ชั่วโมงที่แล้ว';
+  //     }elseif($passedMins != 0) {
+  //       $passed = $passedMins.' นาทีที่แล้ว';
+  //     }elseif($passedSecs > 30) {
+  //       $passed = $passedSecs.' วินาทีที่แล้ว';
+  //     }elseif($passedSecs > 10) {
+  //       $passed = 'ไม่กี่วินาทีที่แล้ว';
+  //     }
 
-    if(!$this->isLeapYear($yearEnd) && ((int)$date['month'] == 2) && ($date['day'] == 29)) {
-      $end = $yearEnd.'-'.$date['month'].'-28 23:59:59';
-    }else{
-      $end = $yearEnd.'-'.$date['month'].'-'.$date['day'].' 23:59:59';
-    }
+  //   }elseif($days == 1){
+  //     $passed = 'เมื่อวานนี้ เวลา '.$this->covertTimeToSting($dateTime);
+  //   }else{
+  //     $passed = $this->covertDateTimeToSting($dateTime);
+  //   }
 
-    return array(
-      'start' => $start,
-      'end' => $end
-    );
+  //   return $passed;
+  // }
 
-  }
+  // public function isLeapYear($year) {
+  //   return ((($year % 4) == 0) && ((($year % 100) != 0) || (($year % 400) == 0)));
+  // }
+
+  // public function findDateRange($start,$end,$date = array()) {
+
+  //   $yearStart = $date['year'] - $end;
+  //   $yearEnd = $date['year'] - $start;
+
+  //   if(!$this->isLeapYear($yearStart) && ((int)$date['month'] == 2) && ($date['day'] == 29)) {
+  //     $start = $yearStart.'-'.$date['month'].'-28 00:00:00';
+  //   }else{
+  //     $start = $yearStart.'-'.$date['month'].'-'.$date['day'].' 00:00:00';
+  //   }
+
+  //   if(!$this->isLeapYear($yearEnd) && ((int)$date['month'] == 2) && ($date['day'] == 29)) {
+  //     $end = $yearEnd.'-'.$date['month'].'-28 23:59:59';
+  //   }else{
+  //     $end = $yearEnd.'-'.$date['month'].'-'.$date['day'].' 23:59:59';
+  //   }
+
+  //   return array(
+  //     'start' => $start,
+  //     'end' => $end
+  //   );
+
+  // }
 
 }

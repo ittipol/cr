@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Pagination\Paginator;
 use App\library\service;
+// use App\library\date;
 use Redirect;
 
 class CharityController extends Controller
@@ -12,7 +13,12 @@ class CharityController extends Controller
 
     $data = Service::loadModel('Charity')->find($id);
 
+    $donationModel = Service::loadModel('Donation');
+
+    $donationModel->countDonor('Charity',$id);
+
     $this->setData('charity',$data);
+    $this->setData('amount',$donationModel->getTotalAmount('Charity',$id,true));
 
     return $this->view('page.charity.index');
 
