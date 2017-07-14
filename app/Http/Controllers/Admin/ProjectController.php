@@ -51,6 +51,10 @@ class ProjectController extends Controller
 
     $model->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
 
+    if(!empty(request()->_images)) {
+      $model->images = json_encode(request()->_images);
+    }
+
     if($model->fill(request()->all())->save()) {
       return Redirect::to('admin/project/list');
     }
@@ -76,7 +80,13 @@ class ProjectController extends Controller
     $data['end_hour'] = $endDate['hour'];
     $data['end_min'] = $endDate['min'];
 
+    $images = array(null,null,null,null,null,null,null,null,null,null);
+    if(!empty($data->images)) {
+      $images = json_decode($data->images,true);
+    }
+
     $this->setData('data',$data);
+    $this->setData('_images',$images);
     $this->setData('charities', $charities);
     $this->setDateTime();
 

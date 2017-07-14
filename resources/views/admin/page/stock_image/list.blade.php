@@ -16,14 +16,14 @@
     <div class="cbp-item">
       <div class="cbp-caption">
         <div class="cbp-caption-defaultWrap">
-          <img src="{{URL::to('image')}}/{{$data->filename}}" alt="{{$data->filename}}">
+          <img src="{{URL::to('get_image')}}/{{$data->filename}}" alt="{{$data->filename}}">
         </div>
         <div class="cbp-caption-activeWrap">
           <div class="cbp-l-caption-alignCenter">
             <div class="cbp-l-caption-body">
               <ul class="link-captions">
-                <li><a target="_blank" href="{{URL::to('image')}}/{{$data->filename}}"><i class="rounded-x fa fa-link"></i></a></li>
-                <li><a href="{{URL::to('image')}}/{{$data->filename}}" class="cbp-lightbox" data-title="Stock Image"><i class="rounded-x fa fa-search"></i></a></li>
+                <li><a target="_blank" href="{{URL::to('get_image')}}/{{$data->filename}}"><i class="rounded-x fa fa-link"></i></a></li>
+                <li><a href="{{URL::to('get_image')}}/{{$data->filename}}" class="cbp-lightbox" data-title="Stock Image"><i class="rounded-x fa fa-search"></i></a></li>
               </ul>
               <div class="cbp-l-grid-agency-title">{{$data->filename}}</div>
               <div class="cbp-l-grid-agency-desc">Stock Image</div>

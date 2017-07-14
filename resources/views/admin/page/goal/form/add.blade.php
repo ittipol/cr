@@ -51,6 +51,30 @@
     </div>
   </div>
 
+  <div class="form-group">
+    {{Form::label('thumbnail', 'Thumbnail', array('class' => 'required'))}}
+    {{Form::text('thumbnail', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+  </div>
+
+  <div class="form-group">
+    {{Form::label('vdo_url', 'VDO URL (Youtube URL)', array('class' => 'required'))}}
+    {{Form::text('vdo_url', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+  </div>
+
+  <div class="form-group">
+    {{Form::label('images', 'รูปภาพของมูลนิธิ (มากสุด 10 รูป)', array('class' => 'required'))}}
+    {{Form::text('_images[0]', null, array('class' => 'form-control', 'placeholder' => '#1', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[1]', null, array('class' => 'form-control', 'placeholder' => '#2', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[2]', null, array('class' => 'form-control', 'placeholder' => '#3', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[3]', null, array('class' => 'form-control', 'placeholder' => '#4', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[4]', null, array('class' => 'form-control', 'placeholder' => '#5', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[5]', null, array('class' => 'form-control', 'placeholder' => '#6', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[6]', null, array('class' => 'form-control', 'placeholder' => '#7', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[7]', null, array('class' => 'form-control', 'placeholder' => '#8', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[8]', null, array('class' => 'form-control', 'placeholder' => '#9', 'autocomplete' => 'off'))}}
+    {{Form::text('_images[9]', null, array('class' => 'form-control', 'placeholder' => '#10', 'autocomplete' => 'off'))}}
+  </div>
+
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}
 
 {{Form::close()}}

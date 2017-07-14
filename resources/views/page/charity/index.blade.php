@@ -20,7 +20,7 @@
     <div class="col-md-8">
       <!-- <div class="img-charity-banner" style="background-image:url(/images/bb1.jpg)"></div> -->
       <div class="embedded-video">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="100%" src="{{$charity->vdo_url}}" frameborder="0" allowfullscreen></iframe>
       </div>
       
     </div>
@@ -158,7 +158,7 @@
               </div>
             </div>
 
-            <div class="padding-15">
+            <div class="description padding-15">
               {!!$charity->description!!}
             </div>
 

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('image/{file}', 'StaticFileController@serveImages');
+Route::get('get_image/{file}', 'StaticFileController@serveImages');
 
 Route::group(['prefix' => 'api/v1', 'middleware' => 'api'], function () {
   Route::get('get_district/{provinceId}', 'ApiController@getDistrict');
@@ -56,7 +56,8 @@ Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 
   Route::patch('news/edit/{id}', 'NewsController@editingSubmit');
   Route::get('news/delete/{id}', 'NewsController@delete');
 
-  // Route::get('donation_inform/list', 'DonationController@listView');
+  Route::get('donation/list', 'DonationController@listView');
+  Route::get('donation/detail/{id}', 'DonationController@detail');
 });
 
 Route::group(['middleware' => ['admin.auth'], 'namespace' => 'Admin', 'prefix' => 'admin'],  function () {

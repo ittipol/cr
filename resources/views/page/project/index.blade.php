@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
   
-<div class="container content profile">
+<div class="container project content profile">
 
   <div class="testimonials-v4 md-margin-bottom-50">
     <div class="testimonials-v4-in">

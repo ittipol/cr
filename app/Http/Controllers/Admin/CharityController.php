@@ -56,6 +56,10 @@ class CharityController extends Controller
 
     $model = Service::loadModel('Charity');
 
+    if(!empty(request()->_images)) {
+      $model->images = json_encode(request()->_images);
+    }
+    
     if($model->fill(request()->all())->save()) {
       return Redirect::to('admin/charity/list');
     }
@@ -65,23 +69,29 @@ class CharityController extends Controller
 
   public function edit($id) {
 
+    $data = Service::loadModel('Charity')->find($id);
+
     $charityTypes = Service::loadFieldData('CharityType',array(
       'key' =>'id',
       'field' => 'name',
-      // 'index' => 'charityTypes'
     ));
 
     $provinces = Service::loadFieldData('Province',array(
       'key' =>'id',
       'field' => 'name',
-      // 'index' => 'provinces',
       'order' => array(
         array('top','ASC'),
         array('id','ASC')
       )
     ));
 
-    $this->setData('data',Service::loadModel('Charity')->find($id));
+    $images = array(null,null,null,null,null,null,null,null,null,null);
+    if(!empty($data->images)) {
+      $images = json_decode($data->images,true);
+    }
+
+    $this->setData('data',$data);
+    $this->setData('_images',$images);
     $this->setData('charityTypes', $charityTypes);
     $this->setData('provinces', $provinces);
 
@@ -92,6 +102,10 @@ class CharityController extends Controller
   public function editingSubmit($id) {
 
     $data = Service::loadModel('Charity')->find($id);
+
+    if(!empty(request()->_images)) {
+      $data->images = json_encode(request()->_images);
+    }
 
     if($data->fill(request()->all())->save()) {
       return Redirect::to('admin/charity/list');

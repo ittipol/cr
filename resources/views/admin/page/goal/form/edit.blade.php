@@ -51,6 +51,24 @@
     </div>
   </div>
 
+  <div class="form-group">
+    {{Form::label('thumbnail', 'Thumbnail', array('class' => 'required'))}}
+    {{Form::text('thumbnail', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+  </div>
+
+  <div class="form-group">
+    {{Form::label('vdo_url', 'VDO URL (Youtube URL)', array('class' => 'required'))}}
+    {{Form::text('vdo_url', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+  </div>
+
+  <div class="form-group">
+    {{Form::label('images', 'รูปภาพของมูลนิธิ (มากสุด 10 รูป)', array('class' => 'required'))}}
+    
+    @foreach($_images as $key => $images)
+      {{Form::text('_images['.$key.']', $images, array('class' => 'form-control', 'placeholder' => '#'.($key+1), 'autocomplete' => 'off'))}}
+    @endforeach
+  </div>
+
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}
 
 {{Form::close()}}

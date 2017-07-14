@@ -22,7 +22,8 @@
   <h4>ไม่มีบัญชีใช้หรือไม่?</h4>
   <p>คุณสามารถบริจาคได้โดยไม่ต้องมีบัญชี สามารถสร้างบัญชีได้ในภายหลังหากต้องการ <!-- <a href="">ต้องการสร้างบัญชี</a> --></p>
   <p>
-    <a class="btn-u btn-u-xs btn-u-red" href="#"><i class="fa fa-cog"></i> ต้องการสร้างบัญชี</a>
+    <a class="btn-u btn-u-xs btn-u-dark" href="{{URL::to('login')}}"><i class="fa fa-pencil"></i> เข้าสู่ระบบ</a>
+    <a class="btn-u btn-u-xs btn-u-red" href="{{URL::to('register')}}"><i class="fa fa-cog"></i> ต้องการสร้างบัญชี</a>
   </p>
 </div>
 @endif
@@ -124,12 +125,12 @@
             </label>
           </section>
           
-          <section>
+          <!-- <section>
             <label class="label">รูปภาพหลักฐานการชำระเงิน</label>
             <label class="input">
               
             </label>
-          </section>
+          </section> -->
 
         </fieldset>
 
@@ -144,7 +145,7 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <label class="checkbox state-success">
-          <input type="checkbox" id="open_address_form_chkbox" name="reward_chkbox" value="1"><i></i>ต้องการรับของรางวัล
+          {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'open_address_form_chkbox'))}}<i></i>ต้องการรับของรางวัล
         </label>
 
         <div class="clearfix margin-bottom-20"></div>
@@ -161,13 +162,13 @@
               <section class="col col-md-12">
                 <label class="label">ระบุ size เสื้อ <a href="javascript:void(0);" data-toggle="modal" data-target="#chart_size_model">ตาราง size เสื้อ (uniqlo thai)</a></label>
                 <label class="radio">
-                  <input type="radio" name="size" value="s" checked><i></i>S
+                  <input type="radio" name="reward_option" value="s" checked><i></i>S
                 </label>
                 <label class="radio">
-                  <input type="radio" name="size" value="m"><i></i>M
+                  <input type="radio" name="reward_option" value="m"><i></i>M
                 </label>
                 <label class="radio">
-                  <input type="radio" name="size" value="l"><i></i>L
+                  <input type="radio" name="reward_option" value="l"><i></i>L
                 </label>
               </section>
             </div>
@@ -332,6 +333,10 @@
 
     load() {
       this.bind();
+
+      if($('#open_address_form_chkbox').is(':checked')) {
+        $('#address_form').slideDown(300);
+      }
     }
 
     bind() {
@@ -380,64 +385,12 @@
 
   }
 
-  // class Facebook {
-
-  //   constructor(fb) {
-  //     this.fb = fb;
-  //   }
-
-  //   load() {
-  //     this.bind();
-  //   }
-
-  //   bind() {
-
-  //     this.fb.getLoginStatus(function(response) {
-  //       console.log('xx');
-  //     });
-
-  //     $('#fb_login_btn').on('click',function(){
-
-  //       FB.login(function(response) {
-  //         console.log(response.authResponse);
-  //         if (response.authResponse) {
-  //             //user just authorized your app
-
-  //             console.log('dssds');
-
-  //           FB.api("/me/feed","POST",
-  //               {
-  //                   message: "This is a test message",
-  //                   privacy: {value:"SELF"},
-  //                   access_token: response.authResponse.accessToken
-  //               },
-  //               function (response) {
-
-  //                 console.log(response.error);
-
-  //                 if (response && !response.error) {
-  //                   /* handle the result */
-  //                 }
-  //               }
-  //           );
-
-  //         }
-  //       }, {scope: 'email,public_profile'});
-  //     });
-
-  //   }
-
-  // }
-
   $(document).ready(function(){
     const donate = new Donate();
     donate.load();
 
     const address = new Address();
     address.load();
-
-    // const fb = new Facebook(FB);
-    // fb.load();
 
     Validation.initValidation();
     Datepicker.initDatepicker();

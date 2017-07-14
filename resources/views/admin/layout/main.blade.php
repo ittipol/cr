@@ -13,7 +13,7 @@
     <div class="container">
       <!-- Logo -->
       <a class="logo" href="{{URL::to('admin/dashboard')}}">
-        <img src="" alt="Logo">
+        <img src="/images/logo/logo-dark.png" alt="Logo">
       </a>
       <!-- End Logo -->
 

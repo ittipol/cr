@@ -9,7 +9,7 @@ use Redirect;
 
 class DonationController extends Controller
 {
-  public function list() {
+  public function listView() {
 
     $model = Service::loadModel('Donation');
 
@@ -23,7 +23,7 @@ class DonationController extends Controller
         return $currentPage;
     });
 
-    $data = $model->paginate(15);
+    $data = $model->orderBy('created_at','desc')->paginate(15);
 
     $this->setData('donations',$data);
 
@@ -33,7 +33,7 @@ class DonationController extends Controller
   public function detail($id) {
     
     $data = Service::loadModel('Donation')->find($id);
-
+dd($data);
     $this->setData('donation',$data);
 
     return $this->view('admin.page.donation.detail');

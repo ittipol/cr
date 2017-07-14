@@ -33,8 +33,8 @@
                 <td>{{$data->target_amount}}</td>
                 <td>{{$data->end_date}}</td>
                 <td>
-                  <a href="{{URL::to('admin/goal/edit')}}/{{$data->id}}" class="btn btn-warning btn-xs">Edit</a>
-                  <a href="{{URL::to('admin/goal/delete')}}/{{$data->id}}" class="btn btn-danger btn-xs">Delete</a>
+                  <a href="{{URL::to('admin/project/edit')}}/{{$data->id}}" class="btn btn-warning btn-xs">Edit</a>
+                  <a href="{{URL::to('admin/project/delete')}}/{{$data->id}}" class="btn btn-danger btn-xs">Delete</a>
                 </td>
               </tr>
             </div>      

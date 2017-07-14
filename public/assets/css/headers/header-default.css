@@ -176,6 +176,7 @@ body.header-fixed-space-default {
 	z-index: 1;
 	margin: 20px 0;
 	position: relative;
+	height: 60px;
 }
 
 /*Big Logo Style*/

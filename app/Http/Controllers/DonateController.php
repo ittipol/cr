@@ -6,6 +6,7 @@ use App\library\service;
 use App\library\token;
 use Redirect;
 use Auth;
+use Validator;
 
 class DonateController extends Controller
 {
@@ -99,28 +100,28 @@ class DonateController extends Controller
     $donation = Service::loadModel('Donation');
 
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
-
+      $validation = $donation->validationWithAddress;
     }else{
-
+      $validation = $donation->validation;
     }
 
-    // $validator = Validator::make(Input::all(), $validation['rules'],$validation['messages']);
+    $validator = Validator::make(request()->all(), $validation['rules'],$validation['messages']);
     
-    // if($validator->fails()) {
-    //   // return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
-    //   return Redirect::back()->withErrors($validator->getMessageBag());
-    // }
-dd(request()->all());
+    if($validator->fails()) {
+      return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
+      // return Redirect::back()->withErrors($validator->getMessageBag());
+    }
+
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
 
       $donation->get_reward = 1;
 
-      $donation->reward = array(
+      $donation->reward = json_encode(array(
         'selected' => 'shirt',
         'option' => array(
-          'size' => 's'
+          'size' => request()->reward_option
         )
-      );
+      ));
 
       $donation->address = json_encode(array(
         'receiver_name' => request()->receiver_name,
@@ -170,16 +171,17 @@ dd(request()->all());
     $donation->email = request()->email;
     $donation->transfer_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
     $donation->amount = request()->amount;
+    $donation->code = Token::generateSecureKey(10);
 
     if(Auth::check()) {
       $donation->user_id = Auth::user()->id;
     }
 
 
-    $date = date('Y m d');
-    $date = str_replace('0', 'X', $date);
-    $date = explode(' ', $date);
-    dd($date);
+    // $date = date('Y m d');
+    // $date = str_replace('0', 'X', $date);
+    // $date = explode(' ', $date);
+    // dd($date);
 
     if($donation->save()) {
 
@@ -200,16 +202,17 @@ dd(request()->all());
       // 17 year latest 2 letter
       // replace 0 as X or random char
 
-      return Redirect::to('donate/'.$code);
+      return Redirect::to('donate/'.$donation->code);
 
     }
 
-    return Redirect::to('/donate');
+    return Redirect::to('donate');
 
   }
 
-  public function complete() {
-    // return $this->view();
+  public function complete($code) {
+    dd($code);
+    return $this->view('page.donate.complete');
   }
 
 }
