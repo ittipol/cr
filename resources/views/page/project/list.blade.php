@@ -47,7 +47,7 @@
             <div class="clearfix margin-bottom-10"></div>
 
             <div class="margin-bottom-20">
-              <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u margin-bottom-10">บริจาคให้กับโครงการนี้</a>
+              <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
             </div>
           </div>
 

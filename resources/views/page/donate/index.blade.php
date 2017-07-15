@@ -1,6 +1,8 @@
 @extends('layout.main')
 @section('content')
 
+<div class="container">
+
 <div class="heading heading-v4 margin-bottom-40">
   @if($for == 'charity')
     <h2>บริจาคให้กับมูลนิธิ</h2>
@@ -353,6 +355,8 @@
 
 </div>
 
+</div>
+
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-validation.js"></script>
 
@@ -429,17 +433,6 @@
     Validation.initValidation();
     Datepicker.initDatepicker();
   });
-
-//   $('#fb_login_btn').on('click',function(){
-// console.log('sss');
-//     FB.login(function(response) {
-//       console.log(response.authResponse);
-//       if (response.authResponse) {
-//         //user just authorized your app
-//       }
-//     }, {scope: 'email,public_profile'});
-
-//   });
 
 </script>
 

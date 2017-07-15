@@ -1,11 +1,20 @@
 @extends('layout.main')
 @section('content')
-  
+
+<div class="parallax-quote parallax-quote-light parallaxBg">
+  <div class="container">
+    <div class="parallax-quote-in">
+      <p>{{$project->name}}</p>
+    </div>
+  </div>
+</div>
+
+
 <div class="container project content profile">
 
   <div class="testimonials-v4 md-margin-bottom-50">
     <div class="testimonials-v4-in">
-      <h2>{{$project->name}}</h2>
+      <!-- <h2>{{$project->name}}</h2> -->
       <p>{{$project->short_desc}}</p>
     </div>
     <img class="rounded-x" src="{{$charity->logo}}">

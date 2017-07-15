@@ -58,7 +58,7 @@
     'assets/css/style.css',
     // 'assets/css/app.css',
     // 'assets/css/blocks.css',
-    // 'css/style/custom/one.style.css',
+    'css/style/custom/one.style.css',
     'assets/plugins/animate.css',
     // 'assets/plugins/slick/slick.css',
     'assets/plugins/line-icons/line-icons.css',

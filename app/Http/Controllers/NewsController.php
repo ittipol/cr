@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\Paginator;
+use App\library\service;
+use App\library\date;
+use Redirect;
+
 class NewsController extends Controller
 {
   public function index($id) {
