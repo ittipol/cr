@@ -21,6 +21,10 @@ var Validation = function () {
               {
                 email: true
               },
+              tel_no:
+              {
+                digits: true
+              },
               date:
               {
               	required: true,
@@ -58,6 +62,10 @@ var Validation = function () {
               email:
               {
                   email: 'อีเมลไม่ถูกต้อง'
+              },
+              tel_no:
+              {
+                  digits: 'หมายเลขโทรศัพท์ไม่ถูกต้อง'
               },
               date:
               {

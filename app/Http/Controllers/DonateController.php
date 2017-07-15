@@ -29,16 +29,18 @@ class DonateController extends Controller
 
       case 'project':
         
-        $project = Service::loadModel('Project')
-        ->select('id')
+        $data = Service::loadModel('Project')
+        ->select('id','charity_id')
         ->where([
-          ['id','=',$id],
+          ['id','=',request()->id],
           ['end_date','>',date('Y-m-d H:i:s')]
         ]);
 
-        if($project->exists()) {
+        if(!$data->exists()) {
           return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
+
+        $data = $data->first();
 
         $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
 
@@ -132,7 +134,9 @@ class DonateController extends Controller
       ));
 
       $donation->shipping_address = json_encode(array(
-        'receiver_name' => request()->receiver_name,
+        'receiver_name' => trim(request()->receiver_name),
+        'tel_no' => request()->tel_no,
+        'email' => trim(request()->email),
         'address_no' => request()->address_no,
         'building' => request()->building,
         'floor' => request()->floor,
@@ -164,11 +168,11 @@ class DonateController extends Controller
         $project = Service::loadModel('Project')
         ->select('id')
         ->where([
-          ['id','=',$id],
+          ['id','=',request()->id],
           ['end_date','>',date('Y-m-d H:i:s')]
         ]);
 
-        if($project->exists()) {
+        if(!$project->exists()) {
           return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
 
@@ -188,26 +192,23 @@ class DonateController extends Controller
 
     if(Auth::check()) {
       $donation->user_id = Auth::user()->id;
+
+      if(isset(request()->unidentified) && request()->unidentified) {
+        $donation->unidentified = request()->unidentified;
+      }
     }else{
 
-      $_guestData = array();
+      if(empty(request()->name)) {
+        $donation->unidentified = 1;
+      }else{
 
-      if(!empty(request()->name)) {
-        $_guestData['name'] = trim(request()->name);
-      }
+        $donation->guest_data = json_encode(array(
+          'name' => trim(request()->name)
+        ));
 
-      if(!empty(request()->name)) {
-        $_guestData['email'] = trim(request()->email);
-      }
-
-      if(!empty($_guestData)) {
-        $donation->guest_data = json_encode($_guestData);
+        $donation->unidentified = 0;
       }
       
-    }
-
-    if(isset(request()->unidentified) && request()->unidentified) {
-      $donation->unidentified = request()->unidentified;
     }
 
     // $date = date('Y m d');

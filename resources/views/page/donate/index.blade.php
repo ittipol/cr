@@ -70,7 +70,15 @@
 
         @include('content.unidentified_donation')
 
+        @if(Auth::check())
+
+        <div class="tag-box tag-box-v2">
+          <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
+          <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
+        </div>
+
         <fieldset>
+
           <div class="row">
             <section class="col col-6">
               <label class="checkbox">
@@ -78,24 +86,22 @@
               </label>
             </section>
           </div>
-        </fieldset>
 
-        @if(!Auth::check())
+        @else
+
+        <div class="tag-box tag-box-v2">
+          <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
+          <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุล" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
+        </div>
+
 
         <fieldset>
+
           <div class="row">
-            <section class="col col-6">
+            <section class="col col-md-12">
               <label class="label">ชื่อ นามสกุล</label>
               <label class="input">
-                <i class="icon-append fa fa-user"></i>
                 {{Form::text('name', null, array('placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
-              </label>
-            </section>
-            <section class="col col-6">
-              <label class="label">อีเมล</label>
-              <label class="input">
-                <i class="icon-append fa fa-envelope-o"></i>
-                {{Form::text('email', null, array('placeholder' => 'อีเมล','autocomplete' => 'off', 'class' => 'ignore'))}}
               </label>
             </section>
           </div>
@@ -163,7 +169,7 @@
         <div id="address_form">
 
           <div class="clearfix margin-bottom-10"></div>
-          <h4 class="no-margin">ที่อยู่สำหรับการจัดส่งของรางวัล</h4>
+          <h4 class="no-margin">ข้อมูลสำหรับการจัดส่งของรางวัล</h4>
           <div class="clearfix margin-bottom-20"></div>
 
           <fieldset>
@@ -207,6 +213,24 @@
                   {{Form::text('receiver_name', null, array('placeholder' => 'ชื่อผู้รับ','autocomplete' => 'off'))}}
                 </label>
               </section>
+            </div>
+
+            <div class="row">
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">หมายเลขโทรศัพท์</label>
+                <label class="input">
+                  {{Form::text('tel_no', null, array('placeholder' => 'หมายเลขโทรศัพท์','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">อีเมล</label>
+                <label class="input">
+                  {{Form::text('email', null, array('placeholder' => 'อีเมล','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
             </div>
 
             <div class="row">

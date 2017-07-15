@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use DB;
+
 class Donation extends Model
 {
   protected $table = 'donations';
@@ -55,85 +57,88 @@ class Donation extends Model
     return $this->hasOne('App\Models\Project','id','model_id');
   }
 
-  public function countDonation($model,$modelId) {
-    return $this
-    ->where([
-      ['model','like',$model],
-      ['model_id','=',$modelId],
-      ['verified','=',1]
-    ])->count();
-  }
-
-  public function countDonor($model,$modelId) {
-
-    // Get All Donation
-    // $donator = $this
-    // ->where([
-    //   ['model','like',$model],
-    //   ['model_id','=',$modelId],
-    //   ['verified','=',1]
-    // ])
-    // ->count();
-
-    // Get only who danate over 2 times
-    $donator = $this
-    ->where([
-      ['model','like',$model],
-      ['model_id','=',$modelId],
-      ['verified','=',1],
-      ['user_id','!=',null]
-    ])
-    // ->groupBy('user_id')
-    ->havingRaw('COUNT(user_id) > 1')
-    ->distinct('user_id')
-    ->count();
-
-    dd($donator);
-
-//     $donator = $this
-//     ->where([
-//       ['model','like',$model],
-//       ['model_id','=',$modelId],
-//       ['verified','=',1],
-//       ['user_id','=',null]
-//     ])->count();
-// dd($donator);
-//     $donator = $this
-//     ->where([
-//       ['model','like',$model],
-//       ['model_id','=',$modelId],
-//       ['verified','=',1],
-//       ['user_id','!=',null]
-//     ])->distinct('user_id')->count('user_id');
-
-    dd($donator);
-
-  }
-
-  public function getTotalAmount($model,$modelId,$inMouth = false,$format = true) {
-
-    $donations = $this
-    ->select('amount')
+  public function countDonation($model,$modelId,$thisMonth = false) {
+    $donation = $this
     ->where([
       ['model','like',$model],
       ['model_id','=',$modelId],
       ['verified','=',1]
     ]);
 
-    if($inMouth) {
+    if($thisMonth) {
       $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
-    $amount = 0;
-    foreach ($donations->get() as $value) {
-      $amount += $value->amount;
+    return $donation->count();
+  }
+
+  public function countDonor($model,$modelId,$thisMonth = false) {
+
+    $count = 0;
+
+    $donations = $this
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1],
+    ])
+    ->where(function($q) {
+      $q->where('user_id','=',null)
+        ->orWhere([
+          ['user_id','!=',null],
+          ['unidentified','=',1]
+        ]);
+    });
+
+    if($thisMonth) {
+      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+    }
+
+    $count += $donations->count();
+
+    $donations = $this
+    ->select('user_id')
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1],
+      ['user_id','!=',null],
+      ['unidentified','=',0]
+    ])
+    // ->groupBy('user_id')
+    ->distinct('user_id');
+    
+
+    if($thisMonth) {
+      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+    }
+
+    $count += $donations->count('user_id');
+
+    return $count;
+
+  }
+
+  public function getTotalAmount($model,$modelId,$thisMonth = false,$format = true) {
+
+    $donations = $this
+    ->select(DB::raw('SUM(amount) as amount'))
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1]
+    ])
+    ->groupBy('model','model_id');
+
+    if($thisMonth) {
+      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
     if($format) {
-      return number_format($amount, 0, '.', ',');
+      return number_format($donations->first()->amount, 0, '.', ',');
     }
 
-    return $amount;
+    return $donations->first()->amount;
 
   }
 

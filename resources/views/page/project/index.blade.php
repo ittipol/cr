@@ -15,22 +15,7 @@
     </span>
   </div>
 
-  <!-- <hr> -->
   <div class="clearfix margin-bottom-40"></div>
-
-
-  <!-- <div class="project-header">
-    <h2 class="project-name">{{$project->name}}</h2>
-    <p class="project-short-desc">คำอธิบายแบบย่อไม่เกิน 250 ตัวอักษร</p>
-    <div class="project-by-charity">
-      <a href="">
-        <img class="charity-logo" src="/assets/img/team/img32-md.jpg">
-      </a>
-      <span>
-        โดย <a href="{{URL::to('charity')}}/{{$project->id}}">ชื่อมูลนิธิ</a>
-      </span>
-    </div>
-  </div> -->
 
   <div class="row margin-bottom-40">
     <div class="col-md-8">
@@ -46,7 +31,6 @@
             <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
             </div>
           </div>
-          <!-- <small><strong>52,147</strong> / 100,000 บาท</small> -->
         </div>
 
         <div class="clearfix margin-bottom-10"></div>
@@ -93,7 +77,7 @@
         <div class="cbp-item">
           <div class="cbp-caption">
             <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img26.jpg" alt="">
+              <img src="/assets/img/main/img26.jpg">
             </div>
             <div class="cbp-caption-activeWrap">
               <div class="cbp-l-caption-alignCenter">
@@ -111,7 +95,7 @@
         <div class="cbp-item">
           <div class="cbp-caption">
             <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img2.jpg" alt="">
+              <img src="/assets/img/main/img2.jpg">
             </div>
             <div class="cbp-caption-activeWrap">
               <div class="cbp-l-caption-alignCenter">
@@ -129,7 +113,7 @@
         <div class="cbp-item">
           <div class="cbp-caption">
             <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img9.jpg" alt="">
+              <img src="/assets/img/main/img9.jpg">
             </div>
             <div class="cbp-caption-activeWrap">
               <div class="cbp-l-caption-alignCenter">
@@ -147,7 +131,7 @@
         <div class="cbp-item">
           <div class="cbp-caption">
             <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img11.jpg" alt="">
+              <img src="/assets/img/main/img11.jpg">
             </div>
             <div class="cbp-caption-activeWrap">
               <div class="cbp-l-caption-alignCenter">
@@ -199,17 +183,17 @@
             <div class="col-md-9">
               <ul class="timeline-v2">
 
-                <li class="equal-height-columns">
+                <!-- <li class="equal-height-columns">
                   <div class="cbp_tmtime equal-height-column"><span>2/4/11</span> <span>April</span></div>
                   <i class="cbp_tmicon rounded-x hidden-xs"></i>
                   <div class="cbp_tmlabel equal-height-column">
                     <h2>Back to the past</h2>
                     <p>Peanut gourd nori welsh onion rock melon mustard jícama. Desert raisin amaranth kombu aubergine kale seakale brussels sprout pea. Black-eyed pea celtuce bamboo shoot salad kohlrabi leek squash prairie turnip catsear rock melon chard taro broccoli turnip greens. Fennel quandong potato watercress ricebean swiss chard garbanzo. Endive daikon brussels sprout lotus root silver beet epazote melon shallot.</p>
                   </div>
-                </li>
+                </li> -->
 
                 <li class="timeline-start">
-                  <p>June 13, 2017</p>
+                  <p>{{$dateLib->covertDateToSting($project->created_at)}}</p>
                   <h4>โครงการเปิดรับบริจาค</h4>
                 </li>
 
@@ -235,13 +219,13 @@
             <div class="row margin-bottom-10">
               <div class="col-sm-6 col-xs-6">
                 <div class="counters">
-                  <span class="counter">100</span>
+                  <span class="counter">{{$donationTotal}}</span>
                   <h4>การบริจาค</h4>
                 </div>
               </div>
               <div class="col-sm-6 col-xs-6">
                 <div class="counters">
-                  <span class="counter">277</span>
+                  <span class="counter">{{$donorTotal}}</span>
                   <h4>ผู้บริจาค</h4>
                 </div>
               </div>
@@ -251,39 +235,39 @@
 
             <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับโครงการนี้</h2>
 
-            <div class="bg-color-light">
+            <div>
               <div class="container content-sm">
                 <div class="row team-v4 people-list">
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img20-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img20-md.jpg">
                     <span>Daniel Wearne</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img30-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img30-md.jpg">
                     <span>Sara Lisbon</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img22-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img22-md.jpg">
                     <span>John Doe</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                 </div>

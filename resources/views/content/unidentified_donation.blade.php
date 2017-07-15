@@ -1,8 +1,3 @@
-<div class="tag-box tag-box-v2">
-  <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-  <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
-</div>
-
 <div class="modal fade" id="unidentified_donation_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

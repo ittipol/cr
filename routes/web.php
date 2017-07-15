@@ -86,10 +86,11 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('charity/list', 'CharityController@listView');
 Route::get('charity/{id}', 'CharityController@index');
 
-Route::get('charity/project/list', 'ProjectController@listView');
-Route::get('charity/project/{id}', 'ProjectController@index');
+Route::get('project/list', 'ProjectController@listView');
+Route::get('project/{id}', 'ProjectController@index');
 
 Route::get('donate', 'DonateController@index');
 Route::post('donate', 'DonateController@donationSubmit');
-
 Route::get('donate/{code}', 'DonateController@complete');
+
+Route::get('news/{id}', 'NewsController@index');

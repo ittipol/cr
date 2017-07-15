@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Pagination\Paginator;
 use App\library\service;
-// use App\library\date;
+use App\library\date;
 use Redirect;
 
 class CharityController extends Controller
@@ -15,27 +15,35 @@ class CharityController extends Controller
 
     $donationModel = Service::loadModel('Donation');
 
-    // $donationModel->countDonor('Charity',$id);
+    // GET DATA
+    $news = Service::loadModel('News')
+    ->select('id','title','short_desc','thumbnail','created_at')
+    ->where('charity_id','=',$id)
+    ->orderBy('created_at','desc')
+    ->take(6);
 
-    // Get project
     $projects = Service::loadModel('Project')
-    ->select('id','name','short_desc')
+    ->select('id','name','short_desc','thumbnail','end_date','target_amount')
     ->where([
       ['charity_id','=',$id],
       ['end_date','>',date('Y-m-d H:i:s')]
-    ]);
+    ])
+    ->orderBy('created_at','desc')
+    ->take(6);
 
-    // dd($projects->get());
-
-    // Get News
-    $news = Service::loadModel('News');
-
-    $projects = Service::loadModel('Project')->where('charity_id','=',$id)->orderBy('created_by','desc')->take(6);
-
+    // GET IMAGES
     $images = array();
     if(!empty($charity->images)) {
       $images = json_decode($charity->images,true);
     }
+
+    $date = new Date();
+
+    // SEND MODEL TO VIEW
+    $this->setData('donationModel',Service::loadModel('Donation'));
+
+    // SEND LIB TO VIEW
+    $this->setData('dateLib',$date);
 
     $this->setData('charity',$charity);
     $this->setData('projects',$projects);
@@ -43,6 +51,9 @@ class CharityController extends Controller
     $this->setData('images',$images);
     $this->setData('amount',$donationModel->getTotalAmount('Charity',$id,true));
     $this->setData('donationTotal',$donationModel->countDonation('Charity',$id));
+    $this->setData('donorTotal',$donationModel->countDonor('Charity',$id,true));
+    $this->setData('remainingDate',$date->remainingDate(date('Y-m-d'),date('Y-m-t')));
+    $this->setData('percent',round((date('d') * 100) / date('t')));
 
     return $this->view('page.charity.index');
 

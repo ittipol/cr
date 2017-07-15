@@ -77,18 +77,16 @@
   </div>
 
   <div id="footer-v3" class="footer-v3">
-    <div class="footer">
+    <!-- <div class="footer">
       <div class="container">
         <div class="row">
-          <!-- About -->
+
           <div class="col-sm-3 md-margin-bottom-40">
             <a href="index.html"><img id="logo-footer" class="footer-logo" src="/assets/img/logo2-default.png" alt=""></a>
             <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
             <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>
-          </div><!--/col-md-3-->
-          <!-- End About -->
+          </div>
 
-          <!-- Simple List -->
           <div class="col-sm-3 md-margin-bottom-40">
             <div class="thumb-headline"><h2>About Unify</h2></div>
             <ul class="list-unstyled simple-list margin-bottom-20">
@@ -108,7 +106,7 @@
               <li><a href="#">Tour the New Journey</a></li>
               <li><a href="#">Registration Requirements</a></li>
             </ul>
-          </div><!--/col-md-3-->
+          </div>
 
           <div class="col-sm-3">
             <div class="thumb-headline"><h2>Topics</h2></div>
@@ -134,7 +132,7 @@
               <li><a href="#">August 2013</a></li>
               <li><a href="#">December 2013r</a></li>
             </ul>
-          </div><!--/col-md-3-->
+          </div>
 
           <div class="col-sm-3">
             <div class="thumb-headline"><h2>Developers</h2></div>
@@ -157,11 +155,11 @@
               <li><a href="#">Unslpash.com</a></li>
               <li><a href="#">Github.com</a></li>
             </ul>
-          </div><!--/col-md-3-->
-          <!-- End Simple List -->
+          </div>
+  
         </div>
       </div>
-    </div><!--/footer-->
+    </div> -->
 
     <div class="copyright">
       <div class="container">
@@ -170,7 +168,7 @@
           <div class="col-md-6">
             <p>
               2015 &copy; All Rights Reserved. Unify Theme by
-              <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+              <!-- <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> -->
             </p>
           </div>
           <!-- End Terms Info-->

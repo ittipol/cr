@@ -150,9 +150,14 @@ class Date
 
   // }
 
-  public function remainingDate($dateTime) {
+  public function remainingDate($end,$strat = null) {
 
-    $secs = strtotime($dateTime) - time();
+    $_start  = time();
+    if(!empty($start)) {
+      $_start = strtotime($start);
+    }
+
+    $secs = strtotime($end) - $_start;
     $mins = (int)floor($secs / 60);
     $hours = (int)floor($mins / 60);
     $days = (int)floor($hours / 24);

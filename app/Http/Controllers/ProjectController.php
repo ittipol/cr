@@ -11,25 +11,38 @@ class ProjectController extends Controller
 {
   public function index($id) {
 
-    $project = Service::loadModel('Project')->find($id);
+    $project = Service::loadModel('Project')
+    ->select('id','charity_id','name','short_desc','thumbnail','end_date','target_amount','created_at')
+    ->where([
+      ['id','=',$id],
+      ['end_date','>',date('Y-m-d H:i:s')]
+    ]);
 
-    $date = new Date;
-
-    // Get charity Detail
-    $charity = Service::loadModel('Charity')->select('id','name','logo')->find($project->charity_id);
+    if(!$project->exists()) {
+      return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
+    }
 
     $donationModel = Service::loadModel('Donation');
 
-    $amount = $donationModel->getTotalAmount('Project',$id,false,false);
-    $percent = ($amount*100)/$project->target_amount;
+    $date = new Date;
 
-    // project already end
+    $project = $project->first();
+
+    // Get Charity
+    $charity = Service::loadModel('Charity')->select('id','name','logo')->find($project->charity_id);
+
+    $amount = $donationModel->getTotalAmount('Project',$id,false,false);
+
+    // SEND LIB TO VIEW
+    $this->setData('dateLib',$date);
 
     $this->setData('project',$project);
     $this->setData('charity',$charity);
     $this->setData('amount',number_format($amount, 0, '.', ','));
+    $this->setData('donationTotal',$donationModel->countDonation('Project',$id));
+    $this->setData('donorTotal',$donationModel->countDonor('Project',$id,true));
     $this->setData('targetAmount',number_format($project->target_amount, 0, '.', ','));
-    $this->setData('percent',round($percent));
+    $this->setData('percent',round(($amount*100)/$project->target_amount));
     $this->setData('remainingDate',$date->remainingDate($project->end_date));
     
     return $this->view('page.project.index');

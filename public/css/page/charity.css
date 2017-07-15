@@ -2,6 +2,10 @@
 	padding: 0;
 }
 
+.charity .name-location span i {
+	color: #EF6C00;
+}
+
 .donate-box {
 	border: 1px solid #e0e4fb;
 }
@@ -165,8 +169,9 @@
 	border-radius: 100px;
 }
 
-.thumbnails-v1.news-list-item img {
-	width: 345px;
+.news-v3.news-list-item img {
+	width: 360px;
+	height: 200px;
 }
 
 .content-images-list .cbp-ready .cbp-item {
@@ -192,7 +197,7 @@
 	text-align: center;
 	line-height: 170px;
 	color: #fff;
-	background-color: rgba(0, 0, 0, .4);
+	/*background-color: rgba(0, 0, 0, .4);*/
 }
 
 /* Medium Devices, Desktops */

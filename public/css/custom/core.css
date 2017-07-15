@@ -25,6 +25,10 @@ hr {
 
 .padding-15 {padding: 15px !important;}
 
+.navbar-default .navbar-toggle {
+	border: 0;
+}
+
 form .state-error + em {
 	color: red;
 	font-size: 13px;
@@ -137,6 +141,9 @@ h2 > img.provider-logo {
   text-transform: uppercase;
   background-color: transparent;
   padding: 17px 0 17px 24px;
+}
+.one-page-header.charity-header .navbar-nav > li > a:hover {
+	background-color: transparent;
 }
 
 @media (max-width: 991px) {

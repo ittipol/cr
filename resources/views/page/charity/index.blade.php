@@ -4,7 +4,7 @@
 <div class="container charity content profile">
 
   <div class="charity-header clearfix">
-    <img class="charity-logo" src="/assets/img/team/img32-md.jpg">
+    <img class="charity-logo" src="{{$charity->logo}}">
     <div class="charity-info">
       <h2 class="charity-name">{{$charity->name}}
         <div class="name-location">
@@ -39,9 +39,9 @@
         </div>
         
         <div class="statistics">
-          <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">15 วัน</span></h3>
+          <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">{{$remainingDate}}</span></h3>
           <div class="progress progress-u progress-xxs">
-            <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
+            <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
 
   <div class="content-images-list">
     <div class="text-center margin-bottom-50">
-      <h2 class="title-v2 title-center">รูปภาพมูลนิธิ(เพิ่มเติม)</h2>
+      <h2 class="title-v2 title-center">รูปภาพมูลนิธิ</h2>
     </div>
 
     <div class="cube-portfolio container margin-bottom-60">
@@ -117,108 +117,11 @@
           </div>
           <div class="tab-pane fade in" id="news">
             <div class="panel panel-profile">
-
-              <div class="panel-heading overflow-h">
-                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>ข่าวสาร</h2>
-                <a href="page_profile_users.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right">เพิ่มเติม</a>
-              </div>
-   
-              <div class="bg-color-light">
-                <div class="container content-md">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="thumbnails-v1 news-list-item">
-                        <div class="thumbnail-img">
-                          <img class="img-responsive" src="/assets/img/masonry/blog2.jpg" alt="">
-                        </div>
-                        <div class="caption">
-                          <h3><a href="#">Business Opportunities</a></h3>
-                          <p>Donec id elit non mi porta gravida at eget metsit us. Fusce dapibus, justo sit amet risus etiam portapsum generators on the Internet tend to repeat predefined.</p>
-                          <p class="no-margin-bottom"><a class="read-more" href="#">See More</a></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="thumbnails-v1 news-list-item">
-                        <div class="thumbnail-img">
-                          <img class="img-responsive" src="/assets/img/masonry/blog3.jpg" alt="">
-                        </div>
-                        <div class="caption">
-                          <h3><a href="#">Engage Customers With Unify</a></h3>
-                          <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text, all the  ipsum generators.</p>
-                          <p class="no-margin-bottom"><a class="read-more" href="#">See More</a></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="thumbnails-v1 news-list-item">
-                        <div class="thumbnail-img">
-                          <img class="img-responsive" src="/assets/img/masonry/blog4.jpg" alt="">
-                        </div>
-                        <div class="caption">
-                          <h3><a href="#">Empower People, HCM</a></h3>
-                          <p>Donec id elit non mi porta gravida at eget metsit us. Fusce dapibus, justo sit amet risus etiam portapsum generators on the Internet tend to repeat predefined.</p>
-                          <p class="no-margin-bottom"><a class="read-more" href="#">See More</a></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              @include('page.charity.template.news');
             </div>
           </div>
           <div class="tab-pane fade in" id="project">
-
-            <div class="panel panel-profile">
-              <div class="panel-heading overflow-h">
-                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>โครงการจากมูลนิธินี้</h2>
-              </div>
-            </div>
-
-            <div class="clearfix margin-bottom-40"></div>
-
-            <!-- <h2 class="text-center">ยังไม่มีโครงการจากมูลนิธินี้</h2> -->
-
-            <div class="col-md-4 news-v3">
-              <img class="img-responsive full-width" src="/images/bb6.jpg" alt="">
-              <div class="news-v3-in-sm bg-color-light">
-                <h2 class="new-title">
-                  <span>
-                    <a href="{{URL::to('charity')}}/1">xxx</a>
-                  </span>
-                </h2>
-                <p>desc</p>
-                <div class="service-block-v3 project-box">
-
-                  <div class="statistics">
-                    <h3 class="heading-xs"><strong>52,147</strong> / 100,000 บาท<span class="pull-right">67%</span></h3>
-                    <div class="progress progress-u progress-xxs">
-                      <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
-                      </div>
-                    </div>
-                    <!-- <small><strong>52,147</strong> / 100,000 บาท</small> -->
-                  </div>
-
-                  <div class="clearfix margin-bottom-10"></div>
-                  <div class="clearfix margin-bottom-10"></div>
-                  <div class="clearfix margin-bottom-10"></div>
-
-                  <i class="icon-clock"></i>
-                  <span class="counter">19 วัน</span>
-                  <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span>
-
-                  <div class="clearfix margin-bottom-10"></div>
-                  <div class="clearfix margin-bottom-10"></div>
-
-                  <div class="margin-bottom-20">
-                    <a href="{{URL::to('donate')}}?for=project&id=1" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
-                  </div>
-                </div>
-            
-              </div>
-            </div>
-
+            @include('page.charity.template.project');
           </div>
           <div class="tab-pane fade in" id="collaboration">
 
@@ -243,7 +146,7 @@
               </div>
               <div class="col-sm-6 col-xs-6">
                 <div class="counters">
-                  <span class="counter">277</span>
+                  <span class="counter">{{$donorTotal}}</span>
                   <h4>ผู้บริจาค</h4>
                 </div>
               </div>
@@ -253,39 +156,39 @@
 
             <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับมูลนิธินี้</h2>
 
-            <div class="bg-color-light">
+            <div>
               <div class="container content-sm">
                 <div class="row team-v4 people-list">
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img20-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img20-md.jpg">
                     <span>Daniel Wearne</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img30-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img30-md.jpg">
                     <span>Sara Lisbon</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img22-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img22-md.jpg">
                     <span>John Doe</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                   <div class="col-md-3 col-sm-6 people-list-item">
-                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
                     <span>Alice Williams</span>
                   </div>
                 </div>
