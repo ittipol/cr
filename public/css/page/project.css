@@ -37,6 +37,26 @@
 	color: #05AF3C;
 }
 
+.timeline-v2 .timeline-start {
+	text-align: center;
+	background-color: #072a16;
+	background-image: url(/images/common/timeline-start.jpg);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+	padding: 50px 100px;
+	border-radius: 6px;
+}
+
+.timeline-v2 .timeline-start > h4 {
+	color: #444;
+	font-size: 28px;
+}
+
+.timeline-v2 .timeline-start > p {
+	color: #444;
+}
+
 @media only screen and (max-width : 480px) {
 
 	.project-header .project-name {
@@ -45,6 +65,15 @@
 
 	.project-header .project-short-desc {
 		font-size: 14px;
+	}
+
+	.timeline-v2 .timeline-start {
+    width: 100%;
+    padding: 40px 20px;
+	}
+
+	.timeline-v2 .timeline-start > h4 {
+		font-size: 24px;
 	}
 
 }

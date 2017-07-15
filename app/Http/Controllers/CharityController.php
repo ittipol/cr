@@ -11,14 +11,38 @@ class CharityController extends Controller
 {
   public function index($id) {
 
-    $data = Service::loadModel('Charity')->find($id);
+    $charity = Service::loadModel('Charity')->find($id);
 
     $donationModel = Service::loadModel('Donation');
 
-    $donationModel->countDonor('Charity',$id);
+    // $donationModel->countDonor('Charity',$id);
 
-    $this->setData('charity',$data);
+    // Get project
+    $projects = Service::loadModel('Project')
+    ->select('id','name','short_desc')
+    ->where([
+      ['charity_id','=',$id],
+      ['end_date','>',date('Y-m-d H:i:s')]
+    ]);
+
+    // dd($projects->get());
+
+    // Get News
+    $news = Service::loadModel('News');
+
+    $projects = Service::loadModel('Project')->where('charity_id','=',$id)->orderBy('created_by','desc')->take(6);
+
+    $images = array();
+    if(!empty($charity->images)) {
+      $images = json_decode($charity->images,true);
+    }
+
+    $this->setData('charity',$charity);
+    $this->setData('projects',$projects);
+    $this->setData('news',$news);
+    $this->setData('images',$images);
     $this->setData('amount',$donationModel->getTotalAmount('Charity',$id,true));
+    $this->setData('donationTotal',$donationModel->countDonation('Charity',$id));
 
     return $this->view('page.charity.index');
 
@@ -30,6 +54,7 @@ class CharityController extends Controller
 
     $currentPage = 1;
     if(!empty($this->query['page'])) {
+      // request()->page
       $currentPage = $this->query['page'];
     }
 

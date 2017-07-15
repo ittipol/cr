@@ -17,8 +17,8 @@ class StockImageController extends Controller
     $model = new StockImage;
 
     $currentPage = 1;
-    if(!empty($this->query['page'])) {
-      $currentPage = $this->query['page'];
+    if(!empty($_GET['page'])) {
+      $currentPage = $_GET['page'];
     }
 
     //set page
@@ -26,7 +26,7 @@ class StockImageController extends Controller
         return $currentPage;
     });
 
-    $data = $model->paginate(15);
+    $data = $model->paginate(24);
 
     $this->setData('images',$data);
 

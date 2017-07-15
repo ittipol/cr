@@ -29,10 +29,15 @@ class DonateController extends Controller
 
       case 'project':
         
-        $data = Service::loadModel('Project')->select('name','charity_id')->find(request()->id);
+        $project = Service::loadModel('Project')
+        ->select('id')
+        ->where([
+          ['id','=',$id],
+          ['end_date','>',date('Y-m-d H:i:s')]
+        ]);
 
-        if(empty($data)) {
-          return $this->error('ไม่พบโครงการนี้');
+        if($project->exists()) {
+          return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
 
         $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
@@ -83,6 +88,10 @@ class DonateController extends Controller
 
     $this->setData('provinces', $provinces);
 
+    if(Auth::check()) {
+      // $this->setData('donor_name','');
+    }
+
     $this->setData('name',$data->name);
     $this->setData('id',request()->id);
     $this->setData('for',request()->for);
@@ -109,7 +118,6 @@ class DonateController extends Controller
     
     if($validator->fails()) {
       return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
-      // return Redirect::back()->withErrors($validator->getMessageBag());
     }
 
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
@@ -123,7 +131,7 @@ class DonateController extends Controller
         )
       ));
 
-      $donation->address = json_encode(array(
+      $donation->shipping_address = json_encode(array(
         'receiver_name' => request()->receiver_name,
         'address_no' => request()->address_no,
         'building' => request()->building,
@@ -153,8 +161,15 @@ class DonateController extends Controller
 
       case 'project':
 
-        if(empty(Service::loadModel('Project')->select('id')->find(request()->id))) {
-          return $this->error('ไม่พบโครงการนี้');
+        $project = Service::loadModel('Project')
+        ->select('id')
+        ->where([
+          ['id','=',$id],
+          ['end_date','>',date('Y-m-d H:i:s')]
+        ]);
+
+        if($project->exists()) {
+          return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
 
         $donation->model = 'Project';
@@ -167,16 +182,33 @@ class DonateController extends Controller
         break;
     }
 
-    $donation->donor_name = request()->name;
-    $donation->email = request()->email;
     $donation->transfer_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
     $donation->amount = request()->amount;
     $donation->code = Token::generateSecureKey(10);
 
     if(Auth::check()) {
       $donation->user_id = Auth::user()->id;
+    }else{
+
+      $_guestData = array();
+
+      if(!empty(request()->name)) {
+        $_guestData['name'] = trim(request()->name);
+      }
+
+      if(!empty(request()->name)) {
+        $_guestData['email'] = trim(request()->email);
+      }
+
+      if(!empty($_guestData)) {
+        $donation->guest_data = json_encode($_guestData);
+      }
+      
     }
 
+    if(isset(request()->unidentified) && request()->unidentified) {
+      $donation->unidentified = request()->unidentified;
+    }
 
     // $date = date('Y m d');
     // $date = str_replace('0', 'X', $date);

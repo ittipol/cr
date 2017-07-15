@@ -79,6 +79,9 @@ Route::group(['middleware' => 'guest'], function () {
   Route::post('/register', 'UserController@registering');
 });
 
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('logout', 'UserController@logout');
+});
 
 Route::get('charity/list', 'CharityController@listView');
 Route::get('charity/{id}', 'CharityController@index');

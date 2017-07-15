@@ -15,7 +15,9 @@
     </span>
   </div>
 
-  <hr>
+  <!-- <hr> -->
+  <div class="clearfix margin-bottom-40"></div>
+
 
   <!-- <div class="project-header">
     <h2 class="project-name">{{$project->name}}</h2>
@@ -170,13 +172,12 @@
 
   <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-12">
 
       <div class="tab-v1 margin-bottom-40">
         <ul class="nav nav-tabs margin-bottom-20">
           <li class="active"><a href="#project" data-toggle="tab">โครงการ</a></li>
           <li><a href="#timeline" data-toggle="tab">ไทม์ไลน์</a></li>
-          <li><a href="#comment" data-toggle="tab">ความคิดเห็น</a></li>
           <li><a href="#collaboration" data-toggle="tab">การบริจาค</a></li>
         </ul>
         <div class="tab-content">
@@ -207,41 +208,90 @@
                   </div>
                 </li>
 
-                <li class="equal-height-columns">
-                  <div class="cbp_tmtime equal-height-column"><span>18/7/13</span> <span>June</span></div>
-                  <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                  <div class="cbp_tmlabel equal-height-column">
-                    <h2>เปิดรับบริจาค</h2>
-                  </div>
+                <li class="timeline-start">
+                  <p>June 13, 2017</p>
+                  <h4>โครงการเปิดรับบริจาค</h4>
                 </li>
+
               </ul>
+
             </div>
 
           </div>
-          <div class="tab-pane fade in" id="comment">
-            <h3>ความคิดเห็น</h3>
-          </div>
           <div class="tab-pane fade in" id="collaboration">
             
-            <div class="row margin-bottom-10">
-              <div class="col-sm-3 col-xs-6">
-                <div class="counters">
-                  <span class="counter">10629</span>
-                  <h4>ผูบริจาคใหม่</h4>
+            <div class="parallax-quote parallaxBg">
+              <div class="container">
+                <div class="parallax-quote-in">
+                  <p>การบริจาคให้กับโครงการนี้</p>
                 </div>
               </div>
-              <div class="col-sm-3 col-xs-6">
+            </div>
+
+            <div class="clearfix margin-bottom-40"></div>
+
+            <h2 class="text-center">การบริจาคในเดือนนี้</h2>
+
+            <div class="row margin-bottom-10">
+              <div class="col-sm-6 col-xs-6">
+                <div class="counters">
+                  <span class="counter">100</span>
+                  <h4>การบริจาค</h4>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xs-6">
                 <div class="counters">
                   <span class="counter">277</span>
-                  <h4>ผู้ที่กลับมาบริจาค</h4>
+                  <h4>ผู้บริจาค</h4>
                 </div>
               </div>
-              <div class="col-sm-3 col-xs-6">
-                <div class="counters">
-                  <span class="counter">78</span>
-                  <h4>ผู้บริจาคโดยไม่ออกนาม</h4>
+            </div>
+
+            <div class="clearfix margin-bottom-40"></div>
+
+            <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับโครงการนี้</h2>
+
+            <div class="bg-color-light">
+              <div class="container content-sm">
+                <div class="row team-v4 people-list">
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img20-md.jpg" alt="">
+                    <span>Daniel Wearne</span>
+                  </div>
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img30-md.jpg" alt="">
+                    <span>Sara Lisbon</span>
+                  </div>
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img22-md.jpg" alt="">
+                    <span>John Doe</span>
+                  </div>
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <span>Alice Williams</span>
+                  </div>
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <span>Alice Williams</span>
+                  </div>
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <span>Alice Williams</span>
+                  </div>
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <span>Alice Williams</span>
+                  </div>
+                  <div class="col-md-3 col-sm-6 people-list-item">
+                    <img class="img-responsive" src="/assets/img/team/img19-md.jpg" alt="">
+                    <span>Alice Williams</span>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <div class="text-center">
+              <button class="btn-u btn-u-lg btn-u-red" type="button">แสดงเพิ่มเติม</button>
             </div>
 
           </div>
@@ -249,7 +299,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <h3>บริจาคให้กับมูลนิธินี้</h3>
 
       <div class="donate-box">
@@ -259,7 +309,7 @@
           <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 

@@ -60,7 +60,7 @@ class UserController extends Controller
     
     if(Auth::check()) {
       Auth::logout();
-      Session::flush();
+      session()->flush();
     }
 
     return redirect('/');

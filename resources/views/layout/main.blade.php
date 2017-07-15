@@ -40,16 +40,16 @@
         <div class="menu-container">
           <ul class="nav navbar-nav">
             <li class="page-scroll home active">
-              <a href="#body">Home</a>
+              <a href="{{URL::to('/')}}">หน้าแรก</a>
             </li>
             <li class="page-scroll">
-              <a href="#your-help">Your help</a>
+              <a href="#your-help">การบริจาค</a>
             </li>
             <li class="page-scroll">
-              <a href="#our-projects">Our projects</a>
+              <a href="#our-projects">มูลนิธิ</a>
             </li>
             <li class="page-scroll">
-              <a href="#success-stories">Success stories</a>
+              <a href="#success-stories">โครงการ</a>
             </li>
             <li class="page-scroll">
               <a href="#donators">Donators</a>
@@ -58,7 +58,7 @@
               <a href="#events">Events</a>
             </li>
             <li class="page-scroll">
-              <a href="#blog">Blog&amp;News</a>
+              <a href="#blog">ข่าวสาร</a>
             </li>
             <li class="page-scroll">
               <a href="#subscription">Subscription</a>

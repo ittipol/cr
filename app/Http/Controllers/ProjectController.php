@@ -23,6 +23,8 @@ class ProjectController extends Controller
     $amount = $donationModel->getTotalAmount('Project',$id,false,false);
     $percent = ($amount*100)/$project->target_amount;
 
+    // project already end
+
     $this->setData('project',$project);
     $this->setData('charity',$charity);
     $this->setData('amount',number_format($amount, 0, '.', ','));

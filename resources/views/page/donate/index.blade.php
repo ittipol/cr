@@ -64,14 +64,23 @@
 
       <p>2. แจ้งการบริจาคของคุณ</p>
 
-      <div class="tag-box tag-box-v2">
-        <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-        <p>หากต้องการบริจาคโดยไม่ออกนามให้เว้นการกรอก "ชื่อ นามสกุล" ของคุณ</p>
-      </div>
-
       @include('component.form_error')
 
       {{Form::open(['url' => Request::fullUrl(), 'id' => 'donation_form', 'class' => 'sky-form sky-changes-3', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
+
+        @include('content.unidentified_donation')
+
+        <fieldset>
+          <div class="row">
+            <section class="col col-6">
+              <label class="checkbox">
+                {{Form::checkbox('unidentified', 1)}}<i></i>บริจาคโดยไม่ออกนาม
+              </label>
+            </section>
+          </div>
+        </fieldset>
+
+        @if(!Auth::check())
 
         <fieldset>
           <div class="row">
@@ -90,6 +99,7 @@
               </label>
             </section>
           </div>
+          @endif
 
           <div class="row">
             <section class="col col-6">
