@@ -32,22 +32,21 @@
     </div>
   </div>
 
-  <div class="social-login">
-    <div class="or rounded-x">หรือ</div>
-    <ul class="list-unstyled">
-      <li>
-        <button id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">
-          <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook
-        </button>
-        <div class="text-center">
-          <small>
-            เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>
-            โดยไม่ได้รับอนุญาตจากคุณ
-          </small>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+  <div class="social-login">     <div class="or rounded-x">หรือ</div>     <ul
+class="list-unstyled">       <li>         <a class="js-login-facebook
+loginbutton dekdbutton -lg -social-facebook _button-with-states -ready
+-loading" href="https://www.facebook.com/v2.9/dialog/oauth?auth_type=rerequest
+&amp;client_id=227375124451364&amp;state=4993a6fdd2003f1375a7d67d62b6db72&amp;
+response_type=code&amp;sdk=php-sdk-5.0.0&amp;redirect_uri=https%3A%2F%2Fwww.de
+k-d.com%2Fquiz%2Fsupertest%2F57658%2F&amp;scope=email%2Cuser_about_me%2Cuser_b
+irthday%2Cpublic_profile">           xxx               </a>         <button
+id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed
+margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
+Facebook         </button>         <div class="text-center">           <small>
+เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>             โดยไม่ได้รับอนุญาตจากคุณ
+</small>         </div>       </li>     </ul>   </div>
 
   <div class="text-center margin-top-60">
     ต้องการสร้างบัญชี <a href="{{URL::to('register')}}">สร้างบัญชี</a>

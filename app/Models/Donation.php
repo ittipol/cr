@@ -134,8 +134,14 @@ class Donation extends Model
       $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
+    $donation = $donations->first();
+
+    if(empty($donation)) {
+      return 0;
+    }
+
     if($format) {
-      return number_format($donations->first()->amount, 0, '.', ',');
+      return number_format($donation->amount, 0, '.', ',');
     }
 
     return $donations->first()->amount;

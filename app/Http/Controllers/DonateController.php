@@ -244,7 +244,9 @@ class DonateController extends Controller
   }
 
   public function complete($code) {
-    dd($code);
+
+    $donation = Service::loadModel('Donation');
+
     return $this->view('page.donate.complete');
   }
 

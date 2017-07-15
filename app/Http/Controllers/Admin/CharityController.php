@@ -57,7 +57,20 @@ class CharityController extends Controller
     $model = Service::loadModel('Charity');
 
     if(!empty(request()->_images)) {
-      $model->images = json_encode(request()->_images);
+
+      $images = array();
+      foreach (request()->_images as $value) {
+        
+        if(empty($value)) {
+          continue;
+        }
+
+        $images[] = $value;
+
+      }
+
+      $model->images = json_encode($images);
+
     }
     
     if($model->fill(request()->all())->save()) {
@@ -104,7 +117,20 @@ class CharityController extends Controller
     $data = Service::loadModel('Charity')->find($id);
 
     if(!empty(request()->_images)) {
-      $data->images = json_encode(request()->_images);
+
+      $images = array();
+      foreach (request()->_images as $value) {
+        
+        if(empty($value)) {
+          continue;
+        }
+
+        $images[] = $value;
+
+      }
+
+      $model->images = json_encode($images);
+
     }
 
     if($data->fill(request()->all())->save()) {

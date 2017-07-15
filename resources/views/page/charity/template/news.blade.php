@@ -1,4 +1,11 @@
+<div class="panel panel-profile">
+  <div class="panel-heading overflow-h">
+    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>ข่าวสาร</h2>
+  </div>
+</div>
+
 @if($news->exists())
+  <div class="clearfix margin-bottom-20"></div>
   <div class="container">
     <div class="row">
       @foreach($news->get() as $value)
@@ -20,5 +27,6 @@
     </div>
   </div>
 @else
-  <h2 class="text-center">ยังไม่มีข่าวสารจากมูลนิธินี้</h2>
+  <div class="clearfix margin-bottom-40"></div>
+  <h4 class="text-center">ยังไม่มีข่าวสารจากมูลนิธินี้</h4>
 @endif

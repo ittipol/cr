@@ -44,7 +44,7 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <i class="icon-users"></i>
-        <span class="counter">219</span>
+        <span class="counter">{{$donorTotal}}</span>
         <span class="sub-label">ผู้บริจาค</span>
 
         <div class="clearfix margin-bottom-10"></div>
@@ -66,91 +66,45 @@
 
   @include('content.bank_account_modal_project')
 
-  <!-- <div class="container content">
+  @if(!empty($images))
+  <div class="content-images-list">
     <div class="text-center margin-bottom-50">
-      <h2 class="title-v2 title-center">รูปภาพโครงการ(เพิ่มเติม)</h2>
+      <h2 class="title-v2 title-center">รูปภาพมูลนิธิ</h2>
     </div>
-    
+
     <div class="cube-portfolio container margin-bottom-60">
       <div id="grid-container" class="cbp-l-grid-agency">
 
-        <div class="cbp-item">
-          <div class="cbp-caption">
-            <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img26.jpg">
-            </div>
-            <div class="cbp-caption-activeWrap">
-              <div class="cbp-l-caption-alignCenter">
-                <div class="cbp-l-caption-body">
-                  <ul class="link-captions">
-                    <li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-                    <li><a href="/assets/img/main/img26.jpg" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
-                  </ul>
-                  <div class="cbp-l-grid-agency-title">Design Object 01</div>
+        @foreach($images as $key => $image)
+
+          <div class="cbp-item" <?php if($key > 3) echo 'style="display:none;"'; ?>>
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap">
+                @if($key == 3)
+                  <div class="more-picture">+ {{count($images) - 4}}</div>
+                @endif
+                <img src="{{$image}}">
+              </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <ul class="link-captions">
+                      <li><a href="{{$image}}" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
+                    </ul>
+                    <!-- <div class="cbp-l-grid-agency-title">#</div> -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="cbp-item">
-          <div class="cbp-caption">
-            <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img2.jpg">
-            </div>
-            <div class="cbp-caption-activeWrap">
-              <div class="cbp-l-caption-alignCenter">
-                <div class="cbp-l-caption-body">
-                  <ul class="link-captions">
-                    <li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-                    <li><a href="/assets/img/main/img2.jpg" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
-                  </ul>
-                  <div class="cbp-l-grid-agency-title">Design Object 02</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cbp-item">
-          <div class="cbp-caption">
-            <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img9.jpg">
-            </div>
-            <div class="cbp-caption-activeWrap">
-              <div class="cbp-l-caption-alignCenter">
-                <div class="cbp-l-caption-body">
-                  <ul class="link-captions">
-                    <li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-                    <li><a href="/assets/img/main/img9.jpg" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
-                  </ul>
-                  <div class="cbp-l-grid-agency-title">Design Object 03</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cbp-item">
-          <div class="cbp-caption">
-            <div class="cbp-caption-defaultWrap">
-              <img src="/assets/img/main/img11.jpg">
-            </div>
-            <div class="cbp-caption-activeWrap">
-              <div class="cbp-l-caption-alignCenter">
-                <div class="cbp-l-caption-body">
-                  <ul class="link-captions">
-                    <li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-                    <li><a href="/assets/img/main/img11.jpg" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
-                  </ul>
-                  <div class="cbp-l-grid-agency-title">Design Object 05</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        @endforeach
 
       </div>
     </div>
 
-  </div> -->
+  </div>
+  @endif
 
   <hr>
 
@@ -214,7 +168,7 @@
 
             <div class="clearfix margin-bottom-40"></div>
 
-            <h2 class="text-center">การบริจาคในเดือนนี้</h2>
+            <h2 class="text-center">การบริจาค</h2>
 
             <div class="row margin-bottom-10">
               <div class="col-sm-6 col-xs-6">

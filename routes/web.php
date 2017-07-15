@@ -93,4 +93,5 @@ Route::get('donate', 'DonateController@index');
 Route::post('donate', 'DonateController@donationSubmit');
 Route::get('donate/{code}', 'DonateController@complete');
 
+Route::get('news/list', 'NewsController@listView');
 Route::get('news/{id}', 'NewsController@index');

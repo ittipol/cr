@@ -52,7 +52,20 @@ class ProjectController extends Controller
     $model->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
 
     if(!empty(request()->_images)) {
-      $model->images = json_encode(request()->_images);
+
+      $images = array();
+      foreach (request()->_images as $value) {
+        
+        if(empty($value)) {
+          continue;
+        }
+
+        $images[] = $value;
+
+      }
+
+      $model->images = json_encode($images);
+
     }
 
     if($model->fill(request()->all())->save()) {
@@ -102,6 +115,23 @@ class ProjectController extends Controller
     $data = Service::loadModel('Project')->find($id);
 
     $data->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
+
+    if(!empty(request()->_images)) {
+
+      $images = array();
+      foreach (request()->_images as $value) {
+        
+        if(empty($value)) {
+          continue;
+        }
+
+        $images[] = $value;
+
+      }
+
+      $model->images = json_encode($images);
+
+    }
 
     if($data->fill(request()->all())->save()) {
       return Redirect::to('admin/project/list');

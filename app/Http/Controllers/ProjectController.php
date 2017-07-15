@@ -40,7 +40,7 @@ class ProjectController extends Controller
     $this->setData('charity',$charity);
     $this->setData('amount',number_format($amount, 0, '.', ','));
     $this->setData('donationTotal',$donationModel->countDonation('Project',$id));
-    $this->setData('donorTotal',$donationModel->countDonor('Project',$id,true));
+    $this->setData('donorTotal',$donationModel->countDonor('Project',$id));
     $this->setData('targetAmount',number_format($project->target_amount, 0, '.', ','));
     $this->setData('percent',round(($amount*100)/$project->target_amount));
     $this->setData('remainingDate',$date->remainingDate($project->end_date));

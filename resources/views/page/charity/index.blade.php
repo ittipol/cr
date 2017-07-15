@@ -18,7 +18,7 @@
 
   <div class="row margin-bottom-40">
     <div class="col-md-8">
-      <!-- <div class="img-charity-banner" style="background-image:url(/images/bb1.jpg)"></div> -->
+      <!-- <div class="img-charity-banner" style="background-image:url()"></div> -->
       <div class="embedded-video">
         <iframe width="100%" height="100%" src="{{$charity->vdo_url}}" frameborder="0" allowfullscreen></iframe>
       </div>
@@ -51,6 +51,7 @@
 
   @include('content.bank_account_modal')
 
+  @if(!empty($images))
   <div class="content-images-list">
     <div class="text-center margin-bottom-50">
       <h2 class="title-v2 title-center">รูปภาพมูลนิธิ</h2>
@@ -61,26 +62,26 @@
 
         @foreach($images as $key => $image)
 
-        <div class="cbp-item" <?php if($key > 3) echo 'style="display:none;"'; ?>>
-          <div class="cbp-caption">
-            <div class="cbp-caption-defaultWrap">
-              @if($key == 3)
-                <div class="more-picture">+ {{count($images) - 4}}</div>
-              @endif
-              <img src="{{$image}}">
-            </div>
-            <div class="cbp-caption-activeWrap">
-              <div class="cbp-l-caption-alignCenter">
-                <div class="cbp-l-caption-body">
-                  <ul class="link-captions">
-                    <li><a href="{{$image}}" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
-                  </ul>
-                  <!-- <div class="cbp-l-grid-agency-title">#</div> -->
+          <div class="cbp-item" <?php if($key > 3) echo 'style="display:none;"'; ?>>
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap">
+                @if($key == 3)
+                  <div class="more-picture">+ {{count($images) - 4}}</div>
+                @endif
+                <img src="{{$image}}">
+              </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <ul class="link-captions">
+                      <li><a href="{{$image}}" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
+                    </ul>
+                    <!-- <div class="cbp-l-grid-agency-title">#</div> -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
         @endforeach
 
@@ -88,6 +89,7 @@
     </div>
 
   </div>
+  @endif
 
   <hr>
 
@@ -117,11 +119,11 @@
           </div>
           <div class="tab-pane fade in" id="news">
             <div class="panel panel-profile">
-              @include('page.charity.template.news');
+              @include('page.charity.template.news')
             </div>
           </div>
           <div class="tab-pane fade in" id="project">
-            @include('page.charity.template.project');
+            @include('page.charity.template.project')
           </div>
           <div class="tab-pane fade in" id="collaboration">
 

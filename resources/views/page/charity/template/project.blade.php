@@ -1,10 +1,11 @@
 <div class="panel panel-profile">
   <div class="panel-heading overflow-h">
-    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>โครงการจากมูลนิธินี้</h2>
+    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>โครงการ</h2>
   </div>
 </div>
 
 @if($projects->exists())
+  <div class="clearfix margin-bottom-20"></div>
   <div class="container">
     <div class="row">
       @foreach($projects->get() as $value)
@@ -58,5 +59,6 @@
     </div>
   </div>
 @else
-  <h2 class="text-center">ยังไม่มีโครงการ</h2>
+  <div class="clearfix margin-bottom-40"></div>
+  <h4 class="text-center">ยังไม่มีโครงการ</h4>
 @endif
