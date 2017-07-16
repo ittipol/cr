@@ -7,7 +7,7 @@ use DB;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_data','acc_no','amount','transfer_date','get_reward','reward','shipping_address','verified'];
+  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','acc_no','amount','transfer_date','get_reward','reward','shipping_address','verified'];
 
   public $validation = array(
     'rules' => array(
@@ -48,6 +48,10 @@ class Donation extends Model
       'post_code.numeric' => 'รหัสไปรษณีย์ไม่ถูกต้อง',
     )
   );
+
+  public function user() {
+    return $this->hasOne('App\Models\User','id','user_id');
+  }
 
   public function charity() {
     return $this->hasOne('App\Models\Charity','id','model_id');

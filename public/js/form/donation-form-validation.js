@@ -98,7 +98,14 @@ var Validation = function () {
               },
             },    
 
-            // submitHandler: function(form) {},             
+            // submitHandler: function(form) {
+
+            //   let _form = $(form);
+
+
+            //   _form.submit();
+
+            // },             
 	            
 	            // Do not change code below
             errorPlacement: function(error, element)

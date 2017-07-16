@@ -6,7 +6,7 @@
   <div class="parallax-quote parallaxBg" style="background-position: 50% 89px;">
     <div class="container">
       <div class="parallax-quote-in">
-        <p>ขอบคุณที่คุณร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ@if($for == 'charity')มูลนิธิ @elseif($for == 'project')โครงการ @endif{{$name}}</p>
+        <p>ขอบคุณที่คุณร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}</p>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
         <img src="{{$charityLogo}}">
       </div>
       <div class="col-xs-6 invoice-numb">
-        @if($for == 'charity')มูลนิธิ @elseif($for == 'project')โครงการ @endif
+        {{$for}}
         <span>{{$name}}</span>
       </div>
     </div>
@@ -31,10 +31,10 @@
       </div>
     </div>
 
-    <div class="social-login text-center">      
+    <div id="social_content" class="social-login text-center">      
       <ul class="list-unstyled">       
         <li>             
-          <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
+          <a href="javascript:void(0);" id="fb_post_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
             <i class="fa fa-facebook"></i> โพสต์คำขอบคุณจากเราไปยัง Facebook ของคุณ       
           </a>         
           <div class="text-center">           
@@ -51,18 +51,108 @@
         <div class="tag-box tag-box-v3">
           <h2>รายละเอียดการบริจาค:</h2>
           <ul class="list-unstyled">
-            <li><strong>บริจาคให้กับ:</strong> @if($for == 'charity')มูลนิธิ @elseif($for == 'project')โครงการ @endif</li>
-            <li><strong>ชืื่อ@if($for == 'charity')มูลนิธิ @elseif($for == 'project')โครงการ @endif:</strong> MR.JOHN</li>
-            <li><strong>ชื่อ นามสกุล:</strong> MR.JOHN</li>
-            <li><strong>วันที่:</strong> NILSON</li>
-            <li><strong>จำนวนเงิน:</strong> YYYY/MM/DD</li>
+            <li><strong>บริจาคให้กับ:</strong> {{$for}}</li>
+            <li><strong>ชื่อ{{$for}}</strong> {{$name}}</li>
+            @if($donation->unidentified)
+              <li><strong>ชื่อ นามสกุล:</strong> ไม่ระบุ</li>
+            @elseif(!empty($donation->user_id))
+              <li><strong>ชื่อ นามสกุล:</strong> {{$donation->user->name}}</li>
+            @else
+              <li><strong>ชื่อ นามสกุล:</strong> {{$donation->guest_name}}</li>
+            @endif
+            <li><strong>วันที่:</strong> {{$dateLib->covertDateTimeToSting($donation->created_at)}}</li>
+            <li><strong>จำนวนเงิน:</strong> {{number_format($donation->amount, 0, '.', ',')}} บาท</li>
           </ul>
         </div>
       </div>
     </div>
 
+    @if(!$donation->verified)
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-danger fade in">
+          <strong>หมายเหตุ</strong> การบริจาคจะไม่แสดงไปยัง{{$for}}ทันที จะมีการตรวจสอบความถูกต้องก่อนจะแสดงไปยัง{{$for}}ที่คุณบริจาค
+        </div>
+      </div>
+    </div>
+    @endif
+
   </div>
 
 </div>
+
+<script type="text/javascript">
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '227375124451364',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+
+    init();
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  $('#fb_post_btn').on('click',function(e){
+
+    FB.getLoginStatus(function(response) {
+      console.log(response);
+    });
+
+    FB.login(function(response) {
+
+      console.log(response.authResponse);
+      if (response.authResponse) {
+        //user just authorized your app
+
+        console.log('dssds');
+
+        FB.api("/me/feed","POST",
+            {
+                message: "ABCDEF ... \nnew line test ...",
+                privacy: {value:"SELF"},
+                link: 'http://sundaysquare.com/'
+            },
+            function (response) {
+
+              console.log('here');
+              console.log(response.error);
+
+              $('#fb_post_btn').fadeOut(220);
+
+              if (response && !response.error) {
+                /* handle the result */
+                console.log('axxxx');
+              }
+            }
+        );
+
+      }
+    }, {scope: 'publish_actions'});
+  });
+
+  $('#aaa').on('click',function(){
+    FB.getLoginStatus(function(response) {
+
+      console.log(response.status);
+      if (response && response.status === 'connected') {
+          FB.logout(function(response) {
+              // document.location.reload();
+              console.log('logout');
+          });
+      }
+    });
+
+  });
+
+</script>
 
 @stop

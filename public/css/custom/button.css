@@ -13,6 +13,10 @@
 	background-color: #05AF3C;
 }
 
+.btn-u.btn-custom.disabled {
+	background-color: #999;
+}
+
 .btn-u.btn-custom.half {
 	width: 50%;
 }
@@ -22,5 +26,3 @@
 	float: none;
 	margin: 0 5px 0 0;
 }
-
-/*.btn-u.btn-donat {}*/

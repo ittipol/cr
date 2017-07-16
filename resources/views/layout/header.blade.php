@@ -33,9 +33,11 @@
             <li class="page-scroll">
               <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
             </li>
+            @if(!Auth::check())
             <li class="page-scroll">
-              <a href="#subscription">สร้างบัญชี</a>
+              <a href="{{URL::to('subscription')}}">สร้างบัญชี</a>
             </li>
+            @endif
           </ul>
         </div>
       </div>

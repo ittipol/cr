@@ -75,8 +75,8 @@ Route::group(['middleware' => 'guest'], function () {
   Route::get('/login', 'UserController@login');
   Route::post('/login', 'UserController@authenticate');
 
-  Route::get('/register', 'UserController@register');
-  Route::post('/register', 'UserController@registering');
+  Route::get('/subscription', 'UserController@register');
+  Route::post('/subscription', 'UserController@registering');
 });
 
 Route::group(['middleware' => 'auth'], function () {

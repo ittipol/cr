@@ -1,6 +1,8 @@
 @extends('layout.main')
 @section('content')
 
+
+
 {{Form::open(['id' => 'login_form', 'class' => 'user-form', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
 
 <div class="form-block login-block user-form">
@@ -34,25 +36,25 @@
 
   <div class="social-login">     
     <div class="or rounded-x">หรือ</div>     
-      <ul class="list-unstyled">       
-        <li>             
-          <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           
-            <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook         
-          </a>         
-          <div class="text-center">           
-            <small>เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>โดยไม่ได้รับอนุญาตจากคุณ</small>         
-          </div>       
-        </li>     
-      </ul>  
-    </div>
+    <ul class="list-unstyled">       
+      <li>             
+        <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           
+          <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook         
+        </a>         
+        <div class="text-center">           
+          <small>เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>โดยไม่ได้รับอนุญาตจากคุณ</small>         
+        </div>       
+      </li>     
+    </ul>  
   </div>
 
-  <a href="javascript:void(0);" id="aaa" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
+
+  <!-- <a href="javascript:void(0);" id="aaa" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
     xxx         
   </a>  
-
+ -->
   <div class="text-center margin-top-60">
-    ต้องการสร้างบัญชี <a href="{{URL::to('register')}}">สร้างบัญชี</a>
+    ต้องการสร้างบัญชี <a href="{{URL::to('subscription')}}">สร้างบัญชี</a>
   </div>
 
 </div>

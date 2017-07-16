@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\library\service;
 use App\library\token;
+use App\library\date;
 use Redirect;
 use Auth;
 use Validator;
@@ -192,23 +193,12 @@ class DonateController extends Controller
 
     if(Auth::check()) {
       $donation->user_id = Auth::user()->id;
+    }elseif(!empty(request()->name)){
+      $donation->guest_name = trim(request()->name);      
+    }
 
-      if(isset(request()->unidentified) && request()->unidentified) {
-        $donation->unidentified = request()->unidentified;
-      }
-    }else{
-
-      if(empty(request()->name)) {
-        $donation->unidentified = 1;
-      }else{
-
-        $donation->guest_data = json_encode(array(
-          'name' => trim(request()->name)
-        ));
-
-        $donation->unidentified = 0;
-      }
-      
+    if(isset(request()->unidentified) && request()->unidentified) {
+      $donation->unidentified = 1;
     }
 
     if($donation->save()) {
@@ -252,6 +242,7 @@ class DonateController extends Controller
           return $this->error('ไม่พบมูลนิธินี้');
         }
 
+        $this->setData('for','มูลนิธิ');
         $this->setData('charityName',$data->name);
         $this->setData('charityLogo',$data->logo);
 
@@ -265,6 +256,7 @@ class DonateController extends Controller
 
         $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
 
+        $this->setData('for','โครงการ');
         $this->setData('charityName',$charity->name);
         $this->setData('charityLogo',$charity->logo);
 
@@ -275,12 +267,12 @@ class DonateController extends Controller
         break;
     }
 
-    // $date = new Date;
+    $this->setData('dateLib',new Date);
 
     $this->setData('donation',$donation);
     $this->setData('id',$data->id);
     $this->setData('name',$data->name);
-    $this->setData('for',strtolower($donation->model));
+    // $this->setData('for',strtolower($donation->model));
     $this->setData('code',$code);
 
     return $this->view('page.donate.complete');

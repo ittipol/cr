@@ -30,7 +30,7 @@
   </div>
   @endif
 
-  <div id="guest_donate_form">
+  <div>
     
     <div class="row">
       <div class="col-md-8">
@@ -96,17 +96,18 @@
             <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุล" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
           </div>
 
-
           <fieldset>
 
             <div class="row">
               <section class="col col-xs-12">
                 <label class="label">ชื่อ นามสกุล</label>
                 <label class="input">
-                  {{Form::text('name', null, array('placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
+                  {{Form::text('name', null, array('id' => 'name_input','placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
                 </label>
               </section>
             </div>
+
+            {{Form::hidden('unidentified', 1, array('id' => 'unidentified'))}}
             @endif
 
             <div class="row">
@@ -398,6 +399,16 @@
         }else{
           $('#address_form').stop().slideUp(300);
         }
+      });
+
+      $('#donation_form').on('submit',function(){
+
+        if($('#name_input').length && ($('#name_input').val() == '')) {
+          $('#unidentified').val(1);
+        }else{
+          $('#unidentified').val(0);
+        }
+
       });
 
     }
