@@ -1,3 +1,10 @@
+/*.project .quote-v1.project-header {
+	background-image: url(/images/common/timeline-start.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+*/
 .project-header {
 	margin-bottom: 20px;
 }

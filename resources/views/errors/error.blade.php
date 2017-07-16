@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  <title>Error!!!</title>
+  <title>เกิดข้อผิดพลาด</title>
 
   <!-- Meta -->
   <meta charset="utf-8">
@@ -18,23 +18,23 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700,200&amp;subset=cyrillic,latin">
 
   <!-- CSS Global Compulsory -->
-  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- CSS Header and Footer -->
-  <link rel="stylesheet" href="assets/css/headers/header-default.css">
-  <link rel="stylesheet" href="assets/css/footers/footer-v1.css">
+  <link rel="stylesheet" href="/assets/css/headers/header-default.css">
+  <link rel="stylesheet" href="/assets/css/footers/footer-v1.css">
 
   <!-- CSS Implementing Plugins -->
-  <link rel="stylesheet" href="assets/plugins/animate.css">
-  <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
-  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/plugins/animate.css">
+  <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
+  <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
 
   <!-- CSS Page Style -->
-  <link rel="stylesheet" href="assets/css/pages/page_404_error5.css">
+  <link rel="stylesheet" href="/assets/css/pages/page_404_error5.css">
 
   <!-- CSS Customization -->
-  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 
 <body>
@@ -45,8 +45,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="error-v6 valign__middle">
           <a href="#" class="logo-a"><img class="logo" src="/images/logo/logo-light.png" alt=""></a>
-          <hr>
-          <h1>พบข้อผิดพลาด</h1>
+          <h1>เกิดข้อผิดพลาด!!!</h1>
           <span class="sorry">{{$message}}</span>
           <span class="input-group-btn">
             <a href="{{URL::to('/')}}" class="btn-u btn-u-red">ไปยังหน้าแรก</a>
@@ -59,24 +58,24 @@
 
 
   <!-- JS Global Compulsory -->
-  <script src="assets/plugins/jquery/jquery.min.js"></script>
-  <script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/assets/plugins/jquery/jquery.min.js"></script>
+  <script src="/assets/plugins/jquery/jquery-migrate.min.js"></script>
+  <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
   <!-- JS Implementing Plugins -->
-  <script src="assets/plugins/back-to-top.js"></script>
+  <script src="/assets/plugins/back-to-top.js"></script>
 
   <!-- JS Page Level -->
-  <script src="assets/js/app.js"></script>
+  <script src="/assets/js/app.js"></script>
   <script>
     jQuery(document).ready(function() {
       App.init();
     });
   </script>
   <!--[if lt IE 9]>
-  <script src="assets/plugins/respond.js"></script>
-  <script src="assets/plugins/html5shiv.js"></script>
-  <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+  <script src="/assets/plugins/respond.js"></script>
+  <script src="/assets/plugins/html5shiv.js"></script>
+  <script src="/assets/plugins/placeholder-IE-fixes.js"></script>
   <![endif]-->
 </body>
 </html>

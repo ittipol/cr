@@ -32,21 +32,23 @@
     </div>
   </div>
 
-  <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+  <div class="social-login">     
+    <div class="or rounded-x">หรือ</div>     
+      <ul class="list-unstyled">       
+        <li>             
+          <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
+            Facebook         
+          </a>         
+          <div class="text-center">           
+            <small>เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>โดยไม่ได้รับอนุญาตจากคุณ</small>         
+          </div>       
+        </li>     
+      </ul>  
+  </div>
 
-  <div class="social-login">     <div class="or rounded-x">หรือ</div>     <ul
-class="list-unstyled">       <li>         <a class="js-login-facebook
-loginbutton dekdbutton -lg -social-facebook _button-with-states -ready
--loading" href="https://www.facebook.com/v2.9/dialog/oauth?auth_type=rerequest
-&amp;client_id=227375124451364&amp;state=4993a6fdd2003f1375a7d67d62b6db72&amp;
-response_type=code&amp;sdk=php-sdk-5.0.0&amp;redirect_uri=https%3A%2F%2Fwww.de
-k-d.com%2Fquiz%2Fsupertest%2F57658%2F&amp;scope=email%2Cuser_about_me%2Cuser_b
-irthday%2Cpublic_profile">           xxx               </a>         <button
-id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed
-margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
-Facebook         </button>         <div class="text-center">           <small>
-เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>             โดยไม่ได้รับอนุญาตจากคุณ
-</small>         </div>       </li>     </ul>   </div>
+  <a href="javascript:void(0);" id="aaa" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
+    xxx         
+  </a>  
 
   <div class="text-center margin-top-60">
     ต้องการสร้างบัญชี <a href="{{URL::to('register')}}">สร้างบัญชี</a>
@@ -55,5 +57,70 @@ Facebook         </button>         <div class="text-center">           <small>
 </div>
 
 {{Form::close()}}
+
+<script type="text/javascript">
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '227375124451364',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+
+    init();
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  $('#fb_login_btn').on('click',function(e){
+    FB.login(function(response) {
+
+      console.log(response.authResponse);
+      if (response.authResponse) {
+        //user just authorized your app
+
+        console.log('dssds');
+
+        FB.api("/me/feed","POST",
+            {
+                message: "testing For ... <br>test ...",
+                privacy: {value:"SELF"},
+            },
+            function (response) {
+
+              console.log('here');
+              console.log(response.error);
+
+              if (response && !response.error) {
+                /* handle the result */
+              }
+            }
+        );
+
+      }
+    }, {scope: 'email,public_profile,publish_actions'});
+  });
+
+  $('#aaa').on('click',function(){
+    FB.getLoginStatus(function(response) {
+
+      console.log(response.status);
+      if (response && response.status === 'connected') {
+          FB.logout(function(response) {
+              // document.location.reload();
+              console.log('logout');
+          });
+      }
+    });
+
+  });
+
+</script>
 
 @stop

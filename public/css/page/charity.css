@@ -184,7 +184,12 @@
 	height: 200px;
 }
 
-.content-images-list .cbp-ready .cbp-item {
+.content-images-list .cbp-caption-zoom .cbp-caption-activeWrap {
+	/*background-color: rgba(49, 72, 110, 0.9);*/
+	background-color: rgba(49, 72, 110, 0.5);
+}
+
+/*.content-images-list .cbp-ready .cbp-item {
 	position: static;
 }
 
@@ -207,8 +212,7 @@
 	text-align: center;
 	line-height: 170px;
 	color: #fff;
-	/*background-color: rgba(0, 0, 0, .4);*/
-}
+}*/
 
 .list .news-v3.new-list-item {
 	margin-bottom: 30px;
@@ -249,7 +253,7 @@
 	}
 
 	.charity .embedded-video {
-		height: 200px;
+		height: 215px;
 	}
 
 }
