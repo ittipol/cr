@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-<div class="project">
+<div class="project margin-top-20 margin-bottom-100">
 
   <div class="container profile">
 
@@ -71,38 +71,27 @@
     @if(!empty($images))
     <div class="content-images-list">
       <div class="text-center margin-bottom-50">
-        <h2 class="title-v2 title-center">รูปภาพมูลนิธิ</h2>
+        <h2 class="title-v2 title-center">รูปภาพโครงการ</h2>
       </div>
 
-      <div class="cube-portfolio container margin-bottom-60">
-        <div id="grid-container" class="cbp-l-grid-agency">
-
-          @foreach($images as $key => $image)
-
-            <div class="cbp-item" <?php if($key > 3) echo 'style="display:none;"'; ?>>
-              <div class="cbp-caption">
-                <div class="cbp-caption-defaultWrap">
-                  @if($key == 3)
-                    <div class="more-picture">+ {{count($images) - 4}}</div>
-                  @endif
-                  <img src="{{$image}}">
-                </div>
-                <div class="cbp-caption-activeWrap">
-                  <div class="cbp-l-caption-alignCenter">
-                    <div class="cbp-l-caption-body">
-                      <ul class="link-captions">
-                        <li><a href="{{$image}}" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
-                      </ul>
-                      <!-- <div class="cbp-l-grid-agency-title">#</div> -->
-                    </div>
+      <div id="image_slider">
+        @foreach($images as $key => $image)
+          <div class="cbp-item">
+            <a href="{{$image}}" class="cbp-caption cbp-lightbox" data-title="">
+              <div class="cbp-caption-defaultWrap">
+                <img src="{{$image}}" alt="">
+              </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignLeft">
+                  <div class="cbp-l-caption-body">
+                    <div class="cbp-l-caption-title"></div>
+                    <div class="cbp-l-caption-desc"></div>
                   </div>
                 </div>
               </div>
-            </div>
-
-          @endforeach
-
-        </div>
+            </a>
+          </div>
+        @endforeach
       </div>
 
     </div>
@@ -129,8 +118,24 @@
                 </div>
               </div>
 
-              <div class="padding-15">
-                {!!$project->description!!}
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="description padding-15">
+                    {!!$charity->description!!}
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <h3>บริจาคให้กับมูลนิธินี้</h3>
+
+                  <div class="donate-box">
+                    <div class="donate-info">
+                      <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>
+                      <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>
+                      <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -261,6 +266,6 @@
 <link rel="stylesheet" href="/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
 
 <script type="text/javascript" src="/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-<script type="text/javascript" src="/assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
+<script type="text/javascript" src="/js/form/image-slider.js"></script>
 
 @stop

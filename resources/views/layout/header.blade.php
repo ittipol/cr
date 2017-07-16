@@ -25,22 +25,16 @@
               <a href="#your-help">การบริจาค</a>
             </li>
             <li class="page-scroll">
-              <a href="{{URL::to('/charity')}}">มูลนิธิ</a>
+              <a href="{{URL::to('charity/list')}}">มูลนิธิ</a>
             </li>
             <li class="page-scroll">
-              <a href="{{URL::to('/project')}}">โครงการ</a>
+              <a href="{{URL::to('project/list')}}">โครงการ</a>
             </li>
             <li class="page-scroll">
-              <a href="#donators">Donators</a>
+              <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
             </li>
             <li class="page-scroll">
-              <a href="#events">Events</a>
-            </li>
-            <li class="page-scroll">
-              <a href="#blog">ข่าวสาร</a>
-            </li>
-            <li class="page-scroll">
-              <a href="#subscription">Subscription</a>
+              <a href="#subscription">สร้างบัญชี</a>
             </li>
           </ul>
         </div>

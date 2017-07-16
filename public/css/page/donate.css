@@ -25,9 +25,30 @@
 	background-color: #fff;
 }
 
-/*@media only screen and (max-width : 480px) {
+.donate .invoice-header img {
+	width: 60px;
+}
 
-}*/
+.donation-code-box {
+	margin-bottom: 40px;
+}
+
+.donation-code-box .donation-code {
+	padding: 10px 25px;
+	border: 1px solid #ddd;
+	display: inline-block;
+	background-color: #ececec;
+}
+
+@media only screen and (max-width : 480px) {
+	.donation-code-box {
+		margin-bottom: 20px;
+	}
+
+	.donate .btn-facebook-inversed {
+		font-size: 14px;
+	}
+}
 
 @media only screen and (max-width : 320px) {
 

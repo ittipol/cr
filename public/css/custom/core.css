@@ -136,7 +136,7 @@ h2 > img.provider-logo {
 }
 .one-page-header.charity-header .navbar-nav > li > a {
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
   background-color: transparent;
@@ -172,7 +172,8 @@ h2 > img.provider-logo {
 .one-page-header.charity-header .navbar-nav > li.active > a:hover,
 .one-page-header.charity-header .navbar-nav > li.active > a:focus,
 .one-page-header.charity-header .navbar-nav > li.active > a {
-	color: #f5f219 !important;
+	/*color: #f5f219 !important;*/
+	color: #05AF3C !important;
 }
 
 /* Toggle button below 992px */
@@ -225,14 +226,6 @@ h2 > img.provider-logo {
 	.fixed-header {
 		height: 63px;
 	}
-  /*
-	.fixed-header > .header-logo-mobile {
-		display: block;
-	}
-
-	.header .logo {
-		display: none;
-	}*/
 
 	.bank-account-detail > table {
 		display: none;

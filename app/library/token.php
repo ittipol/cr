@@ -12,7 +12,7 @@ class Token
         $token = '';
         $len = strlen($codeAlphabet);
 
-        for ($i = 0; $i <= $length; $i++) {
+        for ($i = 0; $i < $length; $i++) {
           $token .= $codeAlphabet[rand(0,$len-1)];
         };
 
@@ -25,7 +25,7 @@ class Token
     $token = '';
     $len = strlen($number);
 
-    for ($i = 0; $i <= $length; $i++) {
+    for ($i = 0; $i < $length; $i++) {
       $token .= $number[rand(0,$len-1)];
     };
 
@@ -38,7 +38,7 @@ class Token
     $token = '';
     $len = strlen($codeAlphabet);
 
-    for ($i = 0; $i <= $length; $i++) {
+    for ($i = 0; $i < $length; $i++) {
       $token .= $codeAlphabet[rand(0,$len-1)];
     };
 
@@ -46,12 +46,12 @@ class Token
   }
 
   public static function generateLetter($length = 60){
-    $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    $codeAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
     $token = '';
     $len = strlen($codeAlphabet);
 
-    for ($i = 0; $i <= $length; $i++) {
+    for ($i = 0; $i < $length; $i++) {
       $token .= $codeAlphabet[rand(0,$len-1)];
     };
 

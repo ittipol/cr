@@ -2,7 +2,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  <title>Charity | Unify - Responsive Website Template</title>
+  @include('script.meta') 
 
   <!-- Meta -->
   <meta charset="utf-8">
@@ -36,7 +36,6 @@
 </head>
 <body id="body">
 
-  <!-- Header -->
   <nav class="charity-header one-page-header navbar navbar-default navbar-fixed-top one-page-nav-scrolling one-page-nav__fixed" data-role="navigation">
     <div class="container">
       <div class="menu-container page-scroll">
@@ -53,42 +52,33 @@
         </a>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <div class="menu-container">
           <ul class="nav navbar-nav">
-            <li class="page-scroll home">
-              <a href="#body">Home</a>
+            <li class="page-scroll home active">
+              <a href="{{URL::to('/')}}">หน้าแรก</a>
             </li>
             <li class="page-scroll">
-              <a href="#your-help">Your help</a>
+              <a href="#your-help">การบริจาค</a>
             </li>
             <li class="page-scroll">
-              <a href="#our-projects">Our projects</a>
+              <a href="{{URL::to('charity/list')}}">มูลนิธิ</a>
             </li>
             <li class="page-scroll">
-              <a href="#success-stories">Success stories</a>
+              <a href="{{URL::to('project/list')}}">โครงการ</a>
             </li>
             <li class="page-scroll">
-              <a href="#donators">Donators</a>
+              <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
             </li>
             <li class="page-scroll">
-              <a href="#events">Events</a>
-            </li>
-            <li class="page-scroll">
-              <a href="#blog">Blog&amp;News</a>
-            </li>
-            <li class="page-scroll">
-              <a href="#subscription">Subscription</a>
+              <a href="#subscription">สร้างบัญชี</a>
             </li>
           </ul>
         </div>
       </div>
-      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
+
   </nav>
-  <!-- /Header -->
 
   <!-- Promo section -->
   <div class="promo-section">

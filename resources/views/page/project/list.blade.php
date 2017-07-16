@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-<div class="container">
+<div class="container list" class="margin-top-20 margin-bottom-100">
   
   <h2>โครงการ</h2>
   <hr>

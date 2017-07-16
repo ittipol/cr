@@ -143,6 +143,10 @@
 	height: 380px;
 }
 
+.tab-content > .tab-pane {
+	min-height: 200px;
+}
+
 .tab-content .description img {
 	width: 100%;
 	height: auto;
@@ -188,31 +192,6 @@
 	/*background-color: rgba(49, 72, 110, 0.9);*/
 	background-color: rgba(49, 72, 110, 0.5);
 }
-
-/*.content-images-list .cbp-ready .cbp-item {
-	position: static;
-}
-
-.content-images-list .cbp img {
-	height: 170px;
-}
-
-.content-images-list .cube-portfolio .link-captions {
-	margin-top: 20px;
-}
-
-.content-images-list .more-picture {
-	position: absolute;
-	top: 0;
-	width: 0;
-	z-index: 99;
-	width: 100%;
-	height: 100%;
-	font-size: 70px;
-	text-align: center;
-	line-height: 170px;
-	color: #fff;
-}*/
 
 .list .news-v3.new-list-item {
 	margin-bottom: 30px;

@@ -36,14 +36,15 @@
     <div class="or rounded-x">หรือ</div>     
       <ul class="list-unstyled">       
         <li>             
-          <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
-            Facebook         
+          <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           
+            <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook         
           </a>         
           <div class="text-center">           
             <small>เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>โดยไม่ได้รับอนุญาตจากคุณ</small>         
           </div>       
         </li>     
       </ul>  
+    </div>
   </div>
 
   <a href="javascript:void(0);" id="aaa" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
@@ -89,7 +90,7 @@
 
         FB.api("/me/feed","POST",
             {
-                message: "testing For ... <br>test ...",
+                message: "testing For ... \ntest ...",
                 privacy: {value:"SELF"},
             },
             function (response) {

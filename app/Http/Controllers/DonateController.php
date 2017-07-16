@@ -188,7 +188,7 @@ class DonateController extends Controller
 
     $donation->transfer_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
     $donation->amount = request()->amount;
-    $donation->code = Token::generateSecureKey(10);
+    $donation->code = strtoupper(date('Yd').'-'.Token::generateSecureKey(8));
 
     if(Auth::check()) {
       $donation->user_id = Auth::user()->id;
@@ -211,11 +211,6 @@ class DonateController extends Controller
       
     }
 
-    // $date = date('Y m d');
-    // $date = str_replace('0', 'X', $date);
-    // $date = explode(' ', $date);
-    // dd($date);
-
     if($donation->save()) {
 
       // if(Auth::check()) {}
@@ -225,15 +220,6 @@ class DonateController extends Controller
       // $user = Service::loadModel('User')->find();
       // $user->shipping_address = $donation->address;
       // $user->save();
-
-      // Code 2XDX5R1517
-      // 2X year first 2 letter
-      // D random
-      // X5 month
-      // R randomm
-      // 15 date
-      // 17 year latest 2 letter
-      // replace 0 as X or random char
 
       return Redirect::to('donate/'.$donation->code);
 
@@ -245,7 +231,57 @@ class DonateController extends Controller
 
   public function complete($code) {
 
-    $donation = Service::loadModel('Donation');
+    if(empty($code)) {
+      return $this->error('URL ไม่ถูกต้อง');
+    }
+
+    $donation = Service::loadModel('Donation')->where('code','like',$code);
+
+    if(!$donation->exists()) {
+      return $this->error('ไม่พบการบริจาคที่คุณกำลังร้องขอ');
+    }
+
+    $donation = $donation->first();
+
+    $data = Service::loadModel($donation->model)->find($donation->model_id);
+
+    switch ($donation->model) {
+      case 'Charity':
+
+        if(empty($data)) {
+          return $this->error('ไม่พบมูลนิธินี้');
+        }
+
+        $this->setData('charityName',$data->name);
+        $this->setData('charityLogo',$data->logo);
+
+        break;
+
+      case 'Project':
+
+        if(empty($data)) {
+          return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
+        }
+
+        $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
+
+        $this->setData('charityName',$charity->name);
+        $this->setData('charityLogo',$charity->logo);
+
+        break;
+      
+      default:
+        return Redirect::to('/');
+        break;
+    }
+
+    // $date = new Date;
+
+    $this->setData('donation',$donation);
+    $this->setData('id',$data->id);
+    $this->setData('name',$data->name);
+    $this->setData('for',strtolower($donation->model));
+    $this->setData('code',$code);
 
     return $this->view('page.donate.complete');
   }

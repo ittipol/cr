@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
   
-<div class="charity">
+<div class="charity margin-top-20 margin-bottom-100" >
 
   <div class="container profile">
 
@@ -103,8 +103,24 @@
                 </div>
               </div>
 
-              <div class="description padding-15">
-                {!!$charity->description!!}
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="description padding-15">
+                    {!!$charity->description!!}
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <h3>บริจาคให้กับมูลนิธินี้</h3>
+
+                  <div class="donate-box">
+                    <div class="donate-info">
+                      <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>
+                      <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>
+                      <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -196,18 +212,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="col-md-4">
-        <h3>บริจาคให้กับมูลนิธินี้</h3>
-
-        <div class="donate-box">
-          <div class="donate-info">
-            <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>
-            <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>
-            <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
-          </div>
-        </div>
-      </div> -->
 
     </div>
 

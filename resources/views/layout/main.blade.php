@@ -20,7 +20,7 @@
 
   @include('layout.header')
 
-  <div class="margin-top-20 margin-bottom-100">
+  <div>
     @yield('content')
   </div>
 
