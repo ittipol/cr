@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2017 at 06:20 PM
+-- Generation Time: Jul 17, 2017 at 05:24 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -39,9 +39,21 @@ CREATE TABLE `charities` (
   `address` varchar(255) DEFAULT NULL,
   `district_id` int(11) UNSIGNED DEFAULT NULL,
   `province_id` int(11) UNSIGNED NOT NULL,
+  `reward` text,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `charities`
+--
+
+INSERT INTO `charities` (`id`, `name`, `short_desc`, `description`, `charity_type_id`, `logo`, `thumbnail`, `vdo_url`, `images`, `address`, `district_id`, `province_id`, `reward`, `created_at`, `updated_at`) VALUES
+(2, 'Animal wants org.', 'รองเท้าวิ่งผู้ชาย Nike Air Zoom Pegasus 34 ใหม่ล่าสุด โดดเด่นด้วยผ้า Flymesh ปรับใหม่เพื่อการระบายอากาศเหนือชั้นและการลดแรงกระแทกเบาตอบสนองได้ดี ช่วยให้คุณรู้สึกสบายตลอดทุกระยะทาง', '<div class="pi-tier3" style="margin: 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">\r\n<div class="pi-pdpmainbody" style="margin: 0px; padding: 0px;">\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 0px; padding-bottom: 12px; display: inline-block; line-height: 1.1; margin-bottom: 4px;">รวดเร็วและสอดรับทุกการใช้งาน</span></p>\r\n<p style="margin: 0px; padding: 0px;">รองเท้าวิ่งผู้ชาย Nike Air Zoom Pegasus 34 ใหม่ล่าสุด โดดเด่นด้วยผ้า Flymesh ปรับใหม่เพื่อการระบายอากาศเหนือชั้นและการลดแรงกระแทกเบาตอบสนองได้ดี ช่วยให้คุณรู้สึกสบายตลอดทุกระยะทาง</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">สบายระบายอากาศได้ดี</span></p>\r\n<p style="margin: 0px; padding: 0px;">ผ้า Flymesh ไร้รอยต่อ เนื้อเบา และระบายอากาศได้ดี ช่วยระบายความร้อนเพื่อความเย็นสบายยาวนาน</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">ล็อคกระชับมั่นคง</span></p>\r\n<p style="margin: 0px; padding: 0px;">เส้นใย Dynamic Flywire โอบรับส่วนโค้งของเท้า เพื่อการรองรับกระชับพอดีและสัมผัสล็อคกระชับมั่นคง</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">ตอบสนองต่อแรงกระแทก</span></p>\r\n<p style="margin: 0px; padding: 0px;">โฟม Cushlon ระดับพรีเมียมและ Zoom Air ที่ส่วนปลายเท้าและส้นเท้า มอบสัมผัสที่สปริงตัวและตอบสนองได้ดีใต้ฝ่าเท้า</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">รายละเอียดเพิ่มเติม</span></p>\r\n<ul>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ตาข่ายชั้นในบางส่วนเพื่อเสริมความสบายยิ่งขึ้น</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ส้นด้านหลังแข็งแน่นกระชับเพื่อสัมผัสมั่นคง</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ขอบยางกันกระแทกบริเวณด้านข้างพื้นรองเท้าชั้นนอกช่วยให้ถ่ายเทน้ำหนักได้ราบรื่น</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ยางยกสูงช่วยดูดซับแรงกระแทกและเสริมการยึดเกาะ</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">รอบตัดเล็กๆ ที่พื้นรองเท้าชั้นนอกเสริมความยืดหยุ่น</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">น้ำหนัก: 10.4 ออนซ์ (รองเท้าผู้ชายไซส์ 10)</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ระยะถ่วง: 10 มม.</li>\r\n</ul>\r\n</div>\r\n</div>\r\n<div class="exp-pdp-country-of-origin" style="margin: 14px 0px 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">ประเทศที่ผลิต: เวียดนาม</div>', 4, 'http://cr.local/get_image/149966811580313407350182983851.png', NULL, 'https://www.youtube.com/embed/lyceTa-1mis', '["http:\\/\\/cr.local\\/get_image\\/15000881099083081180391795969586.jpg","http:\\/\\/cr.local\\/get_image\\/15000131262921095852874431737505.jpg","http:\\/\\/cr.local\\/get_image\\/1500012938990680376654253239362.png","http:\\/\\/cr.local\\/get_image\\/15000880658250522215136290995745.jpg","http:\\/\\/cr.local\\/get_image\\/150008807337661997238569991186213.jpg","http:\\/\\/cr.local\\/get_image\\/150008807761490074201500091436825.jpg","http:\\/\\/cr.local\\/get_image\\/150008808286703663179186221196998.jpg","http:\\/\\/cr.local\\/get_image\\/150008808980670764734587571376682.jpg","http:\\/\\/cr.local\\/get_image\\/150008809764120378294622941140301.jpg","http:\\/\\/cr.local\\/get_image\\/150008810137243393650402331094555.jpg"]', NULL, NULL, 18, '<div class="donate-box">\n                    <div class="donate-info">\n                      <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>\n                      <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>\n                      <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>\n                    </div>\n                  </div>', '2017-07-10 01:48:56', '2017-07-16 13:01:02'),
+(3, 'We Need', NULL, '<p>aaaa</p>', 1, NULL, NULL, NULL, NULL, NULL, NULL, 13, NULL, '2017-07-10 02:06:25', '2017-07-10 02:06:25'),
+(4, 'Lorem Ipsum', '"ไม่มีผู้ใดที่สมัครรักใคร่ในความเจ็บปวด หรือเสาะแสวงหาและปรารถนาจะครอบครองความเจ็บปวด นั่นก็เป็นเพราะว่ามันเจ็บปวด..."', '<h2 style="margin: 0px 0px 10px; padding: 0px; font-weight: 400; line-height: 24px; font-family: DauphinPlain; font-size: 24px;">Lorem Ipsum คืออะไร?</h2>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: ''Open Sans'', Arial, sans-serif;">Lorem Ipsum คือ เนื้อหาจำลองแบบเรียบๆ ที่ใช้กันในธุรกิจงานพิมพ์หรืองานเรียงพิมพ์ มันได้กลายมาเป็นเนื้อหาจำลองมาตรฐานของธุรกิจดังกล่าวมาตั้งแต่ศตวรรษที่ 16 เมื่อเครื่องพิมพ์โนเนมเครื่องหนึ่งนำรางตัวพิมพ์มาสลับสับตำแหน่งตัวอักษรเพื่อทำหนังสือตัวอย่าง Lorem Ipsum อยู่ยงคงกระพันมาไม่ใช่แค่เพียงห้าศตวรรษ แต่อยู่มาจนถึงยุคที่พลิกโฉมเข้าสู่งานเรียงพิมพ์ด้วยวิธีทางอิเล็กทรอนิกส์ และยังคงสภาพเดิมไว้อย่างไม่มีการเปลี่ยนแปลง มันได้รับความนิยมมากขึ้นในยุค ค.ศ. 1960 เมื่อแผ่น Letraset วางจำหน่ายโดยมีข้อความบนนั้นเป็น Lorem Ipsum และล่าสุดกว่านั้น คือเมื่อซอฟท์แวร์การทำสื่อสิ่งพิมพ์ (Desktop Publishing) อย่าง Aldus PageMaker ได้รวมเอา Lorem Ipsum เวอร์ชั่นต่างๆ เข้าไว้ในซอฟท์แวร์ด้วย</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: ''Open Sans'', Arial, sans-serif;">&nbsp;</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; font-family: ''Open Sans'', Arial, sans-serif; text-align: center;"><img src="http://sundaysquare.com/safe_image/14993222933132427535784765101952.jpg" width="960" height="540" /></p>', 1, 'http://cr.local/get_image/149966811580313407350182983851.png', 'http://cr.local/get_image/15000129296087674556165354143181.jpg', 'https://www.youtube.com/embed/nX5gd4GXcv0', '', NULL, NULL, 2, NULL, '2017-07-14 06:27:26', '2017-07-15 20:46:02'),
+(5, 'xxx', NULL, NULL, 1, NULL, NULL, NULL, '["http:\\/\\/cr.local\\/safe_image\\/15000129296087674556165354143181.jpg","http:\\/\\/cr.local\\/safe_image\\/1500012938990680376654253239362.png",null,null,null,null,null,null,null,null]', NULL, NULL, 2, NULL, '2017-07-14 06:47:30', '2017-07-14 06:47:30'),
+(6, 'qqqq', NULL, NULL, 1, NULL, NULL, NULL, '["http:\\/\\/cr.local\\/safe_image\\/15000129296087674556165354143181.jpg","http:\\/\\/cr.local\\/safe_image\\/1500012938990680376654253239362.png",null,null,null,null,null,null,null,null]', NULL, NULL, 2, NULL, '2017-07-14 06:47:31', '2017-07-14 06:50:00');
 
 -- --------------------------------------------------------
 
@@ -1008,16 +1020,36 @@ INSERT INTO `districts` (`id`, `province_id`, `name`, `name_en`, `zip_code`) VAL
 
 CREATE TABLE `donations` (
   `id` int(11) UNSIGNED NOT NULL,
-  `charity_id` int(11) NOT NULL,
+  `model` varchar(255) NOT NULL,
+  `model_id` int(11) UNSIGNED NOT NULL,
+  `code` varchar(32) NOT NULL,
+  `unidentified` tinyint(1) NOT NULL DEFAULT '0',
   `user_id` int(11) UNSIGNED DEFAULT NULL,
-  `donator_name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `guest_name` varchar(255) DEFAULT NULL,
   `acc_no` varchar(128) DEFAULT NULL,
   `amount` decimal(15,2) NOT NULL,
   `transfer_date` datetime NOT NULL,
-  `reward` tinyint(1) NOT NULL DEFAULT '0',
-  `address` text,
+  `get_reward` tinyint(1) NOT NULL DEFAULT '0',
+  `reward` text,
+  `shipping_address` text,
   `verified` tinyint(1) DEFAULT '0',
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donors`
+--
+
+CREATE TABLE `donors` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `model` varchar(255) NOT NULL,
+  `model_id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL,
+  `guest_name` varchar(255) DEFAULT NULL,
+  `returning` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1032,11 +1064,20 @@ CREATE TABLE `news` (
   `id` int(11) UNSIGNED NOT NULL,
   `charity_id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
+  `short_desc` varchar(255) DEFAULT NULL,
   `description` text NOT NULL,
   `thumbnail` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `charity_id`, `title`, `short_desc`, `description`, `thumbnail`, `created_at`, `updated_at`) VALUES
+(1, 2, 'new news', NULL, '<p>sdfsdfs</p>', 'http://sundaysquare.com/safe_image/14993228903503831079596525114985.jpg', '2017-07-10 16:13:50', '2017-07-10 16:23:55'),
+(2, 2, 'จะนำมาใช้ได้จากที่ไหน?', 'มีท่อนต่างๆ ของ Lorem Ipsum ให้หยิบมาใช้งานได้มากมาย แต่ส่วนใหญ่แล้วจะถูกนำไปปรับให้เป็นรูปแบบอื่นๆ', '<p><span style="font-family: ''Open Sans'', Arial, sans-serif; text-align: justify;">มีท่อนต่างๆ ของ Lorem Ipsum ให้หยิบมาใช้งานได้มากมาย แต่ส่วนใหญ่แล้วจะถูกนำไปปรับให้เป็นรูปแบบอื่นๆ อาจจะด้วยการสอดแทรกมุกตลก หรือด้วยคำที่มั่วขึ้นมาซึ่งถึงอย่างไรก็ไม่มีทางเป็นเรื่องจริงได้เลยแม้แต่น้อย ถ้าคุณกำลังคิดจะใช้ Lorem Ipsum สักท่อนหนึ่ง คุณจำเป็นจะต้องตรวจให้แน่ใจว่าไม่มีอะไรน่าอับอายซ่อนอยู่ภายในท่อนนั้นๆ ตัวสร้าง Lorem Ipsum บนอินเทอร์เน็ตทุกตัวมักจะเอาท่อนที่แน่ใจแล้วมาใช้ซ้ำๆ ทำให้กลายเป็นที่มาของตัวสร้างที่แท้จริงบนอินเทอร์เน็ต ในการสร้าง Lorem Ipsum ที่ดูเข้าท่า ต้องใช้คำจากพจนานุกรมภาษาละตินถึงกว่า 200 คำ ผสมกับรูปแบบโครงสร้างประโยคอีกจำนวนหนึ่ง เพราะฉะนั้น Lorem Ipsum ที่ถูกสร้างขึ้นใหม่นี้ก็จะไม่ซ้ำไปซ้ำมา ไม่มีมุกตลกซุกแฝงไว้ภายใน หรือไม่มีคำใดๆ ที่ไม่บ่งบอกความหมาย</span></p>', 'http://cr.local/get_image/150008808286703663179186221196998.jpg', '2017-07-15 14:08:35', '2017-07-15 14:09:29');
 
 -- --------------------------------------------------------
 
@@ -1059,6 +1100,13 @@ CREATE TABLE `projects` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `charity_id`, `name`, `short_desc`, `description`, `current_amount`, `target_amount`, `end_date`, `thumbnail`, `vdo_url`, `images`, `created_at`, `updated_at`) VALUES
+(1, 2, 'สร้างบ้านให้หมา แมว', 'องเท้าวิ่งผู้ชาย Nike Air Zoom Pegasus 34 ใหม่ล่าสุด โดดเด่นด้วยผ้า Flymesh ปรับใหม่เพื่อการระบายอากาศเหนือชั้นและการลดแรงกระแทกเบาตอบสนองได้ดี ช่วยให้คุณรู้สึกสบายตลอดทุกระยะทาง', '<div class="pi-tier3" style="margin: 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">\r\n<div class="pi-pdpmainbody" style="margin: 0px; padding: 0px;">\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 0px; padding-bottom: 12px; display: inline-block; line-height: 1.1; margin-bottom: 4px;">ประสิทธิภาพเหนือแรงโน้มถ่วง</span></p>\r\n<p style="margin: 0px; padding: 0px;">รองเท้าบาสเก็ตบอลผู้ชาย Air Jordan XXXI Low ตอบสนองระดับสูงสุด และลดแรงกระแทกมากขึ้น เพื่อช่วยให้ว่องไว และสบายในระหว่างเกมแข่งขันอันตึงเครียด</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">การระเบิดพลังที่ตอบสนองได้ดี</span></p>\r\n<p style="margin: 0px; padding: 0px;">เทคโนโลยี FlightSpeed กระจายการรัดกล้ามเนื้ออย่างสม่ำเสมอทั่วทั้งเท้าที่ส่วนบน ใช้ Nike Zoom Air เต็มฝ่าเท้า และยังให้การตอบสนองที่ดีดตัวกลับได้ดีระดับสูงสุดเพื่อระเบิดพลังก้าวของคุณได้มากขึ้น</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">การรองรับยืดหยุ่น</span></p>\r\n<p style="margin: 0px; padding: 0px;">หนังสังเคราะห์ที่ส้น และ Flyweave ยืดหยุ่นที่ปลายเท้า ผสานกันแบบไร้รอยต่อ เท้าจึงเคลื่อนไหวได้อย่างเป็นธรรมชาติ พร้อมทั้งยังคงการรองรับระหว่างการเปลี่ยนทิศทางอย่างรวดเร็วและการถ่ายเทน้ำหนัก</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">ความสบายเหนือระดับ</span></p>\r\n<p style="margin: 0px; padding: 0px;">ชั้นบุด้านในโอบรับเท้าของคุณเพื่อความพอดีแบบเฉพาะตัว</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">รายละเอียดเพิ่มเติม</span></p>\r\n<ul>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">เส้นใย Flywire โอบรับส่วนกลางเท้าเพื่อให้ล็อคกระชับพอดี</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">พื้นรองเท้าด้านนอกผลิตจากยางทึบและทนทาน</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">องค์ประกอบงานดีไซน์ทำให้หวนคิดถึง Jordan รุ่นออริจินัล</li>\r\n</ul>\r\n</div>\r\n</div>\r\n<div class="exp-pdp-country-of-origin" style="margin: 14px 0px 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">ประเทศที่ผลิต: เวียดนาม</div>', '0', '50000', '2017-07-21 23:59:59', 'http://cr.local/get_image/15000129296087674556165354143181.jpg', 'https://www.youtube.com/watch?v=rphE_jdX35k', NULL, '2017-07-10 08:02:01', '2017-07-15 15:27:58');
 
 -- --------------------------------------------------------
 
@@ -1169,6 +1217,32 @@ CREATE TABLE `stock_images` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `stock_images`
+--
+
+INSERT INTO `stock_images` (`id`, `filename`, `created_at`, `updated_at`) VALUES
+(1, '1499668107900801580066789216278.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
+(2, '149966811140360576880568894455.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
+(3, '149966811580313407350182983851.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
+(4, '149966811900829830725431002808.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
+(5, '1500012897808897208373420816278.png', '2017-07-14 06:14:59', '2017-07-14 06:14:59'),
+(6, '15000129296087674556165354143181.jpg', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
+(7, '1500012938990680376654253239362.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
+(8, '1500012942250854466365473846214.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
+(9, '1500012947478379745540005320697.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
+(10, '1500012957642235315398249620180.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
+(11, '15000131262921095852874431737505.jpg', '2017-07-14 06:18:47', '2017-07-14 06:18:47'),
+(12, '15000880658250522215136290995745.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
+(13, '150008807337661997238569991186213.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
+(14, '150008807761490074201500091436825.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
+(15, '150008808286703663179186221196998.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
+(16, '150008808980670764734587571376682.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
+(17, '150008809764120378294622941140301.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
+(18, '150008810137243393650402331094555.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
+(19, '15000881099083081180391795969586.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
+(20, '1500088113231008519612576879506.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35');
+
 -- --------------------------------------------------------
 
 --
@@ -1185,6 +1259,13 @@ CREATE TABLE `users` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `name`, `shipping_address`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, '1', '$2y$10$6jLCCDdQojI7ppn0LpeUPunvNsu8B7JeMFknKMMXCbIes9YEyW7gm', 'zzz', NULL, 'hcrTjcWqRk9Y4PfHHR1aUH97GhLQQJzuHG28N5fWm9kJ8xsqkFFQjCkdo6Ri', '2017-07-13 08:25:55', '2017-07-15 21:36:40');
 
 --
 -- Indexes for dumped tables
@@ -1212,6 +1293,12 @@ ALTER TABLE `districts`
 -- Indexes for table `donations`
 --
 ALTER TABLE `donations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `donors`
+--
+ALTER TABLE `donors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1252,7 +1339,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `charities`
 --
 ALTER TABLE `charities`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `charity_types`
 --
@@ -1269,10 +1356,15 @@ ALTER TABLE `districts`
 ALTER TABLE `donations`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `donors`
+--
+ALTER TABLE `donors`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `projects`
 --
@@ -1287,7 +1379,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `stock_images`
 --
 ALTER TABLE `stock_images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `users`
 --
