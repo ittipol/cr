@@ -80,6 +80,12 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+
+  Route::get('account/profile/edit', 'AccountController@edit');
+  Route::post('account/profile/edit', 'AccountController@editingSubmit');
+
+  Route::get('account/donation/history', 'AccountController@history');
+
   Route::get('logout', 'UserController@logout');
 });
 

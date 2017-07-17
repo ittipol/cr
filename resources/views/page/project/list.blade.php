@@ -1,10 +1,35 @@
 @extends('layout.main')
 @section('content')
 
+<div class="search-block parallaxBg" style="background-position: 50% 16px;">
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>ร่วมช่วยเหลือโครงการที่กำลังเปิดรับบริจาค</h1>
+
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search words with regular expressions ...">
+        <span class="input-group-btn">
+          <button class="btn-u btn-u-lg" type="button"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+
+      <form action="" class="sky-form page-search-form">
+        <div class="inline-group">
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i>Recent</label>
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>Related</label>
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>Popular</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="container list margin-top-20 margin-bottom-100">
   
   <h2>โครงการ</h2>
-  <hr>
+  <!-- <hr> -->
+  <div class="clearfix margin-bottom-20"></div>
+  
   <div class="row">
     @foreach($projects as $data)
 

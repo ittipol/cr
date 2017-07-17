@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
   
-<div class="charity margin-bottom-100" >
+<div class="charity margin-top-20 margin-bottom-100" >
 
   <div class="container profile">
 

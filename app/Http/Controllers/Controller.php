@@ -13,11 +13,31 @@ class Controller extends BaseController
 
   protected $data = array();
 
-  protected $botDisallowed = true;
+  protected $metaTitle = null;
+  protected $metaDescription = null;
+  protected $metaImage = null;
+
+  protected $meta = array(
+    'title' => null,
+    'description' => null,
+    'image' => null
+  );
+
+  // protected $botDisallowed = true;
 
   // protected function botAllowed() {
   //   $this->botDisallowed = false;
   // }
+
+  protected function setMeta($type,$value = null) {
+    
+    if(empty($value)) {
+      return false;
+    }
+
+    $this->meta[$type] = $value;
+
+  }
 
   protected function setData($index,$value) {
     $this->data[$index] = $value;
@@ -38,6 +58,8 @@ class Controller extends BaseController
     // Request::fullUrl()
     // Request::url()
     // Request::ip()
+
+    $this->data['_meta'] = $this->meta;
 
     return view($view,$this->data);
   }

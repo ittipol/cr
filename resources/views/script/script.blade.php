@@ -92,6 +92,7 @@
     'css/page/charity.css',
     'css/page/project.css',
     'css/page/donate.css',
+    'css/page/news.css',
     // 'css/components/form.css',
   );
 

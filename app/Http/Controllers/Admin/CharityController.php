@@ -14,8 +14,8 @@ class CharityController extends Controller
     $model = Service::loadModel('Charity');
 
     $currentPage = 1;
-    if(!empty($this->query['page'])) {
-      $currentPage = $this->query['page'];
+    if(!empty(request()->page)) {
+      $currentPage = request()->page;
     }
 
     //set page

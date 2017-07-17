@@ -91,13 +91,13 @@ class DonateController extends Controller
 
     $this->setData('provinces', $provinces);
 
-    if(Auth::check()) {
-      // $this->setData('donor_name','');
-    }
-
     $this->setData('name',$data->name);
     $this->setData('id',request()->id);
     $this->setData('for',request()->for);
+
+    $this->setMeta('title',$data->name);
+    // $this->setMeta('description',$news->short_desc);
+    // $this->setMeta('image',$news->thumbnail);
 
     return $this->view('page.donate.index');
 

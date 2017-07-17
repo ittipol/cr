@@ -23,9 +23,15 @@ hr {
 .no-margin-top {margin-top: 0 !important;}
 .no-margin-bottom {margin-bottom: 0 !important;}
 
+.margin-right-50 {margin-right: 50px !important;}
+
 .padding-15 {padding: 15px !important;}
 
 .navbar-default .navbar-toggle {
+	border: 0;
+}
+
+.pagination > li > a, .pagination > li > span {
 	border: 0;
 }
 
@@ -64,6 +70,30 @@ form .state-error + em {
 .fixed-header {
 	position: relative;
 	height: 80px;
+}
+
+.fixed-header .navbar-fixed-top .profile-image {
+	color: #fff;
+	position: absolute;
+	top: 12px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	border: 1px solid #ececec;
+	border-radius: 40px;
+	overflow: hidden;
+}
+
+.fixed-header .navbar-fixed-top .profile-image img {
+	width: 40px;
+}
+
+.fixed-header .navbar-fixed-top .profile-image i {
+	color: #263238;
+	font-size: 44px;
+	text-align: center;
+	display: block;
 }
 
 .login-block, .reg-block {
@@ -133,7 +163,6 @@ h2 > img.provider-logo {
 /* Header menu and menu items */
 .one-page-header.charity-header .navbar-collapse {
   padding-top: 10px;
-  border-bottom: 1px solid rgb(49, 53, 62);
 }
 .one-page-header.charity-header .navbar-nav > li > a {
   color: #fff;

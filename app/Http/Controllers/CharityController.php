@@ -59,6 +59,11 @@ class CharityController extends Controller
     $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
     $this->setData('percent',round((date('d') * 100) / date('t')));
 
+    // SET META
+    $this->setMeta('title',$charity->name);
+    $this->setMeta('description',$charity->short_desc);
+    $this->setMeta('image',$charity->thumbnail);
+
     return $this->view('page.charity.index');
 
   }
@@ -68,9 +73,8 @@ class CharityController extends Controller
     $model = Service::loadModel('Charity');
 
     $currentPage = 1;
-    if(!empty($this->query['page'])) {
-      // request()->page
-      $currentPage = $this->query['page'];
+    if(!empty(request()->page)) {
+      $currentPage = request()->page;
     }
 
     //set page
@@ -82,9 +86,15 @@ class CharityController extends Controller
 
     $this->setData('donationModel',Service::loadModel('Donation'));
     
-    $this->setData('charities',$model->paginate(15));
+    $xxx = $model->paginate(24);
+
+    $this->setData('charities',$model->paginate(24));
     $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
     $this->setData('percent',round((date('d') * 100) / date('t')));
+
+    $this->setMeta('title','มูลนิธิ — Charity');
+    $this->setMeta('description','');
+    // $this->setMeta('image',null);
 
     return $this->view('page.charity.list');
 

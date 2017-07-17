@@ -2,7 +2,8 @@
 $linkLimit = 7;
 ?>
 
-@if (true)
+<div class="clearfix margin-bottom-60"></div>
+
 <div class="claerfix">
     <ul class="pagination pull-right">
         <li class="{{ ($paginator->currentPage() == 1) ? ' disabled' : '' }}">
@@ -31,4 +32,3 @@ $linkLimit = 7;
         </li>
     </ul>
 </div>
-@endif

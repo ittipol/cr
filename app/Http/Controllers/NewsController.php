@@ -17,7 +17,13 @@ class NewsController extends Controller
       return $this->error('ไม่พบข่าวสารนี้');
     }
 
+    $this->setData('dateLib',new Date);
     $this->setData('news',$news);
+
+    // SET META
+    $this->setMeta('title',$news->title);
+    $this->setMeta('description',$news->short_desc);
+    $this->setMeta('image',$news->thumbnail);
 
     return $this->view('page.news.index');
 
@@ -28,9 +34,9 @@ class NewsController extends Controller
     $model = Service::loadModel('News');
 
     $currentPage = 1;
-    if(!empty($this->query['page'])) {
+    if(!empty(request()->page)) {
       // request()->page
-      $currentPage = $this->query['page'];
+      $currentPage = request()->page;
     }
 
     //set page
@@ -38,7 +44,12 @@ class NewsController extends Controller
         return $currentPage;
     });
 
-    $this->setData('news',$model->paginate(15));
+    $this->setData('dateLib',new Date);
+    $this->setData('news',$model->paginate(24));
+
+    $this->setMeta('title','ข่าวสาร — Charity');
+    $this->setMeta('description','');
+    // $this->setMeta('image',null);
 
     return $this->view('page.news.list');
 

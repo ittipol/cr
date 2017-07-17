@@ -1,0 +1,38 @@
+.news .news-thumbnail {
+	width: 100%;
+}
+
+.news.index .btn-share {
+	color: #fff;
+	border: 0;
+	width: 34px;
+	line-height: 34px;
+}
+
+.news.index .btn-share > i {
+	color: #fff;
+	font-size: 14px;
+	margin: 0;
+	float: none;
+}
+
+.news.index .btn-facebook.btn-share {
+	background-color: #4863ae;
+}
+
+.news.index .btn-twitter.btn-share {
+	background-color: #46c0fb;
+}
+
+.news.index .btn-googleplus.btn-share {
+	background-color: #dd4a38;
+}
+
+.news-v1-in img {
+	width: 360px;
+	height: 210px;
+}
+
+.news-v1-in p {
+	height: 60px;
+}
