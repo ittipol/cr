@@ -2,6 +2,10 @@
 	display: none;
 }
 
+.donate .heading a {
+	color: #555;
+}
+
 .sky-form .state-error + em {
 	color: red;
 	font-size: 13px;

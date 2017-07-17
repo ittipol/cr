@@ -33,10 +33,18 @@
             <li class="page-scroll">
               <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
             </li>
-            @if(!Auth::check())
-            <li class="page-scroll">
-              <a href="{{URL::to('subscription')}}">สร้างบัญชี</a>
+            @if(Auth::check())
+            <li class="page-scroll avatar">
+              // profile image
+              <img src="">
             </li>
+            @else
+            <li class="page-scroll">
+              <a href="{{URL::to('login')}}">เข้าสู่ระบบ</a>
+            </li>
+            <!-- <li class="page-scroll">
+              <a href="{{URL::to('subscription')}}">สร้างบัญชี</a>
+            </li> -->
             @endif
           </ul>
         </div>

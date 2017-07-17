@@ -5,11 +5,18 @@
 
   <div class="container profile">
 
+    <div class="project-header clearfix">
+      <h2>{{$project->name}}</h2>
+      <p>{{$project->short_desc}}</p>
+    </div>
+
+    <div class="clearfix margin-bottom-20"></div>
+
     <div class="testimonials-v4">
-      <div class="testimonials-v4-in">
+      <!-- <div class="testimonials-v4-in">
         <h2>{{$project->name}}</h2>
         <p>{{$project->short_desc}}</p>
-      </div>
+      </div> -->
       <img class="rounded-x" src="{{$charity->logo}}">
       <span class="testimonials-author">
         โครงการจาก<br>
@@ -19,9 +26,12 @@
 
     <div class="clearfix margin-bottom-40"></div>
 
-    <div class="row margin-bottom-40">
+    <div class="row">
       <div class="col-md-8">
-        <div class="img-charity-banner" style="background-image:url(/images/bb1.jpg)"></div>
+        <!-- <div class="img-charity-banner" style="background-image:url()"></div> -->
+        <div class="embedded-video">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
 
       <div class="col-md-4">
@@ -35,9 +45,7 @@
             </div>
           </div>
 
-          <div class="clearfix margin-bottom-10"></div>
-          <div class="clearfix margin-bottom-10"></div>
-          <div class="clearfix margin-bottom-10"></div>
+          <div class="clearfix margin-bottom-20"></div>
 
           <i class="icon-heart"></i>
           <span class="counter">{{$amount}} บาท</span>
@@ -55,13 +63,18 @@
           <span class="counter">{{$remainingDate}}</span>
           <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span>
 
-          <div class="clearfix margin-bottom-10"></div>
-          <div class="clearfix margin-bottom-10"></div>
+          <div class="clearfix margin-bottom-30"></div>
 
           <div class="margin-bottom-20">
             <a href="{{URL::to('donate')}}?for=project&id={{$project->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
             <a href="javascript:void(0);" data-toggle="modal" data-target="#donation_modal">วิธีการบริจาค</a>
           </div>
+
+          <div class="fb-share-button" 
+            data-href="{{Request::fullUrl()}}" 
+            data-layout="button">
+          </div>
+
         </div>
       </div>
     </div>
@@ -97,13 +110,13 @@
     </div>
     @endif
 
-    <hr>
+    <div class="clearfix margin-bottom-30"></div>
 
     <div class="row">
 
       <div class="col-md-12">
 
-        <div class="tab-v1 margin-bottom-40">
+        <div class="tab-v1 margin-bottom-60">
           <ul class="nav nav-tabs margin-bottom-20">
             <li class="active"><a href="#project" data-toggle="tab">โครงการ</a></li>
             <li><a href="#timeline" data-toggle="tab">ไทม์ไลน์</a></li>

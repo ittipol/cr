@@ -17,6 +17,7 @@ class Model extends BaseModel
   public $modelAlias;
   protected $storagePath = 'app/public/';
   protected $state = 'create';
+  // protected $modelRelations = array();
 
   public $formHelper = false;
   public $modelData = false;
@@ -103,10 +104,9 @@ class Model extends BaseModel
     // });
 
     // before delete() method call this
-    parent::deleted(function($model) {
-       // delete all related data
-       $model->deleteAllRelatedData();
-    });
+    // parent::deleted(function($model) {
+    //    $model->deleteAllRelatedData();
+    // });
 
   }
 

@@ -1,16 +1,17 @@
 @extends('layout.main')
 @section('content')
 
-<div class="container margin-top-20 margin-bottom-100">
+<div class="donate container margin-top-20 margin-bottom-100">
 
   <div class="heading heading-v4 margin-bottom-40">
     @if($for == 'charity')
       <h2>บริจาคให้กับมูลนิธิ</h2>
+      <h3><a href="{{URL::to('charity')}}/{{$id}}">{{$name}}</a></h3>
     @elseif($for == 'project')
       <h2>บริจาคให้กับโครงการ</h2>
+      <h3><a href="{{URL::to('project')}}/{{$id}}">{{$name}}</a></h3>
     @endif
     
-    <h3>{{$name}}</h3>
     @if($for == 'project')
       <h4>โครงการจาก {{$charityName}}</h4>
     @endif    

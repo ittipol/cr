@@ -78,6 +78,7 @@
     'assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
     'assets/css/pages/page_contact.css',
     'assets/css/pages/page_invoice.css',
+    'assets/css/pages/page_search.css',
     // 'assets/css/theme-colors/default.css',
     // 'assets/css/theme-skins/dark.css',
     // 'css/style/custom/charity.style.css',

@@ -79,9 +79,12 @@ class CharityController extends Controller
     });
 
     $date = new Date;
+
+    $this->setData('donationModel',Service::loadModel('Donation'));
     
-    $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
     $this->setData('charities',$model->paginate(15));
+    $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
+    $this->setData('percent',round((date('d') * 100) / date('t')));
 
     return $this->view('page.charity.list');
 

@@ -1,15 +1,12 @@
-/*.project .quote-v1.project-header {
-	background-image: url(/images/common/timeline-start.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-*/
 .project-header {
 	margin-bottom: 20px;
 }
 
-.project-header .project-name {
+.project-header p {
+	font-size: 16px;
+}
+
+/*.project-header .project-name {
 	font-size: 36px;
 }
 
@@ -25,7 +22,7 @@
 .project-by-charity > span{
 	color: #000;
 	margin-left: 1.2rem;
-}
+}*/
 
 .service-block-v3.project-box > i {
 	color: #000;
@@ -65,6 +62,14 @@
 }
 
 @media only screen and (max-width : 480px) {
+
+	.project-header p {
+		font-size: 14px;
+	}
+
+	.service-block-v3.project-box .counter {
+		font-size: 16px;
+	}
 
 	.project-header .project-name {
 		font-size: 32px;

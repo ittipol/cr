@@ -50,4 +50,21 @@ class DonationController extends Controller
     return Redirect::to('admin/donation/detail/'.$data->id);
 
   }
+
+  public function delete($id) {
+
+    if(isset($_GET['delete']) && $_GET['delete'] == 'y') {
+      
+      $data = Service::loadModel('Donation')->select('id')->find($id);
+
+      if(!empty($data)) {
+        $data->delete();
+      }
+
+      return Redirect::to('admin/donation/list/');
+    }
+
+    return $this->view('admin.page.donation.delete');
+
+  }
 }

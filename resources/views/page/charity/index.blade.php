@@ -1,45 +1,36 @@
 @extends('layout.main')
 @section('content')
   
-<div class="charity margin-top-20 margin-bottom-100" >
+<div class="charity margin-bottom-100" >
 
   <div class="container profile">
 
     <div class="charity-header clearfix">
       <img class="charity-logo" src="{{$charity->logo}}">
       <div class="charity-info">
-        <h2 class="charity-name">{{$charity->name}}
-          <div class="name-location">
-            <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
-          </div>
-        </h2>
+        <h2 class="charity-name">{{$charity->name}}</h2>
         <p class="charity-short-desc">{{$charity->short_desc}}</p>
       </div>
       <p class="charity-short-desc display-mobile">{{$charity->short_desc}}</p>
     </div>
 
-    <div class="row margin-bottom-40">
+    <div class="row">
       <div class="col-md-8">
         <!-- <div class="img-charity-banner" style="background-image:url()"></div> -->
         <div class="embedded-video">
           <iframe width="100%" height="100%" src="{{$charity->vdo_url}}" frameborder="0" allowfullscreen></iframe>
         </div>
-        
       </div>
 
       <div class="col-md-4">
         <div class="service-block-v3 donation-box">
-          <i class="icon-heart"></i>
+
+          <!-- <i class="icon-heart"></i> -->
           <span class="service-heading">การบริจาคในเดือนนี้</span>
           <span class="counter">{{$amount}} บาท</span>
 
-          <div class="clearfix margin-bottom-10"></div>
+          <div class="clearfix margin-bottom-20"></div>
 
-          <div class="margin-bottom-20">
-            <a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
-            <a href="javascript:void(0);" data-toggle="modal" data-target="#donation_modal">วิธีการบริจาค</a>
-          </div>
-          
           <div class="statistics">
             <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">{{$remainingDate}}</span></h3>
             <div class="progress progress-u progress-xxs">
@@ -47,8 +38,33 @@
               </div>
             </div>
           </div>
+
+          <div class="clearfix margin-bottom-20"></div>
+
+          <div class="name-location">
+            <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
+          </div>
+
+          <div class="margin-bottom-20">
+            <a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#donation_modal">วิธีการบริจาค</a>
+          </div>
+
+          <div class="fb-share-button" 
+            data-href="{{Request::fullUrl()}}" 
+            data-layout="button">
+          </div>
+
         </div>
       </div>
+
+      <div class="col-xs-12">
+        <div class="clearfix margin-bottom-20"></div>
+        <div class="name-location">
+          <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
+        </div>
+      </div>
+
     </div>
 
     @include('content.bank_account_modal')
@@ -82,7 +98,7 @@
     </div>
     @endif
 
-    <div class="clearfix margin-bottom-50"></div>
+    <div class="clearfix margin-bottom-30"></div>
 
     <div class="row">
 
