@@ -133,6 +133,7 @@ h2 > img.provider-logo {
 /* Header menu and menu items */
 .one-page-header.charity-header .navbar-collapse {
   padding-top: 10px;
+  border-bottom: 1px solid rgb(49, 53, 62);
 }
 .one-page-header.charity-header .navbar-nav > li > a {
   color: #fff;
@@ -149,12 +150,12 @@ h2 > img.provider-logo {
 @media (max-width: 991px) {
 	.one-page-header.charity-header .navbar-collapse {
 	  padding: 10px 0 5px;
-	  /*background: rgba(255,255,255,1);*/
-	  background-color: rgba(49, 53, 62, 0.8);
+	  background: rgba(255,255,255,1);
+	  /*background-color: rgba(49, 53, 62, 0.8);*/
 	}
 	.one-page-header.charity-header .navbar-collapse .navbar-nav > li > a {
-		/*color: #777;*/
-		color: #fff;
+		color: #777;
+		/*color: #fff;*/
 		padding: 7px 15px;
 	}
 	.one-page-header.charity-header.top-nav-collapse .navbar-collapse .navbar-nav > li > a {
@@ -206,7 +207,8 @@ h2 > img.provider-logo {
 }
 
 .one-page-header.top-nav-collapse .navbar-toggle:hover .icon-bar {
-    background: #f5f219;
+    /*background: #f5f219;*/
+    background-color: #555;
 }
 
 /* Header transition on scroll */

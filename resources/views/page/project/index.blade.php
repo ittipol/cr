@@ -47,7 +47,24 @@
 
           <div class="clearfix margin-bottom-20"></div>
 
-          <i class="icon-heart"></i>
+          <div class="project-donation-info">
+            <div class="project-donation-item">
+              <span class="counter">{{$amount}} บาท</span>
+              <span class="sub-label">จากเป้าหมาย {{$targetAmount}} บาท</span>
+            </div>
+
+            <div class="project-donation-item">
+              <span class="counter">{{$donorTotal}}</span>
+              <span class="sub-label">ผู้บริจาค</span>
+            </div>
+
+            <div class="project-donation-item">
+              <span class="counter">{{$remainingDate}}</span>
+              <span class="sub-label">จะสิ้นสุดการรับบริจาค</span>
+            </div>
+          </div>
+
+          <!-- <i class="icon-heart"></i>
           <span class="counter">{{$amount}} บาท</span>
           <span class="sub-label">จากเป้าหมาย {{$targetAmount}} บาท</span>
 
@@ -61,18 +78,33 @@
 
           <i class="icon-clock"></i>
           <span class="counter">{{$remainingDate}}</span>
-          <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span>
+          <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span> -->
 
-          <div class="clearfix margin-bottom-30"></div>
+          <div class="clearfix margin-bottom-10"></div>
 
           <div class="margin-bottom-20">
             <a href="{{URL::to('donate')}}?for=project&id={{$project->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
-            <a href="javascript:void(0);" data-toggle="modal" data-target="#donation_modal">วิธีการบริจาค</a>
           </div>
 
-          <div class="fb-share-button" 
-            data-href="{{Request::fullUrl()}}" 
-            data-layout="button">
+          <div class="row">
+            <div class="col-xs-6">
+              <button class="btn btn-block btn-donation btn-html5" data-toggle="modal" data-target="#donation_modal">
+                วิธีการบริจาค
+              </button>
+            </div>
+            <div class="col-xs-6">
+              <div class="pull-right">
+                <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ {{$charity->name}}" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -82,6 +114,9 @@
     @include('content.bank_account_modal_project')
 
     @if(!empty($images))
+
+    <div class="clearfix margin-bottom-40"></div>
+
     <div class="content-images-list">
       <div class="text-center margin-bottom-50">
         <h2 class="title-v2 title-center">รูปภาพโครงการ</h2>
@@ -127,7 +162,7 @@
 
               <div class="panel panel-profile">
                 <div class="panel-heading overflow-h">
-                  <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>เกี่ยวกับโครงการ</h2>
+                  <h2 class="panel-title heading-sm pull-left"><i class="fa fa-info-circle"></i>เกี่ยวกับโครงการ</h2>
                 </div>
               </div>
 

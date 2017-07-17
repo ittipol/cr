@@ -63,9 +63,11 @@ class ProjectController extends Controller
         return $currentPage;
     });
 
-    $data = $model->paginate(15);
+    $this->setData('donationModel',Service::loadModel('Donation'));
 
-    $this->setData('projects',$data);
+    $this->setData('dateLib',new Date);
+
+    $this->setData('projects',$model->paginate(15));
 
     return $this->view('page.project.list');
 

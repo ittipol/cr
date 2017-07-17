@@ -15,6 +15,16 @@
     </div>
 
     <div class="row">
+      <div class="col-xs-12">
+        <div class="name-location">
+          <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
+        </div>
+        <div class="clearfix margin-bottom-20"></div>
+      </div>
+    </div>
+
+    <div class="row">
+
       <div class="col-md-8">
         <!-- <div class="img-charity-banner" style="background-image:url()"></div> -->
         <div class="embedded-video">
@@ -25,11 +35,10 @@
       <div class="col-md-4">
         <div class="service-block-v3 donation-box">
 
-          <!-- <i class="icon-heart"></i> -->
-          <span class="service-heading">การบริจาคในเดือนนี้</span>
-          <span class="counter">{{$amount}} บาท</span>
-
-          <div class="clearfix margin-bottom-20"></div>
+          <div class="margin-bottom-20">
+            <span class="service-heading">การบริจาคในเดือนนี้</span>
+            <span class="counter">{{$amount}} บาท</span>
+          </div>
 
           <div class="statistics">
             <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">{{$remainingDate}}</span></h3>
@@ -41,27 +50,31 @@
 
           <div class="clearfix margin-bottom-20"></div>
 
-          <div class="name-location">
-            <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
-          </div>
-
           <div class="margin-bottom-20">
             <a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
-            <a href="javascript:void(0);" data-toggle="modal" data-target="#donation_modal">วิธีการบริจาค</a>
           </div>
 
-          <div class="fb-share-button" 
-            data-href="{{Request::fullUrl()}}" 
-            data-layout="button">
+          <div class="row">
+            <div class="col-xs-6">
+              <button class="btn btn-block btn-donation btn-html5" data-toggle="modal" data-target="#donation_modal">
+                วิธีการบริจาค
+              </button>
+            </div>
+            <div class="col-xs-6">
+              <div class="pull-right">
+                <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ {{$charity->name}}" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
-        </div>
-      </div>
-
-      <div class="col-xs-12">
-        <div class="clearfix margin-bottom-20"></div>
-        <div class="name-location">
-          <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
         </div>
       </div>
 
@@ -70,6 +83,9 @@
     @include('content.bank_account_modal')
 
     @if(!empty($images))
+
+    <div class="clearfix margin-bottom-40"></div>
+
     <div class="content-images-list">
       <div class="text-center margin-bottom-50">
         <h2 class="title-v2 title-center">รูปภาพมูลนิธิ</h2>
@@ -115,7 +131,7 @@
             <div class="tab-pane fade in active" id="about">
               <div class="panel panel-profile">
                 <div class="panel-heading overflow-h">
-                  <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>เกี่ยวกับมูลนิธิ</h2>
+                  <h2 class="panel-title heading-sm pull-left"><i class="fa fa-info-circle"></i>เกี่ยวกับมูลนิธิ</h2>
                 </div>
               </div>
 

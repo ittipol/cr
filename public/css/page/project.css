@@ -6,23 +6,14 @@
 	font-size: 16px;
 }
 
-/*.project-header .project-name {
-	font-size: 36px;
-}
-
-.project-header .project-short-desc {
-	font-size: 16px;
-}
-
-.project-by-charity img {
+.list .project-by-charity .charity-logo {
 	width: 30px;
 	border-radius: 30px;
 }
 
-.project-by-charity > span{
+.list .project-by-charity span {
 	color: #000;
-	margin-left: 1.2rem;
-}*/
+}
 
 .service-block-v3.project-box > i {
 	color: #000;
@@ -61,23 +52,28 @@
 	color: #444;
 }
 
+.project-donation-info > .project-donation-item {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.news-v3 .service-block-v3.project-box .counter {
+	font-size: 18px;
+}
+
 @media only screen and (max-width : 480px) {
 
 	.project-header p {
 		font-size: 14px;
 	}
 
-	.service-block-v3.project-box .counter {
-		font-size: 16px;
-	}
-
-	.project-header .project-name {
+	/*.project-header .project-name {
 		font-size: 32px;
 	}
 
 	.project-header .project-short-desc {
 		font-size: 14px;
-	}
+	}*/
 
 	.timeline-v2 .timeline-start {
     width: 100%;
@@ -86,6 +82,16 @@
 
 	.timeline-v2 .timeline-start > h4 {
 		font-size: 24px;
+	}
+
+	/*.project-donation-info > .project-donation-item {
+		width: auto;
+		display: inline-block;
+		margin-right: 12px;
+	}*/
+
+	.service-block-v3.project-box .counter {
+		font-size: 18px;
 	}
 
 }

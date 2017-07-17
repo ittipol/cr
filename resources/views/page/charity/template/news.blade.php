@@ -1,6 +1,6 @@
 <div class="panel panel-profile">
   <div class="panel-heading overflow-h">
-    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>ข่าวสาร</h2>
+    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-sticky-note"></i>ข่าวสาร</h2>
   </div>
 </div>
 
