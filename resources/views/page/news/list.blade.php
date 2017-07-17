@@ -19,21 +19,8 @@
     
     <div class="clearfix margin-bottom-20"></div>
 
-    <div class="row">
+    <div class="row news-v1">
       @foreach($news as $data)
-
-        <!-- <div class="col-md-4 news-v3 news-list-item">
-          <a href="{{URL::to('news')}}/{{$data->id}}">
-            <img class="img-responsive full-width" src="{{$data->thumbnail}}">
-          </a>
-          <div class="news-v3-in-sm bg-color-white">
-            <ul class="list-inline posted-info-sm">
-              <li>โพสต์เมื่อ: {{$dateLib->covertDateToSting($data->created_at)}}</li>
-            </ul>
-            <h2><a href="{{URL::to('news')}}/{{$data->id}}">{{$data->title}}</a></h2>
-            <p>{{$data->short_desc}}</p>
-          </div>
-        </div> -->
 
         <div class="col-md-4 md-margin-bottom-40">
           <div class="news-v1-in">
