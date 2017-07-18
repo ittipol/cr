@@ -27,6 +27,8 @@ hr {
 
 .padding-15 {padding: 15px !important;}
 
+.padding-bottom-100 {padding-bottom: 100px;}
+
 .navbar-default .navbar-toggle {
 	border: 0;
 }
@@ -124,6 +126,11 @@ h2 > img.provider-logo {
 
 .select-group.half > label.select:nth-child(2) {
 	margin-left: 1%;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	border-color: #ececec;
+	background-color: #1f4b8e;
 }
 
 /* Header background */

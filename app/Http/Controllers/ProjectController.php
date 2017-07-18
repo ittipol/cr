@@ -53,6 +53,7 @@ class ProjectController extends Controller
     $this->setData('targetAmount',number_format($project->target_amount, 0, '.', ','));
     $this->setData('percent',round(($amount*100)/$project->target_amount));
     $this->setData('remainingDate',$date->remainingDate($project->end_date));
+    $this->setData('donors',$donationModel->getDonors('Project',$id));
     $this->setData('projectEnd',$projectEnd);
     
     // SET META

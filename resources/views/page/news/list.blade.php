@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-<div class="news">
+<div class="news list">
 
   <!-- <div class="breadcrumbs">
     <div class="container">
@@ -15,7 +15,7 @@
 
   <div class="search-block parallaxBg" style="background-position: 50% 16px;">
     <div class="container">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8">
         <h1>ข่าวสารจากมูลนิธิ</h1>
       </div>
     </div>

@@ -5,32 +5,17 @@
 
   <div class="search-block parallaxBg" style="background-position: 50% 16px;">
     <div class="container">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8">
         <h1>ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ</h1>
-
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search words with regular expressions ...">
-          <span class="input-group-btn">
-            <button class="btn-u btn-u-lg" type="button"><i class="fa fa-search"></i></button>
-          </span>
-        </div>
-
-        <form action="" class="sky-form page-search-form">
-          <div class="inline-group">
-            <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i>Recent</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>Related</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>Popular</label>
-          </div>
-        </form>
       </div>
     </div>
   </div>
 
-  <div class="container margin-top-20 margin-bottom-100">
+  <div class="container margin-top-20 padding-bottom-100">
     
     @if($charities->currentPage() <= $charities->lastPage())
 
-      <h2>มูลนิธิ</h2>
+      <!-- <h2>มูลนิธิ</h2> -->
 
       <div class="clearfix margin-bottom-20"></div>
 

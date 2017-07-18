@@ -1,6 +1,44 @@
-.charity {
+.charity.index {
 	margin-top: 40px;
 }
+
+.charity.list {
+	/*background-color: #3b3e48;*/
+	/*background-color: #b5d0d4;*/
+	/*background-color: #fd5c3d;*/
+	/*background-image: #47528f;*/
+	background-color: #2e3d50;
+	/*background-color: #20252f;*/
+	/*background-color: #1f4b8e;*/
+	/*background-color: #489565;*/
+}
+
+.list .search-block {
+	/*background-image: none;*/
+	background-color: #17A1E5;
+	padding: 20px 0;
+}
+
+.list .search-block h1 {
+	color: #fff;
+	font-size: 34px;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+/*
+.list .search-block:before {
+	background-color: transparent;
+}*/
+
+/*.charity.list .search-block select {
+	width: 100%;
+	height: 48px;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: 200;
+	border: none;
+}*/
 
 .charity .name-location span i {
 	color: rgb(53,53,53);
@@ -173,6 +211,7 @@
 
 .news-v3 .full-width {
 	height: 200px;
+	background-color: #4b5354;
 }
 
 .news-v3 p {
@@ -279,7 +318,7 @@
 
 @media only screen and (max-width : 480px) {
 
-	.charity {
+	.charity.index {
 		margin-top: 20px;
 	}
 

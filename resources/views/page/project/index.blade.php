@@ -236,52 +236,26 @@
                 </div>
               </div>
 
-              <div class="clearfix margin-bottom-40"></div>
+              @if($donors->exists())
 
-              <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับโครงการนี้</h2>
+                <div class="clearfix margin-bottom-40"></div>
 
-              <div>
+                <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับโครงการนี้</h2>
+
                 <div class="container content-sm">
                   <div class="row team-v4 people-list">
+                    @foreach($donors->get() as $donor)
                     <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img20-md.jpg">
-                      <span>Daniel Wearne</span>
+                      <div class="profile-image">
+                        <i class="fa fa-user"></i>
+                      </div>
+                    <span>{{$donor->user->name}}</span>
                     </div>
-                    <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img30-md.jpg">
-                      <span>Sara Lisbon</span>
-                    </div>
-                    <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img22-md.jpg">
-                      <span>John Doe</span>
-                    </div>
-                    <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
-                      <span>Alice Williams</span>
-                    </div>
-                    <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
-                      <span>Alice Williams</span>
-                    </div>
-                    <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
-                      <span>Alice Williams</span>
-                    </div>
-                    <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
-                      <span>Alice Williams</span>
-                    </div>
-                    <div class="col-md-3 col-sm-6 people-list-item">
-                      <img class="img-responsive" src="/assets/img/team/img19-md.jpg">
-                      <span>Alice Williams</span>
-                    </div>
+                    @endforeach
                   </div>
                 </div>
-              </div>
 
-              <div class="text-center">
-                <button class="btn-u btn-u-lg btn-u-red" type="button">แสดงเพิ่มเติม</button>
-              </div>
+              @endif
 
             </div>
           </div>

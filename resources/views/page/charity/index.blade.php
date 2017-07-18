@@ -193,28 +193,26 @@
                 </div>
               </div>
 
-              <div class="clearfix margin-bottom-40"></div>
-
-              <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับมูลนิธินี้</h2>
-
               @if($donors->exists())
-              <div class="container content-sm">
-                <div class="row team-v4 people-list">
-                  @foreach($donors->get() as $donor)
-                  <div class="col-md-3 col-sm-6 people-list-item">
-                    <div class="profile-image">
-                      <i class="fa fa-user"></i>
-                    </div>
-                  <span>{{$donor->user->name}}</span>
-                  </div>
-                  @endforeach
-                </div>
-              </div>
-              @endif
 
-              <div class="text-center">
-                <button class="btn-u btn-u-lg btn-u-red" type="button">แสดงเพิ่มเติม</button>
-              </div>
+                <div class="clearfix margin-bottom-40"></div>
+
+                <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับมูลนิธินี้</h2>
+
+                <div class="container content-sm">
+                  <div class="row team-v4 people-list">
+                    @foreach($donors->get() as $donor)
+                    <div class="col-md-3 col-sm-6 people-list-item">
+                      <div class="profile-image">
+                        <i class="fa fa-user"></i>
+                      </div>
+                    <span>{{$donor->user->name}}</span>
+                    </div>
+                    @endforeach
+                  </div>
+                </div>
+
+              @endif
 
             </div>
           </div>
