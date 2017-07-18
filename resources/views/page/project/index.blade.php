@@ -41,8 +41,12 @@
           <div class="alert alert-danger fade in">
             <i class="fa fa-exclamation-circle"></i> โครงการปิดรับการบริจาคแล้ว
           </div>
-          @endif
 
+          <p>{{$donorTotal}} ผู้ให้การสนับสนุนและร่วมบริจาคเป็นจำนวนเงิน {{$amount}} บาทเพื่อช่วยให้โครงการนี้เกิดขึ้นได้จริง</p>
+
+          <hr>
+
+          @else
           <div class="statistics">
             <h3 class="heading-xs"><strong>{{$amount}}</strong> / {{$targetAmount}} บาท<span class="pull-right">{{$percent}}%</span></h3>
             <div class="progress progress-u progress-xxs">
@@ -65,19 +69,16 @@
             </div>
 
             <div class="project-donation-item">
-              @if(!$projectEnd)
-                <span class="counter">{{$remainingDate}}</span>
-                <span class="sub-label">จะสิ้นสุดการรับบริจาค</span>
-              @endif
+              <span class="counter">{{$remainingDate}}</span>
+              <span class="sub-label">จะสิ้นสุดการรับบริจาค</span>
             </div>
           </div>
 
           <div class="clearfix margin-bottom-10"></div>
 
-          @if(!$projectEnd)
-            <div class="margin-bottom-20">
-              <a href="{{URL::to('donate')}}?for=project&id={{$project->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
-            </div>
+          <div class="margin-bottom-20">
+            <a href="{{URL::to('donate')}}?for=project&id={{$project->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
+          </div>
           @endif
 
           <div class="row">

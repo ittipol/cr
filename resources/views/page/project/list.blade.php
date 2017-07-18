@@ -25,10 +25,9 @@
     </div>
   </div>
 
-  <div class="container margin-top-20 margin-bottom-100">
+  <div class="container margin-top-20 padding-bottom-100">
     
-    <h2>โครงการ</h2>
-    <!-- <hr> -->
+    <!-- <h2>โครงการ</h2> -->
     <div class="clearfix margin-bottom-20"></div>
     
     <div class="row">
@@ -75,7 +74,7 @@
 
               <div class="clearfix margin-bottom-20"></div>
 
-              <div class="margin-bottom-20">
+              <div>
                 <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
               </div>
             </div>

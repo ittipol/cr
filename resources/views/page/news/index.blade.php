@@ -5,12 +5,10 @@
 
   <div class="breadcrumbs">
     <div class="container">
-      <h1 class="pull-left">ข่าวสาร</h1>
-      <ul class="pull-right breadcrumb">
-        <li><a href="index.html">หน้าแรก</a></li>
-        <li><a href="">ข่าวสาร</a></li>
-        <li class="active">{{$news->title}}</li>
-      </ul>
+      <h1 class="pull-left">{{$news->title}}
+        <br>
+        <small><i class="fa fa-clock-o"></i> {{$dateLib->covertDateToSting($news->created_at)}}</small>
+      </h1>
     </div>
   </div>
 
@@ -37,20 +35,16 @@
 
         <img src="{{$news->thumbnail}}" class="news-thumbnail margin-bottom-20">
 
-        <h1>{{$news->title}}</h1>
+        <!-- <h1>{{$news->title}}</h1>
         
         <p>
           <i class="fa fa-clock-o"></i> {{$dateLib->covertDateToSting($news->created_at)}}
-        </p>
+        </p> -->
 
         <p>
           {!!$news->description!!}
         </p>
       </div>
-
-      <!-- <div class="col-md-4">
-        <h3>ข่าวสารที่น่าสนใจ</h3>
-      </div> -->
 
     </div>
 

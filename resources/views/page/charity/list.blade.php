@@ -6,8 +6,15 @@
   <div class="search-block parallaxBg" style="background-position: 50% 16px;">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-md-offset-2">
           <h1>ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ</h1>
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="ค้นหามูลนิธิ">
+            <span class="input-group-btn">
+              <button class="btn-u btn-u-lg" type="button"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -40,16 +47,7 @@
               <p>{{$data->short_desc}}</p>
               
               <div class="service-block-v3 donation-box for-charity">
-    <!-- 
-                <div class="margin-bottom-20">
-                  <span class="service-heading">การบริจาคในเดือนนี้</span>
-                  <span class="counter">{{$donationModel->getTotalAmount('Charity',$data->id,true)}} บาท</span>
-                </div> -->
-
-                <div class="margin-bottom-20">
-                  <a href="{{URL::to('donate')}}?for=charity&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
-                </div>
-
+                <a href="{{URL::to('donate')}}?for=charity&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
               </div>
 
             </div>

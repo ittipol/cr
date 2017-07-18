@@ -3,16 +3,6 @@
 
 <div class="news list">
 
-  <!-- <div class="breadcrumbs">
-    <div class="container">
-      <h1 class="pull-left">ข่าวสาร</h1>
-      <ul class="pull-right breadcrumb">
-        <li><a href="index.html">หน้าแรก</a></li>
-        <li><a href="active">ข่าวสาร</a></li>
-      </ul>
-    </div>
-  </div> -->
-
   <div class="search-block parallaxBg" style="background-position: 50% 16px;">
     <div class="container">
       <div class="col-md-8">

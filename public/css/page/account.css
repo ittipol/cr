@@ -23,3 +23,7 @@
 .account .donation-info-block .counter {
 	color: #222;
 }
+
+.account .search-block h1 {
+	text-align: center !important;
+}

@@ -14,18 +14,18 @@
 }
 
 .list .search-block {
-	background-image: url('/images/common/www.png');
+	background-image: url('/images/common/bbb.jpg');
 	/*background-color: #17A1E5;*/
 	padding: 40px 0;
 }
 
-.list .search-block h1 {
+/*.list .search-block h1 {
 	color: #fff;
 	font-size: 30px;
 	text-align: left;
 	margin-top: 20px;
 	margin-bottom: 0;
-}
+}*/
 /*
 .list .search-block:before {
 	background-color: transparent;

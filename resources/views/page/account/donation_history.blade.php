@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-<div class="account list">
+<div class="account list padding-bottom-100">
 
   <div class="search-block parallaxBg" style="background-position: 50% 16px;">
     <div class="container">
