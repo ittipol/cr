@@ -123,6 +123,43 @@ class Donation extends Model
 
   }
 
+  public function getTotalAmountBy($model,$userId,$thisMonth = false,$format = true) {
+
+    $condition = array();
+
+    if(!empty($model)) {
+      $condition[] = ['model','like',$model];
+    }
+
+    if(!empty($userId)) {
+      $condition[] = ['user_id','=',$userId];
+    }
+
+    $condition[] = ['verified','=',1];
+
+    $donations = $this
+    ->select(DB::raw('SUM(amount) as amount'))
+    ->where($condition)
+    ->groupBy('model');
+
+    if($thisMonth) {
+      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+    }
+
+    $donation = $donations->first();
+
+    if(empty($donation)) {
+      return 0;
+    }
+
+    if($format) {
+      return number_format($donation->amount, 0, '.', ',');
+    }
+
+    return $donations->first()->amount;
+
+  }
+
   public function getTotalAmount($model,$modelId,$thisMonth = false,$format = true) {
 
     $donations = $this
@@ -149,6 +186,21 @@ class Donation extends Model
     }
 
     return $donations->first()->amount;
+
+  }
+
+  public function getDonors($model,$modelId) {
+
+    return $this
+    ->select('user_id')
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1],
+      ['user_id','!=',null],
+      ['unidentified','=',0]
+    ])
+    ->distinct('user_id');
 
   }
 

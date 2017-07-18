@@ -13,7 +13,7 @@ class Controller extends BaseController
 
   protected $data = array();
 
-  protected $metaTitle = null;
+  protected $metaTitle = 'CharityTh';
   protected $metaDescription = null;
   protected $metaImage = null;
 

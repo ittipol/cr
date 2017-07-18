@@ -86,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('account/profile/edit', 'AccountController@edit');
   Route::post('account/profile/edit', 'AccountController@editingSubmit');
 
-  Route::get('account/donation/history', 'AccountController@history');
+  Route::get('account/donation/history', 'AccountController@donationHistory');
 
   Route::get('logout', 'UserController@logout');
 });

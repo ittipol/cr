@@ -2,10 +2,6 @@
 	margin-top: 40px;
 }
 
-/*.profile .profile-body {
-	padding: 0;
-}*/
-
 .charity .name-location span i {
 	color: rgb(53,53,53);
 	padding: 4px 8px;
@@ -86,6 +82,13 @@
 
 .donation-box {
 	padding: 0;
+}
+
+.donation-box .alert.alert-danger i {
+	color: #a94442;
+  float: left;
+  font-size: 24px;
+  margin: 0 10px 0 0;
 }
 
 .donation-box .service-heading {
@@ -243,6 +246,23 @@
 
 .list .news-v3.new-list-item {
 	margin-bottom: 30px;
+}
+
+.people-list-item .profile-image {
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+	border: 1px solid #ececec;
+	border-radius: 100px;
+	margin: 0 auto 20px;
+	overflow: hidden;
+}
+
+.people-list-item .profile-image i {
+	color: #263238;
+	font-size: 135px;
+	text-align: center;
+	display: block;
 }
 
 /* Medium Devices, Desktops */

@@ -37,6 +37,12 @@
       <div class="col-md-4">
         <div class="service-block-v3 donation-box for-project">
 
+          @if($projectEnd)
+          <div class="alert alert-danger fade in">
+            <i class="fa fa-exclamation-circle"></i> โครงการปิดรับการบริจาคแล้ว
+          </div>
+          @endif
+
           <div class="statistics">
             <h3 class="heading-xs"><strong>{{$amount}}</strong> / {{$targetAmount}} บาท<span class="pull-right">{{$percent}}%</span></h3>
             <div class="progress progress-u progress-xxs">
@@ -59,38 +65,28 @@
             </div>
 
             <div class="project-donation-item">
-              <span class="counter">{{$remainingDate}}</span>
-              <span class="sub-label">จะสิ้นสุดการรับบริจาค</span>
+              @if(!$projectEnd)
+                <span class="counter">{{$remainingDate}}</span>
+                <span class="sub-label">จะสิ้นสุดการรับบริจาค</span>
+              @endif
             </div>
           </div>
 
-          <!-- <i class="icon-heart"></i>
-          <span class="counter">{{$amount}} บาท</span>
-          <span class="sub-label">จากเป้าหมาย {{$targetAmount}} บาท</span>
-
           <div class="clearfix margin-bottom-10"></div>
 
-          <i class="icon-users"></i>
-          <span class="counter">{{$donorTotal}}</span>
-          <span class="sub-label">ผู้บริจาค</span>
-
-          <div class="clearfix margin-bottom-10"></div>
-
-          <i class="icon-clock"></i>
-          <span class="counter">{{$remainingDate}}</span>
-          <span class="sub-label">จะสิ้นสุดการเปิดรับบริจาค</span> -->
-
-          <div class="clearfix margin-bottom-10"></div>
-
-          <div class="margin-bottom-20">
-            <a href="{{URL::to('donate')}}?for=project&id={{$project->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
-          </div>
+          @if(!$projectEnd)
+            <div class="margin-bottom-20">
+              <a href="{{URL::to('donate')}}?for=project&id={{$project->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
+            </div>
+          @endif
 
           <div class="row">
             <div class="col-xs-6">
+              @if(!$projectEnd)
               <button class="btn btn-block btn-donation btn-html5" data-toggle="modal" data-target="#donation_modal">
                 วิธีการบริจาค
               </button>
+              @endif
             </div>
             <div class="col-xs-6">
               <div class="pull-right">

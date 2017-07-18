@@ -17,6 +17,7 @@ class CharityController extends Controller
       return $this->error('ไม่พบมูลนิธินี้');
     }
 
+    $date = new Date();
     $donationModel = Service::loadModel('Donation');
 
     // GET DATA
@@ -41,8 +42,6 @@ class CharityController extends Controller
       $images = json_decode($charity->images,true);
     }
 
-    $date = new Date();
-
     // SEND MODEL TO VIEW
     $this->setData('donationModel',$donationModel);
 
@@ -58,6 +57,7 @@ class CharityController extends Controller
     $this->setData('donorTotal',$donationModel->countDonor('Charity',$id,true));
     $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
     $this->setData('percent',round((date('d') * 100) / date('t')));
+    $this->setData('donors',$donationModel->getDonors('Charity',$id));
 
     // SET META
     $this->setMeta('title',$charity->name);
@@ -86,8 +86,6 @@ class CharityController extends Controller
 
     $this->setData('donationModel',Service::loadModel('Donation'));
     
-    $xxx = $model->paginate(24);
-
     $this->setData('charities',$model->paginate(24));
     $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
     $this->setData('percent',round((date('d') * 100) / date('t')));

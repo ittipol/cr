@@ -26,7 +26,10 @@ class ProjectController extends Controller
       return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
     }
 
-    // Check if has expire
+    $projectEnd = true;
+    if($project->end_date > date('Y-m-d H:i:s')) {
+      $projectEnd = false;
+    }
 
     $donationModel = Service::loadModel('Donation');
 
@@ -50,7 +53,8 @@ class ProjectController extends Controller
     $this->setData('targetAmount',number_format($project->target_amount, 0, '.', ','));
     $this->setData('percent',round(($amount*100)/$project->target_amount));
     $this->setData('remainingDate',$date->remainingDate($project->end_date));
-
+    $this->setData('projectEnd',$projectEnd);
+    
     // SET META
     $this->setMeta('title',$project->name);
     $this->setMeta('description',$project->short_desc);

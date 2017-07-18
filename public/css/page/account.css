@@ -1,0 +1,25 @@
+.account .profile-image {
+	width: 150px;
+	height: 150px;
+	background-color: #fff;
+	border: 1px solid #ececec;
+	border-radius: 150px;
+	margin: 0 auto 20px;
+	overflow: hidden;
+}
+
+.account .profile-image i {
+	color: #263238;
+	font-size: 185px;
+	text-align: center;
+	display: block;
+}
+
+.account .donation-info-block {
+	background-color: #e8e8e8;
+}
+
+.account .donation-info-block .service-heading,
+.account .donation-info-block .counter {
+	color: #222;
+}

@@ -3,7 +3,7 @@
 
 <div class="news">
 
-  <div class="breadcrumbs">
+  <!-- <div class="breadcrumbs">
     <div class="container">
       <h1 class="pull-left">ข่าวสาร</h1>
       <ul class="pull-right breadcrumb">
@@ -11,13 +11,19 @@
         <li><a href="active">ข่าวสาร</a></li>
       </ul>
     </div>
+  </div> -->
+
+  <div class="search-block parallaxBg" style="background-position: 50% 16px;">
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>ข่าวสารจากมูลนิธิ</h1>
+      </div>
+    </div>
   </div>
 
-  <div class="container content-md list margin-top-20 margin-bottom-100">
-    
-    <!-- <h2>ข่าวสาร</h2> -->
-    
-    <div class="clearfix margin-bottom-20"></div>
+  <div class="container list margin-top-20 margin-bottom-100">
+  
+    <div class="clearfix margin-bottom-40"></div>
 
     <div class="row news-v1">
       @foreach($news as $data)
