@@ -5,8 +5,10 @@
 
   <div class="search-block parallaxBg" style="background-position: 50% 16px;">
     <div class="container">
-      <div class="col-md-8">
-        <h1>ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ</h1>
+      <div class="row">
+        <div class="col-md-8">
+          <h1>ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ</h1>
+        </div>
       </div>
     </div>
   </div>

@@ -14,14 +14,14 @@
 }
 
 .list .search-block {
-	/*background-image: none;*/
-	background-color: #17A1E5;
-	padding: 20px 0;
+	background-image: url('/images/common/www.png');
+	/*background-color: #17A1E5;*/
+	padding: 40px 0;
 }
 
 .list .search-block h1 {
 	color: #fff;
-	font-size: 34px;
+	font-size: 30px;
 	text-align: left;
 	margin-top: 20px;
 	margin-bottom: 0;
@@ -290,15 +290,15 @@
 .people-list-item .profile-image {
 	width: 100px;
 	height: 100px;
-	background-color: #fff;
-	border: 1px solid #ececec;
+	background-color: #2e3d50;
+	border: 1px solid #2e3d50;
 	border-radius: 100px;
 	margin: 0 auto 20px;
 	overflow: hidden;
 }
 
 .people-list-item .profile-image i {
-	color: #263238;
+	color: #fff;
 	font-size: 135px;
 	text-align: center;
 	display: block;
@@ -348,6 +348,11 @@
 
 	.embedded-video {
 		height: 215px;
+	}
+
+	.list .search-block h1 {
+		font-size: 28px;
+		margin-top: 0;
 	}
 
 }

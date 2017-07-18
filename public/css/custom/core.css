@@ -259,10 +259,18 @@ h2 > img.provider-logo {
 	}
 }
 
+@media only screen and (max-width : 768px) {
+
+	.fixed-header {
+		height: 64px;
+	}
+
+}
+
 @media only screen and (max-width : 480px) {
 
 	.fixed-header {
-		height: 63px;
+		height: 64px;
 	}
 
 	.bank-account-detail > table {

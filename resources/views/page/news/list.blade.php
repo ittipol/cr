@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="container list margin-top-20 margin-bottom-100">
+  <div class="container margin-top-20 margin-bottom-100">
   
     <div class="clearfix margin-bottom-40"></div>
 
