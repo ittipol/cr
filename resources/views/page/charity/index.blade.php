@@ -1,9 +1,9 @@
 @extends('layout.main')
 @section('content')
   
-<div class="charity margin-top-20 margin-bottom-100" >
+<div class="charity index margin-top-20 margin-bottom-100" >
 
-  <div class="container profile">
+  <div class="container">
 
     <div class="charity-header clearfix">
       <img class="charity-logo" src="{{$charity->logo}}">
@@ -33,7 +33,7 @@
       </div>
 
       <div class="col-md-4">
-        <div class="service-block-v3 donation-box">
+        <div class="service-block-v3 donation-box for-charity">
 
           <div class="margin-bottom-20">
             <span class="service-heading">การบริจาคในเดือนนี้</span>

@@ -24,7 +24,9 @@
 
         <div class="col-md-4 md-margin-bottom-40">
           <div class="news-v1-in">
-            <img class="img-responsive" src="{{$data->thumbnail}}">
+            <a href="{{URL::to('news')}}/{{$data->id}}">
+              <img class="img-responsive" src="{{$data->thumbnail}}">
+            </a>
             <h3><a href="{{URL::to('news')}}/{{$data->id}}">{{$data->title}}</a></h3>
             <p>{{$data->short_desc}}</p>
             <ul class="list-inline news-v1-info">

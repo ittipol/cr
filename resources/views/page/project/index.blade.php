@@ -1,9 +1,9 @@
 @extends('layout.main')
 @section('content')
 
-<div class="project margin-top-20 margin-bottom-100">
+<div class="project index margin-top-20 margin-bottom-100">
 
-  <div class="container profile">
+  <div class="container">
 
     <div class="project-header clearfix">
       <h2>{{$project->name}}</h2>
@@ -35,7 +35,7 @@
       </div>
 
       <div class="col-md-4">
-        <div class="service-block-v3 project-box">
+        <div class="service-block-v3 donation-box for-project">
 
           <div class="statistics">
             <h3 class="heading-xs"><strong>{{$amount}}</strong> / {{$targetAmount}} บาท<span class="pull-right">{{$percent}}%</span></h3>

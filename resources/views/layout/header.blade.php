@@ -47,8 +47,7 @@
 
       @if(Auth::check())
         <div class="profile-image">
-          <a href="">
-            <!-- <img src="/images/common/avatar.png"> -->
+          <a href="{{URL::to('account')}}">
             <i class="fa fa-user"></i>
           </a>
         </div>

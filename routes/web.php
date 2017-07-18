@@ -81,6 +81,8 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
+  Route::get('account', 'AccountController@index');
+
   Route::get('account/profile/edit', 'AccountController@edit');
   Route::post('account/profile/edit', 'AccountController@editingSubmit');
 

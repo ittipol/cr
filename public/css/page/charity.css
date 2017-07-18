@@ -2,9 +2,9 @@
 	margin-top: 40px;
 }
 
-.profile .profile-body {
+/*.profile .profile-body {
 	padding: 0;
-}
+}*/
 
 .charity .name-location span i {
 	color: rgb(53,53,53);
@@ -84,82 +84,82 @@
 	background-color: #444;
 }
 
-.service-block-v3 {
+.donation-box {
 	padding: 0;
 }
 
-.service-block-v3.donation-box .service-heading {
+.donation-box .service-heading {
 	font-size: 14px;
 }
 
-.service-block-v3.donation-box .icon-users,
-.service-block-v3.donation-box .service-heading,
-.service-block-v3.donation-box .statistics .heading-xs {
+.donation-box .icon-users,
+.donation-box .service-heading,
+.donation-box .statistics .heading-xs {
 	color: #000;
 }
 
-.service-block-v3.donation-box .counter {
+.donation-box .counter {
 	color: #05AF3C;
 	font-size: 24px;
 	margin-top: 4px;
 }
 
-.service-block-v3 .statistics .progress-bar-light {
+.donation-box .statistics .progress-bar-light {
 	background-color: #05AF3C;
 }
 
-.service-block-v3 .btn-u:hover {
+.donation-box .btn-u:hover {
 	background-color: #05AF3C;
 }
 
-.service-block-v3 .sub-label {
+.donation-box .sub-label {
 	color: #626369;
 	font-size: 14px;
 }
 
-.service-block-v3 .statistics small {
+.donation-box .statistics small {
 	color: #000;
 }
 
-.service-block-v3.donation-box > i {
+.donation-box > i {
 	color: #000;
 }
 
-.service-block-v3 .btn-u.btn-custom {
+.donation-box .btn-u.btn-custom {
 	margin-bottom: 4px;
 }
 
-.service-block-v3 .btn-share {
+.donation-box .btn-share {
 	color: #fff;
 	border: 0;
 	width: 34px;
 	line-height: 34px;
 }
 
-.service-block-v3 .btn-share > i {
+.donation-box .btn-share > i {
 	color: #fff;
 	font-size: 14px;
 	margin: 0;
 	float: none;
 }
 
-.service-block-v3 .btn-facebook.btn-share {
+.donation-box .btn-facebook.btn-share {
 	background-color: #4863ae;
 }
 
-.service-block-v3 .btn-twitter.btn-share {
+.donation-box .btn-twitter.btn-share {
 	background-color: #46c0fb;
 }
 
-.service-block-v3 .btn-googleplus.btn-share {
+.donation-box .btn-googleplus.btn-share {
 	background-color: #dd4a38;
 }
 
-.service-block-v3 .btn-donation:focus {
+.donation-box .btn-donation:focus {
 	color: #ff3617;
 }
 
-.service-block-v3 .btn-donation:hover {
+.donation-box .btn-donation:hover {
 	color: #fff;
 }
 
@@ -177,7 +177,7 @@
 	overflow: hidden;
 }
 
-.news-v3 .service-block-v3 {
+.news-v3 .donation-box {
 	padding: 0;
 }
 
@@ -263,11 +263,11 @@
 		margin-top: 20px;
 	}
 
-	.service-block-v3 {
+	.donation-box {
 		padding: 20px 15px;
 	}
 
-	.service-block-v3.donation-box .counter {
+	.donation-box .counter {
 		font-size: 18px;
 	}
 

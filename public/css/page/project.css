@@ -15,19 +15,13 @@
 	color: #000;
 }
 
-.service-block-v3.project-box > i {
+.project .donation-box > i {
 	color: #000;
 	margin-right: 10px;
 	font-size: 26px;
 }
 
-.service-block-v3.project-box .icon-users,
-.service-block-v3.project-box .service-heading,
-.service-block-v3.project-box .statistics .heading-xs {
-	color: #000;
-}
-
-.service-block-v3.project-box .counter {
+.project .donation-box .counter {
 	font-size: 24px;
 	color: #05AF3C;
 }
@@ -57,7 +51,7 @@
 	margin-bottom: 20px;
 }
 
-.news-v3 .service-block-v3.project-box .counter {
+.news-v3 .donation-box .counter {
 	font-size: 18px;
 }
 
@@ -66,14 +60,6 @@
 	.project-header p {
 		font-size: 14px;
 	}
-
-	/*.project-header .project-name {
-		font-size: 32px;
-	}
-
-	.project-header .project-short-desc {
-		font-size: 14px;
-	}*/
 
 	.timeline-v2 .timeline-start {
     width: 100%;
@@ -84,13 +70,7 @@
 		font-size: 24px;
 	}
 
-	/*.project-donation-info > .project-donation-item {
-		width: auto;
-		display: inline-block;
-		margin-right: 12px;
-	}*/
-
-	.service-block-v3.project-box .counter {
+	.project .donation-box .counter {
 		font-size: 18px;
 	}
 
