@@ -42,6 +42,7 @@
 
 .charity .name-location span i {
 	color: rgb(53,53,53);
+	margin-right: 6px;
 	padding: 4px 8px;
 	background-color: rgb(230,231,232);
 }

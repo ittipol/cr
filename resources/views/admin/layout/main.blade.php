@@ -11,13 +11,11 @@
 
   <div class="header">
     <div class="container">
-      <!-- Logo -->
+   
       <a class="logo" href="{{URL::to('admin/dashboard')}}">
         <img src="/images/logo/logo-dark.png" alt="Logo">
       </a>
-      <!-- End Logo -->
 
-      <!-- Topbar -->
       @if(session()->has('admin_auth') && !empty(session()->get('admin_auth')))
       <div class="topbar">
         <ul class="loginbar pull-right">
@@ -31,21 +29,17 @@
         </ul>
       </div>
       @endif
-      <!-- End Topbar -->
 
-      <!-- Toggle get grouped for better mobile display -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="fa fa-bars"></span>
       </button>
-      <!-- End Toggle -->
-    </div><!--/end container-->
+    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
       <div class="container">
         <ul class="nav navbar-nav">
-          <!-- Home -->
+ 
           @if(session()->has('admin_auth') && !empty(session()->get('admin_auth')))
 
           <li class="dropdown">
@@ -91,6 +85,14 @@
             <ul class="dropdown-menu">
               <li><a href="{{URL::to('admin/stock_image/list')}}">list</a></li>
               <li><a href="{{URL::to('admin/stock_image/add')}}">add</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="{{URL::to('admin/summary')}}" class="dropdown-toggle" data-toggle="dropdown">
+              Summary
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{URL::to('admin/summary')}}">Monthly & Daily</a></li>
             </ul>
           </li>
 

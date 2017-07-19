@@ -17,7 +17,7 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'api'], function () {
   Route::get('get_district/{provinceId}', 'ApiController@getDistrict');
 });
 
-Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
   Route::get('login', 'AdminController@login');
   Route::post('login', 'AdminController@authenticate');
 
@@ -60,6 +60,8 @@ Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 
   Route::get('donation/detail/{id}', 'DonationController@detail');
   Route::get('donation/delete/{id}', 'DonationController@delete');
   Route::get('donation/verify/{id}', 'DonationController@verify');
+
+  Route::get('summary', 'SummartController@index');
 });
 
 Route::group(['middleware' => ['admin.auth'], 'namespace' => 'Admin', 'prefix' => 'admin'],  function () {
