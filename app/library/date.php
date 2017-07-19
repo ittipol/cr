@@ -150,6 +150,27 @@ class Date
 
   // }
 
+  public function getFirstAndLastDateOfMonth($month,$year) {
+
+    $month = (int)$month;
+
+    if(in_array($month, array(1,3,5,7,8,10,12))) {
+      $date = 31;
+    }elseif(in_array($month, array(4,6,9,11))) {
+      $date = 30;
+    }elseif($this->isLeapYear($year)) {
+      $date = 29;
+    }else{
+      $date = 28;
+    }
+
+    return array(
+      'start' => $year.'-'.$month.'-1 00:00:00',
+      'end' => $year.'-'.$month.'-'.$date.' 23:59:59',
+    );
+
+  }
+
   public function remainingDate($end,$strat = null) {
 
     $_start  = time();
@@ -222,9 +243,9 @@ class Date
   //   return $passed;
   // }
 
-  // public function isLeapYear($year) {
-  //   return ((($year % 4) == 0) && ((($year % 100) != 0) || (($year % 400) == 0)));
-  // }
+  public function isLeapYear($year) {
+    return ((($year % 4) == 0) && ((($year % 100) != 0) || (($year % 400) == 0)));
+  }
 
   // public function findDateRange($start,$end,$date = array()) {
 

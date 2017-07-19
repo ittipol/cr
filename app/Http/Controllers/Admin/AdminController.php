@@ -24,9 +24,11 @@ class AdminController extends Controller
     $password = request()->password;
     // $password = Hash::make(request()->password);
 
-    if(($email == '1') && (md5($password) == 'c4ca4238a0b923820dcc509a6f75849b')) {
+    if(($email == '1') && (md5($password) == '31c533c607c128ab333a980a66fa54b0')) {
       session()->put('admin_auth', true);
       return Redirect::to('/admin/dashboard');
+    }else{
+      return Redirect::to('/admin/login');
     }
 
   }
