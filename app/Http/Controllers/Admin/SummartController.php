@@ -25,6 +25,8 @@ class SummartController extends Controller
       $monthly = true;
     }
 
+    $donations = null;
+
     if($monthly) {
       $start = $_GET['year'].'-'.$_GET['month'].'-'.$_GET['date'].' 00:00:00';
       $end = $_GET['year'].'-'.$_GET['month'].'-'.$_GET['date'].' 23:59:59';

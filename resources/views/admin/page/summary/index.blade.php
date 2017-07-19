@@ -45,61 +45,65 @@
 
   <hr>
 
-  <?php
-    $summartAmount = array(
-      'total' => 0,
-      'deducted' => 0,
-      'balance' => 0 
-    );
-  ?>
+  @if(!empty($donations))
 
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>ชื่อมูลนิธิ/โครงการ</th>
-        <th>ยอดรวม</th>
-        <th>ยอดที่หัก</th>
-        <th>ยอดส่งมอบ</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach($donations as $donation)
-      <?php
-        $deductedAmount =  $donation->totalAmount * 0.3;
-        $balance =  $donation->totalAmount - $deductedAmount;
+    <?php
+      $summartAmount = array(
+        'total' => 0,
+        'deducted' => 0,
+        'balance' => 0 
+      );
+    ?>
 
-        $summartAmount['total'] += $donation->totalAmount;
-        $summartAmount['deducted'] += $deductedAmount;
-        $summartAmount['balance'] += $balance;
-      ?>
-      <tr>
-        <td>
-          @if($donation->model == 'Charity')
-            <a href="{{URL::to('charity')}}/{{$donation->model_id}}">{{$donation->charity->name}}</a>
-          @else
-            <a href="{{URL::to('project')}}/{{$donation->model_id}}">{{$donation->project->name}}</a>
-          @endif
-        </td>
-        <td>
-          {{$donation->totalAmount}}
-        </td>
-        <td>
-          {{$deductedAmount}}
-        </td>
-        <td>
-          {{$balance}}
-        </td>
-      </tr>
-      @endforeach
-    </tbody>
-    <tfoot>
-      <tr>
-        <td>สรุป</td>
-        <td>{{$summartAmount['total']}}</td>
-        <td>{{$summartAmount['deducted']}}</td>
-        <td>{{$summartAmount['balance']}}</td>
-      </tr>
-    </tfoot>
-  </table>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ชื่อมูลนิธิ/โครงการ</th>
+          <th>ยอดรวม</th>
+          <th>ยอดที่หัก</th>
+          <th>ยอดส่งมอบ</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($donations as $donation)
+        <?php
+          $deductedAmount =  $donation->totalAmount * 0.3;
+          $balance =  $donation->totalAmount - $deductedAmount;
+
+          $summartAmount['total'] += $donation->totalAmount;
+          $summartAmount['deducted'] += $deductedAmount;
+          $summartAmount['balance'] += $balance;
+        ?>
+        <tr>
+          <td>
+            @if($donation->model == 'Charity')
+              <a href="{{URL::to('charity')}}/{{$donation->model_id}}">{{$donation->charity->name}}</a>
+            @else
+              <a href="{{URL::to('project')}}/{{$donation->model_id}}">{{$donation->project->name}}</a>
+            @endif
+          </td>
+          <td>
+            {{$donation->totalAmount}}
+          </td>
+          <td>
+            {{$deductedAmount}}
+          </td>
+          <td>
+            {{$balance}}
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>สรุป</td>
+          <td>{{$summartAmount['total']}}</td>
+          <td>{{$summartAmount['deducted']}}</td>
+          <td>{{$summartAmount['balance']}}</td>
+        </tr>
+      </tfoot>
+    </table>
+
+  @endif
 
 @stop
