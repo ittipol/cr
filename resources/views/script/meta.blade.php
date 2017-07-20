@@ -3,6 +3,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+@if(!empty($botDisallowed) && $botDisallowed)
+<meta name="robots" content="noindex,nofollow">
+@endif
+
 <meta property="fb:app_id"          content="227375124451364" /> 
 <meta property="og:type"            content="website" /> 
 <meta property="og:url"             content="{{Request::fullUrl()}}" /> 

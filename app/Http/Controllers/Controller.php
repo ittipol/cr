@@ -23,11 +23,11 @@ class Controller extends BaseController
     'image' => null
   );
 
-  // protected $botDisallowed = true;
+  protected $botDisallowed = false;
 
-  // protected function botAllowed() {
-  //   $this->botDisallowed = false;
-  // }
+  protected function botDisallowed() {
+    $this->botDisallowed = true;
+  }
 
   protected function setMeta($type,$value = null) {
     
@@ -60,6 +60,7 @@ class Controller extends BaseController
     // Request::ip()
 
     $this->data['_meta'] = $this->meta;
+    $this->data['_bot'] = $this->botDisallowed;
 
     return view($view,$this->data);
   }

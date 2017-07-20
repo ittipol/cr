@@ -253,7 +253,7 @@
                 <div class="container content-sm">
                   <div class="row team-v4 people-list">
                     @foreach($donors->get() as $donor)
-                    <div class="col-md-3 col-sm-6 people-list-item">
+                    <div class="col-md-3 col-xs-6 people-list-item">
                       <div class="profile-image">
                         <i class="fa fa-user"></i>
                       </div>
