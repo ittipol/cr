@@ -17,9 +17,9 @@ class HomeController extends Controller
     // Lib
     $this->setData('dateLib',new Date);
 
-    $this->setData('charities',Service::loadModel('Charity')->orderBy('created_at','desc')->take(12)->get());
-    $this->setData('projects',Service::loadModel('Project')->orderBy('created_at','desc')->take(6)->get());
-    $this->setData('news',Service::loadModel('News')->orderBy('created_at','desc')->take(6)->get());
+    $this->setData('charities',Service::loadModel('Charity')->orderBy('created_at','desc')->take(24)->get());
+    // $this->setData('projects',Service::loadModel('Project')->orderBy('created_at','desc')->take(6)->get());
+    // $this->setData('news',Service::loadModel('News')->orderBy('created_at','desc')->take(6)->get());
 
     // SET META
     $this->setMeta('title','หน้าแรก — Charity');

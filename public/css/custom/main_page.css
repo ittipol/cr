@@ -1,0 +1,12 @@
+.one-page-header.charity-header .navbar-nav > li > a {
+	font-size: 14px;
+	font-weight: 100;
+}
+
+.one-page-header.charity-header .navbar-nav > li > a:hover, .one-page-header.charity-header .navbar-nav > li.active > a:hover, .one-page-header.charity-header .navbar-nav > li.active > a:focus, .one-page-header.charity-header .navbar-nav > li.active > a {
+	color: #05AF3C !important;
+}
+
+.infoblock-v1-image:after {
+	background-color: transparent;
+}

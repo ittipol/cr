@@ -295,14 +295,6 @@
 		margin-top: 20px;
 	}
 
-	.donation-box {
-		padding: 20px 15px;
-	}
-
-	.donation-box .counter {
-		font-size: 18px;
-	}
-
 	.charity-header .charity-logo {
 		width: 60px;
 	}
@@ -321,11 +313,6 @@
 
 	.embedded-video {
 		height: 215px;
-	}
-
-	.list .search-block h1 {
-		font-size: 28px;
-		margin-top: 0;
 	}
 
 }

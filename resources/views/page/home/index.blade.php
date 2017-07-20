@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="css/custom/profile_image.css">
   <link rel="stylesheet" href="css/custom/list_item.css">
   <link rel="stylesheet" href="css/custom/button.css">
-  <link rel="stylesheet" href="css/custom/main.css">
+  <link rel="stylesheet" href="css/custom/main_page.css">
 
 </head>
 <body id="body">
@@ -63,13 +63,13 @@
               <a href="{{URL::to('/')}}">หน้าแรก</a>
             </li>
             <li class="page-scroll">
-              <a href="#your-help">การบริจาค</a>
-            </li>
-            <li class="page-scroll">
               <a href="{{URL::to('charity/list')}}">มูลนิธิ</a>
             </li>
             <li class="page-scroll">
               <a href="{{URL::to('project/list')}}">โครงการ</a>
+            </li>
+            <li class="page-scroll">
+              <a href="#your-help">การบริจาค</a>
             </li>
             <li class="page-scroll">
               <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
@@ -132,7 +132,7 @@
     <div class="clearfix margin-bottom-100"></div>
 
     <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-      <h2 class="g-mb-35">ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ</strong></h2>
+      <h2 class="g-mb-35">ร่วมเป็นส่วนหนึ่งในการสนับสนุนมูลนิธิ</strong></h2>
       <p>Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio.</p>
     </div>
 
@@ -187,8 +187,9 @@
           <div class="infoblock-v1">
             <div class="infoblock-v1-image" style="background-image: url(/images/common/www.jpg);"></div>
             <div class="infoblock-v1-content infoblock-v1-content--right">
-              <h3 class="g-mb-25">ร่วมเป็นส่วนหนึ่งในการสนับสนุนมูลนิธิ</h3>
-              <p class="g-mb-30">Praesent pulvinar gravida efficitur. Aenean bibendum purus eu nisi pulvinar venenatis vitae non velit.</p>
+              <h3 class="g-mb-25">บริจาคให้กับมูลนิธิ</h3>
+              <p class="g-mb-30">มีมูลนิธิมากมายที่ต้องการการสนับสนุนเพื่อให้มูลนิธิสามารถดำเนินการต่อได้</p>
+              <a class="btn-u btn-u-upper" href="#">มูลนิธิ</a>
               <a class="btn-u btn-u-upper" href="#">วิธีการบริจาค</a>
             </div>
           </div>
@@ -198,80 +199,12 @@
   </section>
   <!-- /Section "Can help" -->
 
-  <!-- Section "Projects" -->
-  <section class="g-pt-100 g-pb-100 g-bg-gray" id="our-projects">
-    <div class="container">
-      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">โครงการ</h2>
-        <p>Nullam in diam arcu. Etiam nisl justo, tempor scelerisque sagittis vel, bibendum vestibulum metus. Donec eget nunc neque.</p>
-      </div>
-
-      <div class="row">
-        @foreach($projects as $data)
-
-          <div class="col-md-4 news-v3 custom-item-list">
-            <a href="{{URL::to('project')}}/{{$data->id}}">
-              <img class="img-responsive full-width" src="{{$data->thumbnail}}">
-            </a>
-            <div class="news-v3-in-sm bg-color-light">
-              <h2 class="new-title">
-                <span>
-                  <a href="{{URL::to('project')}}/{{$data->id}}">{{$data->name}}</a>
-                </span>
-              </h2>
-              <p>{{$data->short_desc}}</p>
-              <div class="project-by-charity margin-bottom-20">
-                <a href="{{URL::to('charity')}}/{{$data->charity->id}}">
-                  <img class="charity-logo" src="{{$data->charity->logo}}">
-                </a>
-                <span>โดย <a href="{{URL::to('charity')}}/{{$data->charity->id}}">{{$data->charity->name}}</a></span>
-              </div>
-          
-              <div class="service-block-v3 donation-box for-project">
-
-                <?php
-                  $amount = $donationModel->getTotalAmount('Project',$data->id,false,false);
-                  $percent = round(($amount*100)/$data->target_amount);
-                ?>
-
-                <div class="statistics">
-                  <h3 class="heading-xs"><strong>{{$donationModel->countDonor('Project',$data->id)}}</strong> / {{number_format($data->target_amount, 0, '.', ',')}} บาท<span class="pull-right">{{$percent}}%</span></h3>
-                  <div class="progress progress-u progress-xxs">
-                    <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="clearfix margin-bottom-10"></div>
-
-                <div class="statistics">
-                  <h3 class="heading-xs">เหลือเวลาบริจาคอีก <strong>{{$dateLib->remainingDate($data->end_date)}}</strong></h3>
-                </div>
-
-                <div class="clearfix margin-bottom-20"></div>
-
-                <div>
-                  <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">สนับสนุนโครงการนี้</a>
-                </div>
-                
-              </div>
-
-            </div>
-          </div>
-        @endforeach
-
-      </div>
-
-    </div>
-  </section>
-  <!-- /Section "Projects" -->
-
   <!-- Section "Best Donators" -->
   <section class="g-pt-100 g-pb-50 text-center overflow-h" id="donators">
     <div class="container">
       <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">Best <strong>donators</strong></h2>
-        <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio. Donec eu nulla leo. Vivamus risus lacus</p>
+        <h2 class="g-mb-35">ต้องการเป็นผู้สนับสนุน</h2>
+        <p>สร้างบัญชีเพื่อเก็บประวัติการบริจาคของคุณ</p>
       </div>
       <div class="row">
         <div class="col-md-2 col-sm-4 col-xs-6 g-mb-50">
@@ -325,94 +258,6 @@
     </div>
   </section>
   <!-- /Section "Best Donators" -->
-
-  <!-- Section "Latest posts" -->
-  <section class="g-pt-100 g-pb-100 g-mb-60" id="blog">
-    <div class="container">
-      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">ข่าวสาร</h2>
-        <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio. Donec eu nulla leo. Vivamus risus lacus</p>
-      </div>
-
-      <div class="news-v1">
-        @foreach($news as $data)
-        
-          <div class="col-md-4 md-margin-bottom-40">
-            <div class="news-v1-in">
-              <a href="{{URL::to('news')}}/{{$data->id}}">
-                <img class="img-responsive" src="{{$data->thumbnail}}">
-              </a>
-              <h3><a href="{{URL::to('news')}}/{{$data->id}}">{{$data->title}}</a></h3>
-              <p>{{$data->short_desc}}</p>
-              <ul class="list-inline news-v1-info">
-                <li><a href="{{URL::to('charity')}}/{{$data->charity->id}}">{{$data->charity->name}}</a></li>
-                <li>|</li>
-                <li><i class="fa fa-clock-o"></i> {{$dateLib->covertDateToSting($data->created_at)}}</li>
-              </ul>
-            </div>
-          </div>
-
-        @endforeach
-      </div>
-
-      <div class="clearfix margin-bottom-40"></div>
-
-    </div>
-
-    <!-- <div class="posts g-mb-45">
-      <div class="post-item">
-        <a href="#" class="post-item__image"><img src="/assets/img-temp/5.jpg" alt=""></a>
-        <div class="post-item__content">
-          <h3 class="h5 g-mb-20"><a href="#">Mauris tellus magna, pretium</a></h3>
-          <p>Integer vitae dolor eleifend, congue neque id, elementum mauris. Nullam molestie pretium velit, ut iaculis mauris hendrerit sedeget nibh commodo.</p>
-        </div>
-      </div>
-
-      <div class="post-item">
-        <a href="#" class="post-item__image"><img src="/assets/img-temp/17.jpg" alt=""></a>
-        <div class="post-item__content">
-          <h3 class="h5 g-mb-20"><a href="#">Mauris tellus magna, pretium</a></h3>
-          <p>Integer vitae dolor eleifend, congue neque id, elementum mauris. Nullam molestie pretium velit, ut iaculis mauris hendrerit sedeget nibh commodo.</p>
-        </div>
-      </div>
-
-      <div class="post-item">
-        <a href="#" class="post-item__image"><img src="/assets/img-temp/18.jpg" alt=""></a>
-        <div class="post-item__content">
-          <h3 class="h5 g-mb-20"><a href="#">Mauris tellus magna, pretium</a></h3>
-          <p>Integer vitae dolor eleifend, congue neque id, elementum mauris. Nullam molestie pretium velit, ut iaculis mauris hendrerit sedeget nibh commodo.</p>
-        </div>
-      </div>
-
-      <div class="post-item">
-        <a href="#" class="post-item__image"><img src="/assets/img-temp/19.jpg" alt=""></a>
-        <div class="post-item__content">
-          <h3 class="h5 g-mb-20"><a href="#">Mauris tellus magna, pretium</a></h3>
-          <p>Integer vitae dolor eleifend, congue neque id, elementum mauris. Nullam molestie pretium velit, ut iaculis mauris hendrerit sedeget nibh commodo.</p>
-        </div>
-      </div>
-
-      <div class="post-item">
-        <a href="#" class="post-item__image"><img src="/assets/img-temp/20.jpg" alt=""></a>
-        <div class="post-item__content">
-          <h3 class="h5 g-mb-20"><a href="#">Mauris tellus magna, pretium</a></h3>
-          <p>Integer vitae dolor eleifend, congue neque id, elementum mauris. Nullam molestie pretium velit, ut iaculis mauris hendrerit sedeget nibh commodo.</p>
-        </div>
-      </div>
-
-      <div class="post-item">
-        <a href="#" class="post-item__image"><img src="/assets/img-temp/22.jpg" alt=""></a>
-        <div class="post-item__content">
-          <h3 class="h5 g-mb-20"><a href="#">Mauris tellus magna, pretium</a></h3>
-          <p>Integer vitae dolor eleifend, congue neque id, elementum mauris. Nullam molestie pretium velit, ut iaculis mauris hendrerit sedeget nibh commodo.</p>
-        </div>
-      </div>
-    </div> -->
-    <div class="text-center">
-      <a class="btn-u btn-u-lg btn-u-upper" href="#">View all posts</a>
-    </div>
-  </section>
-  <!-- /Section "Latest posts" -->
 
   <div id="footer-v3" class="footer-v3">
 

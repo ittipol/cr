@@ -57,3 +57,24 @@
 .news-v1-in p {
 	height: 60px;
 }
+
+@media only screen and (max-width : 480px) {
+
+	.news-v3.custom-item-list img.full-width {
+		width: 100%;
+	}
+
+	.donation-box {
+		padding: 20px 15px;
+	}
+
+	.donation-box .counter {
+		font-size: 18px;
+	}
+
+	.list .search-block h1 {
+		font-size: 28px;
+		margin-top: 0;
+	}
+
+}
