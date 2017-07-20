@@ -28,6 +28,9 @@
           <li class="list-group-item">
             <a href="{{URL::to('account/donation/history')}}"><i class="fa fa-heart"></i> การบริจาค</a>
           </li>
+          <li class="list-group-item">
+            <a href="{{URL::to('logout')}}"><i class="fa fa-arrow-left"></i> ออกจากระบบ</a>
+          </li>
         </ul>
 
       </div>

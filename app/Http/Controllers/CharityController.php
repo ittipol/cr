@@ -60,7 +60,7 @@ class CharityController extends Controller
     $this->setData('donors',$donationModel->getDonors('Charity',$id));
 
     // SET META
-    $this->setMeta('title',$charity->name);
+    $this->setMeta('title',$charity->name.' — Charity');
     $this->setMeta('description',$charity->short_desc);
     $this->setMeta('image',$charity->thumbnail);
 

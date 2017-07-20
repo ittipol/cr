@@ -71,7 +71,7 @@
               <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
             </li>
             <li class="page-scroll">
-              <a href="#subscription">สร้างบัญชี</a>
+              <a href="{{URL::to('login')}}">เข้าสู่ระบบ</a>
             </li>
           </ul>
         </div>

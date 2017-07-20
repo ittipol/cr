@@ -74,11 +74,14 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'guest'], function () {
-  Route::get('/login', 'UserController@login');
-  Route::post('/login', 'UserController@authenticate');
+  
+  Route::get('login', 'UserController@login');
+  Route::post('login', 'UserController@authenticate');
 
-  Route::get('/subscription', 'UserController@register');
-  Route::post('/subscription', 'UserController@registering');
+  Route::get('facebook/login', 'UserController@socialCallback');
+
+  Route::get('subscription', 'UserController@register');
+  Route::post('subscription', 'UserController@registering');
 });
 
 Route::group(['middleware' => 'auth'], function () {
