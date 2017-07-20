@@ -1,11 +1,12 @@
 @extends('layout.main')
 @section('content')
 
-
-
 {{Form::open(['id' => 'login_form', 'class' => 'user-form', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
 
 <div class="form-block login-block user-form">
+
+  @include('component.form_error')
+  
   <div class="form-block-header">
     <h2 class="margin-bottom-30">เข้าสู่ระบบ</h2>
   </div>
@@ -84,27 +85,43 @@
   $('#fb_login_btn').on('click',function(e){
     FB.login(function(response) {
 
-      console.log(response.authResponse);
       if (response.authResponse) {
         //user just authorized your app
 
-        console.log('dssds');
+        let formData = new FormData();
+        formData.append('_token', $('input[name="_token"]').val());  
+        formData.append('access_token', response.authResponse.accessToken);  
 
-        FB.api("/me/feed","POST",
-            {
-                message: "testing For ... \ntest ...",
-                privacy: {value:"SELF"},
-            },
-            function (response) {
+        let request = $.ajax({
+          url: "/api/v1/access_token",
+          type: "POST",
+          data: formData,
+          dataType:'json',
+          contentType: false,
+          cache: false,
+          processData:false,
+        });
 
-              console.log('here');
-              console.log(response.error);
+        request.done(function (response, textStatus, jqXHR){
 
-              if (response && !response.error) {
-                /* handle the result */
-              }
-            }
-        );
+        });
+
+
+        // FB.api("/me/feed","POST",
+        //     {
+        //         message: "testing For ... \ntest ...",
+        //         privacy: {value:"SELF"},
+        //     },
+        //     function (response) {
+
+        //       console.log('here');
+        //       console.log(response.error);
+
+        //       if (response && !response.error) {
+        //         /* handle the result */
+        //       }
+        //     }
+        // );
 
       }
     }, {scope: 'email,public_profile,publish_actions'});

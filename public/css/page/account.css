@@ -1,3 +1,8 @@
+.account .search-block {
+	background-image: url('/images/common/bbb.jpg') !important;
+	padding: 50px 0 !important;
+}
+
 .account .profile-image {
 	width: 150px;
 	height: 150px;

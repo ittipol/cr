@@ -10,7 +10,7 @@ use App\library\token;
 use Auth;
 use Hash;
 use Redirect;
-use Cookie;
+// use Cookie;
 
 class UserController extends Controller
 {
@@ -27,13 +27,19 @@ class UserController extends Controller
   public function authenticate() {
 
     if(Auth::attempt([
-      'email' =>  request()->input('email'),
-      'password'  =>  request()->input('password')
+      'email' => request()->input('email'),
+      'password' => request()->input('password'),
     ],!empty(request()->input('remember')) ? true : false)){
       return Redirect::intended('/');
     }
 
-    return Redirect::to('/login');
+    $message = 'อีเมล หรือ รหัสผ่านไม่ถูก';
+
+    if(empty(request()->input('email')) && empty(request()->input('password'))) {
+      $message = 'กรุณาป้อนอีเมล และ รหัสผ่าน';
+    }
+
+    return Redirect::back()->withErrors([$message]);
 
   }
 
@@ -44,9 +50,9 @@ class UserController extends Controller
   public function registering(RegisterRequest $request) {
 
     $user = new User;
-    $user->email = $request->email;
-    $user->password = Hash::make($request->password);
-    $user->name = $request->name ;
+    $user->email = trim($request->email);
+    $user->password = Hash::make(trim($request->password));
+    $user->name = trim($request->name);
 
     if($user->save()) {
       session()->flash('register-success',true);

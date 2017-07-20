@@ -189,14 +189,21 @@
               <div class="col-md-9">
                 <ul class="timeline-v2">
 
-                  <!-- <li class="equal-height-columns">
-                    <div class="cbp_tmtime equal-height-column"><span>2/4/11</span> <span>April</span></div>
-                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                    <div class="cbp_tmlabel equal-height-column">
-                      <h2>Back to the past</h2>
-                      <p>Peanut gourd nori welsh onion rock melon mustard jícama. Desert raisin amaranth kombu aubergine kale seakale brussels sprout pea. Black-eyed pea celtuce bamboo shoot salad kohlrabi leek squash prairie turnip catsear rock melon chard taro broccoli turnip greens. Fennel quandong potato watercress ricebean swiss chard garbanzo. Endive daikon brussels sprout lotus root silver beet epazote melon shallot.</p>
-                    </div>
-                  </li> -->
+                  @if($projectEnd)
+
+                    <?php
+                      $date = $dateLib->explodeDateTime($project->created_at);
+                    ?>
+
+                    <li class="equal-height-columns">
+                      <div class="cbp_tmtime equal-height-column"><span>{{$date['day']}}/{{(int)$date['month']}}/{{$dateLib->getYearTh($date['year'])}}</span> <span>{{$dateLib->getMonthName($date['month'])}}</span></div>
+                      <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                      <div class="cbp_tmlabel equal-height-column">
+                        <h2>สิ้นสุดการรับบริจาค</h2>
+                        <p>{{$donorTotal}} ผู้ให้การสนับสนุนและร่วมบริจาคเป็นจำนวนเงิน {{$amount}} บาทเพื่อช่วยให้โครงการนี้เกิดขึ้นได้จริง</p>
+                      </div>
+                    </li>
+                  @endif
 
                   <li class="timeline-start">
                     <p>{{$dateLib->covertDateToSting($project->created_at)}}</p>
@@ -262,18 +269,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="col-md-4">
-        <h3>บริจาคให้กับมูลนิธินี้</h3>
-
-        <div class="donate-box">
-          <div class="donate-info">
-            <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>
-            <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>
-            <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
-          </div>
-        </div>
-      </div> -->
 
     </div>
 

@@ -4,6 +4,37 @@ namespace App\library;
 
 class Date
 {
+
+  private $monthNameAbbrev = array(
+    'ม.ค.',
+    'ก.พ.',
+    'มี.ค.',
+    'เม.ย.',
+    'พ.ค.',
+    'มิ.ย.',
+    'ก.ค.',
+    'ส.ค.',
+    'ก.ย.',
+    'ต.ค.',
+    'พ.ย.',
+    'ธ.ค.',
+  );
+
+  private $monthName = array(
+    'มกราคม',
+    'กุมภาพันธ์',
+    'มีนาคม',
+    'เมษายน',
+    'พฤษภาคม',
+    'มิถุนายน',
+    'กรกฎาคม',
+    'สิงหาคม',
+    'กันยายน',
+    'ตุลาคม',
+    'พฤศจิกายน',
+    'ธันวาคม',
+  );
+
   public function today($time = true, $timestamp = false) {
 
     $today = date('Y-m-d 00:00:00');
@@ -32,6 +63,10 @@ class Date
 
     return $now;
 
+  }
+
+  public function getYearTh($year) {
+    return $year+543;
   }
 
   public function covertDateToSting($date) {
@@ -89,24 +124,13 @@ class Date
 
   }
 
-  public function getMonthName($month) {   
+  public function getMonthName($month,$Abbrev = false) {   
 
-    $monthName = array(
-      'มกราคม',
-      'กุมภาพันธ์',
-      'มีนาคม',
-      'เมษายน',
-      'พฤษภาคม',
-      'มิถุนายน',
-      'กรกฎาคม',
-      'สิงหาคม',
-      'กันยายน',
-      'ตุลาคม',
-      'พฤศจิกายน',
-      'ธันวาคม',
-    );
+    if($Abbrev) {
+      return !empty($this->monthNameAbbrev[$month-1]) ? $this->monthNameAbbrev[$month-1] : null;
+    }
 
-    return !empty($monthName[$month-1]) ? $monthName[$month-1] : null;
+    return !empty($this->monthName[$month-1]) ? $this->monthName[$month-1] : null;
 
   }
 

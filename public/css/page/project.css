@@ -50,6 +50,10 @@
 	color: #444;
 }
 
+.timeline-v2:before {
+	background-color: #ddd;
+}
+
 .project-donation-info > .project-donation-item {
 	width: 100%;
 	margin-bottom: 20px;
