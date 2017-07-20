@@ -203,7 +203,7 @@
   <section class="g-pt-100 g-pb-50 text-center overflow-h" id="donators">
     <div class="container">
       <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">ต้องการเป็นผู้สนับสนุน</h2>
+        <h2 class="g-mb-35">ร่วมเป็นผู้สนับสนุน</h2>
         <p>สร้างบัญชีเพื่อเก็บประวัติการบริจาคของคุณ</p>
       </div>
       <div class="row">
