@@ -90,7 +90,7 @@
 
         console.log(response.authResponse.accessToken);
 
-        window.location.href = "http://www.cr.com/facebook/login?code="+response.authResponse.accessToken;
+        window.location.href = "/facebook/login?code="+response.authResponse.accessToken;
 
         // let formData = new FormData();
         // formData.append('_token', $('input[name="_token"]').val());  
