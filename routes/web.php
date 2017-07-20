@@ -15,6 +15,7 @@ Route::get('get_image/{file}', 'StaticFileController@serveImages');
 
 Route::group(['prefix' => 'api/v1', 'middleware' => 'api'], function () {
   Route::get('get_district/{provinceId}', 'ApiController@getDistrict');
+  Route::post('access_token', 'ApiController@accessToken');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
@@ -79,6 +80,10 @@ Route::group(['middleware' => 'guest'], function () {
 
   Route::get('/subscription', 'UserController@register');
   Route::post('/subscription', 'UserController@registering');
+
+  // Social login
+  Route::get('auth/facebook', 'SocialAuthController@redirect');
+  Route::get('auth/facebook/callback', 'SocialAuthController@callback');
 });
 
 Route::group(['middleware' => 'auth'], function () {
