@@ -1,22 +1,9 @@
-.project.list {
-	background-color: #2e3d50;
-}
-
 .project-header {
 	margin-bottom: 20px;
 }
 
 .project-header p {
 	font-size: 16px;
-}
-
-.list .project-by-charity .charity-logo {
-	width: 30px;
-	border-radius: 30px;
-}
-
-.list .project-by-charity span {
-	color: #000;
 }
 
 .project .donation-box > i {

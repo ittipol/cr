@@ -22,7 +22,7 @@ class CharityController extends Controller
 
     // GET DATA
     $news = Service::loadModel('News')
-    ->select('id','title','short_desc','thumbnail','created_at')
+    ->select('id','charity_id','title','short_desc','thumbnail','created_at')
     ->where('charity_id','=',$id)
     ->orderBy('created_at','desc')
     ->take(6);

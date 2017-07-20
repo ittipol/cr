@@ -14,13 +14,6 @@
           </span>
         </div>
 
-        <form action="" class="sky-form page-search-form">
-          <div class="inline-group">
-            <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i>Recent</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>Related</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>Popular</label>
-          </div>
-        </form>
       </div>
     </div>
   </div>
@@ -33,7 +26,7 @@
     <div class="row">
       @foreach($projects as $data)
 
-        <div class="col-md-4 news-v3">
+        <div class="col-md-4 news-v3 custom-item-list">
           <a href="{{URL::to('project')}}/{{$data->id}}">
             <img class="img-responsive full-width" src="{{$data->thumbnail}}">
           </a>
@@ -75,7 +68,7 @@
               <div class="clearfix margin-bottom-20"></div>
 
               <div>
-                <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
+                <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">สนับสนุนโครงการนี้</a>
               </div>
             </div>
 

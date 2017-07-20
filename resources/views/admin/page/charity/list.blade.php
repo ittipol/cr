@@ -5,12 +5,17 @@
   มูลนิธิ
 </h1>
 
+<div class="row">
+  <div class="col-md-12 margin-bottom-20">
+    <div class="pull-right">
+      <a href="{{URL::to('admin/charity/add')}}" class="btn-u btn-u-blue">+ เพิ่ม</a>
+    </div>
+  </div>
+</div>
+
 @if(!empty($charities))
 
   <div class="panel panel-red margin-bottom-40">
-    <!-- <div class="panel-heading">
-      <h3 class="panel-title"><i class="fa fa-user"></i> มูลนิธิ</h3>
-    </div> -->
     <div class="panel-body">
       <table class="table">
         <thead>

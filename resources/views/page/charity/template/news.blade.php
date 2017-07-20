@@ -5,27 +5,32 @@
 </div>
 
 @if($news->exists())
+
   <div class="clearfix margin-bottom-20"></div>
+
   <div class="container">
-    <div class="row">
+    <div class="row news-v1">
       @foreach($news->get() as $value)
 
-        <div class="col-md-4 news-v3 news-list-item">
-          <a href="{{URL::to('news')}}/{{$value->id}}">
-            <img class="img-responsive full-width" src="{{$value->thumbnail}}">
-          </a>
-          <div class="news-v3-in-sm bg-color-white">
-            <ul class="list-inline posted-info-sm">
-              <li>โพสต์เมื่อ: {{$dateLib->covertDateToSting($value->created_at)}}</li>
-            </ul>
-            <h2><a href="{{URL::to('news')}}/{{$value->id}}">{{$value->title}}</a></h2>
+        <div class="col-md-4 md-margin-bottom-40">
+          <div class="news-v1-in">
+            <a href="{{URL::to('news')}}/{{$value->id}}">
+              <img class="img-responsive full-width" src="{{$value->thumbnail}}">
+            </a>
+            <h3><a href="{{URL::to('news')}}/{{$value->id}}">{{$value->title}}</a></h3>
             <p>{{$value->short_desc}}</p>
+            <ul class="list-inline news-v1-info">
+              <li><a href="{{URL::to('charity')}}/{{$value->charity->id}}">{{$value->charity->name}}</a></li>
+              <li>|</li>
+              <li><i class="fa fa-clock-o"></i> {{$dateLib->covertDateToSting($value->created_at)}}</li>
+            </ul>
           </div>
         </div>
 
       @endforeach
     </div>
   </div>
+
 @else
   <div class="clearfix margin-bottom-40"></div>
   <h4 class="text-center">ยังไม่มีข่าวสารจากมูลนิธินี้</h4>

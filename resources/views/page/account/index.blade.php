@@ -44,7 +44,7 @@
             <div class="col-sm-12 sm-margin-bottom-20">
 
               <div class="service-block-v3 donation-info-block service-block-u">
-                <span class="service-heading">จำนวนที่บริจาคในเดือนนี้</span>
+                <span class="service-heading">จำนวนเงิน</span>
                 <span class="counter">{{$totalAmount}} บาท</span>
               </div>
 

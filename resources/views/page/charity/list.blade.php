@@ -24,14 +24,12 @@
     
     @if($charities->currentPage() <= $charities->lastPage())
 
-      <!-- <h2>มูลนิธิ</h2> -->
-
       <div class="clearfix margin-bottom-20"></div>
 
       <div class="row">
         @foreach($charities as $data)
 
-          <div class="col-md-4 news-v3 new-list-item">
+          <div class="col-md-4 news-v3 charity-list-item custom-item-list">
             <a href="{{URL::to('charity')}}/{{$data->id}}">
               <img class="img-responsive full-width" src="{{$data->thumbnail}}">
             </a>

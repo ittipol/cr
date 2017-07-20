@@ -37,9 +37,6 @@
             <li class="page-scroll">
               <a href="{{URL::to('login')}}">เข้าสู่ระบบ</a>
             </li>
-            <!-- <li class="page-scroll">
-              <a href="{{URL::to('subscription')}}">สร้างบัญชี</a>
-            </li> -->
             @endif
           </ul>
         </div>

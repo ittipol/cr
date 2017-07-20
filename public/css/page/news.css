@@ -27,16 +27,3 @@
 .news.index .btn-googleplus.btn-share {
 	background-color: #dd4a38;
 }
-
-.news-v1 .news-v1-in {
-	border: 1px solid #E8E8E8;
-}
-
-.news-v1-in img {
-	width: 360px;
-	height: 210px;
-}
-
-.news-v1-in p {
-	height: 60px;
-}

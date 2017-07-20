@@ -2,13 +2,8 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  @include('script.meta') 
-
   <!-- Meta -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  @include('script.meta')
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="../favicon.ico">
@@ -33,13 +28,22 @@
 
   <!-- CSS Customization -->
   <link rel="stylesheet" href="css/style/custom/custom.css">
+
+  <link rel="stylesheet" href="assets/css/footers/footer-v3.css">
+
+  <link rel="stylesheet" href="css/custom/layout.css">
+  <link rel="stylesheet" href="css/custom/profile_image.css">
+  <link rel="stylesheet" href="css/custom/list_item.css">
+  <link rel="stylesheet" href="css/custom/button.css">
+  <link rel="stylesheet" href="css/custom/main.css">
+
 </head>
 <body id="body">
 
   <nav class="charity-header one-page-header navbar navbar-default navbar-fixed-top one-page-nav-scrolling one-page-nav__fixed" data-role="navigation">
     <div class="container">
       <div class="menu-container page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <button type="button" class="navbar-toggle @if(Auth::check()) margin-right-50 @endif" data-toggle="collapse" data-target=".navbar-ex1-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -54,7 +58,7 @@
 
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <div class="menu-container">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav @if(Auth::check()) margin-right-50 @endif">
             <li class="page-scroll home active">
               <a href="{{URL::to('/')}}">หน้าแรก</a>
             </li>
@@ -70,12 +74,22 @@
             <li class="page-scroll">
               <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
             </li>
+            @if(!Auth::check())
             <li class="page-scroll">
               <a href="{{URL::to('login')}}">เข้าสู่ระบบ</a>
             </li>
+            @endif
           </ul>
         </div>
       </div>
+
+      @if(Auth::check())
+        <div class="profile-image">
+          <a href="{{URL::to('account')}}">
+            <i class="fa fa-user"></i>
+          </a>
+        </div>
+      @endif
     </div>
 
   </nav>
@@ -113,15 +127,53 @@
   </div>
   <!-- /Promo section -->
 
+  <div class="container">
+
+    <div class="clearfix margin-bottom-100"></div>
+
+    <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
+      <h2 class="g-mb-35">ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ</strong></h2>
+      <p>Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio.</p>
+    </div>
+
+    <div class="row">
+      @foreach($charities as $data)
+
+        <div class="col-md-4 news-v3 charity-list-item custom-item-list">
+          <a href="{{URL::to('charity')}}/{{$data->id}}">
+            <img class="img-responsive full-width" src="{{$data->thumbnail}}">
+          </a>
+          <div class="news-v3-in-sm bg-color-light">
+            <h2 class="new-title">
+              <a href="{{URL::to('charity')}}/{{$data->id}}">
+                <img class="charity-logo" src="{{$data->logo}}">
+              </a>
+              <span>
+                <a href="{{URL::to('charity')}}/{{$data->id}}">{{$data->name}}</a>
+              </span>
+            </h2>
+            <p>{{$data->short_desc}}</p>
+            
+            <div class="service-block-v3 donation-box for-charity">
+              <a href="{{URL::to('donate')}}?for=charity&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
+            </div>
+
+          </div>
+        </div>
+
+      @endforeach
+    </div>
+  </div>
+
   <!-- Section "Can help" -->
-  <section class="g-pt-100 g-pb-100 text-center" id="your-help">
+  <section class="g-pt-100 g-pb-100 text-center" id="your-help" style="background-color:#B0BEC5;">
     <div class="container">
       <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">How you <strong>can help</strong></h2>
-        <p>Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio.</p>
+        <h2 class="g-mb-35">คุณสามารถช่วยได้อย่างไร</h2>
+        <!-- <p>Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio.</p> -->
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <div class="infoblock-v1">
             <div class="infoblock-v1-content infoblock-v1-content--left">
               <h3 class="g-mb-25">Beacome a <strong>volunteer</strong></h3>
@@ -130,14 +182,14 @@
             </div>
             <div class="infoblock-v1-image" style="background-image: url(/assets/img-temp/1.jpg);"></div>
           </div>
-        </div>
-        <div class="col-md-6">
+        </div> -->
+        <div class="col-md-12">
           <div class="infoblock-v1">
-            <div class="infoblock-v1-image" style="background-image: url(/assets/img-temp/2.jpg);"></div>
+            <div class="infoblock-v1-image" style="background-image: url(/images/common/www.jpg);"></div>
             <div class="infoblock-v1-content infoblock-v1-content--right">
-              <h3 class="g-mb-25">Make a <strong>donation</strong></h3>
+              <h3 class="g-mb-25">ร่วมเป็นส่วนหนึ่งในการสนับสนุนมูลนิธิ</h3>
               <p class="g-mb-30">Praesent pulvinar gravida efficitur. Aenean bibendum purus eu nisi pulvinar venenatis vitae non velit.</p>
-              <a class="btn-u btn-u-upper" href="#">Join us</a>
+              <a class="btn-u btn-u-upper" href="#">วิธีการบริจาค</a>
             </div>
           </div>
         </div>
@@ -150,317 +202,69 @@
   <section class="g-pt-100 g-pb-100 g-bg-gray" id="our-projects">
     <div class="container">
       <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">Our <strong>projects</strong></h2>
+        <h2 class="g-mb-35">โครงการ</h2>
         <p>Nullam in diam arcu. Etiam nisl justo, tempor scelerisque sagittis vel, bibendum vestibulum metus. Donec eget nunc neque.</p>
       </div>
-      <div class="projects">
-        <div class="project-item">
-          <div class="project-item__image">
-            <img src="/assets/img-temp/3.jpg" alt="">
-          </div>
-          <div class="project-item-content">
-            <h3 class="g-mb-15">Aenean bibendum purus eu nisi pulvinar venenatis vitae</h3>
-            <p class="g-mb-25">Proin dignissim eget enim id aliquam. Proin ornare dictum leo, non elementum tellus molestie et. Vivamus sit amet scelerisque leo.</p>
-            <div class="project-item-content-bottom">
-              <div class="project-item-content-col1">
-                <div class="circle" id="circle-1" data-circle-value="16"></div>
+
+      <div class="row">
+        @foreach($projects as $data)
+
+          <div class="col-md-4 news-v3 custom-item-list">
+            <a href="{{URL::to('project')}}/{{$data->id}}">
+              <img class="img-responsive full-width" src="{{$data->thumbnail}}">
+            </a>
+            <div class="news-v3-in-sm bg-color-light">
+              <h2 class="new-title">
+                <span>
+                  <a href="{{URL::to('project')}}/{{$data->id}}">{{$data->name}}</a>
+                </span>
+              </h2>
+              <p>{{$data->short_desc}}</p>
+              <div class="project-by-charity margin-bottom-20">
+                <a href="{{URL::to('charity')}}/{{$data->charity->id}}">
+                  <img class="charity-logo" src="{{$data->charity->logo}}">
+                </a>
+                <span>โดย <a href="{{URL::to('charity')}}/{{$data->charity->id}}">{{$data->charity->name}}</a></span>
               </div>
-              <div class="project-item-content-col2">
-                <strong class="project-item__price">$ 258 750</strong>
-                <em class="project-item__time">25 days left</em>
+          
+              <div class="service-block-v3 donation-box for-project">
+
+                <?php
+                  $amount = $donationModel->getTotalAmount('Project',$data->id,false,false);
+                  $percent = round(($amount*100)/$data->target_amount);
+                ?>
+
+                <div class="statistics">
+                  <h3 class="heading-xs"><strong>{{$donationModel->countDonor('Project',$data->id)}}</strong> / {{number_format($data->target_amount, 0, '.', ',')}} บาท<span class="pull-right">{{$percent}}%</span></h3>
+                  <div class="progress progress-u progress-xxs">
+                    <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="clearfix margin-bottom-10"></div>
+
+                <div class="statistics">
+                  <h3 class="heading-xs">เหลือเวลาบริจาคอีก <strong>{{$dateLib->remainingDate($data->end_date)}}</strong></h3>
+                </div>
+
+                <div class="clearfix margin-bottom-20"></div>
+
+                <div>
+                  <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">สนับสนุนโครงการนี้</a>
+                </div>
+                
               </div>
-              <div class="project-item-content-col3">
-                <a class="btn-u btn-u-lg btn-u-upper" href="#">Donate now</a>
-              </div>
+
             </div>
           </div>
-        </div>
-        <div class="project-item">
-          <div class="project-item__image">
-            <img src="/assets/img-temp/9.jpg" alt="">
-          </div>
-          <div class="project-item-content">
-            <h3 class="g-mb-15">Aenean bibendum purus eu nisi pulvinar venenatis vitae</h3>
-            <p class="g-mb-25">Proin dignissim eget enim id aliquam. Proin ornare dictum leo, non elementum tellus molestie et. Vivamus sit amet scelerisque leo.</p>
-            <div class="project-item-content-bottom">
-              <div class="project-item-content-col1">
-                <div class="circle" id="circle-2" data-circle-value="26"></div>
-              </div>
-              <div class="project-item-content-col2">
-                <strong class="project-item__price">$ 258 750</strong>
-                <em class="project-item__time">25 days left</em>
-              </div>
-              <div class="project-item-content-col3">
-                <a class="btn-u btn-u-lg btn-u-upper" href="#">Donate now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-item__image">
-            <img src="/assets/img-temp/10.jpg" alt="">
-          </div>
-          <div class="project-item-content">
-            <h3 class="g-mb-15">Aenean bibendum purus eu nisi pulvinar venenatis vitae</h3>
-            <p class="g-mb-25">Proin dignissim eget enim id aliquam. Proin ornare dictum leo, non elementum tellus molestie et. Vivamus sit amet scelerisque leo.</p>
-            <div class="project-item-content-bottom">
-              <div class="project-item-content-col1">
-                <div class="circle" id="circle-3" data-circle-value="36"></div>
-              </div>
-              <div class="project-item-content-col2">
-                <strong class="project-item__price">$ 258 750</strong>
-                <em class="project-item__time">25 days left</em>
-              </div>
-              <div class="project-item-content-col3">
-                <a class="btn-u btn-u-lg btn-u-upper" href="#">Donate now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-item__image">
-            <img src="/assets/img-temp/11.jpg" alt="">
-          </div>
-          <div class="project-item-content">
-            <h3 class="g-mb-15">Aenean bibendum purus eu nisi pulvinar venenatis vitae</h3>
-            <p class="g-mb-25">Proin dignissim eget enim id aliquam. Proin ornare dictum leo, non elementum tellus molestie et. Vivamus sit amet scelerisque leo.</p>
-            <div class="project-item-content-bottom">
-              <div class="project-item-content-col1">
-                <div class="circle" id="circle-4" data-circle-value="46"></div>
-              </div>
-              <div class="project-item-content-col2">
-                <strong class="project-item__price">$ 258 750</strong>
-                <em class="project-item__time">25 days left</em>
-              </div>
-              <div class="project-item-content-col3">
-                <a class="btn-u btn-u-lg btn-u-upper" href="#">Donate now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-item__image">
-            <img src="/assets/img-temp/12.jpg" alt="">
-          </div>
-          <div class="project-item-content">
-            <h3 class="g-mb-15">Aenean bibendum purus eu nisi pulvinar venenatis vitae</h3>
-            <p class="g-mb-25">Proin dignissim eget enim id aliquam. Proin ornare dictum leo, non elementum tellus molestie et. Vivamus sit amet scelerisque leo.</p>
-            <div class="project-item-content-bottom">
-              <div class="project-item-content-col1">
-                <div class="circle" id="circle-5" data-circle-value="56"></div>
-              </div>
-              <div class="project-item-content-col2">
-                <strong class="project-item__price">$ 258 750</strong>
-                <em class="project-item__time">25 days left</em>
-              </div>
-              <div class="project-item-content-col3">
-                <a class="btn-u btn-u-lg btn-u-upper" href="#">Donate now</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
+
       </div>
+
     </div>
   </section>
   <!-- /Section "Projects" -->
-
-  <!-- Section "World better" -->
-  <section class="infoblock-v2 g-pt-100 g-pb-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <!-- Special block -->
-          <div class="infoblock-v2-special">
-            <img src="/assets/img-temp/24.jpg" alt="" class="img-responsive">
-            <div class="infoblock-v2-special-content">
-              <h3 class="g-mb-10">In total we collected <strong>$8 789 576.00</strong></h3>
-              <p class="g-mb-35 g-color-black--lighter">Runc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio gravida sollicitudin tortor.</p>
-              <a href="#" class="btn-u btn-u-bg-black btn-u-upper"><i class="btn__icon fa fa-heart"></i> Donate now</a>
-            </div>
-          </div>
-          <!-- /Special block -->
-        </div>
-
-        <div class="col-md-8 col-sm-6">
-          <!-- Infoblock content -->
-          <h2 class="g-color-default g-mb-20 g-pt-20">We make world better <strong class="g-color-white">Let's do this together</strong></h2>
-          <p class="g-mb-45">Aenean bibendum purus eu nisi pulvinar venenatis vitae non velit. Sed et eleifend mi. Fusce dictum orci libero, congue scelerisque lectus pulvinar eu. Suspendisse pulvinar facilisis ligula vel pharetra. Vestibulum volutpat porttitor ex a rutrum. Aenean consectetur risus ultricies enim finibus lobortis non at ipsum.</p>
-
-          <div class="row g-mb-90">
-            <div class="col-md-6">
-              <h4 class="g-mb-25 g-color-white"><i class="g-color-default infoblock-v2__icon icon-education-024"></i> Education</h4>
-              <p>Quisque rhoncus euismod pulvinar. Nulla non arcu at lectus. Vestibulum fringilla velit rhoncus euismod rhoncus turpis. Mauris molestie ullamcorper nisl eget hendrerit.</p>
-            </div>
-            <div class="col-md-6">
-              <h4 class="g-mb-25 g-color-white"><i class="g-color-default infoblock-v2__icon icon-medical-004"></i> Health</h4>
-              <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio purus a libero luctus. Proin tempor dolor ac dolor feugiat, placerat malesuada.</p>
-            </div>
-          </div>
-
-          <!-- Progress bar -->
-          <div class="progress-block-1 clearfix">
-            <div class="progress">
-              <div class="progress-bar" data-progress-value="8789576" data-progress-goal="15500000" data-progress-time="365" data-progress-value-title="8 789 576" data-progress-goal-title="1 550 0000"></div>
-            </div>
-            <div class="progress__time-left g-color-white">Time left: <em class="g-color-default">&nbsp;</em> days</div>
-            <div class="progress__goal g-color-white">Our goal: <em class="g-color-default">&nbsp;</em></div>
-          </div>
-          <!-- /Progress bar -->
-        <!-- /Infoblock content -->
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Section "World better" -->
-
-  <!-- Section "Emergency help" -->
-  <section class="g-pt-100 g-pb-100">
-    <div class="container">
-      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">Emergency <strong>help</strong></h2>
-        <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio. Donec eu nulla leo. Vivamus risus lacus</p>
-      </div>
-
-      <!-- Helping list -->
-      <div class="helping-list">
-        <!-- Helping item -->
-        <div class="helping-item clearfix" style="background-image: url(/assets/img-temp/25.jpg);">
-          <div class="helping-item-content">
-            <h3 class="g-mb-15 g-color-white">Education project</h3>
-            <p class="g-mb-55">Mauris molestie ullamcorper nisl eget hendrerit. Sed faucibus suscipit justo, eu dignissim tellus pretium et.</p>
-
-            <!-- Progress bar -->
-            <div class="progress-block-2 g-mb-35 clearfix">
-              <div class="progress">
-                <div class="progress-bar" data-progress-status="76" data-progress-time="274" data-progress-goal-title="760 000"></div>
-              </div>
-              <div class="progress__goal g-color-white">Our goal: <em class="g-color-default">&nbsp;</em></div>
-              <div class="progress__time-left g-color-white"><em class="g-color-default">&nbsp;</em> days left</div>
-            </div>
-            <!-- /Progress bar -->
-
-            <a href="#" class="btn-u btn-u-lg btn-u-upper"><i class="btn__icon fa fa-heart"></i> Donate now</a>
-          </div>
-        </div>
-        <!-- /Helping item -->
-
-        <!-- Helping item -->
-        <div class="helping-item clearfix" style="background-image: url(/assets/img-temp/26.jpg);">
-          <div class="helping-item-content">
-            <h3 class="g-mb-15 g-color-white">Water project</h3>
-            <p class="g-mb-55">Mauris molestie ullamcorper nisl eget hendrerit. Sed faucibus suscipit justo, eu dignissim tellus pretium et.</p>
-
-            <!-- Progress bar -->
-            <div class="progress-block-2 g-mb-35 clearfix">
-              <div class="progress">
-                <div class="progress-bar" data-progress-status="42" data-progress-time="199" data-progress-goal-title="2 600 000"></div>
-              </div>
-              <div class="progress__goal g-color-white">Our goal: <em class="g-color-default">&nbsp;</em></div>
-              <div class="progress__time-left g-color-white"><em class="g-color-default">&nbsp;</em> days left</div>
-            </div>
-            <!-- /Progress bar -->
-
-            <a href="#" class="btn-u btn-u-lg btn-u-upper"><i class="btn__icon fa fa-heart"></i> Donate now</a>
-          </div>
-        </div>
-        <!-- /Helping item -->
-
-        <!-- Helping item -->
-        <div class="helping-item clearfix" style="background-image: url(/assets/img-temp/25.jpg);">
-          <div class="helping-item-content">
-            <h3 class="g-mb-15 g-color-white">Education project</h3>
-            <p class="g-mb-55">Mauris molestie ullamcorper nisl eget hendrerit. Sed faucibus suscipit justo, eu dignissim tellus pretium et.</p>
-
-            <!-- Progress bar -->
-            <div class="progress-block-2 g-mb-35 clearfix">
-              <div class="progress">
-                <div class="progress-bar" data-progress-status="76" data-progress-time="274" data-progress-goal-title="760 000"></div>
-              </div>
-              <div class="progress__goal g-color-white">Our goal: <em class="g-color-default">&nbsp;</em></div>
-              <div class="progress__time-left g-color-white"><em class="g-color-default">&nbsp;</em> days left</div>
-            </div>
-            <!-- /Progress bar -->
-
-            <a href="#" class="btn-u btn-u-lg btn-u-upper"><i class="btn__icon fa fa-heart"></i> Donate now</a>
-          </div>
-        </div>
-        <!-- /Helping item -->
-
-        <!-- Helping item -->
-        <div class="helping-item clearfix" style="background-image: url(/assets/img-temp/26.jpg);">
-          <div class="helping-item-content">
-            <h3 class="g-mb-15 g-color-white">Education project</h3>
-            <p class="g-mb-55">Mauris molestie ullamcorper nisl eget hendrerit. Sed faucibus suscipit justo, eu dignissim tellus pretium et.</p>
-
-            <!-- Progress bar -->
-            <div class="progress-block-2 g-mb-35 clearfix">
-              <div class="progress">
-                <div class="progress-bar" data-progress-status="42" data-progress-time="199" data-progress-goal-title="2 600 000"></div>
-              </div>
-              <div class="progress__goal g-color-white">Our goal: <em class="g-color-default">&nbsp;</em></div>
-              <div class="progress__time-left g-color-white"><em class="g-color-default">&nbsp;</em> days left</div>
-            </div>
-            <!-- /Progress bar -->
-
-            <a href="#" class="btn-u btn-u-lg btn-u-upper"><i class="btn__icon fa fa-heart"></i> Donate now</a>
-          </div>
-        </div>
-        <!-- /Helping item -->
-      </div>
-      <!-- /Helping list -->
-    </div>
-  </section>
-  <!-- /Section "Emergency help" -->
-
-  <!-- Section "Success stories" -->
-  <section class="success-stories-section g-pt-100 g-pb-100" id="success-stories">
-    <div class="container">
-      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-color-white g-mb-35">Success <strong>stories</strong></h2>
-        <p>Sed faucibus suscipit justo, eu dignissim tellus pretium et. Nam volutpat placerat libero sit amet elementum. Curabitur et neque et mauris maximus efficitur.</p>
-      </div>
-
-      <div class="success-stories">
-        <div class="success-story row">
-          <div class="col-md-6 col-sm-6">
-            <div class="video-wrapper">
-              <iframe src="https://player.vimeo.com/video/6202666" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-6 success-story-content">
-            <strong class="success-story__name g-color-white">Catherine Cameron</strong>
-            <em class="success-story__position g-color-default">molestie ullamcorper nisl eget</em>
-            <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio. Donec eu nulla leo. Vivamus risus lacus, viverra eu maximus non, tincidunt sodales massa. Duis vulputate purus a libero luctus, sed dictum ante interdum. Nam vel leo ultricies, pretium magna at, consequat augue. Quisque bibendum vel enim quis pulvinar. Proin ac quam erat.</p>
-          </div>
-        </div>
-        <div class="success-story row">
-          <div class="col-md-6 col-sm-6">
-            <div class="video-wrapper">
-              <iframe src="https://player.vimeo.com/video/116488358" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-6 success-story-content">
-            <strong class="success-story__name g-color-white">Catherine Cameron</strong>
-            <em class="success-story__position g-color-default">molestie ullamcorper nisl eget</em>
-            <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio. Donec eu nulla leo. Vivamus risus lacus, viverra eu maximus non, tincidunt sodales massa. Duis vulputate purus a libero luctus, sed dictum ante interdum. Nam vel leo ultricies, pretium magna at, consequat augue. Quisque bibendum vel enim quis pulvinar. Proin ac quam erat.</p>
-          </div>
-        </div>
-        <div class="success-story row">
-          <div class="col-md-6 col-sm-6">
-            <div class="video-wrapper">
-              <iframe src="https://player.vimeo.com/video/6202666" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-6 success-story-content">
-            <strong class="success-story__name g-color-white">Catherine Cameron</strong>
-            <em class="success-story__position g-color-default">molestie ullamcorper nisl eget</em>
-            <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio. Donec eu nulla leo. Vivamus risus lacus, viverra eu maximus non, tincidunt sodales massa. Duis vulputate purus a libero luctus, sed dictum ante interdum. Nam vel leo ultricies, pretium magna at, consequat augue. Quisque bibendum vel enim quis pulvinar. Proin ac quam erat.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Section "Success stories" -->
 
   <!-- Section "Best Donators" -->
   <section class="g-pt-100 g-pb-50 text-center overflow-h" id="donators">
@@ -522,45 +326,40 @@
   </section>
   <!-- /Section "Best Donators" -->
 
-  <!-- Section "Map" -->
-  <section class="g-pt-100 g-pb-100 g-bg-gray" id="events">
-    <div class="container">
-      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">Upcoming <strong>events</strong></h2>
-        <p>Sed faucibus suscipit justo, eu dignissim tellus pretium et. Nam volutpat placerat libero sit amet elementum. Curabitur et neque et mauris maximus efficitur.</p>
-      </div>
-
-      <div class="map-with-pin">
-        <img src="/assets/img/map.png" class="pin" width="100%" easypin-id="map-pin">
-        <div easypin-tpl style="display: none;">
-          <popover>
-            <div class="mwp-wrap">
-              <img src="{[image_url]}" alt="{[title]}" class="mwp__img">
-              <div class="mwp__date">{[date]}</div>
-              <div class="mwp__location"><i class="fa fa-map-marker"></i> {[location]}</div>
-              <div class="mwp__title">{[title]}</div>
-            </div>
-          </popover>
-
-          <marker>
-            <div class="point"></div>
-          </marker>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Section "Map" -->
-
   <!-- Section "Latest posts" -->
   <section class="g-pt-100 g-pb-100 g-mb-60" id="blog">
     <div class="container">
       <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">Latest <strong>posts</strong></h2>
+        <h2 class="g-mb-35">ข่าวสาร</h2>
         <p>Integer accumsan maximus leo, et consectetur metus vestibulum in. Vestibulum viverra justo odio. Donec eu nulla leo. Vivamus risus lacus</p>
       </div>
+
+      <div class="news-v1">
+        @foreach($news as $data)
+        
+          <div class="col-md-4 md-margin-bottom-40">
+            <div class="news-v1-in">
+              <a href="{{URL::to('news')}}/{{$data->id}}">
+                <img class="img-responsive" src="{{$data->thumbnail}}">
+              </a>
+              <h3><a href="{{URL::to('news')}}/{{$data->id}}">{{$data->title}}</a></h3>
+              <p>{{$data->short_desc}}</p>
+              <ul class="list-inline news-v1-info">
+                <li><a href="{{URL::to('charity')}}/{{$data->charity->id}}">{{$data->charity->name}}</a></li>
+                <li>|</li>
+                <li><i class="fa fa-clock-o"></i> {{$dateLib->covertDateToSting($data->created_at)}}</li>
+              </ul>
+            </div>
+          </div>
+
+        @endforeach
+      </div>
+
+      <div class="clearfix margin-bottom-40"></div>
+
     </div>
 
-    <div class="posts g-mb-45">
+    <!-- <div class="posts g-mb-45">
       <div class="post-item">
         <a href="#" class="post-item__image"><img src="/assets/img-temp/5.jpg" alt=""></a>
         <div class="post-item__content">
@@ -608,134 +407,40 @@
           <p>Integer vitae dolor eleifend, congue neque id, elementum mauris. Nullam molestie pretium velit, ut iaculis mauris hendrerit sedeget nibh commodo.</p>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="text-center">
       <a class="btn-u btn-u-lg btn-u-upper" href="#">View all posts</a>
     </div>
   </section>
   <!-- /Section "Latest posts" -->
 
-  <!-- Section "Pre footer" -->
-  <section class="pre-footer g-pb-20">
-    <div class="container">
+  <div id="footer-v3" class="footer-v3">
 
-      <!-- Subscribe -->
-      <div class="subscribe g-mb-70" id="subscription">
+    <div class="copyright">
+      <div class="container">
         <div class="row">
-          <div class="col col-sm-12 g-pb-20">
-            <h3>Newsletters subscribe</h3>
-            <p>Runc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem.</p>
+    
+          <div class="col-md-6">
+            <p>
+              2015 &copy; All Rights Reserved. Unify Theme by
+              <!-- <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> -->
+            </p>
           </div>
-          <div class="col col-sm-4 g-pb-20">
-            <label class="label">Name</label>
-            <input type="text" placeholder="Your name" class="form-control">
-          </div>
-          <div class="col col-sm-4 g-pb-20">
-            <label class="label">Email</label>
-            <input type="text" placeholder="Your email" class="form-control">
-          </div>
-          <div class="col col-sm-4 g-pb-20">
-            <button class="btn-u btn-u-bg-black btn-u-upper" type="submit">subscribe</button>
-          </div>
-        </div>
-      </div>
-      <!-- /Subscribe -->
 
-      <div class="row" id="contact">
-        <div class="col-md-4 col-sm-6 g-pb-20">
-          <h3>Text widget</h3>
-          <p class="g-mb-20"><img src="/assets/img-temp/8.jpg" alt="" class="img-responsive"></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae est lorem. Aenean imperdiet nisi a dolor condimentum, id ullamcorper lacus vestibulum. Praesent pulvinar gravida. Aenean lobortis ante ac porttitor eleifend.</p>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <h3>Usefull links</h3>
-          <div class="row">
-            <div class="col-sm-6 col-xs-6 col-3xs-12 g-pb-20">
-              <ul class="dotted-list">
-                <li><a href="#">Proin vitae est lorem</a></li>
-                <li><a href="#">Aenean imperdiet nisi</a></li>
-                <li><a href="#">Praesent pulvinar gravida</a></li>
-                <li><a href="#">Integer commodo est</a></li>
-                <li><a href="#">Morbi massa justo</a></li>
-                <li><a href="#">Fusce mollis blandit eros</a></li>
-                <li><a href="#">Morbi massa justo</a></li>
-                <li><a href="#">Praesent nec consecteth</a></li>
-                <li><a href="#">Fusce mollis blandit eros</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-6 col-xs-6 col-3xs-12 g-pb-20">
-              <ul class="dotted-list">
-                <li><a href="#">Proin vitae est lorem</a></li>
-                <li><a href="#">Aenean imperdiet nisi</a></li>
-                <li><a href="#">Praesent pulvinar gravida</a></li>
-                <li><a href="#">Integer commodo est</a></li>
-                <li><a href="#">Morbi massa justo</a></li>
-                <li><a href="#">Fusce mollis blandit eros</a></li>
-                <li><a href="#">Morbi massa justo</a></li>
-                <li><a href="#">Praesent nec consecteth</a></li>
-                <li><a href="#">Fusce mollis blandit eros</a></li>
-              </ul>
-            </div>
+          <div class="col-md-6">
+            <ul class="social-icons pull-right">
+              <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+              <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
+              <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
+              <li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+              <li><a href="#" data-original-title="Pinterest" class="rounded-x social_pintrest"></a></li>
+            </ul>
           </div>
-        </div>
-        <div class="col-md-4 col-sm-12 g-pb-20">
-          <h3>Have a questions?</h3>
-          <form action="#" class="sky-form" method="post" id="sky-form3">
-            <fieldset>
-              <label class="input g-mb-20">
-                <input type="text" placeholder="Your name">
-              </label>
-              <label class="input g-mb-20">
-                <input type="text" placeholder="Your email">
-              </label>
-              <label class="textarea textarea-expandable g-mb-20">
-                <textarea rows="3" placeholder="Message"></textarea>
-              </label>
-              <button class="btn-u btn-u-upper">Submit</button>
-            </fieldset>
-          </form>
+   
         </div>
       </div>
     </div>
-  </section>
-  <!-- /Section "Pre footer" -->
-
-  <!-- Footer -->
-  <footer class="footer g-pt-40 g-pb-20">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 g-pb-20">
-          <p>&copy; 2016 All right reserved. Development by <a target="_blank" href="https://htmlstream.com">HTML Stream</a></p>
-        </div>
-
-        <div class="col-sm-6 text-right g-pb-20">
-        <ul class="list-inline g-margin-0">
-          <li>
-            <a href="#" class="footer__social">
-              <i class="icon-bg-u icon-sm fa fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="footer__social">
-              <i class="icon-bg-u icon-sm fa fa-pinterest-p"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="footer__social">
-              <i class="icon-bg-u icon-sm fa fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="footer__social">
-              <i class="icon-bg-u icon-sm fa fa-linkedin"></i>
-            </a>
-          </li>
-        </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- /Footer -->
+  </div>
 
   <!-- JS Global Compulsory -->
   <script src="/assets/plugins/jquery/jquery.min.js"></script>

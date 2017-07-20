@@ -6,6 +6,17 @@
   <!-- CSS & JS -->
   @include('admin.script.script')
   <!-- Title  -->
+
+  <style type="text/css">
+    body {
+      background-color: #333;
+    }
+
+    h1 {
+      color: #fff;
+    }
+  </style>
+
 </head>
 <body>
 

@@ -62,6 +62,11 @@
       {{Form::select('province_id', $provinces, null, array('class' => 'form-control'))}}
   </div>
 
+  <div class="form-group">
+    {{Form::checkbox('has_reward', null, array('class' => 'form-control'))}}
+    {{Form::label('has_reward', 'มีของรางวัล')}}
+  </div>
+
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}
 
 {{Form::close()}}

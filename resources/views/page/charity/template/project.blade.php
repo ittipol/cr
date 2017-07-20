@@ -10,7 +10,7 @@
     <div class="row">
       @foreach($projects->get() as $value)
 
-        <div class="col-md-4 news-v3">
+        <div class="col-md-4 news-v3 custom-item-list">
           <a href="{{URL::to('project')}}/{{$value->id}}">
             <img class="img-responsive full-width" src="{{$value->thumbnail}}">
           </a>
@@ -46,7 +46,7 @@
               <div class="clearfix margin-bottom-20"></div>
 
               <div class="margin-bottom-20">
-                <a href="{{URL::to('donate')}}?for=project&id={{$value->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับโครงการนี้</a>
+                <a href="{{URL::to('donate')}}?for=project&id={{$value->id}}" class="btn-u btn-custom margin-bottom-10">สนับสนุนโครงการนี้</a>
               </div>
             </div>
         

@@ -1,0 +1,59 @@
+.charity-list-item {
+	height: 416px;
+}
+
+.news-v3.custom-item-list img.full-width {
+	width: 360px;
+	height: 200px;
+	background-color: #bbb;
+}
+
+.news-v3.custom-item-list .news-v3-in-sm {
+	border: 1px solid #E8E8E8;
+	background-color: #fff !important;
+}
+
+.news-v3.custom-item-list {
+	margin-bottom: 30px;
+}
+
+.news-v3 p {
+	height: 60px;
+	overflow: hidden;
+}
+
+.news-v3 .donation-box {
+	padding: 0;
+}
+
+.project.list {
+	background-color: #2e3d50;
+}
+
+.news-v3 .project-by-charity .charity-logo {
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+}
+
+.news-v3 .project-by-charity span {
+	color: #000;
+}
+
+.news-v3.custom-item-list .donation-box .statistics .heading-xs {
+	color: #000;
+}
+
+.news-v1 .news-v1-in {
+	border: 1px solid #E8E8E8;
+}
+
+.news-v1-in img {
+	width: 360px;
+	height: 210px;
+	background-color: #bbb;
+}
+
+.news-v1-in p {
+	height: 60px;
+}

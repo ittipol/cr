@@ -88,23 +88,27 @@
       if (response.authResponse) {
         //user just authorized your app
 
-        let formData = new FormData();
-        formData.append('_token', $('input[name="_token"]').val());  
-        formData.append('access_token', response.authResponse.accessToken);  
+        console.log(response.authResponse.accessToken);
 
-        let request = $.ajax({
-          url: "/api/v1/access_token",
-          type: "POST",
-          data: formData,
-          dataType:'json',
-          contentType: false,
-          cache: false,
-          processData:false,
-        });
+        window.location.href = "http://www.cr.com/facebook/login?code="+response.authResponse.accessToken;
 
-        request.done(function (response, textStatus, jqXHR){
+        // let formData = new FormData();
+        // formData.append('_token', $('input[name="_token"]').val());  
+        // formData.append('access_token', response.authResponse.accessToken);  
 
-        });
+        // let request = $.ajax({
+        //   url: "/api/v1/access_token",
+        //   type: "POST",
+        //   data: formData,
+        //   dataType:'json',
+        //   contentType: false,
+        //   cache: false,
+        //   processData:false,
+        // });
+
+        // request.done(function (response, textStatus, jqXHR){
+
+        // });
 
 
         // FB.api("/me/feed","POST",
