@@ -30,14 +30,14 @@ class stringHelper
     $string = mb_substr($string, 0, $len);
     $lastChar = mb_substr($string, $len-1, 1);
 
-    if(ord($lastChar) != 32) {
-      $pos = mb_strpos($_string,' ',$len);
-      if(!empty($pos)) {
-        $string = mb_substr($_string, 0, $pos).'...';
-      }
-    }
+    // if(ord($lastChar) != 32) {
+    //   $pos = mb_strpos($_string,' ',$len);
+    //   if(!empty($pos)) {
+    //     $string = mb_substr($_string, 0, $pos).'...';
+    //   }
+    // }
 
-    return $string;
+    return $string.'...';
 
   }
 

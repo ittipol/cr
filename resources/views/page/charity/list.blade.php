@@ -3,17 +3,6 @@
 
 <div class="charity list">
 
-<!--   <div class="search-block parallaxBg" style="background-position: 50% 16px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1 class="no-margin">ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ</h1>
-          <h1 class="no-margin">มูลนิธิ</h1>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
     <div class="container">
       <h1>มูลนิธิ</h1>
@@ -47,9 +36,15 @@
                 </h2>
                 <p>{{$data->short_desc}}</p> -->
 
-                <div class="main-content">
+                <?php
+                  $strLimit = 120;
+                  $descLen = $strLimit - mb_strlen($data->name);
+                  $shortDesc = $stringLib->truncString($data->short_desc,$descLen);
+                ?>
+
+                <div class="main-content margin-bottom-20">
                   <a href="{{URL::to('charity')}}/{{$data->id}}"><img src="{{$data->logo}}">{{$data->name}}</a>
-                  {{$data->short_desc}}
+                  — {{$shortDesc}}
                 </div>
                 
                 <div class="service-block-v3 donation-box for-charity">
@@ -68,7 +63,7 @@
       @include('pagination.default2', ['paginator' => $charities])
 
     @else
-      <div class="text-center content margin-top-60">
+      <div class="text-center content margin-top-100 margin-bottom-300">
         <h2>ไม่มีมูลนิธิให้แสดง</h2>
       </div>
     @endif

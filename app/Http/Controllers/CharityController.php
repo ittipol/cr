@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
+use App\library\stringHelper;
 use Redirect;
 
 class CharityController extends Controller
@@ -84,12 +85,18 @@ class CharityController extends Controller
 
     $date = new Date;
 
+    // SET MODEL
     $this->setData('donationModel',Service::loadModel('Donation'));
     
+    // SET LIB
+    $this->setData('stringLib',new stringHelper);
+
+    // SET DATA
     $this->setData('charities',$model->paginate(24));
     $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
     $this->setData('percent',round((date('d') * 100) / date('t')));
 
+    // SET META
     $this->setMeta('title','มูลนิธิ — Charity');
     $this->setMeta('description','');
     // $this->setMeta('image',null);

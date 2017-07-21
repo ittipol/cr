@@ -39,7 +39,7 @@
     <div class="or rounded-x">หรือ</div>     
     <ul class="list-unstyled">       
       <li>             
-        <a href="javascript:void(0);" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           
+        <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           
           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook         
         </a>         
         <div class="text-center">           
@@ -56,6 +56,8 @@
 </div>
 
 {{Form::close()}}
+
+<div class="clearfix margin-top-100"></div>
 
 <script type="text/javascript">
 
@@ -84,25 +86,6 @@
         //user just authorized your app
 
         window.location.href = "/facebook/login?code="+response.authResponse.accessToken;
-
-        // let formData = new FormData();
-        // formData.append('_token', $('input[name="_token"]').val());  
-        // formData.append('access_token', response.authResponse.accessToken);  
-
-        // let request = $.ajax({
-        //   url: "/api/v1/access_token",
-        //   type: "POST",
-        //   data: formData,
-        //   dataType:'json',
-        //   contentType: false,
-        //   cache: false,
-        //   processData:false,
-        // });
-
-        // request.done(function (response, textStatus, jqXHR){
-
-        // });
-
 
         // FB.api("/me/feed","POST",
         //     {

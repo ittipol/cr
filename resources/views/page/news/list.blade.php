@@ -1,30 +1,35 @@
 @extends('layout.main')
 @section('content')
 
-<div class="news list">
+<div class="news list list-page-bg-color">
 
-  <div class="search-block parallaxBg" style="background-position: 50% 16px;">
+  <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
     <div class="container">
-      <div class="col-md-8">
-        <h1>ข่าวสารจากมูลนิธิ</h1>
-      </div>
+      <h1>ข่าวสาร</h1>
     </div>
   </div>
 
-  <div class="container margin-top-20 margin-bottom-100">
+  <div class="container margin-top-20 padding-bottom-100">
   
     <div class="clearfix margin-bottom-40"></div>
 
     <div class="row news-v1">
       @foreach($news as $data)
 
-        <div class="col-md-4 md-margin-bottom-40">
+        <div class="col-lg-4 col-sm-6 col-xs-12 md-margin-bottom-40">
           <div class="news-v1-in">
             <a href="{{URL::to('news')}}/{{$data->id}}">
               <img class="img-responsive" src="{{$data->thumbnail}}">
             </a>
+
+            <?php
+              $strLimit = 120;
+              $descLen = $strLimit - mb_strlen($data->name);
+              $shortDesc = $stringLib->truncString($data->short_desc,$descLen);
+            ?>
+
             <h3><a href="{{URL::to('news')}}/{{$data->id}}">{{$data->title}}</a></h3>
-            <p>{{$data->short_desc}}</p>
+            <p>{{$shortDesc}}</p>
             <ul class="list-inline news-v1-info">
               <li><a href="{{URL::to('charity')}}/{{$data->charity->id}}">{{$data->charity->name}}</a></li>
               <li>|</li>

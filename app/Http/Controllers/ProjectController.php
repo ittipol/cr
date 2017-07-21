@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
+use App\library\stringHelper;
 use Redirect;
 
 class ProjectController extends Controller
@@ -79,10 +80,13 @@ class ProjectController extends Controller
         return $currentPage;
     });
 
+    // SET LIB
+    $this->setData('stringLib',new stringHelper);
+
     // SET DATA
     $this->setData('donationModel',Service::loadModel('Donation'));
     $this->setData('dateLib',new Date);
-    $this->setData('projects',$model->paginate(24));
+    $this->setData('projects',$model->where('end_date','>',date('Y-m-d H:i:s'))->paginate(24));
 
     $this->setMeta('title','โครงการ — Charity');
     $this->setMeta('description','');

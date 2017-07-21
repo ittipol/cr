@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
+use App\library\stringHelper;
 use Redirect;
 
 class HomeController extends Controller

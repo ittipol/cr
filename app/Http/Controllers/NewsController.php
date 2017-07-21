@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
+use App\library\stringHelper;
 use Redirect;
 
 class NewsController extends Controller
@@ -44,9 +45,14 @@ class NewsController extends Controller
         return $currentPage;
     });
 
+    // SET LIB
+    $this->setData('stringLib',new stringHelper);
     $this->setData('dateLib',new Date);
+    
+    // SET DATA
     $this->setData('news',$model->paginate(24));
 
+    // SET META
     $this->setMeta('title','ข่าวสาร — Charity');
     $this->setMeta('description','');
     // $this->setMeta('image',null);

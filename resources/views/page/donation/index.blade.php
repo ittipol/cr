@@ -3,16 +3,6 @@
 
 <div class="donation donate index">
 
-  <!-- <div class="search-block parallaxBg" style="background-position: 50% 16px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>การบริจาค</h1>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
     <div class="container clearfix">
       <h1>การบริจาค</h1>
@@ -21,10 +11,6 @@
 
   <div class="container">
 
-    <!-- <div class="margin-top-60">
-      <div class="headline"><h2>การบริจาค</h2></div>
-    </div>
- -->
     <div class="tab-v1 margin-bottom-60">
       <ul class="nav nav-tabs margin-bottom-20">
         <li @if(!$search) class="active" @endif><a href="#about" data-toggle="tab">วิธีการบริจาค</a></li>
@@ -47,7 +33,7 @@
 
         <div class="tab-pane fade in @if($search) active @endif" id="search">
 
-          <div class="search-block parallaxBg donation-search-block" style="background-position: 50% 16px;">
+          <div class="search-block parallaxBg donation-search-block" style="background-image: url(/images/common/input-code-bg.png); background-position: 50% 16px;">
             <div class="container">
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -138,6 +124,8 @@
                 <h2>ไม่พบการบริจาคที่กำลังค้นหา</h2>
               </div>
             @endif
+
+            <div class="clearfix margin-bottom-100"></div>
 
           </div>
 

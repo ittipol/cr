@@ -2,10 +2,6 @@
 	height: 416px;
 }*/
 
-.project.list {
-	background-color: #2e3d50;
-}
-
 .news-v3.custom-item-list {
 	margin-bottom: 30px;
 	/*border: 1px solid rgb(220, 222, 221);*/
@@ -27,9 +23,10 @@
 }
 
 .news-v3.custom-item-list .main-content {
+	height: 80px;
 	color: #95959E;
 	font-size: 16px;
-	margin-bottom: 20px;
+	overflow: hidden;
 }
 
 .news-v3.custom-item-list .main-content img {
