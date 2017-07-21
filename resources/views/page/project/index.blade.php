@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-<div class="project index margin-top-20 margin-bottom-100">
+<div class="project index detail margin-top-20 margin-bottom-100">
 
   <div class="container">
 

@@ -96,7 +96,13 @@ h2 > img.provider-logo {
 }
 
 .breadcrumbs.breadcrumbs-custom {
-	border-color: #e8e8e8;
+	margin: 0;
+	padding: 0;
+	padding-top: 20px;
+	/*background-color: rgb(220,225,228);*/
+	background-image: none;
+	/*border-color: #ced3db;*/
+	border: 0;
 }
 
 .breadcrumbs.breadcrumbs-custom h1 {

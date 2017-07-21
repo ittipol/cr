@@ -2,6 +2,16 @@
 	height: 416px;
 }*/
 
+.project.list {
+	background-color: #2e3d50;
+}
+
+.news-v3.custom-item-list {
+	margin-bottom: 30px;
+	/*border: 1px solid rgb(220, 222, 221);*/
+	border: 1px solid #ced3db;
+}
+
 .news-v3 h2 a {
 	font-size: 18px;
 }
@@ -16,9 +26,17 @@
 	background-color: #fff !important;
 }
 
-.news-v3.custom-item-list {
-	margin-bottom: 30px;
-	border: 1px solid rgb(220, 222, 221);
+.news-v3.custom-item-list .main-content {
+	color: #95959E;
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+.news-v3.custom-item-list .main-content img {
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	margin-right: 8px;
 }
 
 .news-v3 p {
@@ -28,10 +46,6 @@
 
 .news-v3 .donation-box {
 	padding: 0;
-}
-
-.project.list {
-	background-color: #2e3d50;
 }
 
 .news-v3 .project-by-charity .charity-logo {
@@ -62,6 +76,24 @@
 	height: 60px;
 }
 
+@media only screen and (max-width : 1200px) {
+  
+	.news-v3.custom-item-list img.full-width {
+		width: 440px;
+		height: 230px;
+	}
+
+}
+
+@media only screen and (max-width : 992px) {
+
+	.news-v3.custom-item-list img.full-width {
+		width: 345px;
+		height: 195px;
+	}
+
+}
+
 @media only screen and (max-width : 480px) {
 
 	.news-v3.custom-item-list {
@@ -71,10 +103,7 @@
 
 	.news-v3.custom-item-list img.full-width {
 		width: 100%;
-	}
-
-	.donation-box {
-		padding: 20px 15px;
+		height: 200px;
 	}
 
 	.donation-box .counter {

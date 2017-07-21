@@ -11,6 +11,7 @@
 	/*background-color: #20252f;*/
 	/*background-color: #1f4b8e;*/
 	/*background-color: #489565;*/
+	background-color: #e7edef;
 }
 
 .list .search-block {
@@ -119,7 +120,7 @@
 	background-color: #444;
 }
 
-.donation-box {
+.index.detail .donation-box {
 	padding: 0;
 }
 
@@ -197,12 +198,17 @@
 	background-color: #dd4a38;
 }
 
+.donation-box .btn-donation {
+	background-color: #fff;
+}
+
 .donation-box .btn-donation:focus {
 	color: #ff3617;
 }
 
 .donation-box .btn-donation:hover {
 	color: #fff;
+	background-color: #ff3617;
 }
 
 .new-title img {
@@ -314,6 +320,11 @@
 
 	.embedded-video {
 		height: 215px;
+	}
+
+	.index.detail .donation-box {
+		padding: 20px 15px;
+		background-color: #e7edef;
 	}
 
 }

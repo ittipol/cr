@@ -2,11 +2,17 @@
 @section('content')
 
 <div class="project list">
-  <div class="search-block parallaxBg" style="background-position: 50% 16px;">
+  <!-- <div class="search-block parallaxBg" style="background-position: 50% 16px;">
     <div class="container">
       <div class="col-md-8 col-md-offset-2">
         <h1 class="no-margin">โครงการ</h1>
       </div>
+    </div>
+  </div> -->
+
+  <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
+    <div class="container">
+      <h1>โครงการ</h1>
     </div>
   </div>
 
@@ -17,7 +23,7 @@
     <div class="row">
       @foreach($projects as $data)
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6">
 
           <div class="news-v3 custom-item-list">
 
