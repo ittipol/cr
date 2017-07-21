@@ -7,7 +7,7 @@
 	/*background-color: #b5d0d4;*/
 	/*background-color: #fd5c3d;*/
 	/*background-image: #47528f;*/
-	background-color: #2e3d50;
+	/*background-color: #2e3d50;*/
 	/*background-color: #20252f;*/
 	/*background-color: #1f4b8e;*/
 	/*background-color: #489565;*/
@@ -207,6 +207,7 @@
 
 .new-title img {
 	width: 30px;
+	height: 30px;
 	border-radius: 30px;
 }
 

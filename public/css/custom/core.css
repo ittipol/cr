@@ -95,6 +95,14 @@ h2 > img.provider-logo {
 	background-color: #1f4b8e;
 }
 
+.breadcrumbs.breadcrumbs-custom {
+	border-color: #e8e8e8;
+}
+
+.breadcrumbs.breadcrumbs-custom h1 {
+	color: #000;
+}
+
 /* Header background */
 .charity-header.one-page-header.navbar {
   /*background: transparent;*/
@@ -241,6 +249,10 @@ h2 > img.provider-logo {
 
 	.bank-account-detail > .display-mobile {
 		display: block;
+	}
+
+	.breadcrumbs.breadcrumbs-custom h1 {
+		text-align: center;
 	}
 
 }

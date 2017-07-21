@@ -26,7 +26,7 @@ class StockImageController extends Controller
         return $currentPage;
     });
 
-    $data = $model->paginate(24);
+    $data = $model->orderBy('created_at','desc')->paginate(24);
 
     $this->setData('images',$data);
 

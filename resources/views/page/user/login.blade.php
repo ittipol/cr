@@ -39,7 +39,7 @@
     <div class="or rounded-x">หรือ</div>     
     <ul class="list-unstyled">       
       <li>             
-        <a href="javascript:void(0);" id="fb_login_btn" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           
+        <a href="javascript:void(0);" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           
           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook         
         </a>         
         <div class="text-center">           
@@ -49,11 +49,6 @@
     </ul>  
   </div>
 
-
-  <!-- <a href="javascript:void(0);" id="aaa" class="btn rounded btn-block btn-lg btn-facebook-inversed margin-bottom-10">           <i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย
-    xxx         
-  </a>  
- -->
   <div class="text-center margin-top-60">
     ต้องการสร้างบัญชี <a href="{{URL::to('subscription')}}">สร้างบัญชี</a>
   </div>
@@ -87,8 +82,6 @@
 
       if (response.authResponse) {
         //user just authorized your app
-
-        console.log(response.authResponse.accessToken);
 
         window.location.href = "/facebook/login?code="+response.authResponse.accessToken;
 
@@ -129,20 +122,6 @@
 
       }
     }, {scope: 'email,public_profile,publish_actions'});
-  });
-
-  $('#aaa').on('click',function(){
-    FB.getLoginStatus(function(response) {
-
-      console.log(response.status);
-      if (response && response.status === 'connected') {
-          FB.logout(function(response) {
-              // document.location.reload();
-              console.log('logout');
-          });
-      }
-    });
-
   });
 
 </script>

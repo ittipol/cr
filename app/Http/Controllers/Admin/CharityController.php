@@ -129,7 +129,7 @@ class CharityController extends Controller
 
       }
 
-      $model->images = json_encode($images);
+      $data->images = json_encode($images);
 
     }
 

@@ -44,6 +44,14 @@
 	background-color: #ececec;
 }
 
+.donation-search-block {
+	padding: 20px 0;
+}
+
+.donation-search-block h1 {
+	font-size: 28px;
+}
+
 @media only screen and (max-width : 480px) {
 	.donation-code-box {
 		margin-bottom: 20px;
@@ -52,12 +60,25 @@
 	.donate .btn-facebook-inversed {
 		font-size: 14px;
 	}
+
+	.donation-search-block h1 {
+		font-size: 24px;
+	}
 }
 
 @media only screen and (max-width : 320px) {
 
 	.select-group.half > label.select:nth-child(2) {
 		margin-left: 0;
+	}
+
+	.donate .btn-facebook-inversed {
+		font-size: 12px;
+	}
+
+	.donation-search-block h1 {
+		font-size: 18px;
+		margin: 10px 0;
 	}
 
 }

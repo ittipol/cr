@@ -69,7 +69,7 @@
   </div>
 
   <div class="form-group">
-    {{Form::checkbox('has_reward', null, array('class' => 'form-control'))}}
+    {{Form::checkbox('has_reward', 1)}}
     {{Form::label('has_reward', 'มีของรางวัล')}}
   </div>
 

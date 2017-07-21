@@ -20,11 +20,13 @@ class DonateController extends Controller
     switch (request()->for) {
       case 'charity':
 
-        $data = Service::loadModel('Charity')->select('name')->find(request()->id);
+        $data = Service::loadModel('Charity')->select('name','has_reward')->find(request()->id);
 
         if(empty($data)) {
           return $this->error('ไม่พบมูลนิธินี้');
         }
+
+        $this->setData('charity',$data);
 
         break;
 
@@ -43,9 +45,9 @@ class DonateController extends Controller
 
         $data = $data->first();
 
-        $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
+        $charity = Service::loadModel('Charity')->select('name','has_reward')->find($data->charity_id);
 
-        $this->setData('charityName',$charity->name);
+        $this->setData('charity',$charity);
 
         break;
       
@@ -267,13 +269,17 @@ class DonateController extends Controller
         break;
     }
 
+    // SET LIB
     $this->setData('dateLib',new Date);
 
-    $this->setData('donation',$donation);
+    // SET DATA
     $this->setData('id',$data->id);
     $this->setData('name',$data->name);
-    // $this->setData('for',strtolower($donation->model));
     $this->setData('code',$code);
+    $this->setData('donation',$donation);
+
+    // SET META
+    $this->setMeta('title','การบริจาค — Charity');
 
     return $this->view('page.donate.complete');
   }

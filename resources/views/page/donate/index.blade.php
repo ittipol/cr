@@ -13,7 +13,7 @@
     @endif
     
     @if($for == 'project')
-      <h4>โครงการจาก {{$charityName}}</h4>
+      <h4>โครงการจาก {{$charity->name}}</h4>
     @endif    
   </div>
 
@@ -144,15 +144,10 @@
                 <span class="input-group-addon">บาท</span>
               </label>
             </section>
-            
-            <!-- <section>
-              <label class="label">รูปภาพหลักฐานการชำระเงิน</label>
-              <label class="input">
-                
-              </label>
-            </section> -->
 
           </fieldset>
+
+          @if($charity->has_reward)
 
           <hr>
 
@@ -168,8 +163,6 @@
             {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'open_address_form_chkbox'))}}<i></i>ต้องการรับของรางวัล
           </label>
 
-          <div class="clearfix margin-bottom-20"></div>
-
           <div id="address_form">
 
             <div class="clearfix margin-bottom-10"></div>
@@ -180,7 +173,7 @@
 
               <div class="row">
                 <section class="col col-md-12">
-                  <label class="label">ระบุ size เสื้อ <a href="javascript:void(0);" data-toggle="modal" data-target="#chart_size_model">ตาราง size เสื้อ (uniqlo thai)</a></label>
+                  <label class="label">ระบุ size เสื้อ <a href="javascript:void(0);" data-toggle="modal" data-target="#chart_size_model">ตาราง size เสื้อ</a></label>
                   <label class="radio">
                     <input type="radio" name="reward_option" value="s" checked><i></i>S
                   </label>
@@ -191,23 +184,6 @@
                     <input type="radio" name="reward_option" value="l"><i></i>L
                   </label>
                 </section>
-              </div>
-
-              <div class="modal fade" id="chart_size_model" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                      <h4 id="myModalLabel1" class="modal-title">บัญชีธนาคาร</h4>
-                    </div>
-                    <div class="modal-body">
-                      xxx
-                    </div>
-                    <div class="modal-footer">
-                      <button data-dismiss="modal" class="btn-u btn-u-default" type="button">ปิด</button>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div class="row">
@@ -331,6 +307,10 @@
 
           </div>
 
+          @endif
+
+          <div class="clearfix margin-bottom-30"></div>
+
           {{Form::submit('แจ้งการบริจาค', array('class' => 'btn-u btn-custom'))}}
 
         {{Form::close()}}
@@ -339,8 +319,7 @@
 
       <div class="col-md-4">
 
-        <div class="clearfix sm-margin-bottom-40"></div>
-        <div class="clearfix sm-margin-bottom-40"></div>
+        <div class="clearfix sm-margin-bottom-100"></div>
 
         <h4>การบริจาค</h4>
         

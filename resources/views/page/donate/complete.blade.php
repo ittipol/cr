@@ -27,7 +27,7 @@
       <div class="col-xs-12">
         <h4>หมายเลขการบริจาค</h4>
         <h2 class="donation-code">{{$code}}</h2>
-        <p>คุณสามารถใช้หมายเลยนี้ในการเข้าถึงการบริจาคของคุณ หรือหากสร้างบัญชีแล้วสามารถดูประวัติการบริจาคได้จากหน้า "ประวัติการบริจาค"</p>
+        <p>คุณสามารถใช้หมายเลยนี้ในการเข้าถึงการบริจาคของคุณ หรือหากสร้างบัญชีแล้วสามารถดูประวัติการบริจาคได้จากหน้า "โปรไฟล์"</p>
       </div>
     </div>
 
@@ -47,35 +47,47 @@
     <hr>
 
     <div class="row invoice-info">
+
       <div class="col-xs-12">
+
         <div class="tag-box tag-box-v3">
           <h2>รายละเอียดการบริจาค:</h2>
-          <ul class="list-unstyled">
-            <li><strong>บริจาคให้กับ:</strong> {{$for}}</li>
-            <li><strong>ชื่อ{{$for}}</strong> {{$name}}</li>
-            @if($donation->unidentified)
-              <li><strong>ชื่อ นามสกุล:</strong> ไม่ระบุ</li>
-            @elseif(!empty($donation->user_id))
-              <li><strong>ชื่อ นามสกุล:</strong> {{$donation->user->name}}</li>
-            @else
-              <li><strong>ชื่อ นามสกุล:</strong> {{$donation->guest_name}}</li>
-            @endif
-            <li><strong>วันที่:</strong> {{$dateLib->covertDateTimeToSting($donation->created_at)}}</li>
-            <li><strong>จำนวนเงิน:</strong> {{number_format($donation->amount, 0, '.', ',')}} บาท</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+          <div class="row">
+            <div class="col-md-4"><strong>บริจาคให้กับ:</strong> {{$for}}</div>
+            <div class="col-md-4"><strong>ชื่อ{{$for}}</strong> {{$name}}</div>
 
-    @if(!$donation->verified)
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="alert alert-danger fade in">
-          <strong>หมายเหตุ</strong> การบริจาคจะไม่แสดงไปยัง{{$for}}ทันที จะมีการตรวจสอบความถูกต้องก่อนจะแสดงไปยัง{{$for}}ที่คุณบริจาค
+            <div class="col-md-4">
+              <strong>จำนวนเงิน:</strong> {{number_format($donation->amount, 0, '.', ',')}} บาท
+            </div>
+
+            <div class="col-md-4">
+              <strong>ชื่อ นามสกุล:</strong>
+              @if($donation->unidentified)
+                ไม่ระบุ
+              @elseif(!empty($donation->user_id))
+                {{$donation->user->name}}
+              @else
+                {{$donation->guest_name}}
+              @endif
+            </div>
+
+            <div class="col-md-4">
+              <strong>วันที่:</strong> {{$dateLib->covertDateTimeToSting($donation->created_at)}}
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      @if(!$donation->verified)
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="alert alert-danger fade in">
+            <strong>หมายเหตุ</strong> การบริจาคจะไม่แสดงไปยัง{{$for}}ทันที จะมีการตรวจสอบความถูกต้องก่อนจะแสดงไปยัง{{$for}}ที่คุณบริจาค
+          </div>
         </div>
       </div>
-    </div>
-    @endif
+      @endif
 
   </div>
 

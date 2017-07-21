@@ -54,7 +54,7 @@
             <tbody>
               @foreach($donations as $donation)
               <tr>
-                <td class="td-width">
+                <td>
                   @if($donation->model == 'Charity')
                     มูลนิธิ
                   @else

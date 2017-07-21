@@ -22,13 +22,13 @@
               <a href="{{URL::to('/')}}">หน้าแรก</a>
             </li>
             <li class="page-scroll">
-              <a href="#your-help">การบริจาค</a>
-            </li>
-            <li class="page-scroll">
               <a href="{{URL::to('charity/list')}}">มูลนิธิ</a>
             </li>
             <li class="page-scroll">
               <a href="{{URL::to('project/list')}}">โครงการ</a>
+            </li>
+            <li class="page-scroll">
+              <a href="{{URL::to('donation')}}">การบริจาค</a>
             </li>
             <li class="page-scroll">
               <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
