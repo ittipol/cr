@@ -16,8 +16,13 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <div class="name-location">
-          <span><i class="fa fa-map-marker"></i>{{$charity->province->name}}</span>
+        <div class="tagging-item-list">
+          <span class="tagging-item">
+            <div class="location-name"><i class="fa fa-map-marker"></i>{{$charity->province->name}}</div>
+          </span>
+          <span class="tagging-item">
+            <div class="location-name"><i class="fa fa-flag"></i>{{$charity->charityType->name}}</div>
+          </span>
         </div>
         <div class="clearfix margin-bottom-20"></div>
       </div>

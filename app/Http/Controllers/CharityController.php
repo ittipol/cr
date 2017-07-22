@@ -48,6 +48,7 @@ class CharityController extends Controller
 
     // SEND LIB TO VIEW
     $this->setData('dateLib',$date);
+    $this->setData('stringLib',new stringHelper);
 
     $this->setData('charity',$charity);
     $this->setData('projects',$projects);

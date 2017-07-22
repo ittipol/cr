@@ -9,9 +9,7 @@
       <h2>{{$project->name}}</h2>
       <p>{{$project->short_desc}}</p>
     </div>
-
-    <div class="clearfix margin-bottom-20"></div>
-
+    
     <div class="testimonials-v4">
       <!-- <div class="testimonials-v4-in">
         <h2>{{$project->name}}</h2>

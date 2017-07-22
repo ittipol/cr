@@ -23,7 +23,7 @@ class ProjectController extends Controller
     ->select('id','charity_id','name','short_desc','thumbnail','end_date','target_amount','created_at')
     ->find($id);
 
-    if(!$project->exists()) {
+    if(empty($project)) {
       return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
     }
 
@@ -35,8 +35,6 @@ class ProjectController extends Controller
     $donationModel = Service::loadModel('Donation');
 
     $date = new Date;
-
-    $project = $project->first();
 
     // Get Charity
     $charity = Service::loadModel('Charity')->select('id','name','logo')->find($project->charity_id);

@@ -139,26 +139,37 @@
     <div class="row">
       @foreach($charities as $data)
 
-        <div class="col-md-4 news-v3 charity-list-item custom-item-list">
-          <a href="{{URL::to('charity')}}/{{$data->id}}">
-            <img class="img-responsive full-width" src="{{$data->thumbnail}}">
-          </a>
-          <div class="news-v3-in-sm bg-color-light">
-            <h2 class="new-title">
-              <a href="{{URL::to('charity')}}/{{$data->id}}">
-                <img class="charity-logo" src="{{$data->logo}}">
-              </a>
-              <span>
-                <a href="{{URL::to('charity')}}/{{$data->id}}">{{$data->name}}</a>
-              </span>
-            </h2>
-            <p>{{$data->short_desc}}</p>
-            
-            <div class="service-block-v3 donation-box for-charity">
-              <a href="{{URL::to('donate')}}?for=charity&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+          
+          <div class="news-v3 charity-list-item custom-item-list">
+
+            <a href="{{URL::to('charity')}}/{{$data->id}}">
+              <img class="img-responsive full-width" src="{{$data->thumbnail}}">
+            </a>
+            <div class="news-v3-in-sm bg-color-light">
+
+              <small>{{$data->charityType->name}}</small>
+              <div class="clearfix margin-bottom-10"></div>
+              
+              <?php
+                $strLimit = 120;
+                $descLen = $strLimit - mb_strlen($data->name);
+                $shortDesc = $stringLib->truncString($data->short_desc,$descLen);
+              ?>
+
+              <div class="main-content margin-bottom-20">
+                <a href="{{URL::to('charity')}}/{{$data->id}}"><img src="{{$data->logo}}">{{$data->name}}</a>
+                — {{$shortDesc}}
+              </div>
+              
+              <div class="service-block-v3 donation-box for-charity">
+                <a href="{{URL::to('donate')}}?for=charity&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
+              </div>
+
             </div>
 
           </div>
+
         </div>
 
       @endforeach

@@ -29,6 +29,16 @@
 	overflow: hidden;
 }
 
+.news-v3.custom-item-list small {
+	color: #626369;
+	font-size: 11.9px;
+}
+
+.news-v3.custom-item-list .main-content a {
+	color: #2752ff;
+	text-decoration: none;
+}
+
 .news-v3.custom-item-list .main-content img {
 	width: 30px;
 	height: 30px;
@@ -36,13 +46,14 @@
 	margin-right: 8px;
 }
 
-.news-v3 p {
+/*.news-v3 p {
 	height: 60px;
 	overflow: hidden;
-}
+}*/
 
-.news-v3 .donation-box {
+.news-v3.custom-item-list .donation-box {
 	padding: 0;
+	background-color: transparent;
 }
 
 .news-v3 .project-by-charity .charity-logo {
@@ -93,7 +104,7 @@
 
 @media only screen and (max-width : 480px) {
 
-	.news-v3.custom-item-list {
+	.list .news-v3.custom-item-list {
 		margin-left: 15px;
 		margin-right: 15px;
 	}

@@ -70,7 +70,7 @@
 
   <div class="form-group">
     {{Form::checkbox('has_reward', 1)}}
-    {{Form::label('has_reward', 'มีของรางวัล')}}
+    {{Form::label('has_reward', 'แจกของรางวัล')}}
   </div>
 
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}

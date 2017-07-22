@@ -26,12 +26,6 @@
                 <img class="img-responsive full-width" src="{{$data->thumbnail}}">
               </a>
               <div class="news-v3-in-sm bg-color-light">
-                <!-- <h2 class="new-title">
-                  <span>
-                    <a href="{{URL::to('project')}}/{{$data->id}}">{{$data->name}}</a>
-                  </span>
-                </h2>
-                <p>{{$data->short_desc}}</p> -->
 
                 <?php
                   $strLimit = 120;

@@ -26,16 +26,10 @@
                 <img class="img-responsive full-width" src="{{$data->thumbnail}}">
               </a>
               <div class="news-v3-in-sm bg-color-light">
-                <!-- <h2 class="new-title">
-                  <a href="{{URL::to('charity')}}/{{$data->id}}">
-                    <img class="charity-logo" src="{{$data->logo}}">
-                  </a>
-                  <span>
-                    <a href="{{URL::to('charity')}}/{{$data->id}}">{{$data->name}}</a>
-                  </span>
-                </h2>
-                <p>{{$data->short_desc}}</p> -->
 
+                <small>{{$data->charityType->name}}</small>
+                <div class="clearfix margin-bottom-10"></div>
+                
                 <?php
                   $strLimit = 120;
                   $descLen = $strLimit - mb_strlen($data->name);

@@ -63,8 +63,8 @@
   </div>
 
   <div class="form-group">
-    {{Form::checkbox('has_reward', null, array('class' => 'form-control'))}}
-    {{Form::label('has_reward', 'มีของรางวัล')}}
+    {{Form::checkbox('has_reward', 1)}}
+    {{Form::label('has_reward', 'แจกของรางวัล')}}
   </div>
 
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}

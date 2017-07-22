@@ -45,7 +45,13 @@
 	border: none;
 }*/
 
-.charity .name-location span i {
+.tagging-item {
+	color: #353535;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.tagging-item .location-name i {
 	color: rgb(53,53,53);
 	margin-right: 6px;
 	padding: 4px 8px;
@@ -99,7 +105,7 @@
 	float: left;
 }
 
-.charity-header .charity-info .name-location {
+.charity-header .charity-info .location-name {
 	font-size: 14px;
 }
 
@@ -124,7 +130,7 @@
 	background-color: #444;
 }
 
-.index.detail .donation-box {
+.index .donation-box {
 	padding: 0;
 }
 
@@ -326,7 +332,7 @@
 		height: 215px;
 	}
 
-	.index.detail .donation-box {
+	.index .donation-box {
 		padding: 20px 15px;
 		background-color: #e7edef;
 	}
