@@ -104,9 +104,10 @@ Route::get('project/{id}', 'ProjectController@index');
 
 Route::get('donate', 'DonateController@index');
 Route::post('donate', 'DonateController@donationSubmit');
-Route::get('donate/{code}', 'DonateController@complete');
 
 Route::get('donation', 'DonationController@index');
+Route::get('donation/share', 'DonationController@share');
+Route::get('donation/{code}', 'DonationController@detail');
 
 Route::get('news/list', 'NewsController@listView');
 Route::get('news/{id}', 'NewsController@index');

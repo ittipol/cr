@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
+use Facebook\Facebook;
 use Redirect;
 
 class DonationController extends Controller
 {
+  public function __construct() {
+    $this->botDisallowed();
+  }
+
   public function index() {
 
     $search = false;
@@ -65,11 +70,95 @@ class DonationController extends Controller
     $this->setData('donation',$donation);
 
     // SET META
-    $this->setMeta('title','การบริจาค — Charity');
-
-    // Stop Bot Index
-    $this->botDisallowed();
+    $this->setMeta('title','การบริจาค — CharityTH');
 
     return $this->view('page.donation.index');
   }
+
+  public function detail($code) {
+
+    if(empty($code)) {
+      return $this->error('URL ไม่ถูกต้อง');
+    }
+
+    $donation = Service::loadModel('Donation')->where('code','like',$code);
+
+    if(!$donation->exists()) {
+      return $this->error('ไม่พบการบริจาคที่คุณกำลังค้นหา');
+    }
+
+    $donation = $donation->first();
+
+    $data = Service::loadModel($donation->model)->find($donation->model_id);
+
+    switch ($donation->model) {
+      case 'Charity':
+
+        if(empty($data)) {
+          return $this->error('ไม่พบมูลนิธินี้');
+        }
+
+        $this->setData('for','มูลนิธิ');
+        $this->setData('charityName',$data->name);
+        $this->setData('charityLogo',$data->logo);
+
+        break;
+
+      case 'Project':
+
+        if(empty($data)) {
+          return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
+        }
+
+        $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
+
+        $this->setData('for','โครงการ');
+        $this->setData('charityName',$charity->name);
+        $this->setData('charityLogo',$charity->logo);
+
+        break;
+      
+      default:
+        return Redirect::to('/');
+        break;
+    }
+
+    // SET LIB
+    $this->setData('dateLib',new Date);
+
+    // SET DATA
+    $this->setData('id',$data->id);
+    $this->setData('name',$data->name);
+    $this->setData('code',$code);
+    $this->setData('donation',$donation);
+
+    // SET META
+    $this->setMeta('title','การบริจาค — CharityTH');
+
+    return $this->view('page.donation.detail');
+  }
+
+  public function share() {
+
+    dd('xxx');
+
+    $fb = new \Facebook\Facebook([
+      'app_id' => '227375124451364',
+      'app_secret' => 'd9d3b4300ebf9d1839dad310d62295fd',
+      'default_graph_version' => 'v2.9',
+    ]);
+
+    try {
+      // Returns a `Facebook\FacebookResponse` object
+      $response = $fb->post('/me/feed', request()->code);
+    } catch(Facebook\Exceptions\FacebookResponseException $e) {
+      echo 'Graph returned an error: ' . $e->getMessage();
+      exit;
+    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+      echo 'Facebook SDK returned an error: ' . $e->getMessage();
+      exit;
+    }
+
+  }
+
 }

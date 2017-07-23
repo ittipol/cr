@@ -53,7 +53,7 @@ class NewsController extends Controller
     $this->setData('news',$model->paginate(24));
 
     // SET META
-    $this->setMeta('title','ข่าวสาร — Charity');
+    $this->setMeta('title','ข่าวสาร — CharityTH');
     $this->setMeta('description','');
     // $this->setMeta('image',null);
 

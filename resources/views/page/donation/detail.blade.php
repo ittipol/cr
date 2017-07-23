@@ -49,12 +49,12 @@
 
     <hr>
 
-    <div class="row invoice-info">
+    <div class="row">
 
       <div class="col-xs-12">
 
         <div class="tag-box tag-box-v3">
-          <h2>รายละเอียดการบริจาค:</h2>
+          <h2>รายละเอียดการบริจาค</h2>
           <div class="row">
             <div class="col-md-4"><strong>บริจาคให้กับ:</strong> {{$for}}</div>
             <div class="col-md-4"><strong>ชื่อ{{$for}}</strong> {{$name}}</div>
@@ -82,17 +82,17 @@
         
       </div>
 
-      @if(!$donation->verified)
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="alert alert-danger fade in">
-            <strong>หมายเหตุ</strong> การบริจาคจะไม่แสดงไปยัง{{$for}}ทันที จะมีการตรวจสอบความถูกต้องก่อนจะแสดงไปยัง{{$for}}ที่คุณบริจาค
-          </div>
-        </div>
-      </div>
-      @endif
-
   </div>
+
+  @if(!$donation->verified)
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-danger fade in">
+        <strong>หมายเหตุ</strong> การบริจาคจะไม่แสดงไปยัง{{$for}}ทันที จะมีการตรวจสอบความถูกต้องก่อนจะแสดงไปยัง{{$for}}ที่คุณบริจาค
+      </div>
+    </div>
+  </div>
+  @endif
 
 </div>
 
@@ -118,52 +118,55 @@
 
   $('#fb_post_btn').on('click',function(e){
 
-    FB.getLoginStatus(function(response) {
-      console.log(response);
-    });
+    // FB.getLoginStatus(function(response) {
+    //   console.log(response);
+    // });
 
     FB.login(function(response) {
 
-      console.log(response.authResponse);
       if (response.authResponse) {
+
+        // console.log(response.authResponse.accessToken);
+        window.location.href = "/donation/share?code="+response.authResponse.accessToken+"_code={{$code}}";
+
         //user just authorized your app
 
-        FB.api("/me/feed","POST",
-            {
-              message: "ABCDEF ... \nnew line test ...",
-              privacy: {value:"SELF"},
-              link: 'http://103.13.228.35/'
-            },
-            function (response) {
+        // FB.api("/me/feed","POST",
+        //     {
+        //       message: "ABCDEF ... \nnew line test ...",
+        //       privacy: {value:"SELF"},
+        //       link: 'http://103.13.228.35/'
+        //     },
+        //     function (response) {
 
-              console.log(response.error);
+        //       console.log(response.error);
 
-              $('#fb_post_btn').fadeOut(220);
+        //       $('#fb_post_btn').fadeOut(220);
 
-              if (response && !response.error) {
-                /* handle the result */
-                console.log('axxxx');
-              }
-            }
-        );
+        //       if (response && !response.error) {
+        //         /* handle the result */
+        //         console.log('axxxx');
+        //       }
+        //     }
+        // );
 
       }
     }, {scope: 'publish_actions'});
   });
 
-  $('#aaa').on('click',function(){
-    FB.getLoginStatus(function(response) {
+  // $('#aaa').on('click',function(){
+  //   FB.getLoginStatus(function(response) {
 
-      console.log(response.status);
-      if (response && response.status === 'connected') {
-          FB.logout(function(response) {
-              // document.location.reload();
-              console.log('logout');
-          });
-      }
-    });
+  //     console.log(response.status);
+  //     if (response && response.status === 'connected') {
+  //         FB.logout(function(response) {
+  //             // document.location.reload();
+  //             console.log('logout');
+  //         });
+  //     }
+  //   });
 
-  });
+  // });
 
 </script>
 

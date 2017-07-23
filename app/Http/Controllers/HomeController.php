@@ -25,7 +25,7 @@ class HomeController extends Controller
     // $this->setData('news',Service::loadModel('News')->orderBy('created_at','desc')->take(6)->get());
 
     // SET META
-    $this->setMeta('title','หน้าแรก — Charity');
+    $this->setMeta('title','หน้าแรก — CharityTH');
 
     return $this->view('page.home.index');
   }

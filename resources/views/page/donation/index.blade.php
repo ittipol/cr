@@ -19,6 +19,9 @@
       <div class="tab-content">
 
         <div class="tab-pane fade in @if(!$search) active @endif" id="about">
+
+          <div class="headline"><h2>วิธีการบริจาค</h2></div>
+
           <h2>1. โอนเงินมายังบัญชีธนาคาร</h2>
 
           <div class="tag-box tag-box-v3">
@@ -29,6 +32,7 @@
 
           <h2>2. แจ้งการบริจาคของคุณ</h2>
           <h4>คลิกปุ่มที่มีข้อความ "บริจาคให้กับมูลนิธินี้" จากนั้นกรอกรายละเอียดให้ครบถ้วนและคลิก "แจ้งการบริจาค" เพื่อยืนยันการบริจาคของคุณ</h4>
+
         </div>
 
         <div class="tab-pane fade in @if($search) active @endif" id="search">
@@ -84,12 +88,12 @@
 
               <hr>
 
-              <div class="row invoice-info">
+              <div class="row">
 
                 <div class="col-xs-12">
 
                   <div class="tag-box tag-box-v3">
-                    <h2>รายละเอียดการบริจาค:</h2>
+                    <h2>รายละเอียดการบริจาค</h2>
                     <div class="row">
                       <div class="col-md-4"><strong>บริจาคให้กับ:</strong> {{$for}}</div>
                       <div class="col-md-4"><strong>ชื่อ{{$for}}</strong> {{$name}}</div>

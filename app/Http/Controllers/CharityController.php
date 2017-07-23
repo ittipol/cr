@@ -62,7 +62,7 @@ class CharityController extends Controller
     $this->setData('donors',$donationModel->getDonors('Charity',$id));
 
     // SET META
-    $this->setMeta('title',$charity->name.' — Charity');
+    $this->setMeta('title',$charity->name.' — CharityTH');
     $this->setMeta('description',$charity->short_desc);
     $this->setMeta('image',$charity->thumbnail);
 
@@ -98,7 +98,7 @@ class CharityController extends Controller
     $this->setData('percent',round((date('d') * 100) / date('t')));
 
     // SET META
-    $this->setMeta('title','มูลนิธิ — Charity');
+    $this->setMeta('title','มูลนิธิ — CharityTH');
     $this->setMeta('description','');
     // $this->setMeta('image',null);
 

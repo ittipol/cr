@@ -11,12 +11,17 @@ use Validator;
 
 class DonateController extends Controller
 {
+  public function __construct() {
+    $this->botDisallowed();
+  }
+  
   public function index() {
 
     if(empty(request()->for) || empty(request()->id)) {
       return $this->error('URL ไม่ถูกต้อง');
     }
 
+    $for = null;
     switch (request()->for) {
       case 'charity':
 
@@ -25,6 +30,8 @@ class DonateController extends Controller
         if(empty($data)) {
           return $this->error('ไม่พบมูลนิธินี้');
         }
+
+        $for = 'มูลนิธิ';
 
         $this->setData('charity',$data);
 
@@ -42,6 +49,8 @@ class DonateController extends Controller
         if(!$data->exists()) {
           return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
+
+        $for = 'โครงการ';
 
         $data = $data->first();
 
@@ -93,11 +102,13 @@ class DonateController extends Controller
 
     $this->setData('provinces', $provinces);
 
+    // SET DATA
     $this->setData('name',$data->name);
     $this->setData('id',request()->id);
     $this->setData('for',request()->for);
 
-    $this->setMeta('title',$data->name);
+    // SET META
+    $this->setMeta('title','บริจาคให้กับ'.$for.' '.$data->name.' — CharityTH');
     // $this->setMeta('description',$news->short_desc);
     // $this->setMeta('image',$news->thumbnail);
 
@@ -213,7 +224,7 @@ class DonateController extends Controller
       // $user->shipping_address = $donation->address;
       // $user->save();
 
-      return Redirect::to('donate/'.$donation->code);
+      return Redirect::to('donation/'.$donation->code);
 
     }
 
@@ -221,67 +232,67 @@ class DonateController extends Controller
 
   }
 
-  public function complete($code) {
+  // public function complete($code) {
 
-    if(empty($code)) {
-      return $this->error('URL ไม่ถูกต้อง');
-    }
+  //   if(empty($code)) {
+  //     return $this->error('URL ไม่ถูกต้อง');
+  //   }
 
-    $donation = Service::loadModel('Donation')->where('code','like',$code);
+  //   $donation = Service::loadModel('Donation')->where('code','like',$code);
 
-    if(!$donation->exists()) {
-      return $this->error('ไม่พบการบริจาคที่คุณกำลังร้องขอ');
-    }
+  //   if(!$donation->exists()) {
+  //     return $this->error('ไม่พบการบริจาคที่คุณกำลังค้นหา');
+  //   }
 
-    $donation = $donation->first();
+  //   $donation = $donation->first();
 
-    $data = Service::loadModel($donation->model)->find($donation->model_id);
+  //   $data = Service::loadModel($donation->model)->find($donation->model_id);
 
-    switch ($donation->model) {
-      case 'Charity':
+  //   switch ($donation->model) {
+  //     case 'Charity':
 
-        if(empty($data)) {
-          return $this->error('ไม่พบมูลนิธินี้');
-        }
+  //       if(empty($data)) {
+  //         return $this->error('ไม่พบมูลนิธินี้');
+  //       }
 
-        $this->setData('for','มูลนิธิ');
-        $this->setData('charityName',$data->name);
-        $this->setData('charityLogo',$data->logo);
+  //       $this->setData('for','มูลนิธิ');
+  //       $this->setData('charityName',$data->name);
+  //       $this->setData('charityLogo',$data->logo);
 
-        break;
+  //       break;
 
-      case 'Project':
+  //     case 'Project':
 
-        if(empty($data)) {
-          return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
-        }
+  //       if(empty($data)) {
+  //         return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
+  //       }
 
-        $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
+  //       $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
 
-        $this->setData('for','โครงการ');
-        $this->setData('charityName',$charity->name);
-        $this->setData('charityLogo',$charity->logo);
+  //       $this->setData('for','โครงการ');
+  //       $this->setData('charityName',$charity->name);
+  //       $this->setData('charityLogo',$charity->logo);
 
-        break;
+  //       break;
       
-      default:
-        return Redirect::to('/');
-        break;
-    }
+  //     default:
+  //       return Redirect::to('/');
+  //       break;
+  //   }
 
-    // SET LIB
-    $this->setData('dateLib',new Date);
+  //   // SET LIB
+  //   $this->setData('dateLib',new Date);
 
-    // SET DATA
-    $this->setData('id',$data->id);
-    $this->setData('name',$data->name);
-    $this->setData('code',$code);
-    $this->setData('donation',$donation);
+  //   // SET DATA
+  //   $this->setData('id',$data->id);
+  //   $this->setData('name',$data->name);
+  //   $this->setData('code',$code);
+  //   $this->setData('donation',$donation);
 
-    // SET META
-    $this->setMeta('title','การบริจาค — Charity');
+  //   // SET META
+  //   $this->setMeta('title','การบริจาค — CharityTH');
 
-    return $this->view('page.donate.complete');
-  }
+  //   return $this->view('page.donate.complete');
+  // }
 
 }

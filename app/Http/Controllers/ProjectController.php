@@ -86,7 +86,7 @@ class ProjectController extends Controller
     $this->setData('dateLib',new Date);
     $this->setData('projects',$model->where('end_date','>',date('Y-m-d H:i:s'))->paginate(24));
 
-    $this->setMeta('title','โครงการ — Charity');
+    $this->setMeta('title','โครงการ — CharityTH');
     $this->setMeta('description','');
     // $this->setMeta('image',null);
 

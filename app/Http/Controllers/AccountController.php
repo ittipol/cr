@@ -10,6 +10,10 @@ use Auth;
 
 class AccountController extends Controller
 {
+  public function __construct() {
+    $this->botDisallowed();
+  }
+  
   public function index() {
 
     $userId = Auth::user()->id;
@@ -34,7 +38,7 @@ class AccountController extends Controller
     // $this->setData('totalAmountCharity',$totalAmountCharity);
     // $this->setData('totalAmountProject',$totalAmountProject);
 
-    $this->setMeta('title','บัญชี — CharityTh');
+    $this->setMeta('title','บัญชี — CharityTH');
     // $this->setMeta('description',$charity->short_desc);
     // $this->setMeta('image',$charity->thumbnail);
 
@@ -70,7 +74,7 @@ class AccountController extends Controller
 
     $this->setData('donations',$data);
 
-    $this->setMeta('title','บัญชี » การบริจาค — CharityTh');
+    $this->setMeta('title','บัญชี » การบริจาค — CharityTH');
 
     return $this->view('page.account.donation_history');
   }

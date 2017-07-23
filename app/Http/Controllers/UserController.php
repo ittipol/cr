@@ -17,7 +17,7 @@ class UserController extends Controller
 {
   public function login() {
 
-    $this->setMeta('title','เข้าสู่ระบบ — Charity');
+    $this->setMeta('title','เข้าสู่ระบบ — CharityTH');
 
     return $this->view('page.user.login');
   }
