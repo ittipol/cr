@@ -195,14 +195,25 @@ class Date
 
   }
 
-  public function remainingDate($end,$strat = null) {
+  public function remainingDate($end = null,$strat = null) {
 
-    $_start  = time();
-    if(!empty($start)) {
-      $_start = strtotime($start);
+    if(empty($end)) {
+      $end  = strtotime(date('Y-m-t'))+86400; // First Date of next month
+    }else{
+      $end = strtotime($end);
     }
 
-    $secs = strtotime($end) - $_start;
+    if(empty($start)) {
+      $start  = time(); // Current time
+    }else{
+      $start = strtotime($start);
+    }
+
+    if($start > $end) {
+      return null;
+    }
+
+    $secs = $end - $start;
     $mins = (int)floor($secs / 60);
     $hours = (int)floor($mins / 60);
     $days = (int)floor($hours / 24);

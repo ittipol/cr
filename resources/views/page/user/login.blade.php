@@ -61,30 +61,30 @@
 
 <script type="text/javascript">
 
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '227375124451364',
-      xfbml      : true,
-      version    : 'v2.9'
-    });
+  // window.fbAsyncInit = function() {
+  //   FB.init({
+  //     appId      : '227375124451364',
+  //     xfbml      : true,
+  //     version    : 'v2.9'
+  //   });
 
-    init();
-  };
+  //   init();
+  // };
 
-  (function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+  // (function(d, s, id){
+  //   var js, fjs = d.getElementsByTagName(s)[0];
+  //   if (d.getElementById(id)) {return;}
+  //   js = d.createElement(s); js.id = id;
+  //   js.src = "//connect.facebook.net/en_US/sdk.js";
+  //   fjs.parentNode.insertBefore(js, fjs);
+  // }(document, 'script', 'facebook-jssdk'));
 
   $('#fb_login_btn').on('click',function(e){
     FB.login(function(response) {
 
       if (response.authResponse) {
         //user just authorized your app
-
+// console.log(response.authResponse.accessToken);
         window.location.href = "/facebook/login?code="+response.authResponse.accessToken;
 
         // FB.api("/me/feed","POST",
@@ -104,7 +104,7 @@
         // );
 
       }
-    }, {scope: 'email,public_profile,publish_actions'});
+    }, {scope: 'email,user_about_me,user_birthday,publish_actions'});
   });
 
 </script>

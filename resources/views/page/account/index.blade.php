@@ -26,7 +26,7 @@
             <a href="{{URL::to('account')}}"><i class="fa fa-user"></i> หน้าแรกบัญชี</a>
           </li>
           <li class="list-group-item">
-            <a href="{{URL::to('account/donation/history')}}"><i class="fa fa-heart"></i> การบริจาค</a>
+            <a href="{{URL::to('account/donation/history')}}"><i class="fa fa-heart"></i> การสนับสนุน</a>
           </li>
           <li class="list-group-item">
             <a href="{{URL::to('logout')}}"><i class="fa fa-arrow-left"></i> ออกจากระบบ</a>
@@ -38,13 +38,13 @@
       <div class="col-md-9">
         <div>
 
-          <div class="headline"><h2>การบริจาคในเดือนนี้</h2></div>
+          <div class="headline"><h2>การสนับสนุนในเดือนนี้</h2></div>
 
           <div class="row margin-bottom-10">
             <div class="col-sm-12 sm-margin-bottom-20">
 
               <div class="service-block-v3 donation-info-block service-block-u">
-                <span class="service-heading">จำนวนเงิน</span>
+                <span class="service-heading">จำนวนเงินที่บริจาค</span>
                 <span class="counter">{{$totalAmount}} บาท</span>
               </div>
 

@@ -57,7 +57,7 @@ class CharityController extends Controller
     $this->setData('amount',$donationModel->getTotalAmount('Charity',$id,true));
     $this->setData('donationTotal',$donationModel->countDonation('Charity',$id));
     $this->setData('donorTotal',$donationModel->countDonor('Charity',$id,true));
-    $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
+    $this->setData('remainingDate',$date->remainingDate());
     $this->setData('percent',round((date('d') * 100) / date('t')));
     $this->setData('donors',$donationModel->getDonors('Charity',$id));
 
@@ -94,8 +94,8 @@ class CharityController extends Controller
 
     // SET DATA
     $this->setData('charities',$model->paginate(24));
-    $this->setData('remainingDate',$date->remainingDate(date('Y-m-t'),date('Y-m-d')));
-    $this->setData('percent',round((date('d') * 100) / date('t')));
+    // $this->setData('remainingDate',$date->remainingDate());
+    // $this->setData('percent',round((date('d') * 100) / date('t')));
 
     // SET META
     $this->setMeta('title','มูลนิธิ — CharityTH');

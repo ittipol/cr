@@ -7,7 +7,7 @@ use DB;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','acc_no','amount','transfer_date','get_reward','reward','shipping_address','verified'];
+  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','acc_no','amount','transfer_date','get_reward','reward','shipping_address','posted_to_fb','verified'];
 
   public $validation = array(
     'rules' => array(

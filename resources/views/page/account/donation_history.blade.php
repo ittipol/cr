@@ -27,7 +27,7 @@
             <a href="{{URL::to('account')}}"><i class="fa fa-user"></i> หน้าแรกบัญชี</a>
           </li>
           <li class="list-group-item">
-            <a href="{{URL::to('account/donation/history')}}"><i class="fa fa-heart"></i> การบริจาค</a>
+            <a href="{{URL::to('account/donation/history')}}"><i class="fa fa-heart"></i> การสนับสนุน</a>
           </li>
           <li class="list-group-item">
             <a href="{{URL::to('logout')}}"><i class="fa fa-arrow-left"></i> ออกจากระบบ</a>
@@ -40,7 +40,7 @@
 
         @if($donations->currentPage() <= $donations->lastPage())
 
-          <div class="headline"><h2>การบริจาค</h2></div>
+          <div class="headline"><h2>การสนับสนุน</h2></div>
 
           <table class="table table-bordered table-striped">
             <thead>
@@ -80,7 +80,11 @@
           </table>
 
           @include('pagination.default2', ['paginator' => $donations])
-        
+
+        @else
+          <div class="text-center content margin-top-40 margin-bottom-300">
+            <h2>ไม่มีข้อมูลการสนับสนุนให้แสดง</h2>
+          </div>
         @endif
 
       </div>

@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#body">
+        <a class="navbar-brand" href="{{URL::to('/')}}">
           <img class="default-logo" src="/images/logo/logo-light.png" alt="Logo">
           <img class="shrink-logo" src="/images/logo/logo-dark.png" alt="Logo">
         </a>
@@ -44,9 +44,7 @@
 
       @if(Auth::check())
         <div class="profile-image">
-          <a href="{{URL::to('account')}}">
-            <i class="fa fa-user"></i>
-          </a>
+          <a href="{{URL::to('account')}}"><i class="fa fa-user"></i></a>
         </div>
       @endif
 

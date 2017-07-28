@@ -1,6 +1,14 @@
 .account .search-block {
-	background-image: url('/images/common/bbb.jpg') !important;
+	background-image: url('/images/common/header-bg.jpg') !important;
+	/*background-image: none !important;*/
+	background-color: #8ac1dd;
+	border-bottom: 4px solid #016367;
+	/*border-bottom: 4px solid #176f9e;*/
 	padding: 50px 0 !important;
+}
+
+.account .search-block:before {
+	background: none;
 }
 
 .account .profile-image {
@@ -30,5 +38,7 @@
 }
 
 .account .search-block h1 {
+	/*color: #222;*/
 	text-align: center !important;
+	text-transform: none;
 }
