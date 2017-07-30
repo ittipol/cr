@@ -71,11 +71,11 @@ Route::group(['middleware' => ['admin.auth'], 'namespace' => 'Admin', 'prefix' =
 // =====================================================================
 
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
 Route::group(['middleware' => 'guest'], function () {
   
-  Route::get('login', 'UserController@login');
+  Route::get('login', array('as' => 'login', 'uses' => 'UserController@login'));
   Route::post('login', 'UserController@authenticate');
 
   Route::get('facebook/login', 'UserController@socialCallback');
@@ -90,6 +90,8 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('account/profile/edit', 'AccountController@edit');
   Route::post('account/profile/edit', 'AccountController@editingSubmit');
+
+  Route::post('account/upload/image_profile', 'AccountController@uploadImageProfile');
 
   Route::get('account/donation/history', 'AccountController@donationHistory');
 

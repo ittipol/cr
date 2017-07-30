@@ -3,10 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Response;
-use Redirect;
 
-class RegisterRequest extends FormRequest
+class ProfileEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,19 +13,13 @@ class RegisterRequest extends FormRequest
      */
     public function authorize()
     {
-      return true;
+        return false;
     }
 
     public function messages()
     {
       return [
         'name.required' => 'กรุณากรอกชื่อ นามสกุล',
-        'email.required' => 'กรุณากรอกอีเมล',
-        'email.email' => 'รูปแบบอีเมลไม่ถูกต้อง',
-        'email.unique' => 'อีเมลถูกใช้งานแล้ว',
-        'password.required' => 'กรุณากรอกรหัสผ่าน',
-        'password.min' => 'รัสผ่านต้องมีอย่างน้อย 4 อักขระ',
-        'password.confirmed' => 'รหัสผ่านไม่ตรงกัน',
       ];
     }
 
@@ -39,9 +31,7 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
       return [
-        'name' => 'required|max:255',
-        'email' => 'required|email|unique:users,email',
-        'password' => 'required|min:4|max:255|confirmed',
+        'name' => 'required|max:255'
       ];
     }
 
@@ -53,5 +43,4 @@ class RegisterRequest extends FormRequest
     public function response(array $errors) {
       return Redirect::back()->withErrors($errors)->withInput();
     }
-
 }

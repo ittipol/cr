@@ -37,12 +37,27 @@
           <!-- <a href="javascript:void(0);" id="fb_post_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
             <i class="fa fa-facebook"></i> โพสต์คำขอบคุณจากเราไปยัง Facebook ของคุณ       
           </a> -->
-          <a href="javascript:void(0);" id="fb_post_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
-            <i class="fa fa-facebook"></i> โพสต์การบริจาคนี้ไปยัง Facebook ของคุณ       
-          </a>    
-          <div class="text-center">           
+          <!-- <a href="javascript:void(0);" id="fb_post_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
+            <i class="fa fa-facebook"></i> แชร์การบริจาคนี้      
+          </a>    -->
+
+          <div class="col-xs-6">
+            <div class="pull-right">
+              <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ขอบ" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
+                <i class="fa fa-google-plus"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- <div class="text-center">           
             <small>เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>โดยไม่ได้รับอนุญาตจากคุณ</small>         
-          </div>       
+          </div>   -->     
         </li>     
       </ul>  
     </div>
@@ -98,24 +113,6 @@
 
 <script type="text/javascript">
 
-  // window.fbAsyncInit = function() {
-  //   FB.init({
-  //     appId      : '227375124451364',
-  //     xfbml      : true,
-  //     version    : 'v2.9'
-  //   });
-
-  //   init();
-  // };
-
-  // (function(d, s, id){
-  //   var js, fjs = d.getElementsByTagName(s)[0];
-  //   if (d.getElementById(id)) {return;}
-  //   js = d.createElement(s); js.id = id;
-  //   js.src = "//connect.facebook.net/en_US/sdk.js";
-  //   fjs.parentNode.insertBefore(js, fjs);
-  // }(document, 'script', 'facebook-jssdk'));
-
   $('#fb_post_btn').on('click',function(e){
     
     FB.login(function(response) {
@@ -147,7 +144,7 @@
         // );
 
       }
-    }, {scope: 'email,public_profile,publish_actions'});
+    }, {scope: 'email,public_profile'});
   });
 
 </script>

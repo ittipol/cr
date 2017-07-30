@@ -198,7 +198,7 @@ class Date
   public function remainingDate($end = null,$strat = null) {
 
     if(empty($end)) {
-      $end  = strtotime(date('Y-m-t'))+86400; // First Date of next month
+      $end  = strtotime(date('Y-m-t 00:00:00'))+86400; // First Date of next month
     }else{
       $end = strtotime($end);
     }

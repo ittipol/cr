@@ -11,7 +11,7 @@
 	background: none;
 }
 
-.account .profile-image {
+.account .header-profile-image {
 	width: 150px;
 	height: 150px;
 	background-color: #fff;
@@ -21,7 +21,7 @@
 	overflow: hidden;
 }
 
-.account .profile-image i {
+.account .header-profile-image i {
 	color: #2e3d50;
 	font-size: 185px;
 	text-align: center;
@@ -38,7 +38,83 @@
 }
 
 .account .search-block h1 {
-	/*color: #222;*/
 	text-align: center !important;
 	text-transform: none;
+}
+
+label.profile-image {
+	width: 150px;
+	height: 150px;
+	position: relative;
+	background-color: #f1f1f1;
+	border: 1px solid #E0E0E0;
+	margin: 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+label.profile-image input[type="file"] {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+label.profile-image i {
+	color: #2e3d50;
+	font-size: 185px;
+	text-align: center;
+	display: block;
+}
+
+label.profile-image .profile-image-preview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+
+label.profile-image .image-remove-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	background-color: #aaa;
+	width: 30px;
+	line-height: 30px;
+	z-index: 12;
+	display: none;
+}
+
+label.profile-image .image-remove-btn:hover {
+	background-color: #D50000;
+}
+
+label.profile-image .progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #eaeaea;
+  z-index: 9;
+  display: none;
+}
+
+label.profile-image .progress-bar > .status {
+  width: 0;
+  height: 100%;
+  background-color: rgb(3,192,37);
+}
+
+.account .profile-image-message {
+	color: red;
+	font-size: 14px;
+	display: none;
 }

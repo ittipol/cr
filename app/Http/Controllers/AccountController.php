@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileEditRequest;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
@@ -46,8 +47,21 @@ class AccountController extends Controller
   }
 
   public function edit() {
-    
+
+    $this->setData('data',Service::loadModel('User')->find(Auth::user()->id));
+
+    $this->setMeta('title','แก้ไขโปรไฟล์ — CharityTH');
+
+    return $this->view('page.account.profile_edit');
   }
+
+  public function editingSubmit(ProfileEditRequest $request) {
+
+  }
+
+  // public function uploadImageProfile() {
+    
+  // }
 
   public function donationHistory() {
 
