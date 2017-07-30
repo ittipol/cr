@@ -16,7 +16,7 @@ class User extends Model implements AuthenticatableContract,AuthorizableContract
   use Authenticatable, Authorizable, CanResetPassword;
 
   protected $table = 'users';
-  protected $fillable = ['social_provider_id','social_user_id','email','password','name','shipping_address','remember_token'.'email_verified'];
+  protected $fillable = ['social_provider_id','social_user_id','email','password','name','avatar','shipping_address','remember_token'.'email_verified'];
   protected $hidden = ['password','remember_token'];
 
   /**

@@ -89,9 +89,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('account', 'AccountController@index');
 
   Route::get('account/profile/edit', 'AccountController@edit');
-  Route::post('account/profile/edit', 'AccountController@editingSubmit');
-
-  Route::post('account/upload/image_profile', 'AccountController@uploadImageProfile');
+  Route::patch('account/profile/edit', 'AccountController@editingSubmit');
 
   Route::get('account/donation/history', 'AccountController@donationHistory');
 

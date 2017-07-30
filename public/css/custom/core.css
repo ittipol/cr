@@ -27,7 +27,8 @@ form .state-error + em {
 	color: red;
 	font-size: 13px;
 	display: block;
-  margin-top: 6px;
+  margin-top: 0;
+  margin-bottom: 6px;
   padding: 0 1px;
   font-style: normal;
   line-height: 15px;

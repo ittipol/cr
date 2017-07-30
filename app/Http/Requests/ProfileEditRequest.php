@@ -13,13 +13,13 @@ class ProfileEditRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function messages()
     {
       return [
-        'name.required' => 'กรุณากรอกชื่อ นามสกุล',
+        'name.required' => 'ชื่อ นามสกุลห้ามว่าง',
       ];
     }
 

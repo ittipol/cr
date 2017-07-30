@@ -6,6 +6,8 @@ use App\Http\Requests\ProfileEditRequest;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
+use App\library\handleStockImage;
+use App\library\imageTool;
 use Redirect;
 use Auth;
 
@@ -57,11 +59,35 @@ class AccountController extends Controller
 
   public function editingSubmit(ProfileEditRequest $request) {
 
-  }
+    $user = Service::loadModel('User')->find(Auth::user()->id);
 
-  // public function uploadImageProfile() {
-    
-  // }
+    $user->name = $request->get('name');
+
+    if($user->save() && !empty($request->file('profile_image'))) {
+      $handle = new handleStockImage($request->file('profile_image'));
+
+      $filename = $handle->getFileName();
+
+      list($width,$height) = $handle->resizeProfileImage();
+
+      $target = storage_path('app/public/users/'.$user->id.'/avatar/');
+      if(!is_dir($target)){
+        mkdir($target,0777,true);
+      }
+
+      $imageTool = new ImageTool($handle->getRealPath());
+      $imageTool->png2jpg($width,$height);
+      $imageTool->resize($width,$height);
+      $moved = $imageTool->save($target.$filename);
+
+      // update filename
+      $
+
+    }
+
+    return Redirect::to('account');
+
+  }
 
   public function donationHistory() {
 

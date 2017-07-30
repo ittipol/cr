@@ -104,6 +104,37 @@ class handleStockImage
 
   }
 
+  public function resizeProfileImage($originalWidth = null,$originalHeight = null){
+
+    if(empty($originalWidth)) {
+      $originalWidth = $this->width; 
+    }
+
+    if(empty($originalHeight)) {
+      $originalHeight = $this->height; 
+    }
+
+    $ratio = abs($originalWidth/$originalHeight);
+
+    $width = $originalWidth;
+    $height = $originalHeight;
+
+
+    if($height > 400) {
+      // or automatic crop
+      // top_x (imageWidth - cropsizewidth) / 2
+      // top_y (imageHeight - cropsizeheight) / 2
+      // bottom_x = top_x + 400;
+      // bottom_y = top_y + 400
+
+      $height = 400;
+      $width = round($originalWidth*($height/$originalHeight));
+    }
+
+    return array($width,$height);
+
+  }
+
   public function createTemporyFolder($folderName) {
 
     $url = new Url;
