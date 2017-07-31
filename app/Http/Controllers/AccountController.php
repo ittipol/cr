@@ -9,6 +9,7 @@ use App\library\date;
 use App\library\handleStockImage;
 use App\library\imageTool;
 use Redirect;
+use File;
 use Auth;
 
 class AccountController extends Controller
@@ -80,11 +81,17 @@ class AccountController extends Controller
       $imageTool->resize($width,$height);
       $moved = $imageTool->save($target.$filename);
 
+      // remove if exist
+      if(!empty($user->avatar)) {
+        File::delete($target.$user->avatar);
+      }
+
       // update filename
-      $
+      $user->avatar = $filename;
+      $user->save();
 
     }
-
+dd('saved');
     return Redirect::to('account');
 
   }

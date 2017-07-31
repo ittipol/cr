@@ -80,4 +80,8 @@ class User extends Model implements AuthenticatableContract,AuthorizableContract
        return $this->user_password;
    }
 
+   public function deleteAvatar() {
+    
+   }
+
 }
