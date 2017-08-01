@@ -132,7 +132,7 @@
     <div class="clearfix margin-bottom-100"></div>
 
     <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-      <h2 class="g-mb-35">ร่วมเป็นส่วนหนึ่งในการสนับสนุนมูลนิธิ</strong></h2>
+      <h2 class="g-mb-35">ร่วมเป็นส่วนหนึ่งในการช่วยเหลือมูลนิธิ</strong></h2>
       <p>Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio.</p>
     </div>
 
