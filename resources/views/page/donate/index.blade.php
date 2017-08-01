@@ -43,8 +43,25 @@
         @endif
 
         <p>
-          1.โอนเงินมายังบัญชีธนาคาร <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">บัญชีธนาคาร</a>
+          ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชี 
+          <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">บัญชีธนาคาร</a>
         </p>
+
+        <p>หรือหากต้องการบริจาคผ่านบัตรเครดิต กรุณาใช้ปุ่ม PayPal ด้านล่าง</p>
+
+        <div class="clearfix margin-bottom-10"></div>
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_donations">
+          <input type="hidden" name="business" value="charityth.donation@gmail.com">
+          <input type="hidden" name="item_name" value="Donate">
+          <input type="hidden" name="currency_code" value="THB">
+          <button>
+            บริจาคผ่าน
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
+          </button>
+        </form>
+        <div class="clearfix margin-bottom-30"></div>
 
         <div class="modal fade" id="bank_account_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -65,7 +82,8 @@
           </div>
         </div>
 
-        <p>2. แจ้งการบริจาคของคุณ</p>
+        <!-- <p>แจ้งการบริจาคของคุณ</p> -->
+        <h4>แจ้งการบริจาคของคุณ</h4>
 
         @include('component.form_error')
 
