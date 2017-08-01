@@ -15,7 +15,7 @@ class Controller extends BaseController
 
   protected $metaTitle = 'CharityTh';
   protected $metaDescription = null;
-  protected $metaImage = null;
+  protected $metaImage = '/images/logo/logo.png';
 
   protected $meta = array(
     'title' => null,
