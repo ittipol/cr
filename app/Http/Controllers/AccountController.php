@@ -91,7 +91,7 @@ class AccountController extends Controller
       $user->save();
 
     }
-dd('saved');
+
     return Redirect::to('account');
 
   }

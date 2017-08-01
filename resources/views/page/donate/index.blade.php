@@ -73,14 +73,30 @@
 
           @include('content.unidentified_donation')
 
+          <fieldset>
+
+            <div class="row">
+              <section class="col col-6">
+                <label class="label">บริจาคโดย</label>
+                <div class="inline-group">
+                  <label class="radio">
+                    <input type="radio" name="radio-inline" checked>
+                    <i class="rounded-x"></i>โอนเงินผ่านธนาคาร
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="radio-inline">
+                    <i class="rounded-x"></i>Paypal
+                  </label>
+                </div>
+              </section>
+            </div>
+
           @if(Auth::check())
 
-          <div class="tag-box tag-box-v2">
-            <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-            <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
-          </div>
-
-          <fieldset>
+            <div class="tag-box tag-box-v2">
+              <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
+              <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
+            </div>
 
             <div class="row">
               <section class="col col-6">
@@ -92,12 +108,10 @@
 
           @else
 
-          <div class="tag-box tag-box-v2">
-            <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-            <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุล" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
-          </div>
-
-          <fieldset>
+            <div class="tag-box tag-box-v2">
+              <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
+              <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุล" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
+            </div>
 
             <div class="row">
               <section class="col col-xs-12">
@@ -109,7 +123,8 @@
             </div>
 
             {{Form::hidden('unidentified', 1, array('id' => 'unidentified'))}}
-            @endif
+
+          @endif
 
             <div class="row">
               <section class="col col-6">

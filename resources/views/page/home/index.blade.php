@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="css/style/custom/charity.style.css">
 
   <!-- CSS Customization -->
-  <link rel="stylesheet" href="css/style/custom/custom.css">
+  <!-- <link rel="stylesheet" href="css/style/custom/custom.css"> -->
 
   <link rel="stylesheet" href="assets/css/footers/footer-v3.css">
 
@@ -50,7 +50,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#body">
+        <a class="navbar-brand" href="{{URL::to('/')}}">
           <img class="default-logo" src="/images/logo/logo-light.png" alt="Logo">
           <img class="shrink-logo" src="/images/logo/logo-dark.png" alt="Logo">
         </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StockImage;
+use App\Models\User;
 use Response;
 
 class StaticFileController extends Controller
@@ -15,7 +16,7 @@ class StaticFileController extends Controller
 
     if(!$image->exists()) {
       // return Response::make(file_get_contents($this->noImagePath), 200, $headers);
-      return null;
+      abort(404);
     }
 
     $path = $image->first()->getImagePath();
@@ -38,7 +39,7 @@ class StaticFileController extends Controller
     }
 
     // return response()->download($this->noImagePath, null, [], null);
-    return null;
+    abort(404);
 
     // $headers = array(
     //   'Cache-Control' => 'no-cache, must-revalidate',
@@ -52,6 +53,29 @@ class StaticFileController extends Controller
     // );
 
     // return Response::make(file_get_contents($path), 200, $headers);
+
+  }
+
+  public function userAvatar($filename){
+    $user = User::select('id','avatar')->where('avatar','like',$filename);
+
+    if(!$user->exists()) {
+      abort(404);
+    }
+
+    $path = $user->first()->getAvartarImage();
+
+    if(file_exists($path)){
+
+      $headers = array(
+        'Cache-Control' => 'public, max-age=86400',
+        'Content-Type' => mime_content_type($path),
+      );
+
+      return Response::make(file_get_contents($path), 200, $headers);
+    }
+
+    abort(404);
 
   }
 }

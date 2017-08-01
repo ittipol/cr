@@ -12,8 +12,13 @@
       <label class="profile-image">
         <input id="profile_image_input" class="profile-image-input" type="file" name="profile_image">
         <i class="fa fa-user"></i>
+        @if(empty($data->avatar))
         <div id="profile_image_preview" class="profile-image-preview"></div>
         <a href="javascript:void(0);" id="profile_image_remove_btn" class="image-remove-btn">×</a>
+        @else
+        <div id="profile_image_preview" class="profile-image-preview" style="background-image: url({{URL::to('avatar')}}/{{$data->avatar}});"></div>
+        <a href="javascript:void(0);" id="profile_image_remove_btn" class="image-remove-btn" style="display:block;">×</a>
+        @endif
         <p class="error-message"></p>
         <div class="progress-bar">
           <div class="status"></div>
@@ -25,7 +30,7 @@
 
   <div class="row">
     <section class="col col-md-12">
-      <label class="label">ชื่อ นามสกุลผู้รับ</label>
+      <label class="label">ชื่อ นามสกุล</label>
       <label class="input">
         {{Form::text('name', null, array('class' => 'form-control', 'placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
       </label>

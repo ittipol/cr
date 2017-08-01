@@ -19,6 +19,8 @@ class User extends Model implements AuthenticatableContract,AuthorizableContract
   protected $fillable = ['social_provider_id','social_user_id','email','password','name','avatar','shipping_address','remember_token'.'email_verified'];
   protected $hidden = ['password','remember_token'];
 
+  private $userPath = 'app/public/users/';
+
   /**
     * Get the unique identifier for the user.
     *
@@ -80,8 +82,17 @@ class User extends Model implements AuthenticatableContract,AuthorizableContract
        return $this->user_password;
    }
 
-   public function deleteAvatar() {
-    
+   public function getAvartarPath() {
+    return storage_path($this->userPath.$this->id.'/avatar/');
+   }
+
+   public function getAvartarImage($avatar = '') {
+
+     if(empty($avatar)) {
+       $avatar = $this->avatar;
+     }
+
+     return $this->getAvartarPath().$avatar;
    }
 
 }

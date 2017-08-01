@@ -12,6 +12,7 @@
 */
 
 Route::get('get_image/{file}', 'StaticFileController@serveImages');
+Route::get('avatar/{file}', 'StaticFileController@userAvatar');
 
 Route::group(['prefix' => 'api/v1', 'middleware' => 'api'], function () {
   Route::get('get_district/{provinceId}', 'ApiController@getDistrict');

@@ -34,7 +34,8 @@
   <link rel="stylesheet" href="/assets/css/pages/page_404_error5.css">
 
   <!-- CSS Customization -->
-  <link rel="stylesheet" href="/assets/css/custom.css">
+  <!-- <link rel="stylesheet" href="/assets/css/custom.css"> -->
+  <link rel="stylesheet" href="/css/custom/error_page.css">
 </head>
 
 <body>

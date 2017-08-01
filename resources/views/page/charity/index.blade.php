@@ -24,7 +24,7 @@
             <div class="location-name"><i class="fa fa-flag"></i>{{$charity->charityType->name}}</div>
           </span>
         </div>
-        <div class="clearfix margin-bottom-20"></div>
+        <div class="clearfix margin-bottom-10"></div>
       </div>
     </div>
 
