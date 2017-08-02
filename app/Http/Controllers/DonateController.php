@@ -25,7 +25,7 @@ class DonateController extends Controller
     switch (request()->for) {
       case 'charity':
 
-        $data = Service::loadModel('Charity')->select('name','has_reward')->find(request()->id);
+        $data = Service::loadModel('Charity')->select('name','short_desc','thumbnail','has_reward')->find(request()->id);
 
         if(empty($data)) {
           return $this->error('ไม่พบมูลนิธินี้');
@@ -40,7 +40,7 @@ class DonateController extends Controller
       case 'project':
         
         $data = Service::loadModel('Project')
-        ->select('id','charity_id')
+        ->select('id','charity_id','short_desc','thumbnail')
         ->where([
           ['id','=',request()->id],
           ['end_date','>',date('Y-m-d H:i:s')]
@@ -109,8 +109,8 @@ class DonateController extends Controller
 
     // SET META
     $this->setMeta('title','บริจาคให้กับ'.$for.' '.$data->name.' — CharityTH');
-    // $this->setMeta('description',$news->short_desc);
-    // $this->setMeta('image',$news->thumbnail);
+    $this->setMeta('description',$data->short_desc);
+    $this->setMeta('image',$data->thumbnail);
 
     return $this->view('page.donate.index');
 
