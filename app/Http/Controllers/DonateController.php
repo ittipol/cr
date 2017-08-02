@@ -214,6 +214,8 @@ class DonateController extends Controller
       $donation->unidentified = 1;
     }
 
+    $donation->donate_via_id = 1;
+
     if($donation->save()) {
 
       // if(Auth::check()) {}

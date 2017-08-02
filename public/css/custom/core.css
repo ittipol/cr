@@ -11,6 +11,12 @@ hr {
 	border-color: #05AF3C;
 }
 
+.user-avatar {
+	background-position: center;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+}
+
 .main-color {
 	background-color: #05AF3C;
 }

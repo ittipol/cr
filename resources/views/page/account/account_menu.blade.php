@@ -7,7 +7,11 @@
     <div class="container">
       <div class="col-md-8 col-md-offset-2">
         <div class="header-profile-image">
+          @if(empty(Auth::user()->avatar))
           <i class="fa fa-user"></i>
+          @else
+          <div class="user-avatar" style="background-image: url({{URL::to('avatar')}}/{{Auth::user()->avatar}});"></div>
+          @endif
         </div>
         <h1 class="no-margin">{{Auth::user()->name}}</h1>
       </div>

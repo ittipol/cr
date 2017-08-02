@@ -19,7 +19,12 @@
       </div>
       <div class="col-xs-6 invoice-numb">
         {{$for}}
-        <span>{{$name}}</span>
+        <!-- <span>{{$name}}</span> -->
+        @if($_for == 'charity')
+          <span><a href="{{URL::to('charity')}}/{{$id}}">{{$name}}</a></span>
+        @elseif($_for == 'project')
+          <span><a href="{{URL::to('project')}}/{{$id}}">{{$name}}</a></span>
+        @endif
       </div>
     </div>
 
@@ -103,7 +108,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="alert alert-danger fade in">
-        <strong>หมายเหตุ</strong> การบริจาคจะไม่แสดงไปยัง{{$for}}ทันที จะมีการตรวจสอบความถูกต้องก่อนจะแสดงไปยัง{{$for}}ที่คุณบริจาค
+        <strong>หมายเหตุ</strong> เพื่อความถูกต้องเราจำเป็นต้องตรวจสอบการบริจาค เมื่อตรวจสอบแล้วการบริจาคถึงจะแสดงใน{{$for}}และจะดำเนินการส่งมอบให้กับ{{$for}}ตามที่กำหนด
       </div>
     </div>
   </div>

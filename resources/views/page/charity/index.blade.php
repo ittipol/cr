@@ -226,11 +226,20 @@
                 <div class="container content-sm">
                   <div class="row team-v4 people-list">
                     @foreach($donors->get() as $donor)
+
+                    <?php
+                      $_donor = $donor->user;
+                    ?>
+
                     <div class="col-md-3 col-xs-6 people-list-item">
                       <div class="profile-image">
+                        @if(empty($_donor->avatar))
                         <i class="fa fa-user"></i>
+                        @else
+                        <div class="user-avatar" style="background-image: url({{URL::to('avatar')}}/{{$_donor->avatar}});"></div>
+                        @endif
                       </div>
-                    <span>{{$donor->user->name}}</span>
+                    <span>{{$_donor->name}}</span>
                     </div>
                     @endforeach
                   </div>

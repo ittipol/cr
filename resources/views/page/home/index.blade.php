@@ -85,11 +85,16 @@
 
       @if(Auth::check())
         <div class="profile-image">
+        @if(empty(Auth::user()->avatar))
+          <a href="{{URL::to('account')}}"><i class="fa fa-user"></i></a>
+        @else
           <a href="{{URL::to('account')}}">
-            <i class="fa fa-user"></i>
+            <div class="user-avatar" style="background-image: url({{URL::to('avatar')}}/{{Auth::user()->avatar}});"></div>
           </a>
+        @endif
         </div>
       @endif
+      
     </div>
 
   </nav>

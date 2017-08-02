@@ -290,6 +290,11 @@
 	display: block;
 }
 
+.people-list-item .profile-image .user-avatar {
+	width: 100%;
+	height: 100%;
+}
+
 /*.content-images-list .cbp-caption-zoom .cbp-caption-activeWrap {
 	background-color: rgba(49, 72, 110, 0.5);
 }*/

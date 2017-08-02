@@ -129,6 +129,7 @@ class DonationController extends Controller
     $this->setData('name',$data->name);
     $this->setData('code',$code);
     $this->setData('donation',$donation);
+    $this->setData('_for',strtolower($donation->model));
 
     // SET META
     $this->setMeta('title','การบริจาค — CharityTH');

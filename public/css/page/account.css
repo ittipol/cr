@@ -28,6 +28,11 @@
 	display: block;
 }
 
+.account .header-profile-image .user-avatar {
+	width: 100%;
+	height: 100%;
+}
+
 .account .donation-info-block {
 	background-color: #e8e8e8;
 }
