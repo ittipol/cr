@@ -110,7 +110,7 @@ class DonateController extends Controller
     // SET META
     $this->setMeta('title','บริจาคให้กับ'.$for.' '.$data->name.' — CharityTH');
     $this->setMeta('description',$data->short_desc);
-    // $this->setMeta('image',$data->thumbnail);
+    $this->setMeta('image',$data->thumbnail);
 
     return $this->view('page.donate.index');
 
