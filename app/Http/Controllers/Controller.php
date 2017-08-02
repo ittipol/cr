@@ -13,14 +13,14 @@ class Controller extends BaseController
 
   protected $data = array();
 
-  protected $metaTitle = 'CharityTh';
-  protected $metaDescription = null;
-  protected $metaImage = '/images/logo/logo.png';
+  // protected $metaTitle = 'CharityTh';
+  // protected $metaDescription = null;
+  // protected $metaImage = '/images/logo/logo.png';
 
   protected $meta = array(
-    'title' => null,
-    'description' => null,
-    'image' => null
+    'title' => 'CharityTh',
+    'description' => 'ร่วมเป็นส่วนหนึ่งในการช่วยเหลือมูลนิธิ',
+    'image' => '/images/logo/logo.png'
   );
 
   protected $botDisallowed = false;
