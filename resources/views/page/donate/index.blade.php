@@ -84,7 +84,7 @@
           <input type="hidden" name="cmd" value="_donations">
           <INPUT TYPE="hidden" name="charset" value="utf-8">
           <input type="hidden" name="business" value="charityth.donation@gmail.com">
-          <input type="hidden" name="lc" value="US">
+          <input type="hidden" name="lc" value="TH">
           <input type="hidden" name="item_name" value="บริจาค - {{$name}}">
           <input type="hidden" name="no_note" value="0">
           <input type="hidden" name="currency_code" value="THB">
