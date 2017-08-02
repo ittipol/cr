@@ -51,6 +51,11 @@
 
         <div class="clearfix margin-bottom-10"></div>
 
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YZ7LHZTEXAYLS" target="_new">
+          บริจาคผ่าน
+          <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
+        </a>
+
         <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
           <input type="hidden" name="cmd" value="_xclick">
           <INPUT TYPE="hidden" name="charset" value="utf-8">
@@ -58,6 +63,7 @@
           <input type="hidden" name="item_name" value="บริจาค - {{$name}}">
           <input type="hidden" name="item_number" value="D001">
           <input type="hidden" name="lc" value="TH">
+
           <input type="hidden" name="email" value="charityth.donation@gmail.com">
           <button type="submit">
             บริจาคผ่าน
@@ -65,49 +71,21 @@
           </button>
         </form> -->
 
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_donations">
-          <INPUT TYPE="hidden" name="charset" value="utf-8">
-          <input type="hidden" name="business" value="charityth.donation@gmail.com">
-          <input type="hidden" name="lc" value="US">
-          <input type="hidden" name="item_name" value="บริจาค - {{$name}}">
-          <input type="hidden" name="no_note" value="0">
-          <input type="hidden" name="currency_code" value="THB">
-          <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-          <button type="submit">
-            บริจาคผ่าน [1]
-            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
-          </button>
-        </form>
-
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_donations">
-          <INPUT TYPE="hidden" name="charset" value="utf-8">
-          <input type="hidden" name="business" value="charityth.donation@gmail.com">
-          <input type="hidden" name="lc" value="TH">
-          <input type="hidden" name="item_name" value="บริจาค - {{$name}}">
-          <input type="hidden" name="no_note" value="0">
-          <input type="hidden" name="currency_code" value="THB">
-          <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-          <button type="submit">
-            บริจาคผ่าน [2]
-            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
-          </button>
-        </form>
-
-
         <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_donations">
+          <INPUT TYPE="hidden" name="charset" value="utf-8">
           <input type="hidden" name="business" value="charityth.donation@gmail.com">
           <input type="hidden" name="lc" value="TH">
-          <input type="hidden" name="item_name" value="Donate">
+          <input type="hidden" name="item_name" value="บริจาค - {{$name}}">
           <input type="hidden" name="no_note" value="0">
           <input type="hidden" name="currency_code" value="THB">
-          <button>
+          <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+          <button type="submit">
             บริจาคผ่าน
             <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
           </button>
-        </form> -->
+        </form>
+ -->        
         <div class="clearfix margin-bottom-30"></div>
 
         <div class="modal fade" id="bank_account_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
