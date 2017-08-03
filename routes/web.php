@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('aa', 'DonateController@payment');
+Route::get('bb', 'DonateController@listPayment');
+Route::get('cc', 'DonateController@paypalPayment');
+
+
 Route::get('get_image/{file}', 'StaticFileController@serveImages');
 Route::get('avatar/{file}', 'StaticFileController@userAvatar');
 

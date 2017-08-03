@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
-use Facebook\Facebook;
+// use Facebook\Facebook;
 use Redirect;
 
 class DonationController extends Controller
@@ -137,76 +137,76 @@ class DonationController extends Controller
     return $this->view('page.donation.detail');
   }
 
-  public function share() {
+  // public function share() {
 
-    // request()->code
+  //   // request()->code
 
-    // if(empty($code)) {
-    //   return $this->error('URL ไม่ถูกต้อง');
-    // }
+  //   // if(empty($code)) {
+  //   //   return $this->error('URL ไม่ถูกต้อง');
+  //   // }
 
-    $accessToken = request()->code;
-    $donationCode = request()->_code;
+  //   $accessToken = request()->code;
+  //   $donationCode = request()->_code;
 
-    $donation = Service::loadModel('Donation')->where('code','like',$donationCode)->first();
+  //   $donation = Service::loadModel('Donation')->where('code','like',$donationCode)->first();
 
-    if(empty($donation)) {
-      return $this->error('ไม่พบการบริจาคที่คุณกำลังค้นหา');
-    }
+  //   if(empty($donation)) {
+  //     return $this->error('ไม่พบการบริจาคที่คุณกำลังค้นหา');
+  //   }
 
-    $data = Service::loadModel($donation->model)->find($donation->model_id);
+  //   $data = Service::loadModel($donation->model)->find($donation->model_id);
 
-    switch ($donation->model) {
-      case 'Charity':
+  //   switch ($donation->model) {
+  //     case 'Charity':
 
-        if(empty($data)) {
-          return $this->error('ไม่พบมูลนิธินี้');
-        }
+  //       if(empty($data)) {
+  //         return $this->error('ไม่พบมูลนิธินี้');
+  //       }
 
-        break;
+  //       break;
 
-      case 'Project':
+  //     case 'Project':
 
-        if(empty($data)) {
-          return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
-        }
+  //       if(empty($data)) {
+  //         return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
+  //       }
 
-        break;
+  //       break;
       
-      default:
-        return Redirect::to('/');
-        break;
-    }
+  //     default:
+  //       return Redirect::to('/');
+  //       break;
+  //   }
 
-    $fb = new \Facebook\Facebook([
-      'app_id' => '227375124451364',
-      'app_secret' => 'd9d3b4300ebf9d1839dad310d62295fd',
-      'default_graph_version' => 'v2.9',
-    ]);
+  //   $fb = new \Facebook\Facebook([
+  //     'app_id' => '227375124451364',
+  //     'app_secret' => 'd9d3b4300ebf9d1839dad310d62295fd',
+  //     'default_graph_version' => 'v2.9',
+  //   ]);
 
-    $data = [
-      'message' => 'My message example. \n test posting',
-      // 'link' => {web url},
-    ];
+  //   $data = [
+  //     'message' => 'My message example. \n test posting',
+  //     // 'link' => {web url},
+  //   ];
 
-    try {
-      // Returns a `Facebook\FacebookResponse` object
-      $response = $fb->post('/me/feed', $data, $accessToken);
-    } catch(Facebook\Exceptions\FacebookResponseException $e) {
-      echo 'Graph returned an error: ' . $e->getMessage();
-      exit;
-    } catch(Facebook\Exceptions\FacebookSDKException $e) {
-      echo 'Facebook SDK returned an error: ' . $e->getMessage();
-      exit;
-    }
+  //   try {
+  //     // Returns a `Facebook\FacebookResponse` object
+  //     $response = $fb->post('/me/feed', $data, $accessToken);
+  //   } catch(Facebook\Exceptions\FacebookResponseException $e) {
+  //     echo 'Graph returned an error: ' . $e->getMessage();
+  //     exit;
+  //   } catch(Facebook\Exceptions\FacebookSDKException $e) {
+  //     echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  //     exit;
+  //   }
 
 
-    // Update posted_to_fb -> 1
-    // $donation->posted_to_fb = 1;
-    // $donation->save();
+  //   // Update posted_to_fb -> 1
+  //   // $donation->posted_to_fb = 1;
+  //   // $donation->save();
 
-    dd('posted');
+  //   dd('posted');
 
-  }
+  // }
 
 }

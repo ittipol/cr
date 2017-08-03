@@ -11,10 +11,6 @@
 	overflow: hidden;
 }
 
-/*.navbar-fixed-top .profile-image img {
-	width: 40px;
-}*/
-
 .navbar-fixed-top .profile-image i {
 	color: #263238;
 	font-size: 44px;
@@ -25,6 +21,9 @@
 .navbar-fixed-top .profile-image .user-avatar {
 	width: 40px;
 	height: 40px;
+	background-position: center;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
 }
 
 @media only screen and (max-width : 480px) {

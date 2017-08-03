@@ -57,6 +57,10 @@ form .state-error + em {
 	width: 6px !important;
 }
 
+.sky-form {
+	border: 0;
+}
+
 .parallax-quote {
 	background: url(/images/common/people_bg.jpg) 50% 0 repeat fixed;
 }

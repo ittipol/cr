@@ -31,61 +31,58 @@
   </div>
   @endif
 
-  <div>
-    
+  {{Form::open(['url' => Request::fullUrl(), 'id' => 'donation_form', 'class' => 'sky-form sky-changes-3', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
+
+  @include('component.form_error')
+
     <div class="row">
       <div class="col-md-8">
 
-        @if($for == 'charity')
-          <h4>บริจาคให้กับมูลนิธิ</h4>
-        @elseif($for == 'project')
-          <h4>บริจาคให้กับโครงการ</h4>
-        @endif
+        <div class="sky-form">
+          <label class="radio">
+            <input type="radio" name="method" checked>
+            <i class="rounded-x"></i>ผ่านบัตรเครคิต
+          </label>
+        </div>
 
-        <p>
-          ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชี 
-          <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">บัญชีธนาคาร</a>
-        </p>
+        <div class="clearfix margin-bottom-30"></div>
 
-        <p>หรือหากต้องการบริจาคผ่านบัตรเครดิต กรุณาใช้ปุ่ม PayPal ด้านล่าง</p>
+        <div class="row">
+          <section class="col-xs-12">
+            <label class="label">ชื่อเจ้าของบัตร</label>
+            <label class="input">
+              {{Form::text('card_owner', null, array('autocomplete' => 'off'))}}
+            </label>
+          </section>
+        </div>
 
-        <div class="clearfix margin-bottom-10"></div>
+        <div class="row">
+          <section class="col-xs-12">
+            <label class="label">หมายเลขบัตร</label>
+            <label class="input">
+              {{Form::text('card_number', null, array('id' => 'card_number', 'autocomplete' => 'off'))}}
+            </label>
+          </section>
+        </div>
 
-        <!-- <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YZ7LHZTEXAYLS" target="_new">
-          บริจาคผ่าน
-          <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
-        </a> -->
+        <div class="row">
+          <section class="col-xs-12">
+            <label class="label">CVC</label>
+            <label class="input">
+              {{Form::text('cvc', null, array('id' => 'cvc', 'autocomplete' => 'off'))}}
+            </label>
+          </section>
+        </div>
 
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-          <input type="hidden" name="cmd" value="_xclick">
-          <INPUT TYPE="hidden" name="charset" value="utf-8">
-          <input type="hidden" name="business" value="charityth.donation@gmail.com">
-          <input type="hidden" name="item_name" value="บริจาค - {{$name}}">
-          <input type="hidden" name="item_number" value="D001">
-          <input type="hidden" name="lc" value="TH">
-          <input type="hidden" name="currency_code" value="THB">
-          <input type="hidden" name="email" value="charityth.donation@gmail.com">
-          <button type="submit">
-            บริจาคผ่าน
-            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
-          </button>
-        </form>
+        <div class="row">
+          <section class="col-xs-12">
+            <label class="label">วันหมดอายุ</label>
+            <label class="input">
+              {{Form::text('card_expire', null, array('id' => 'card_expire', 'placeholder' => 'MM/YY','autocomplete' => 'off'))}}
+            </label>
+          </section>
+        </div>
 
-        <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_donations">
-          <INPUT TYPE="hidden" name="charset" value="utf-8">
-          <input type="hidden" name="business" value="charityth.donation@gmail.com">
-          <input type="hidden" name="lc" value="TH">
-          <input type="hidden" name="item_name" value="บริจาค - {{$name}}">
-          <input type="hidden" name="no_note" value="0">
-          <input type="hidden" name="currency_code" value="THB">
-          <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-          <button type="submit">
-            บริจาคผ่าน
-            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png">
-          </button>
-        </form>
- -->        
         <div class="clearfix margin-bottom-30"></div>
 
         <div class="modal fade" id="bank_account_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -107,67 +104,26 @@
           </div>
         </div>
 
-        <!-- <p>แจ้งการบริจาคของคุณ</p> -->
-        <h4>แจ้งการบริจาคของคุณ</h4>
+        <div class="sky-form">
+          <label class="radio">
+            <input type="radio" name="method">
+            <i class="rounded-x"></i>โอนเงินผ่านธนาคาร
+          </label>
+        </div>
 
-        @include('component.form_error')
+        <div id="tranfer_method" style="display:none;">
 
-        {{Form::open(['url' => Request::fullUrl(), 'id' => 'donation_form', 'class' => 'sky-form sky-changes-3', 'method' => 'post', 'enctype' => 'multipart/form-data'])}}
+          <div class="clearfix margin-bottom-30"></div>
 
-          @include('content.unidentified_donation')
+          <p>
+            ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชี 
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">บัญชีธนาคาร</a>
+            หลังจากโอนเงินแล้ว กรุณาแจ้งโอนเงินบริจาคได้ที่แบบฟอร์มด้านล่าง
+          </p>
+
+          <div class="clearfix margin-bottom-10"></div>
 
           <fieldset>
-
-            <div class="row">
-              <section class="col col-6">
-                <label class="label">บริจาคโดย</label>
-                <div class="inline-group">
-                  <label class="radio">
-                    <input type="radio" name="radio-inline" checked>
-                    <i class="rounded-x"></i>โอนเงินผ่านธนาคาร
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="radio-inline">
-                    <i class="rounded-x"></i>Paypal
-                  </label>
-                </div>
-              </section>
-            </div>
-
-          @if(Auth::check())
-
-            <div class="tag-box tag-box-v2">
-              <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-              <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
-            </div>
-
-            <div class="row">
-              <section class="col col-6">
-                <label class="checkbox">
-                  {{Form::checkbox('unidentified', 1)}}<i></i>บริจาคโดยไม่ออกนาม
-                </label>
-              </section>
-            </div>
-
-          @else
-
-            <div class="tag-box tag-box-v2">
-              <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-              <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุล" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
-            </div>
-
-            <div class="row">
-              <section class="col col-xs-12">
-                <label class="label">ชื่อ นามสกุล</label>
-                <label class="input">
-                  {{Form::text('name', null, array('id' => 'name_input','placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
-                </label>
-              </section>
-            </div>
-
-            {{Form::hidden('unidentified', 1, array('id' => 'unidentified'))}}
-
-          @endif
 
             <div class="row">
               <section class="col col-6">
@@ -178,6 +134,7 @@
                   <div class="floating-label-box" id="date-input-label"></div>
                 </label>
               </section>
+
               <section class="col col-6">
                 <label class="label">เวลา</label>
                 <label class="input">
@@ -205,173 +162,212 @@
 
           </fieldset>
 
-          @if($charity->has_reward)
+        </div>
 
-          <hr>
+        <div class="clearfix margin-bottom-60"></div>
+        <hr>
+        <div class="clearfix margin-bottom-30"></div>
+
+        @if(Auth::check())
 
           <div class="tag-box tag-box-v2">
-            <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
+            <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
+            <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
           </div>
 
-          @include('content.donate_reward')
-
-          <div class="clearfix margin-bottom-10"></div>
-
-          <label class="checkbox state-success">
-            {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'open_address_form_chkbox'))}}<i></i>ต้องการรับของรางวัล
+          <label class="checkbox">
+            {{Form::checkbox('unidentified', 1)}}<i></i>บริจาคโดยไม่ออกนาม
           </label>
 
-          <div id="address_form">
+        @else
 
-            <div class="clearfix margin-bottom-10"></div>
-            <h4 class="no-margin">ข้อมูลสำหรับการจัดส่งของรางวัล</h4>
-            <div class="clearfix margin-bottom-20"></div>
-
-            <fieldset>
-
-              <div class="row">
-                <section class="col col-md-12">
-                  <label class="label">ระบุ size เสื้อ <a href="javascript:void(0);" data-toggle="modal" data-target="#chart_size_model">ตาราง size เสื้อ</a></label>
-                  <label class="radio">
-                    <input type="radio" name="reward_option" value="s" checked><i></i>S
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="reward_option" value="m"><i></i>M
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="reward_option" value="l"><i></i>L
-                  </label>
-                </section>
-              </div>
-
-              <div class="row">
-                <section class="col col-md-12">
-                  <label class="label">ชื่อ นามสกุลผู้รับ</label>
-                  <label class="input">
-                    {{Form::text('receiver_name', null, array('placeholder' => 'ชื่อผู้รับ','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-              </div>
-
-              <div class="row">
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">หมายเลขโทรศัพท์</label>
-                  <label class="input">
-                    {{Form::text('tel_no', null, array('placeholder' => 'หมายเลขโทรศัพท์','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">อีเมล</label>
-                  <label class="input">
-                    {{Form::text('email', null, array('placeholder' => 'อีเมล','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-              </div>
-
-              <div class="row">
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">บ้านเลขที่</label>
-                  <label class="input">
-                    {{Form::text('address_no', null, array('placeholder' => 'บ้านเลขที่','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">อาคาร/หมู่บ้าน</label>
-                  <label class="input">
-                    {{Form::text('building', null, array('placeholder' => 'อาคาร/หมู่บ้าน','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-              </div>
-
-              <div class="row">
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">ชั้น</label>
-                  <label class="input">
-                    {{Form::text('floor', null, array('placeholder' => 'ชั้น','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">หมู่ที่</label>
-                  <label class="input">
-                    {{Form::text('squad', null, array('placeholder' => 'หมู่ที่','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-              </div>
-
-              <div class="row">
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">ถนน</label>
-                  <label class="input">
-                    {{Form::text('road', null, array('placeholder' => 'ถนน','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">ซอย</label>
-                  <label class="input">
-                    {{Form::text('alley', null, array('placeholder' => 'ซอย','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-              </div>
-
-              <div class="row">
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">จังหวัด</label>
-                  <label class="select">
-                    {{Form::select('province', $provinces ,null, array('id' => 'province'))}}<i></i>
-                  </label>
-                </section>
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">อำเภอ/เขต</label>
-                  <label class="select">
-                    {{Form::select('district', array() ,null, array('id' => 'district'))}}<i></i>
-                  </label>
-                </section>
-
-              </div>
-
-              <div class="row">
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">ตำบล/แขวง</label>
-                  <label class="input">
-                    {{Form::text('sub_district', null, array('placeholder' => 'ตำบล/แขวง','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-                <section class="col-md-6 col-xs-6">
-                  <label class="label">รหัสไปรษณีย์</label>
-                  <label class="input">
-                    {{Form::text('post_code', null, array('placeholder' => 'รหัสไปรษณีย์','autocomplete' => 'off'))}}
-                  </label>
-                </section>
-
-              </div>
-
-            </fieldset>
-
+          <div class="tag-box tag-box-v2">
+            <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
+            <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุล" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
           </div>
 
-          @endif
+          <div class="row">
+            <section class="col col-xs-12">
+              <label class="label">ชื่อ นามสกุล</label>
+              <label class="input">
+                {{Form::text('name', null, array('id' => 'name_input','placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
 
-          <div class="clearfix margin-bottom-30"></div>
+          {{Form::hidden('unidentified', 1, array('id' => 'unidentified'))}}
 
-          {{Form::submit('แจ้งการบริจาค', array('class' => 'btn-u btn-custom'))}}
+        @endif
 
-        {{Form::close()}}
+        @include('content.unidentified_donation')
+
+        @if($charity->has_reward)
+
+        <div class="clearfix margin-bottom-60"></div>
+        <hr>
+        <div class="clearfix margin-bottom-30"></div>
+
+        <div class="tag-box tag-box-v2">
+          <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
+        </div>
+
+        @include('content.donate_reward')
+
+        <div class="clearfix margin-bottom-10"></div>
+
+        <label class="checkbox state-success">
+          {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'open_address_form_chkbox'))}}<i></i>ต้องการรับของรางวัล
+        </label>
+
+        <div id="address_form">
+
+          <div class="clearfix margin-bottom-10"></div>
+          <h4 class="no-margin">ข้อมูลสำหรับการจัดส่งของรางวัล</h4>
+          <div class="clearfix margin-bottom-20"></div>
+
+          <fieldset>
+
+            <div class="row">
+              <section class="col col-md-12">
+                <label class="label">ระบุ size เสื้อ <a href="javascript:void(0);" data-toggle="modal" data-target="#chart_size_model">ตาราง size เสื้อ</a></label>
+                <label class="radio">
+                  <input type="radio" name="reward_option" value="s" checked><i></i>S
+                </label>
+                <label class="radio">
+                  <input type="radio" name="reward_option" value="m"><i></i>M
+                </label>
+                <label class="radio">
+                  <input type="radio" name="reward_option" value="l"><i></i>L
+                </label>
+              </section>
+            </div>
+
+            <div class="row">
+              <section class="col col-md-12">
+                <label class="label">ชื่อ นามสกุลผู้รับ</label>
+                <label class="input">
+                  {{Form::text('receiver_name', null, array('placeholder' => 'ชื่อผู้รับ','autocomplete' => 'off'))}}
+                </label>
+              </section>
+            </div>
+
+            <div class="row">
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">หมายเลขโทรศัพท์</label>
+                <label class="input">
+                  {{Form::text('tel_no', null, array('placeholder' => 'หมายเลขโทรศัพท์','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">อีเมล</label>
+                <label class="input">
+                  {{Form::text('email', null, array('placeholder' => 'อีเมล','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+            </div>
+
+            <div class="row">
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">บ้านเลขที่</label>
+                <label class="input">
+                  {{Form::text('address_no', null, array('placeholder' => 'บ้านเลขที่','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">อาคาร/หมู่บ้าน</label>
+                <label class="input">
+                  {{Form::text('building', null, array('placeholder' => 'อาคาร/หมู่บ้าน','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+            </div>
+
+            <div class="row">
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">ชั้น</label>
+                <label class="input">
+                  {{Form::text('floor', null, array('placeholder' => 'ชั้น','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">หมู่ที่</label>
+                <label class="input">
+                  {{Form::text('squad', null, array('placeholder' => 'หมู่ที่','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+            </div>
+
+            <div class="row">
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">ถนน</label>
+                <label class="input">
+                  {{Form::text('road', null, array('placeholder' => 'ถนน','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">ซอย</label>
+                <label class="input">
+                  {{Form::text('alley', null, array('placeholder' => 'ซอย','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+            </div>
+
+            <div class="row">
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">จังหวัด</label>
+                <label class="select">
+                  {{Form::select('province', $provinces ,null, array('id' => 'province'))}}<i></i>
+                </label>
+              </section>
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">อำเภอ/เขต</label>
+                <label class="select">
+                  {{Form::select('district', array() ,null, array('id' => 'district'))}}<i></i>
+                </label>
+              </section>
+
+            </div>
+
+            <div class="row">
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">ตำบล/แขวง</label>
+                <label class="input">
+                  {{Form::text('sub_district', null, array('placeholder' => 'ตำบล/แขวง','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+              <section class="col-md-6 col-xs-6">
+                <label class="label">รหัสไปรษณีย์</label>
+                <label class="input">
+                  {{Form::text('post_code', null, array('placeholder' => 'รหัสไปรษณีย์','autocomplete' => 'off'))}}
+                </label>
+              </section>
+
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        @endif
+
+        <div class="clearfix margin-bottom-30"></div>
+
+        {{Form::submit('บริจาค', array('class' => 'btn-u btn-custom'))}}
 
       </div>
 
@@ -392,9 +388,12 @@
       </div>
     </div>
 
-  </div>
+  {{Form::close()}}
 
 </div>
+
+<script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="/js/form/credit-card-masking.js"></script>
 
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-validation.js"></script>
@@ -481,6 +480,7 @@
 
     Validation.initValidation();
     Datepicker.initDatepicker();
+    Masking.initMasking();
   });
 
 </script>
