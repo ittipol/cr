@@ -61,6 +61,36 @@ form .state-error + em {
 	border: 0;
 }
 
+.sky-form .input > .cc-input {
+	font-family: monospace;
+	font-size: 18px;
+}
+
+.sky-form .radio:last-child, .sky-form .checkbox:last-child {
+	font-size: 16px;
+}
+
+.sky-form .radio i, .sky-form .checkbox i{
+	border-color: #777;
+}
+
+.sky-form .radio input:checked + i, .sky-form .checkbox input:checked + i {
+	border-color: #777;
+}
+
+.sky-form .radio input + i:after {
+	background-color: #222;
+}
+
+.sky-form .icon-append, .sky-form .icon-prepend img {
+	border: 0;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 4px;
+	left: 0px;
+}
+
 .parallax-quote {
 	background: url(/images/common/people_bg.jpg) 50% 0 repeat fixed;
 }

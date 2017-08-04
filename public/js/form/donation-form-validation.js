@@ -17,6 +17,26 @@ var Validation = function () {
 	            // Rules for form validation
             rules:
             {
+              card_owner:
+              {
+                required: true
+              },
+              card_number:
+              {
+                required: true,
+                creditcard: true
+                // digits: true
+              },
+              cvc:
+              {
+                required: true,
+                regx: /^[0-9]{3,4}$/
+                // digits: true
+              },
+              card_expire:
+              {
+                required: true
+              },
               email:
               {
                 email: true
@@ -59,6 +79,26 @@ var Validation = function () {
             // Messages for form validation
             messages:
             {
+              card_owner:
+              {
+                required: 'ชื่อเจ้าของบัตรห้ามว่าง'
+              },
+              card_number:
+              {
+                required: 'หมายเลขบัตรห้ามว่าง',
+                creditcard: 'หมายเลขบัตรไม่ถูกต้อง'
+                // digits: 'กรุณาป้อนหมายเลขบัตรด้วยตัวเลข'
+              },
+              cvc:
+              {
+                required: 'CVC ห้ามว่าง',
+                // digits: 'กรุณาป้อน CVC ด้วยตัวเลข',
+                regx: 'CVC ไม่ถูกต้อง'
+              },
+              card_expire:
+              {
+                required: 'วันหมดอายุห้ามว่าง'
+              },
               email:
               {
                   email: 'อีเมลไม่ถูกต้อง'

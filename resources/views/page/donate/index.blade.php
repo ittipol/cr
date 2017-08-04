@@ -38,49 +38,83 @@
     <div class="row">
       <div class="col-md-8">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="sky-form">
           <label class="radio">
-            <input type="radio" name="method" checked>
+            <input type="radio" name="method" class="method-rdo" value="method_1" checked>
             <i class="rounded-x"></i>ผ่านบัตรเครคิต
           </label>
         </div>
 
-        <div class="clearfix margin-bottom-30"></div>
+        <div id="method_1" style="display:none;">
 
-        <div class="row">
-          <section class="col-xs-12">
-            <label class="label">ชื่อเจ้าของบัตร</label>
-            <label class="input">
-              {{Form::text('card_owner', null, array('autocomplete' => 'off'))}}
-            </label>
-          </section>
-        </div>
+          <div class="clearfix margin-bottom-20"></div>
 
-        <div class="row">
-          <section class="col-xs-12">
-            <label class="label">หมายเลขบัตร</label>
-            <label class="input">
-              {{Form::text('card_number', null, array('id' => 'card_number', 'autocomplete' => 'off'))}}
-            </label>
-          </section>
-        </div>
+          <div class="alert alert-info fade in">
+            เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ
+          </div>   
 
-        <div class="row">
-          <section class="col-xs-12">
-            <label class="label">CVC</label>
-            <label class="input">
-              {{Form::text('cvc', null, array('id' => 'cvc', 'autocomplete' => 'off'))}}
-            </label>
-          </section>
-        </div>
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">ชื่อเจ้าของบัตร</label>
+              <label class="input">
+                {{Form::text('card_owner', null, array('autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
 
-        <div class="row">
-          <section class="col-xs-12">
-            <label class="label">วันหมดอายุ</label>
-            <label class="input">
-              {{Form::text('card_expire', null, array('id' => 'card_expire', 'placeholder' => 'MM/YY','autocomplete' => 'off'))}}
-            </label>
-          </section>
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">หมายเลขบัตร</label>
+              <label class="input">
+                <div class="icon-prepend">
+                  <img src="/images/xxx/1.png">
+                </div>
+                {{Form::text('card_number', null, array('id' => 'card_number', 'class' => 'cc-input', 'placeholder' => '---- ---- ---- ----', 'autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
+
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">CVC</label>
+              <label class="input">
+                {{Form::text('cvc', null, array('id' => 'cvc', 'class' => 'cc-input', 'placeholder' => 'CVC', 'autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
+
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">วันหมดอายุ</label>
+              <label class="input">
+                {{Form::text('card_expire', null, array('id' => 'card_expire', 'class' => 'cc-input', 'placeholder' => 'MM / YY', 'autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
+
         </div>
 
         <div class="clearfix margin-bottom-30"></div>
@@ -104,22 +138,48 @@
           </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="sky-form">
           <label class="radio">
-            <input type="radio" name="method">
+            <input type="radio" name="method" class="method-rdo" value="method_2">
             <i class="rounded-x"></i>โอนเงินผ่านธนาคาร
           </label>
         </div>
 
-        <div id="tranfer_method" style="display:none;">
+        <div id="method_2" style="display:none;">
 
           <div class="clearfix margin-bottom-30"></div>
 
-          <p>
+          <div class="alert alert-info fade in">
+            ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชีที่ระบุ 
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">เลขที่บัญชีธนาคาร</a>
+            หลังจากโอนเงินแล้ว กรุณาแจ้งโอนเงินบริจาคได้ที่แบบฟอร์มด้านล่าง
+          </div>   
+
+          <!-- <p>
             ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชี 
             <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">บัญชีธนาคาร</a>
             หลังจากโอนเงินแล้ว กรุณาแจ้งโอนเงินบริจาคได้ที่แบบฟอร์มด้านล่าง
-          </p>
+          </p> -->
 
           <div class="clearfix margin-bottom-10"></div>
 
@@ -164,16 +224,35 @@
 
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="clearfix margin-bottom-60"></div>
         <hr>
         <div class="clearfix margin-bottom-30"></div>
 
+        @include('content.unidentified_donation')
+
         @if(Auth::check())
 
-          <div class="tag-box tag-box-v2">
+          <!-- <div class="tag-box tag-box-v2">
             <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
             <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
-          </div>
+          </div> -->
+
+          <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
+          <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
 
           <label class="checkbox">
             {{Form::checkbox('unidentified', 1)}}<i></i>บริจาคโดยไม่ออกนาม
@@ -199,7 +278,15 @@
 
         @endif
 
-        @include('content.unidentified_donation')
+
+
+
+
+
+
+
+
+
 
         @if($charity->has_reward)
 
@@ -207,9 +294,11 @@
         <hr>
         <div class="clearfix margin-bottom-30"></div>
 
-        <div class="tag-box tag-box-v2">
+        <h4 class="no-margin-top">รางวัลจากมูลนิธิ</h4>
+        <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
+        <!-- <div class="tag-box tag-box-v2">
           <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
-        </div>
+        </div> -->
 
         @include('content.donate_reward')
 
@@ -392,24 +481,49 @@
 
 </div>
 
-<script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
-<script type="text/javascript" src="/js/form/credit-card-masking.js"></script>
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="/js/form/credit-card-masking.js"></script>
+ -->
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-validation.js"></script>
 
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-datepicker.js"></script>
 
+<script src="/js/jquery.payform.min.js"></script>
+<script type="text/javascript" src="/js/form/credit-card-validation.js"></script>
+
 <script type="text/javascript">
 
   class Donate {
 
-    constructor() {}
+    constructor() {
+      this.currentMethod = null;
+    }
 
     load() {
+
+      let _this = this;
+
       this.bind();
 
+      setTimeout(function(){
+        _this.currentMethod = $('.method-rdo:checked').val();
+        $('#'+_this.currentMethod).slideDown(300);
+      },750);
+      
       if($('#open_address_form_chkbox').is(':checked')) {
         $('#address_form').slideDown(300);
       }
@@ -418,6 +532,18 @@
     bind() {
 
       let _this = this;
+
+      $('.method-rdo').on('click',function(){
+
+        if($('.method-rdo:checked').val() == _this.currentMethod) {
+          return false;
+        }
+
+        $('#'+_this.currentMethod).slideUp(300);
+
+        _this.currentMethod = $('.method-rdo:checked').val();
+        $('#'+_this.currentMethod).delay(420).slideDown(300);
+      });
 
       $('#date').on('change',function(){
 
@@ -480,7 +606,7 @@
 
     Validation.initValidation();
     Datepicker.initDatepicker();
-    Masking.initMasking();
+    // Masking.initMasking();
   });
 
 </script>
