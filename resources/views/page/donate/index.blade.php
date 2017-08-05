@@ -46,21 +46,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="sky-form">
           <label class="radio">
             <input type="radio" name="method" class="method-rdo" value="method_1" checked>
@@ -74,13 +59,23 @@
 
           <div class="alert alert-info fade in">
             เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ
-          </div>   
+          </div> 
+
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">จำนวนเงินบริจาค</label>
+              <label class="input-group">
+                {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+                <span class="input-group-addon">บาท</span>
+              </label>
+            </section>
+          </div> 
 
           <div class="row">
             <section class="col-xs-12">
               <label class="label">ชื่อเจ้าของบัตร</label>
               <label class="input">
-                {{Form::text('card_owner', null, array('autocomplete' => 'off'))}}
+                {{Form::text('holder_name', null, array('id' => 'holder_name', 'autocomplete' => 'off'))}}
               </label>
             </section>
           </div>
@@ -90,7 +85,7 @@
               <label class="label">หมายเลขบัตร</label>
               <label class="input">
                 <div class="icon-prepend">
-                  <img src="/images/xxx/1.png">
+                  <img id="credit_card_image" src="/images/credit_card/card.png" class="displayed">
                 </div>
                 {{Form::text('card_number', null, array('id' => 'card_number', 'class' => 'cc-input', 'placeholder' => '---- ---- ---- ----', 'autocomplete' => 'off'))}}
               </label>
@@ -114,6 +109,8 @@
               </label>
             </section>
           </div>
+
+          <input type="hidden" name="omise_token">
 
         </div>
 
@@ -213,7 +210,7 @@
             </div>
 
             <section>
-              <label class="label">จำนวนเงิน</label>
+              <label class="label">จำนวนเงินบริจาค</label>
               <label class="input-group">
                 {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
                 <span class="input-group-addon">บาท</span>
@@ -491,13 +488,16 @@
 
 
 
-
+<script type="text/javascript" src="/js/omise.js"></script>
+<script type="text/javascript">
+  Omise.setPublicKey("pkey_test_58v3kcsit84cakasj3s");
+</script>
 
 <!-- <script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
 <script type="text/javascript" src="/js/form/credit-card-masking.js"></script>
  -->
-<script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/js/form/donation-form-validation.js"></script>
+<!-- <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/form/donation-form-validation.js"></script> -->
 
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-datepicker.js"></script>
@@ -532,6 +532,54 @@
     bind() {
 
       let _this = this;
+
+      $("#donation_form").submit(function () {
+
+        console.log('sdfsdf');
+
+        let form = $(this);
+
+          // Disable the submit button to avoid repeated click.
+        form.find("input[type=submit]").prop("disabled", true);
+
+        let card = {
+          "name": 'example name',
+          "number": '4032032334484554',
+          "expiration_month": '09',
+          "expiration_year": '2022',
+          "security_code": '123'
+        };
+
+        Omise.createToken("card", card, function (statusCode, response) {
+          if (response.object == "error") {
+            // Display an error message.
+            var message_text = "SET YOUR SECURITY CODE CHECK FAILED MESSAGE";
+            if(response.object == "error") {
+              message_text = response.message;
+            }
+            console.log(response);
+            // $("#token_errors").html(message_text);
+
+            // Re-enable the submit button.
+            form.find("input[type=submit]").prop("disabled", false);
+          } else {
+            // Then fill the omise_token.
+            form.find("[name=omise_token]").val(response.id);
+
+            console.log(response);
+
+            // Remove card number from form before submiting to server.
+            $('#card_number').val('');
+            $('#cvc').val('');
+
+            // submit token to server.
+            form.get(0).submit();
+          };
+        });
+
+        return false;
+
+      }); 
 
       $('.method-rdo').on('click',function(){
 
@@ -604,7 +652,7 @@
     const address = new Address();
     address.load();
 
-    Validation.initValidation();
+    // Validation.initValidation();
     Datepicker.initDatepicker();
     // Masking.initMasking();
   });

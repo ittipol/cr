@@ -10,7 +10,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.2.0",
         "facebook/graph-sdk": "^5.0",
-        "paypal/rest-api-sdk-php": "*"
+        "omise/omise-php": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
