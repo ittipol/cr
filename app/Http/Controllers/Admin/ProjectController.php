@@ -64,7 +64,9 @@ class ProjectController extends Controller
 
       }
 
-      $model->images = json_encode($images);
+      if(!empty($images)) {
+        $model->images = json_encode($images);
+      }
 
     }
 
@@ -112,9 +114,9 @@ class ProjectController extends Controller
 
   public function editingSubmit($id) {
 
-    $data = Service::loadModel('Project')->find($id);
+    $model = Service::loadModel('Project')->find($id);
 
-    $data->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
+    $model->end_date = request()->get('end_year').'-'.request()->get('end_month').'-'.request()->get('end_day').' '.request()->get('end_hour').':'.request()->get('end_min').':59';
 
     if(!empty(request()->_images)) {
 
@@ -129,11 +131,13 @@ class ProjectController extends Controller
 
       }
 
-      $data->images = json_encode($images);
+      if(!empty($images)) {
+        $model->images = json_encode($images);
+      }
 
     }
 
-    if($data->fill(request()->all())->save()) {
+    if($model->fill(request()->all())->save()) {
       return Redirect::to('admin/project/list');
     }
 

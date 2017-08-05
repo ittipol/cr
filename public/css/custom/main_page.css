@@ -1,3 +1,41 @@
+h1, h2, h3, h4, h5, h6 {
+	color: #111;
+}
+
+p, li a {
+	color: #444;
+	font-size: 14px;
+}
+
+.g-heading-v13 h2, .g-heading-v13 .h2 {
+	font-weight: 100;
+}
+
+.infoblock-v1 p, 
+.infoblock-v1 li, 
+.infoblock-v1 a {
+	color: #ddd;
+}
+
+.infoblock-v2 p, 
+.infoblock-v2 li, 
+.infoblock-v2 a {
+	color: #ddd;
+}
+
+.infoblock-v2 h2 {
+	text-transform: none;
+}
+
+.infoblock-v2 .infoblock-v2__icon {
+	top: 6px;
+	font-size: 28px;
+}
+
+.g-color-default {
+	color: #fd5c3d;
+}
+
 .one-page-header.charity-header .navbar-nav > li > a {
 	font-size: 14px;
 	font-weight: 100;
@@ -7,6 +45,60 @@
 	color: #05AF3C !important;
 }
 
+.infoblock-v1-image {
+	background-position: center;
+}
+
 .infoblock-v1-image:after {
 	background-color: transparent;
+}
+
+.btn-u {
+	padding: 10px 25px;
+	color: #fff;
+	background: #05AF3C;
+	font-size: 13px;
+	font-weight: 100;
+}
+
+.btn-u:hover,
+.btn-u:focus {
+	color: #fff;
+	background: #05AF3C;
+}
+
+a.btn-u-lg, button.btn-u-lg {
+	color: #fff;
+	background: #05AF3C;
+	padding: 10px 25px;
+	font-weight: 100;
+}
+
+a.btn-u-lg:hover, button.btn-u-lg:hover {
+	color: #fff;
+	background: #05AF3C;
+}
+
+.btn.btn-share {
+	color: #fff;
+  border: 0;
+  width: 34px;
+  line-height: 34px;
+  margin-left: 4px;
+}
+
+.btn-facebook.btn-share {
+	background-color: #4863ae;
+}
+
+.btn-twitter.btn-share {
+	background-color: #46c0fb;
+}
+
+.btn-googleplus.btn-share {
+	background-color: #dd4a38;
+}
+
+.infoblock-v2 {
+	background-image: url(/images/common/header-bg.jpg);
 }

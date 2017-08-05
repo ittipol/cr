@@ -13,9 +13,9 @@
       @foreach($news->get() as $value)
 
         <div class="col-md-4 md-margin-bottom-40">
-          <div class="news-v1-in">
+          <div class="news-v1-in custom-item-list">
             <a href="{{URL::to('news')}}/{{$value->id}}">
-              <img class="img-responsive full-width" src="{{$value->thumbnail}}">
+              <img class="full-width-cover" style="background-image: url('{{$value->thumbnail}}');">
             </a>
             <h3><a href="{{URL::to('news')}}/{{$value->id}}">{{$value->title}}</a></h3>
             <p>{{$value->short_desc}}</p>

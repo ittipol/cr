@@ -31,10 +31,12 @@
     <div class="row">
 
       <div class="col-md-8">
-        <!-- <div class="img-charity-banner" style="background-image:url()"></div> -->
+        <div class="image-thumbnail" style="background-image:url(/images/common/b_image.jpg)"></div>
+        @if(!empty($charity->vdo_url))
         <div class="embedded-video">
           <iframe width="100%" height="100%" src="{{$charity->vdo_url}}" frameborder="0" allowfullscreen></iframe>
         </div>
+        @endif
       </div>
 
       <div class="col-md-4">
@@ -70,7 +72,7 @@
                 <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
-                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ {{$charity->name}}" target="_blank">
+                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนึ่งในการช่วยเหลือมูลนิธิ {{$charity->name}}" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
                 <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">

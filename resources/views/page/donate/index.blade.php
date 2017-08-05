@@ -496,8 +496,8 @@
 <!-- <script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
 <script type="text/javascript" src="/js/form/credit-card-masking.js"></script>
  -->
-<!-- <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/js/form/donation-form-validation.js"></script> -->
+<script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/form/donation-form-validation.js"></script>
 
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-datepicker.js"></script>
@@ -652,7 +652,7 @@
     const address = new Address();
     address.load();
 
-    // Validation.initValidation();
+    Validation.initValidation();
     Datepicker.initDatepicker();
     // Masking.initMasking();
   });

@@ -101,31 +101,16 @@
 
   <!-- Promo section -->
   <div class="promo-section">
-    <div class="promo-item" style="background-image: url(/images/common/xxx.jpg);">
+    <div class="promo-item" style="background-image: url(/images/common/promo_bg.jpg);">
       <div class="container">
         <div class="promo-item-content">
-          <h3>สัตว์เหล่านี้,<br> <strong>กำลังต้องการความช่วยเหลือ</strong></h3>
-          <div class="g-mb-45">
-            <div class="money-type-1 g-mr-10 g-mb-10--4x"><em>Need</em> <strong>$1 250 000</strong></div>
-            <div class="money-type-1"><em>We have</em> <strong>$175 586</strong></div>
-          </div>
-          <p class="g-color-white--dark g-mb-45">Donec erat urna, tincidunt at leo non, blandit finibus ante. Nunc venenatis risus in finibus dapibus. Ut ac massa sodales, mattis enim id, efficitur tortor</p>
+          <h3>ร่วมช่วยเหลือมูลนิธิ<br> <strong>มูลนิธิช่วยเหลือแมวจร</strong></h3>
+          <!-- <div class="g-mb-45">
+            <div class="money-type-1 g-mr-10 g-mb-10--4x"><em>การบริจาคในเดือนนี้</em> <strong>7200 บาท</strong></div>
+          </div> -->
+          <p class="g-color-white--dark g-mb-45">จะทำหน้าที่ช่วยเหลือแมวจร ที่บ้านเจ็บ ไร้บ้าน และพร้อมโครงการที่จะช่วยเหลือแมวในการหาเจ้าของ</p>
           <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="#"><i class="fa fa-heart"></i> บริจาคให้กับมูลนิธินี้</a>
-          <a class="btn-u btn-u-lg btn-u-upper" href="#">ดูรายละเอียดเพิ่มเติม</a>
-        </div>
-      </div>
-    </div>
-    <div class="promo-item" style="background-image: url(/assets/img-temp/promo/2.jpg);">
-      <div class="container">
-        <div class="promo-item-content">
-          <h3>รวมบริจาคให้กับ<br> <strong>มูลนิธิ Animal wants org.</strong></h3>
-          <div class="g-mb-45">
-            <div class="money-type-1 g-mr-10 g-mb-10--4x"><em>Need</em> <strong>$1 250 000</strong></div>
-            <div class="money-type-1"><em>We have</em> <strong>$175 586</strong></div>
-          </div>
-          <p class="g-color-white--dark g-mb-45">Donec erat urna, tincidunt at leo non, blandit finibus ante. Nunc venenatis risus in finibus dapibus. Ut ac massa sodales, mattis enim id, efficitur tortor</p>
-          <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="#"><i class="fa fa-heart"></i> Donate now</a>
-          <a class="btn-u btn-u-lg btn-u-upper" href="#">Learn more</a>
+          <a class="btn-u btn-u-lg btn-u-upper" href="#">ไปยังมูลนิธิ</a>
         </div>
       </div>
     </div>
@@ -137,8 +122,7 @@
     <div class="clearfix margin-bottom-100"></div>
 
     <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-      <h2 class="g-mb-35">ร่วมเป็นส่วนหนึ่งในการช่วยเหลือมูลนิธิ</strong></h2>
-      <p>Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio.</p>
+      <h2 class="g-mb-35">ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุนมูลนิธิ</strong></h2>
     </div>
 
     <div class="row">
@@ -149,7 +133,7 @@
           <div class="news-v3 charity-list-item custom-item-list">
 
             <a href="{{URL::to('charity')}}/{{$data->id}}">
-              <img class="img-responsive full-width" src="{{$data->thumbnail}}">
+              <div class="full-width-cover" style="background-image: url('{{$data->thumbnail}}');"></div>
             </a>
             <div class="news-v3-in-sm bg-color-light">
 
@@ -181,99 +165,77 @@
     </div>
   </div>
 
-  <!-- Section "Can help" -->
-  <section class="g-pt-100 g-pb-100 text-center" id="your-help" style="background-color:#B0BEC5;">
+  <div class="clearfix margin-bottom-60"></div>
+
+  <section class="infoblock-v2 g-pt-100 g-pb-100">
     <div class="container">
-      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">คุณสามารถช่วยได้อย่างไร</h2>
-        <!-- <p>Donec in blandit dolor. Vivamus a fringilla lorem, vel faucibus ante. Nunc ullamcorper, justo a iaculis elementum, enim orci viverra eros, fringilla porttitor lorem eros vel odio.</p> -->
-      </div>
       <div class="row">
-        <!-- <div class="col-md-6">
-          <div class="infoblock-v1">
-            <div class="infoblock-v1-content infoblock-v1-content--left">
-              <h3 class="g-mb-25">Beacome a <strong>volunteer</strong></h3>
-              <p class="g-mb-30">Praesent pulvinar gravida efficitur. Aenean bibendum purus eu nisi pulvinar venenatis vitae non velit.</p>
-              <a class="btn-u btn-u-upper" href="#">Join us</a>
+
+        <div class="col-xs-12">
+          <h2 class="g-color-default g-mb-20 g-pt-20">ร่วมช่วยเหลือและสนับสนุนกับ CharityTH <strong class="g-color-white">คุณสามารถช่วยได้อย่างไร</strong></h2>
+
+          <div class="row g-mb-90">
+            <div class="col-md-6 g-sm-mb-30">
+              <h4 class="g-mb-25 g-color-white"><i class="g-color-default infoblock-v2__icon fa fa-heart"></i> ร่วมบริจาคให้กับมูลนิธิและโครงการ</h4>
+              <p class="g-mb-30">ร่วมบริจาคให้กับมูลนิธิและโครงการที่ต้องการความช่วยเหลือและการสนับสนุนเพื่อให้มูลนิธิและโครงการสามารถดำเนินการต่อได้</p>
+              <div>
+                <a class="btn-u" href="#">มูลนิธิ</a>
+                <a class="btn-u" href="#">โครงการ</a>
+                <a class="btn-u" href="#">วิธีการบริจาค</a>
+              </div>
             </div>
-            <div class="infoblock-v1-image" style="background-image: url(/assets/img-temp/1.jpg);"></div>
+
+            <div class="col-md-6">
+              <h4 class="g-mb-25 g-color-white"><i class="g-color-default infoblock-v2__icon fa fa-share"></i> ส่งต่อมูลนิธิและโครงการไปยังบุคคลที่คุณรู้จัก</h4>
+              <p class="g-mb-30">คุณสามารถส่งต่อมูลนิธิและโครงการไปยังบุคคลที่คุณรู้จัก ไม่ว่าจะป็น Facebook, Twitter, Google Plus เพื่อให้มูลนิธิได้รับการช่วยเหลือมากขึ้น</p>
+              <div>
+                <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมช่วยเหลือและสนับสนุนกับ CharityTH" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </div>
+            </div>
           </div>
-        </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="clearfix margin-bottom-60"></div>
+
+  <section class="g-pt-30 g-pb-50 text-center">
+    <div class="container">
+
+      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-30">
+        <h2>เรื่องราวและข่าวสารจากมูลนิธิ</h2>
+        <p>ติดตามเรื่องราวและข่าวสารต่างๆจากมูลนิธิ ไม่ว่าจะเป็นการช่วยเหลือมูลนิธิ การพัฒนาและความคืบหน้าของโครงการ และอื่นๆ</p>
+        <a class="btn-u btn-u-upper" href="#">ข่าวสาร</a>
+      </div>
+
+      <!-- <h1>เรื่องราวและข่าวสารจากมูลนิธิ</h1>
+      <div class="clearfix margin-bottom-20"></div> -->
+
+      <!-- <div class="row">
         <div class="col-md-12">
           <div class="infoblock-v1">
-            <div class="infoblock-v1-image" style="background-image: url(/images/common/www.jpg);"></div>
+            <div class="infoblock-v1-image" style="background-image: url(/images/common/help.jpg);"></div>
             <div class="infoblock-v1-content infoblock-v1-content--right">
-              <h3 class="g-mb-25">บริจาคให้กับมูลนิธิ</h3>
-              <p class="g-mb-30">มีมูลนิธิมากมายที่ต้องการการสนับสนุนเพื่อให้มูลนิธิสามารถดำเนินการต่อได้</p>
-              <a class="btn-u btn-u-upper" href="#">มูลนิธิ</a>
-              <a class="btn-u btn-u-upper" href="#">วิธีการบริจาค</a>
+              <h3 class="g-mb-25">ข่าวสารจากมูลนิธิ</h3>
+              <p class="g-mb-30">ติดตามเรื่องราวและข่าวสารต่างๆจากมูลนิธิ ไม่ว่าจะเป็นการช่วยเหลือมูลนิธิ การพัฒนาและความคืบหน้าของโครงการ และอื่นๆ</p>
+              <a class="btn-u btn-u-upper" href="#">ข่าวสาร</a>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
-  <!-- /Section "Can help" -->
 
-  <!-- Section "Best Donators" -->
-  <section class="g-pt-100 g-pb-50 text-center overflow-h" id="donators">
-    <div class="container">
-      <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-60">
-        <h2 class="g-mb-35">ร่วมเป็นผู้สนับสนุน</h2>
-        <p>สร้างบัญชีเพื่อเก็บประวัติการบริจาคของคุณ</p>
-      </div>
-      <div class="row">
-        <div class="col-md-2 col-sm-4 col-xs-6 g-mb-50">
-          <div class="person">
-            <img src="/assets/img-temp/4.jpg" alt="" class="rounded-x person__image g-mb-15">
-            <strong class="person__name g-mb-5">Mark Spencer</strong>
-            <em class="person__position g-mb-15">Molestie ullamcorper</em>
-            <div class="money-type-2"><em>Need</em> <strong>$11 250 000</strong></div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 g-mb-50">
-          <div class="person">
-            <img src="/assets/img-temp/15.jpg" alt="" class="rounded-x person__image g-mb-15">
-            <strong class="person__name g-mb-5">Dorian Gray</strong>
-            <em class="person__position g-mb-15">Molestie ullamcorper</em>
-            <div class="money-type-2"><em>Need</em> <strong>$690 000</strong></div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 g-mb-50">
-          <div class="person">
-            <img src="/assets/img-temp/13.jpg" alt="" class="rounded-x person__image g-mb-15">
-            <strong class="person__name g-mb-5">Rebecca Kenton</strong>
-            <em class="person__position g-mb-15">Molestie ullamcorper</em>
-            <div class="money-type-2"><em>Need</em> <strong>$420 000</strong></div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 g-mb-50">
-          <div class="person">
-            <img src="/assets/img-temp/16.jpg" alt="" class="rounded-x person__image g-mb-15">
-            <strong class="person__name g-mb-5">John Doe</strong>
-            <em class="person__position g-mb-15">Molestie ullamcorper</em>
-            <div class="money-type-2"><em>Need</em> <strong>$1 250 000</strong></div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 g-mb-50">
-          <div class="person">
-            <img src="/assets/img-temp/14.jpg" alt="" class="rounded-x person__image g-mb-15">
-            <strong class="person__name g-mb-5">Jessica Alan</strong>
-            <em class="person__position g-mb-15">Molestie ullamcorper</em>
-            <div class="money-type-2"><em>Need</em> <strong>$6 610 000</strong></div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 g-mb-50">
-          <div class="person">
-            <img src="/assets/img-temp/no-photo.png" alt="" class="rounded-x person__image g-mb-15">
-            <strong class="person__name g-mb-10">You can be here</strong>
-            <a class="btn-u btn-u-lg btn-u-upper" href="#">Become a donator</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Section "Best Donators" -->
+  <div class="clearfix margin-bottom-20"></div>
 
   <div id="footer-v3" class="footer-v3">
 
@@ -283,18 +245,15 @@
     
           <div class="col-md-6">
             <p>
-              2015 &copy; All Rights Reserved. Unify Theme by
-              <!-- <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> -->
+              2017 CharityTH
             </p>
           </div>
 
           <div class="col-md-6">
             <ul class="social-icons pull-right">
-              <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+              <li><a href="https://www.facebook.com/charityth/" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
               <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
               <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
-              <li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
-              <li><a href="#" data-original-title="Pinterest" class="rounded-x social_pintrest"></a></li>
             </ul>
           </div>
    

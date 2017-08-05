@@ -3,13 +3,15 @@
 
 <div class="charity list">
 
+  <div class="clearfix margin-top-60"></div>
+
   <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
     <div class="container">
       <h1>มูลนิธิ</h1>
     </div>
   </div>
 
-  <div class="container margin-top-20 padding-bottom-100">
+  <div class="container padding-bottom-100">
     
     @if($charities->currentPage() <= $charities->lastPage())
 
@@ -23,7 +25,7 @@
             <div class="news-v3 charity-list-item custom-item-list">
 
               <a href="{{URL::to('charity')}}/{{$data->id}}">
-                <img class="img-responsive full-width" src="{{$data->thumbnail}}">
+                <div class="full-width-cover" style="background-image: url('{{$data->thumbnail}}');"></div>
               </a>
               <div class="news-v3-in-sm bg-color-light">
 

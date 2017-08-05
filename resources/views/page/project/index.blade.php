@@ -26,10 +26,12 @@
 
     <div class="row">
       <div class="col-md-8">
-        <!-- <div class="img-charity-banner" style="background-image:url()"></div> -->
+        <!-- <div class="image-thumbnail" style="background-image:url()"></div> -->
+        @if(!empty($charity->vdo_url))
         <div class="embedded-video">
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0" allowfullscreen></iframe>
         </div>
+        @endif
       </div>
 
       <div class="col-md-4">

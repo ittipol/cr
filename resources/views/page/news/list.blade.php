@@ -17,9 +17,9 @@
       @foreach($news as $data)
 
         <div class="col-lg-4 col-sm-6 col-xs-12 md-margin-bottom-40">
-          <div class="news-v1-in">
+          <div class="news-v1-in custom-item-list">
             <a href="{{URL::to('news')}}/{{$data->id}}">
-              <img class="img-responsive" src="{{$data->thumbnail}}">
+              <div class="full-width-cover" style="background-image: url('{{$data->thumbnail}}');"></div>
             </a>
 
             <?php

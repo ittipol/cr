@@ -23,7 +23,7 @@
             <div class="news-v3 custom-item-list">
 
               <a href="{{URL::to('project')}}/{{$data->id}}">
-                <img class="img-responsive full-width" src="{{$data->thumbnail}}">
+                <div class="full-width-cover" style="background-image: url('{{$data->thumbnail}}');"></div>
               </a>
               <div class="news-v3-in-sm bg-color-light">
 

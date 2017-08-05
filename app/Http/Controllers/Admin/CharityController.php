@@ -69,7 +69,9 @@ class CharityController extends Controller
 
       }
 
-      $model->images = json_encode($images);
+      if(!empty($images)) {
+        $model->images = json_encode($images);
+      }
 
     }
     
@@ -114,7 +116,7 @@ class CharityController extends Controller
 
   public function editingSubmit($id) {
 
-    $data = Service::loadModel('Charity')->find($id);
+    $model = Service::loadModel('Charity')->find($id);
 
     if(!empty(request()->_images)) {
 
@@ -129,11 +131,13 @@ class CharityController extends Controller
 
       }
 
-      $data->images = json_encode($images);
+      if(!empty($images)) {
+        $model->images = json_encode($images);
+      }
 
     }
 
-    if($data->fill(request()->all())->save()) {
+    if($model->fill(request()->all())->save()) {
       return Redirect::to('admin/charity/list');
     }
 
