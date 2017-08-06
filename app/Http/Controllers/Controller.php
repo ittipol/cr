@@ -50,7 +50,6 @@ class Controller extends BaseController
 
   protected function view($view = null) {
 
-    // $this->data['_page_url'] = Request::fullUrl();
     // Request::fullUrl()
     // Request::url()
     // Request::ip()

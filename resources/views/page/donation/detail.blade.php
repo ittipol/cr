@@ -39,22 +39,16 @@
     <div id="social_content" class="social-login text-center">      
       <ul class="list-unstyled">       
         <li>             
-          <!-- <a href="javascript:void(0);" id="fb_post_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
-            <i class="fa fa-facebook"></i> โพสต์คำขอบคุณจากเราไปยัง Facebook ของคุณ       
-          </a> -->
-          <!-- <a href="javascript:void(0);" id="fb_post_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
-            <i class="fa fa-facebook"></i> แชร์การบริจาคนี้      
-          </a>    -->
 
           <div class="donation-box text-center">
-            <h4>แชร์คำขอบคุณจากเราและการบริจาคนี้</h4>
-            <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
+            <h4>แชร์การบริจาคนี้และคำขอบคุณจากเรา</h4>
+            <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::root()}}/share/{{$code}}" target="_blank">
               <i class="fa fa-facebook"></i>
             </a>
-            <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ขอบ" target="_blank">
+            <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::root()}}/share/{{$code}}&text=ขอบคุณที่คุณร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}" target="_blank">
               <i class="fa fa-twitter"></i>
             </a>
-            <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
+            <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::root()}}/share/{{$code}}" target="_blank">
               <i class="fa fa-google-plus"></i>
             </a>
           </div>
