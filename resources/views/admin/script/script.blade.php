@@ -51,9 +51,8 @@
 <?php
 
   $cssFiles = array(
-    // 'css/admin/bootstrap.min.css',
     'assets/plugins/bootstrap/css/bootstrap.min.css',
-    'assets/css/style.css',
+    // 'assets/css/style.css',
     'assets/css/app.css',
     'assets/plugins/animate.css',
     'assets/plugins/line-icons/line-icons.css',
@@ -62,10 +61,10 @@
     'assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css',
     'assets/css/headers/header-default.css',
     'assets/css/theme-colors/default.css',
-    'assets/css/theme-skins/dark.css',
+    // 'assets/css/theme-skins/dark.css',
     'assets/css/custom.css',
-    'css/custom_core.css',
     'css/components/form.css',
+    'css/admin/core.css'
   );
 
   if($combine){

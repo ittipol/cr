@@ -1,0 +1,25 @@
+body {
+  background-color: #2e3d50;
+}
+
+h1 {
+  color: #fff;
+}
+
+label {
+	color: #fff;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+}
+
+table.table-summary {
+	color: #222;
+	background-color: #fff;
+}
+
+table.table-summary thead {
+	color: #fff;
+	background-color: #1f4b8e;
+}

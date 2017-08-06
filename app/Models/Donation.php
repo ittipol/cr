@@ -22,6 +22,15 @@ class Donation extends Model
     )
   );
 
+  public $validationCreditCard = array(
+    'rules' => array(
+      'omise_token' => 'required',
+    ),
+    'messages' => array(
+      'date.required' => 'มีข้อมูลบางอย่างไม่ถูกต้อง ไม่สามารถดำเนินการต่อได้',
+    )
+  );
+
   public $validationWithAddress = array(
     'rules' => array(
       // 'date' => 'required|date_format:Y-m-d',

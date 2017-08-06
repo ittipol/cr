@@ -8,9 +8,23 @@ use App\library\date;
 use Redirect;
 use DB;
 
-class SummartController extends Controller
+class SummaryController extends Controller
 {
   public function index() {
+
+    $date = new Date;
+
+    // Get charities
+    $charities = Service::loadModel('Charity')->get();
+
+    // $_charities = array();
+    
+    $_charities['all'] = '-';
+    foreach ($charities as $charity) {
+      $_charities[$charity->id] = $charity->name;
+    }
+
+    $this->setData('charities',$_charities);
 
     if(empty($_GET['month']) || empty($_GET['year'])) {
       return $this->view('admin.page.summary.index');
@@ -18,14 +32,21 @@ class SummartController extends Controller
 
     $donationModel = Service::loadModel('Donation');
 
-    $date = new Date;
-
     $monthly = false;
     if(!empty($_GET['date'])) {
       $monthly = true;
     }
 
-    $donations = null;
+    // $donations = null;
+
+    $conditions = array(
+      ['verified','=',1]
+    );
+
+    if(!empty($_GET['charity_id'])) {
+      $conditions[] = array('model','like','Charity');
+      $conditions[] = array('model_id','=',$_GET['charity_id']);
+    }
 
     if($monthly) {
       $start = $_GET['year'].'-'.$_GET['month'].'-'.$_GET['date'].' 00:00:00';
@@ -33,7 +54,7 @@ class SummartController extends Controller
 
       $donations = $donationModel
       ->select(DB::raw('SUM(amount) as totalAmount, model, model_id'))
-      ->where('verified','=',1)
+      ->where($conditions)
       ->whereBetween('created_at', [$start, $end])
       ->groupBy('model','model_id')
       ->orderBy('model','ASC')
@@ -46,7 +67,7 @@ class SummartController extends Controller
     
       $donations = $donationModel
       ->select(DB::raw('SUM(amount) as totalAmount, model, model_id'))
-      ->where('verified','=',1)
+      ->where($conditions)
       ->whereBetween('created_at', [$dateRange['start'], $dateRange['end']])
       ->groupBy('model','model_id')
       ->orderBy('model','ASC')

@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('aa', 'DonateController@payment');
-Route::get('bb', 'DonateController@listPayment');
-Route::get('cc', 'DonateController@paypalPayment');
-
 
 Route::get('get_image/{file}', 'StaticFileController@serveImages');
 Route::get('avatar/{file}', 'StaticFileController@userAvatar');
@@ -67,7 +63,7 @@ Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 
   Route::get('donation/delete/{id}', 'DonationController@delete');
   Route::get('donation/verify/{id}', 'DonationController@verify');
 
-  Route::get('summary', 'SummartController@index');
+  Route::get('summary', 'SummaryController@index');
 });
 
 Route::group(['middleware' => ['admin.auth'], 'namespace' => 'Admin', 'prefix' => 'admin'],  function () {

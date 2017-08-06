@@ -120,7 +120,7 @@ class DonateController extends Controller
   }
 
   public function donationSubmit() {
-// dd(request()->all());
+    dd(request()->all());
     if(empty(request()->for) || empty(request()->id)) {
       return $this->error('URL ไม่ถูกต้อง');
     }
@@ -148,12 +148,12 @@ class DonateController extends Controller
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
       $validation = array_merge($validation,$donation->validationWithAddress);
     }
-dd($validator);
-    $validator = Validator::make(request()->all(), $validation['rules'],$validation['messages']);
+// dd($validator);
+    // $validator = Validator::make(request()->all(), $validation['rules'],$validation['messages']);
     
-    if($validator->fails()) {
-      return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
-    }
+    // if($validator->fails()) {
+    //   return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
+    // }
 
     // Reward
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
@@ -234,39 +234,44 @@ dd($validator);
       $donation->unidentified = 1;
     }
 
-    if($donation->save()) {
+    if(!$donation->save()) {
+      return Redirect::back()->withErrors(array(
+        array('มีข้อบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
+      ));
+    }
 
-      if(request()->method == 'method_1') {
+    if(request()->method == 'method_1') {
+      
+      define('OMISE_API_VERSION', '2015-11-17');
+      define('OMISE_PUBLIC_KEY', 'pkey_test_58v3kcsit84cakasj3s');
+      define('OMISE_SECRET_KEY', 'skey_test_58v3kcsjcszyrzyidsx');
 
-        define('OMISE_API_VERSION', '2015-11-17');
-        define('OMISE_PUBLIC_KEY', 'pkey_test_58v3kcsit84cakasj3s');
-        define('OMISE_SECRET_KEY', 'skey_test_58v3kcsjcszyrzyidsx');
+      $charge = OmiseCharge::create(array(
+        'amount' => 2050, // 20.50 บาท
+        'currency' => 'thb',
+        'card' => request()->omise_token
+      ));
 
-        $charge = OmiseCharge::create(array(
-          'amount' => 2050, // 20.50 บาท
-          'currency' => 'thb',
-          'card' => request()->omise_token
+      if ($charge['status'] != 'successful') {
+        return Redirect::back()->withErrors(array(
+          array('ไม่สามารถตัดเงินจากบัตรเครดิตได้')
         ));
-
-        $donation->verified = 1;
-        $donation->save();
-
-
       }
 
-      // if(Auth::check()) {}
-
-      // If logged in and address is empty
-      // add address to user address field
-      // $user = Service::loadModel('User')->find();
-      // $user->shipping_address = $donation->address;
-      // $user->save();
-
-      return Redirect::to('donation/'.$donation->code);
+      $donation->verified = 1;
+      $donation->save();
 
     }
 
-    return Redirect::to('donate');
+    // if(Auth::check()) {}
+
+    // If logged in and address is empty
+    // add address to user address field
+    // $user = Service::loadModel('User')->find();
+    // $user->shipping_address = $donation->address;
+    // $user->save();
+
+    return Redirect::to('donation/'.$donation->code);
 
   }
 

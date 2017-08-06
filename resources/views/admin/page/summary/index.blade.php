@@ -2,7 +2,7 @@
 @section('content')
 
   <h1 class="margin-bottom-20">
-    สรุปยอด
+    แสดงการบริจาค
   </h1>
 
   {{Form::open(['id' => 'main_form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
@@ -17,27 +17,36 @@
     </div>
 
     <div class="row">
-      <div class="col-md-10">
+
+      <div class="col-xs-12">
+        <label>เลือกมูลนิธิ</label>
+        {{Form::select('charity_id', $charities, null, array('class' => 'form-control'))}}
+      </div>
+      <br><br><br><br>
+      <div class="col-xs-12">
+        <label>ระบุช่วงเวลา</label>
+      </div>
+      <div class="col-sm-10 col-xs-12">
         <div class="row">
-          <section class="col-md-4">
+          <section class="col-sm-4 col-xs-12">
             <div class="form-group">
               {{Form::text('date', null, array('class' => 'form-control', 'placeholder' => 'วันที่ (ป้อน 1-31)','autocomplete' => 'off'))}}
             </div>
           </section>
-          <section class="col-md-4">
+          <section class="col-sm-4 col-xs-12">
             <div class="form-group">
               {{Form::text('month', null, array('class' => 'form-control', 'placeholder' => 'เดือน (ป้อน 1-12)','autocomplete' => 'off'))}}
             </div>
           </section>
-          <section class="col-md-4">
+          <section class="col-sm-4 col-xs-12">
             <div class="form-group">
-              {{Form::text('year', null, array('class' => 'form-control', 'placeholder' => 'ปี (ป้อนปีค.ศ.)','autocomplete' => 'off'))}}
+              {{Form::text('year', null, array('class' => 'form-control', 'placeholder' => 'ปี (ป้อนปี ค.ศ.)','autocomplete' => 'off'))}}
             </div>
           </section>
         </div>
       </div>
-      <div class="col-md-2">
-        {{Form::submit('สรุปยอด', array('class' => 'btn-u btn-u-blue'))}}
+      <div class="col-sm-2">
+        {{Form::submit('แสดง', array('class' => 'btn-u btn-block btn-u-blue'))}}
       </div>
     </div>
 
@@ -55,7 +64,7 @@
       );
     ?>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped table-summary">
       <thead>
         <tr>
           <th>ชื่อมูลนิธิ/โครงการ</th>

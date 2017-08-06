@@ -41,8 +41,16 @@
 
 
 
+        <section>
+          <label class="label">จำนวนเงินบริจาค</label>
+          <label class="input-group">
+            {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+            <span class="input-group-addon">บาท</span>
+          </label>
+        </section>
 
 
+        <div class="clearfix margin-bottom-30"></div>
 
 
 
@@ -61,7 +69,7 @@
             เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ
           </div> 
 
-          <div class="row">
+          <!-- <div class="row">
             <section class="col-xs-12">
               <label class="label">จำนวนเงินบริจาค</label>
               <label class="input-group">
@@ -69,7 +77,7 @@
                 <span class="input-group-addon">บาท</span>
               </label>
             </section>
-          </div> 
+          </div>  -->
 
           <div class="row">
             <section class="col-xs-12">
@@ -203,13 +211,13 @@
               </section>
             </div>
 
-            <section>
+            <!-- <section>
               <label class="label">จำนวนเงินบริจาค</label>
               <label class="input-group">
                 {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
                 <span class="input-group-addon">บาท</span>
               </label>
-            </section>
+            </section> -->
 
           </fieldset>
 
@@ -221,17 +229,8 @@
 
 
 
-
-
-
-
-
-
-
-
-        <div class="clearfix margin-bottom-60"></div>
-        <hr>
         <div class="clearfix margin-bottom-30"></div>
+        <hr>
 
         @include('content.unidentified_donation')
 
@@ -281,9 +280,8 @@
 
         @if($charity->has_reward)
 
-        <div class="clearfix margin-bottom-60"></div>
-        <hr>
         <div class="clearfix margin-bottom-30"></div>
+        <hr>
 
         <h4 class="no-margin-top">รางวัลจากมูลนิธิ</h4>
         <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
