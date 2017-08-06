@@ -69,7 +69,7 @@
               <a href="{{URL::to('project/list')}}">โครงการ</a>
             </li>
             <li class="page-scroll">
-              <a href="#your-help">การบริจาค</a>
+              <a href="{{URL::to('donation')}}">การบริจาค</a>
             </li>
             <li class="page-scroll">
               <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
@@ -179,9 +179,9 @@
               <h4 class="g-mb-25 g-color-white"><i class="g-color-default infoblock-v2__icon fa fa-heart"></i> ร่วมบริจาคให้กับมูลนิธิและโครงการ</h4>
               <p class="g-mb-30">ร่วมบริจาคให้กับมูลนิธิและโครงการที่ต้องการความช่วยเหลือและการสนับสนุนเพื่อให้มูลนิธิและโครงการสามารถดำเนินการต่อได้</p>
               <div>
-                <a class="btn-u" href="#">มูลนิธิ</a>
-                <a class="btn-u" href="#">โครงการ</a>
-                <a class="btn-u" href="#">วิธีการบริจาค</a>
+                <a class="btn-u" href="{{URL::to('charity/list')}}">มูลนิธิ</a>
+                <a class="btn-u" href="{{URL::to('project/list')}}">โครงการ</a>
+                <a class="btn-u" href="{{URL::to('donation')}}">วิธีการบริจาค</a>
               </div>
             </div>
 
@@ -214,24 +214,9 @@
       <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-30">
         <h2>เรื่องราวและข่าวสารจากมูลนิธิ</h2>
         <p>ติดตามเรื่องราวและข่าวสารต่างๆจากมูลนิธิ ไม่ว่าจะเป็นการช่วยเหลือมูลนิธิ การพัฒนาและความคืบหน้าของโครงการ และอื่นๆ</p>
-        <a class="btn-u btn-u-upper" href="#">ข่าวสาร</a>
+        <a class="btn-u btn-u-upper" href="{{URL::to('news/list')}}">ข่าวสาร</a>
       </div>
 
-      <!-- <h1>เรื่องราวและข่าวสารจากมูลนิธิ</h1>
-      <div class="clearfix margin-bottom-20"></div> -->
-
-      <!-- <div class="row">
-        <div class="col-md-12">
-          <div class="infoblock-v1">
-            <div class="infoblock-v1-image" style="background-image: url(/images/common/help.jpg);"></div>
-            <div class="infoblock-v1-content infoblock-v1-content--right">
-              <h3 class="g-mb-25">ข่าวสารจากมูลนิธิ</h3>
-              <p class="g-mb-30">ติดตามเรื่องราวและข่าวสารต่างๆจากมูลนิธิ ไม่ว่าจะเป็นการช่วยเหลือมูลนิธิ การพัฒนาและความคืบหน้าของโครงการ และอื่นๆ</p>
-              <a class="btn-u btn-u-upper" href="#">ข่าวสาร</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
 

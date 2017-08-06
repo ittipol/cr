@@ -17,7 +17,10 @@ var Validation = function () {
 	            // Rules for form validation
             rules:
             {
-              card_owner:
+              name: {
+                required: true
+              },
+              holder_name:
               {
                 required: true
               },
@@ -79,7 +82,11 @@ var Validation = function () {
             // Messages for form validation
             messages:
             {
-              card_owner:
+              name:
+              {
+                required: 'ชื่อ นามสกุลผู้บริจาคห้ามว่าง'
+              },
+              holder_name:
               {
                 required: 'ชื่อเจ้าของบัตรห้ามว่าง'
               },
@@ -138,14 +145,72 @@ var Validation = function () {
               },
             },    
 
-            // submitHandler: function(form) {
+            submitHandler: function(form) {
 
-            //   let _form = $(form);
+              let _form = $(form);
 
+              // Disable the submit button to avoid repeated click.
+              _form.find("input[type=submit]").prop("disabled", true);
 
-            //   _form.submit();
+              $('.global-overlay').addClass('displayed');
+              $('.global-loading-icon').addClass('displayed');
 
-            // },             
+              switch($('.method-rdo:checked').val()) {
+
+                case 'method_1':
+
+                  // example
+                  let card = {
+                    "name": 'example name',
+                    "number": '4032032334484554',
+                    "expiration_month": '09',
+                    "expiration_year": '2022',
+                    "security_code": '123'
+                  };
+                
+                  Omise.createToken("card", card, function (statusCode, response) {
+                    if(response.object == "error") {
+                      // Display an error message.
+                      let message_text = "SET YOUR SECURITY CODE CHECK FAILED MESSAGE";
+                      if(response.object == "error") {
+                        message_text = response.message;
+                      }
+                      // $("#token_errors").html(message_text);
+
+                      console.log(message_text);
+
+                      // Re-enable the submit button.
+                      _form.find("input[type=submit]").prop("disabled", false);
+
+                      $('.global-overlay').removeClass('displayed');
+                      $('.global-loading-icon').removeClass('displayed');
+
+                    }else {
+                      // Then fill the omise_token.
+                      _form.find("[name=omise_token]").val(response.id);
+
+                      // Remove card number from form before submiting to server.
+                      $('#card_number').val('');
+                      $('#cvc').val('');
+
+                      // submit token to server.
+                      _form.get(0).submit();
+                    };
+                  });
+
+                break;
+
+                default:
+
+                  setTimeout(function(){
+                    _form.get(0).submit();
+                  },400);
+
+              }
+
+              return false;
+
+            },             
 	            
 	            // Do not change code below
             errorPlacement: function(error, element)

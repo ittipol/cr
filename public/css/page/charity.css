@@ -295,9 +295,9 @@
 	height: 100%;
 }
 
-/*.content-images-list .cbp-caption-zoom .cbp-caption-activeWrap {
+.content-images-list .cbp-caption-zoom .cbp-caption-activeWrap {
 	background-color: rgba(49, 72, 110, 0.5);
-}*/
+}
 
 /* Medium Devices, Desktops */
 /*@media only screen and (max-width : 992px) {

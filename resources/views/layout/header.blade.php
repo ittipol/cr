@@ -18,7 +18,7 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <div class="menu-container">
           <ul class="nav navbar-nav @if(Auth::check()) margin-right-50 @endif">
-            <li class="page-scroll home active">
+            <li class="page-scroll">
               <a href="{{URL::to('/')}}">หน้าแรก</a>
             </li>
             <li class="page-scroll">

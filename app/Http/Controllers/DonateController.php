@@ -2,22 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use PayPal\Rest\ApiContext;
-// use PayPal\Auth\OAuthTokenCredential;
-// use PayPal\Api\Amount;
-// use PayPal\Api\Details;
-// use PayPal\Api\FundingInstrument;
-// use PayPal\Api\Item;
-// use PayPal\Api\ItemList;
-// use PayPal\Api\Payer;
-// use PayPal\Api\Payment;
-// use PayPal\Api\PaymentCard;
-// use PayPal\Api\Transaction;
-// use PayPal\Api\RedirectUrls;
-
-// use Omnipay\Omnipay;
-// use Omnipay\Common\CreditCard;
-
 use OmiseCharge;
 
 use App\library\service;
@@ -136,53 +120,42 @@ class DonateController extends Controller
   }
 
   public function donationSubmit() {
-
+// dd(request()->all());
     if(empty(request()->for) || empty(request()->id)) {
       return $this->error('URL ไม่ถูกต้อง');
     }
+    
+    $donation = Service::loadModel('Donation');
 
-    define('OMISE_API_VERSION', '2015-11-17');
-    define('OMISE_PUBLIC_KEY', 'pkey_test_58v3kcsit84cakasj3s');
-    define('OMISE_SECRET_KEY', 'skey_test_58v3kcsjcszyrzyidsx');
-
-    $charge = OmiseCharge::create(array(
-      'amount' => 2050,
-      'currency' => 'thb',
-      'card' => request()->omise_token
-    ));
-dd($charge);
-dd(request()->all());
-    // $creditCard = new CreditCard;
+    $validation = array();
 
     switch (request()->method) {
       case 'method_1':
-        
-          // $creditCard = CreditCard::validCreditCard(request()->card_number);
-          $this->payment();
-dd('ewew');
+        $donation->donate_via_id = 1;
         break;
       
       case 'method_2':
-        # code...
+
+        // rules for bank transfer
+        $validation = $donation->validation;
+
+        $donation->donate_via_id = 2;
         break;
     }
 
-
-
-    $donation = Service::loadModel('Donation');
+    // array merge if get reward exist
 
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
-      $validation = $donation->validationWithAddress;
-    }else{
-      $validation = $donation->validation;
+      $validation = array_merge($validation,$donation->validationWithAddress);
     }
-
+dd($validator);
     $validator = Validator::make(request()->all(), $validation['rules'],$validation['messages']);
     
     if($validator->fails()) {
       return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
     }
 
+    // Reward
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
 
       $donation->get_reward = 1;
@@ -261,9 +234,25 @@ dd('ewew');
       $donation->unidentified = 1;
     }
 
-    $donation->donate_via_id = 1;
-
     if($donation->save()) {
+
+      if(request()->method == 'method_1') {
+
+        define('OMISE_API_VERSION', '2015-11-17');
+        define('OMISE_PUBLIC_KEY', 'pkey_test_58v3kcsit84cakasj3s');
+        define('OMISE_SECRET_KEY', 'skey_test_58v3kcsjcszyrzyidsx');
+
+        $charge = OmiseCharge::create(array(
+          'amount' => 2050, // 20.50 บาท
+          'currency' => 'thb',
+          'card' => request()->omise_token
+        ));
+
+        $donation->verified = 1;
+        $donation->save();
+
+
+      }
 
       // if(Auth::check()) {}
 
@@ -343,234 +332,5 @@ dd('ewew');
 
   //   return $this->view('page.donate.complete');
   // }
-
-  public function payment() {
-
-    // $gateway = Omnipay::create('PayPal_Rest');
-
-    // Initialise the gateway
-    // $gateway->initialize(array(
-    //    'clientId' => 'Adt5nAXpjYTuuNxgzZqEAFYq-JXP9yVWmEdqatlYZ7eGyH7V3r23GfLjnSjBQi7PS1HhrI4OUJHj_ghT',
-    //    'secret'   => 'EEJNc11J3bEa-yrUJD4s0hzttoLi_bMO46plJh5-y9Rga37iwG4n3b2f1PEJD_92WN7C61Zs53IsmzeP',
-    //    'testMode' => true, // Or false when you are ready for live transactions
-    // ));
-
-
-//     $formInputData = array(
-//         'firstName' => 'User',
-//         'lastName' => 'Test',
-//         'number' => '5577555133904644',
-//         'expiryMonth' => '04',
-//         'expiryYear' => '25',
-//         'cvv' => '170',
-//         'billingAddress1'       => 'phayathai',
-//         'billingCountry'        => 'TH',
-//         'billingCity'           => 'Bangkok',
-//         'billingPostcode'       => '10400',
-//         'billingState'          => 'Bangkok',
-//     );
-//     $card = new CreditCard($formInputData);
-
-//     $transaction = $gateway->authorize(array(
-//         'returnUrl'=> 'http://www.cr.com/approve',
-//         'cancelUrl' => 'http://www.cr.com/cancel',
-//         'amount'        => '0.01',
-//         'currency'      => 'USD',
-//         'description'   => 'This is a test authorize transaction.',
-//         'card'          => $card
-//     ));
-//     $response = $transaction->send();
-// dd($response);
-
-//     dd($response->isSuccessful());
-
-
-
-    $apiContext = new \PayPal\Rest\ApiContext(
-      new \PayPal\Auth\OAuthTokenCredential(
-          'ASvjBH4y8u9aSXufat_OD7Bl7PY0yIMaZcmbj__B6UtAMVm6RYN450C7Mb2evrYb8UkOrGccD6mDfb_H',     // ClientID
-          'ECh2U7J_cH5fmGYMVhS-mYveGV01-KqXHjbw9y-B4isJAmGNP7Otwdl1aNFWUevPhYVBg3jnhiJWWPCe'      // ClientSecret
-      )
-    );
-
-    $card = new \PayPal\Api\PaymentCard();
-    // Valid Values: ["VISA", "AMEX", "SOLO", "JCB", "STAR", "DELTA", "DISCOVER", "SWITCH", "MAESTRO", "CB_NATIONALE", "CONFINOGA", "COFIDIS", "ELECTRON", "CETELEM", "CHINA_UNION_PAY", "MASTERCARD"]
-    $card->setType("visa")
-        ->setNumber("5577555133904644")
-        ->setExpireMonth("04")
-        ->setExpireYear("2025")
-        ->setCvv2("170")
-        ->setFirstName("Buyer")
-        ->setLastName("Test")
-        ->setBillingCountry("US");
-
-    $fi = new FundingInstrument();
-    $fi->setPaymentCard($card);
-
-    $payer = new Payer();
-    $payer->setPaymentMethod("credit_card")
-        ->setFundingInstruments(array($fi));
-
-    $item1 = new Item();
-    $item1->setName('Ground Coffee 40 oz')
-        ->setDescription('Ground Coffee 40 oz')
-        ->setCurrency('USD')
-        ->setQuantity(1)
-        // ->setTax(0.3)
-        ->setPrice(0.01);
-
-    $itemList = new ItemList();
-    $itemList->setItems(array($item1));
-
-    // $details = new Details();
-    // $details->setShipping(1.2)
-    //     ->setTax(1.3)
-    //     ->setSubtotal(17.5);
-
-    $amount = new Amount();
-    $amount->setCurrency("USD")
-        ->setTotal(0.01);
-        // ->setDetails($details);
-
-    $transaction = new Transaction();
-    $transaction->setAmount($amount)
-        ->setItemList($itemList)
-        ->setDescription("Payment description xxxx")
-        ->setInvoiceNumber(uniqid());
-
-    $payment = new Payment();
-    $payment->setIntent("sale")
-        ->setPayer($payer)
-        ->setTransactions(array($transaction));
-
-    $request = clone $payment;
-
-    try {
-        $payment->create($apiContext);
-    } catch (Exception $ex) {
-        // ResultPrinter::printError('Create Payment Using Credit Card. If 500 Exception, try creating a new Credit Card using <a href="https://www.paypal-knowledge.com/infocenter/index?page=content&widgetview=true&id=FAQ1413">Step 4, on this link</a>, and using it.', 'Payment', null, $request, $ex);
-      dd('error');
-        exit(1);
-    }
-    // ResultPrinter::printResult('Create Payment Using Credit Card', 'Payment', $payment->getId(), $request, $payment);
-
-    dd($payment);
-
-  }
-
-  public function paypalPayment() {
-
-    $apiContext = new \PayPal\Rest\ApiContext(
-      new \PayPal\Auth\OAuthTokenCredential(
-          'AY7dF37aTrnTqk8SR_NBDfFUg7-QpZcN8la_1GajXLAG8CPSJY57UtF_KzDVngKtXFq5Sf0pDKTkPait',     // ClientID
-          'EOTAD6imF2dvey05be84JrASR7K9XxXiBcvGbAfgpeHs0kduIuR4BVxdj2Y5lWqt4VerjyWzFonoy_UI'      // ClientSecret
-      )
-    );
-
-    // ### Payer
-    // A resource representing a Payer that funds a payment
-    // For paypal account payments, set payment method
-    // to 'paypal'.
-    $payer = new Payer();
-    $payer->setPaymentMethod("paypal");
-    // ### Itemized information
-    // (Optional) Lets you specify item wise
-    // information
-    $item1 = new Item();
-    $item1->setName('Ground Coffee 40 oz')
-        ->setCurrency('THB')
-        ->setQuantity(1)
-        ->setSku("123123") // Similar to `item_number` in Classic API
-        ->setPrice(1);
-    $itemList = new ItemList();
-    $itemList->setItems(array($item1));
-    // ### Additional payment details
-    // Use this optional field to set additional
-    // payment information such as tax, shipping
-    // charges etc.
-    $details = new Details();
-    $details->setShipping(1.2)
-        ->setTax(1.3)
-        ->setSubtotal(17.50);
-    // ### Amount
-    // Lets you specify a payment amount.
-    // You can also specify additional details
-    // such as shipping, tax.
-    $amount = new Amount();
-    $amount->setCurrency("USD")
-        ->setTotal(1)
-        ->setDetails($details);
-    // ### Transaction
-    // A transaction defines the contract of a
-    // payment - what is the payment for and who
-    // is fulfilling it. 
-    $transaction = new Transaction();
-    $transaction->setAmount($amount)
-        ->setItemList($itemList)
-        ->setDescription("Payment description")
-        ->setInvoiceNumber(uniqid());
-    // ### Redirect urls
-    // Set the urls that the buyer must be redirected to after 
-    // payment approval/ cancellation.
-    $baseUrl = \Request::url();
-    $redirectUrls = new RedirectUrls();
-    $redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
-        ->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
-    // ### Payment
-    // A Payment Resource; create one using
-    // the above types and intent set to 'sale'
-    $payment = new Payment();
-    $payment->setIntent("sale")
-        ->setPayer($payer)
-        ->setRedirectUrls($redirectUrls)
-        ->setTransactions(array($transaction));
-    // For Sample Purposes Only.
-    $request = clone $payment;
-    // ### Create Payment
-    // Create a payment by calling the 'create' method
-    // passing it a valid apiContext.
-    // (See bootstrap.php for more on `ApiContext`)
-    // The return object contains the state and the
-    // url to which the buyer must be redirected to
-    // for payment approval
-    try {
-        $payment->create($apiContext);
-    } catch (Exception $ex) {
-        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-        // ResultPrinter::printError("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", null, $request, $ex);
-        exit(1);
-    }
-    // ### Get redirect url
-    // The API response provides the url that you must redirect
-    // the buyer to. Retrieve the url from the $payment->getApprovalLink()
-    // method
-    $approvalUrl = $payment->getApprovalLink();
-    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-    echo 'Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", "<a href='.$approvalUrl.' >$approvalUrl</a>';
-    exit;
-
-  }
-
-  public function listPayment() {
-
-    $apiContext = new \PayPal\Rest\ApiContext(
-      new \PayPal\Auth\OAuthTokenCredential(
-          'AY7dF37aTrnTqk8SR_NBDfFUg7-QpZcN8la_1GajXLAG8CPSJY57UtF_KzDVngKtXFq5Sf0pDKTkPait',     // ClientID
-          'EOTAD6imF2dvey05be84JrASR7K9XxXiBcvGbAfgpeHs0kduIuR4BVxdj2Y5lWqt4VerjyWzFonoy_UI'      // ClientSecret
-      )
-    );
-
-    try {
-        $params = array('count' => 10, 'start_index' => 0);
-        $payments = Payment::all($params, $apiContext);
-    } catch (Exception $ex) {
-        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-        dd('error');
-        exit(1);
-    }
-
-    dd($payments);
-
-  }
 
 }

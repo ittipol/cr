@@ -172,12 +172,6 @@
             หลังจากโอนเงินแล้ว กรุณาแจ้งโอนเงินบริจาคได้ที่แบบฟอร์มด้านล่าง
           </div>   
 
-          <!-- <p>
-            ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชี 
-            <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">บัญชีธนาคาร</a>
-            หลังจากโอนเงินแล้ว กรุณาแจ้งโอนเงินบริจาคได้ที่แบบฟอร์มด้านล่าง
-          </p> -->
-
           <div class="clearfix margin-bottom-10"></div>
 
           <fieldset>
@@ -259,14 +253,14 @@
 
           <div class="tag-box tag-box-v2">
             <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-            <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุล" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
+            <p>หากต้องการบริจาคโดยไม่ออกนามให้ยกเว้นการกรอก "ชื่อ นามสกุลผู้บริจาค" ของคุณ <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
           </div>
 
           <div class="row">
             <section class="col col-xs-12">
-              <label class="label">ชื่อ นามสกุล</label>
+              <label class="label">ชื่อ นามสกุลผู้บริจาค</label>
               <label class="input">
-                {{Form::text('name', null, array('id' => 'name_input','placeholder' => 'ชื่อ นามสกุล','autocomplete' => 'off'))}}
+                {{Form::text('name', null, array('id' => 'name_input', 'autocomplete' => 'off'))}}
               </label>
             </section>
           </div>
@@ -478,8 +472,8 @@
 
 </div>
 
-
-
+<div class="global-overlay"></div>
+<div class="global-loading-icon"></div>
 
 
 
@@ -533,52 +527,9 @@
 
       let _this = this;
 
+      // remove
       $("#donation_form").submit(function () {
-
-        console.log('sdfsdf');
-
-        let form = $(this);
-
-          // Disable the submit button to avoid repeated click.
-        form.find("input[type=submit]").prop("disabled", true);
-
-        let card = {
-          "name": 'example name',
-          "number": '4032032334484554',
-          "expiration_month": '09',
-          "expiration_year": '2022',
-          "security_code": '123'
-        };
-
-        Omise.createToken("card", card, function (statusCode, response) {
-          if (response.object == "error") {
-            // Display an error message.
-            var message_text = "SET YOUR SECURITY CODE CHECK FAILED MESSAGE";
-            if(response.object == "error") {
-              message_text = response.message;
-            }
-            console.log(response);
-            // $("#token_errors").html(message_text);
-
-            // Re-enable the submit button.
-            form.find("input[type=submit]").prop("disabled", false);
-          } else {
-            // Then fill the omise_token.
-            form.find("[name=omise_token]").val(response.id);
-
-            console.log(response);
-
-            // Remove card number from form before submiting to server.
-            $('#card_number').val('');
-            $('#cvc').val('');
-
-            // submit token to server.
-            form.get(0).submit();
-          };
-        });
-
         return false;
-
       }); 
 
       $('.method-rdo').on('click',function(){
