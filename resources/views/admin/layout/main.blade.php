@@ -76,7 +76,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="{{URL::to('admin/donation/list')}}">list</a></li>
-              <li><a href="{{URL::to('admin/donation/add')}}">add</a></li>
+              <li><a href="{{URL::to('admin/donation/view')}}">view</a></li>
             </ul>
           </li>
           <li class="dropdown">

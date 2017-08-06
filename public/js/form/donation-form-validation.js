@@ -159,25 +159,22 @@ var Validation = function () {
 
                 case 'method_1':
 
-                  // example
+                  let cardExpire = $('#card_expire').val().split(' / ');
                   let card = {
-                    "name": 'example name',
-                    "number": '4032032334484554',
-                    "expiration_month": '09',
-                    "expiration_year": '2022',
-                    "security_code": '123'
+                    "name":  $('#holder_name').val(),
+                    "number": $('#card_number').val().replace(/\s/g,''),
+                    "expiration_month": cardExpire[0],
+                    "expiration_year": cardExpire[1],
+                    "security_code": $('#cvc').val()
                   };
                 
                   Omise.createToken("card", card, function (statusCode, response) {
                     if(response.object == "error") {
-                      // Display an error message.
-                      let message_text = "SET YOUR SECURITY CODE CHECK FAILED MESSAGE";
-                      if(response.object == "error") {
-                        message_text = response.message;
-                      }
-                      // $("#token_errors").html(message_text);
 
-                      console.log(message_text);
+                      // let message_text = response.message;
+
+                      $("#card_error").html('หมายเลขบัตรเครดิตไม่ถูกต้องหรือระบบไม่รองรับบัตรเครดิตนี้').css('display','block');
+                      $(document).scrollTop($("#card_error").position().top);
 
                       // Re-enable the submit button.
                       _form.find("input[type=submit]").prop("disabled", false);

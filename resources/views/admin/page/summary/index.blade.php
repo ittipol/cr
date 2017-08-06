@@ -2,7 +2,7 @@
 @section('content')
 
   <h1 class="margin-bottom-20">
-    แสดงการบริจาค
+    สรุปการบริจาค
   </h1>
 
   {{Form::open(['id' => 'main_form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="col-sm-2">
-        {{Form::submit('แสดง', array('class' => 'btn-u btn-block btn-u-blue'))}}
+        {{Form::submit('สรุป', array('class' => 'btn-u btn-block btn-u-blue'))}}
       </div>
       <br>
       <div class="col-xs-12">

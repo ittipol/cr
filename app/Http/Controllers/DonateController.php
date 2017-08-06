@@ -133,7 +133,7 @@ class DonateController extends Controller
       case 'method_1':
 
         $donation->transaction_date = date('Y-m-d H:i:s');
-        $donation->donate_via_id = 1;
+        $donation->donation_via_id = 1;
 
         break;
       
@@ -143,7 +143,7 @@ class DonateController extends Controller
         $validation = $donation->validation;
 
         $donation->transaction_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
-        $donation->donate_via_id = 2;
+        $donation->donation_via_id = 2;
 
         break;
     }
@@ -238,6 +238,10 @@ class DonateController extends Controller
       $donation->unidentified = 1;
     }
 
+    // charging
+    $donation->fee = request()->amount * $donation->getFeeRate();
+    $donation->balance = request()->amount - $donation->fee;
+
     // Save donation record
     if(!$donation->save()) {
       return Redirect::back()->withErrors(array(
@@ -245,7 +249,7 @@ class DonateController extends Controller
       ));
     }
 
-    // Card paymemt
+    // Credit Card paymemt
     if(request()->method == 'method_1') {
       
       define('OMISE_API_VERSION', '2015-11-17');

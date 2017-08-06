@@ -7,7 +7,9 @@ use DB;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','transaction_date','get_reward','reward','shipping_address','donate_via_id','verified'];
+  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','fee','balance','transaction_date','get_reward','reward','shipping_address','donation_via_id','verified'];
+
+  private $feeRate = 0.3; // 30%
 
   public $validation = array(
     'rules' => array(
@@ -64,6 +66,14 @@ class Donation extends Model
 
   public function project() {
     return $this->hasOne('App\Models\Project','id','model_id');
+  }
+
+  public function donationVia() {
+    return $this->hasOne('App\Models\DonationVia','id','donation_via_id');
+  }
+
+  public function getFeeRate() {
+    return $this->feeRate;
   }
 
   public function countDonation($model,$modelId,$thisMonth = false) {

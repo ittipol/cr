@@ -50,7 +50,8 @@
         </section>
 
 
-        <!-- <div class="clearfix margin-bottom-30"></div> -->
+
+
 
         <section>
           <label class="label">บริจาคโดย</label>
@@ -69,7 +70,9 @@
 
           <div class="alert alert-info fade in">
             เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ
-          </div> 
+          </div>
+
+          <div id="card_error" class="alert alert-danger fade in" style="display:none"></div> 
 
           <div class="row">
             <section class="col-xs-12">
@@ -220,11 +223,6 @@
 
         @if(Auth::check())
 
-          <!-- <div class="tag-box tag-box-v2">
-            <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
-            <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
-          </div> -->
-
           <h4 class="no-margin-top">บริจาคโดยไม่ออกนาม</h4>
           <p>หากต้องการบริจาคโดยไม่ออกนามให้คลิกที่ตัวเลือก "บริจาคโดยไม่ออกนาม" <a href="javascript:void(0);" data-toggle="modal" data-target="#unidentified_donation_modal">บริจาคโดยไม่ออกนามคืออะไร?</a></p>
 
@@ -267,18 +265,15 @@
         <div class="clearfix margin-bottom-30"></div>
         <hr>
 
-        <h4 class="no-margin-top">รางวัลจากมูลนิธิ</h4>
-        <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
-        <!-- <div class="tag-box tag-box-v2">
-          <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของรางวัล <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">รางวัล</a></p>
-        </div> -->
+        <h4 class="no-margin-top">ของที่ระลึกจากมูลนิธิ</h4>
+        <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของที่ระลึกจากมูลนิธิ <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">ของที่ระลึก</a></p>
 
         @include('content.donate_reward')
 
         <div class="clearfix margin-bottom-10"></div>
 
         <label class="checkbox state-success">
-          {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'open_address_form_chkbox'))}}<i></i>ต้องการรับของรางวัล
+          {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'open_address_form_chkbox'))}}<i></i>รับของที่ระลึก
         </label>
 
         <div id="address_form">

@@ -19,10 +19,11 @@ $date = new \App\library\Date;
             <th>#</th>
             <th>ชื่อมูลนิธิ / โครงการ</th>
             <th>ชื่อผู้บริจาค</th>
+            <th>บริจาคโดย</th>
             <th>จำนวนเงินบริจาค</th>
-            <th>วันที่โอน</th>
-            <th>ต้องการรางวัล</th>
-            <th>ตรวจสอบการบริจาค</th>
+            <th>วันที่</th>
+            <th>รับของที่ระลึก</th>
+            <th>ตรวจสอบ</th>
             <th>เครื่องมือ</th>
           </tr>
         </thead>
@@ -32,11 +33,20 @@ $date = new \App\library\Date;
               <tr>
                 <td>{{$data->id}}</td>
                 <td>{{$data->model}}, {{$data->{strtolower($data->model)}->name}}</td>
-                <td>@if(!empty($data->donor_name)) {{$data->donor_name}} @else ไม่ออกนาม @endif</td>
+                <td>
+                  @if($data->unidentified) 
+                    ไม่ออกนาม
+                  @elseif(!empty($data->user_id))
+                    {{$data->user->name}}
+                  @else
+                    {{$data->guest_name}}
+                  @endif
+                </td>
+                <td>{{$data->donationVia->name}}</td>
                 <td>{{$data->amount}}</td>
                 <td>{{$date->covertDateTimeToSting($data->transaction_date)}}</td>
-                <td>@if($data->get_reward) ต้องการ @else ไม่ต้องการ @endif</td>
-                <td>@if($data->verified) ตรจวสอบแล้ว @else ยังไม่ได้ตรวจสอบ @endif</td>
+                <td class="text-center">@if($data->get_reward) <i class="fa fa-check"></i> @else <i class="fa fa-minus"></i> @endif</td>
+                <td class="text-center">@if($data->verified) <i class="fa fa-check"></i> @else <i class="fa fa-minus"></i> @endif</td>
                 <td>
                   <a href="{{URL::to('admin/donation/detail')}}/{{$data->id}}" class="btn btn-warning btn-xs">detail</a>
                   <a href="{{URL::to('admin/donation/edit')}}/{{$data->id}}" class="btn btn-warning btn-xs">Edit</a>
