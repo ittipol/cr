@@ -34,7 +34,7 @@ $date = new \App\library\Date;
                 <td>{{$data->model}}, {{$data->{strtolower($data->model)}->name}}</td>
                 <td>@if(!empty($data->donor_name)) {{$data->donor_name}} @else ไม่ออกนาม @endif</td>
                 <td>{{$data->amount}}</td>
-                <td>{{$date->covertDateTimeToSting($data->transfer_date)}}</td>
+                <td>{{$date->covertDateTimeToSting($data->transaction_date)}}</td>
                 <td>@if($data->get_reward) ต้องการ @else ไม่ต้องการ @endif</td>
                 <td>@if($data->verified) ตรจวสอบแล้ว @else ยังไม่ได้ตรวจสอบ @endif</td>
                 <td>

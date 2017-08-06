@@ -7,7 +7,7 @@ use DB;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','transfer_date','get_reward','reward','shipping_address','donate_via_id','verified'];
+  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','transaction_date','get_reward','reward','shipping_address','donate_via_id','verified'];
 
   public $validation = array(
     'rules' => array(
@@ -75,7 +75,7 @@ class Donation extends Model
     ]);
 
     if($thisMonth) {
-      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+      $donations->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
     return $donation->count();
@@ -100,7 +100,7 @@ class Donation extends Model
     });
 
     if($thisMonth) {
-      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+      $donations->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
     $count += $donations->count();
@@ -119,7 +119,7 @@ class Donation extends Model
     
 
     if($thisMonth) {
-      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+      $donations->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
     $count += $donations->count('user_id');
@@ -148,7 +148,7 @@ class Donation extends Model
     ->groupBy('model');
 
     if($thisMonth) {
-      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+      $donations->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
     $donation = $donations->first();
@@ -177,7 +177,7 @@ class Donation extends Model
     ->groupBy('model','model_id');
 
     if($thisMonth) {
-      $donations->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+      $donations->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
     $donation = $donations->first();

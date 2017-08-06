@@ -46,23 +46,19 @@
             <i class="fa fa-facebook"></i> แชร์การบริจาคนี้      
           </a>    -->
 
-          <div class="col-xs-6">
-            <div class="pull-right">
-              <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
-                <i class="fa fa-facebook"></i>
-              </a>
-              <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ขอบ" target="_blank">
-                <i class="fa fa-twitter"></i>
-              </a>
-              <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
-                <i class="fa fa-google-plus"></i>
-              </a>
-            </div>
+          <div class="donation-box text-center">
+            <h4>แชร์คำขอบคุณจากเราและการบริจาคนี้</h4>
+            <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ขอบ" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
+              <i class="fa fa-google-plus"></i>
+            </a>
           </div>
 
-          <!-- <div class="text-center">           
-            <small>เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>โดยไม่ได้รับอนุญาตจากคุณ</small>         
-          </div>   -->     
         </li>     
       </ul>  
     </div>

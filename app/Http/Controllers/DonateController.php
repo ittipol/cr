@@ -120,7 +120,7 @@ class DonateController extends Controller
   }
 
   public function donationSubmit() {
-    dd(request()->all());
+    // dd(request()->all());
     if(empty(request()->for) || empty(request()->id)) {
       return $this->error('URL ไม่ถูกต้อง');
     }
@@ -131,7 +131,10 @@ class DonateController extends Controller
 
     switch (request()->method) {
       case 'method_1':
+
+        $donation->transaction_date = date('Y-m-d H:i:s');
         $donation->donate_via_id = 1;
+
         break;
       
       case 'method_2':
@@ -139,7 +142,9 @@ class DonateController extends Controller
         // rules for bank transfer
         $validation = $donation->validation;
 
+        $donation->transaction_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
         $donation->donate_via_id = 2;
+
         break;
     }
 
@@ -219,8 +224,7 @@ class DonateController extends Controller
         return Redirect::to('/');
         break;
     }
-
-    $donation->transfer_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
+    
     $donation->amount = request()->amount;
     $donation->code = strtoupper(date('Yd').'-'.Token::generateSecureKey(8));
 
@@ -234,20 +238,28 @@ class DonateController extends Controller
       $donation->unidentified = 1;
     }
 
+    // Save donation record
     if(!$donation->save()) {
       return Redirect::back()->withErrors(array(
         array('มีข้อบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
       ));
     }
 
+    // Card paymemt
     if(request()->method == 'method_1') {
       
       define('OMISE_API_VERSION', '2015-11-17');
       define('OMISE_PUBLIC_KEY', 'pkey_test_58v3kcsit84cakasj3s');
       define('OMISE_SECRET_KEY', 'skey_test_58v3kcsjcszyrzyidsx');
 
+      if(strpos(request()->amount, '.') !== false ) {
+        $amount = str_replace('.', '', request()->amount);
+      }else{
+        $amount = request()->amount.'00';
+      }
+
       $charge = OmiseCharge::create(array(
-        'amount' => 2050, // 20.50 บาท
+        'amount' => $amount, //2050 = 20.50 บาท
         'currency' => 'thb',
         'card' => request()->omise_token
       ));

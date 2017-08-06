@@ -29,7 +29,7 @@ class AccountController extends Controller
       ['user_id','=',$userId],
       ['verified','=',1]
     ])
-    ->whereBetween('transfer_date', [date('Y-m-1'), date('Y-m-t')]);
+    ->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
 
     $totalAmount = $donationModel->getTotalAmountBy(null,$userId,true);
 

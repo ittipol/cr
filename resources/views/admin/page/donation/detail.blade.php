@@ -40,7 +40,7 @@ $date = new \App\library\Date;
   <dt>จำนวนเงินบริจาค</dt>
   <dd><h4>{{$donation->amount}}</h4></dd>
   <dt>วันที่โอน</dt>
-  <dd><h4>{{$date->covertDateTimeToSting($donation->transfer_date)}}</h4></dd>
+  <dd><h4>{{$date->covertDateTimeToSting($donation->transaction_date)}}</h4></dd>
 </dl>
 
 <hr>

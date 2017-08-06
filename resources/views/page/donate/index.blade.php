@@ -50,14 +50,16 @@
         </section>
 
 
-        <div class="clearfix margin-bottom-30"></div>
+        <!-- <div class="clearfix margin-bottom-30"></div> -->
 
-
+        <section>
+          <label class="label">บริจาคโดย</label>
+        </section>
 
         <div class="sky-form">
           <label class="radio">
             <input type="radio" name="method" class="method-rdo" value="method_1" checked>
-            <i class="rounded-x"></i>ผ่านบัตรเครคิต
+            <i class="rounded-x"></i>บัตรเครคิต
           </label>
         </div>
 
@@ -69,19 +71,9 @@
             เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ
           </div> 
 
-          <!-- <div class="row">
-            <section class="col-xs-12">
-              <label class="label">จำนวนเงินบริจาค</label>
-              <label class="input-group">
-                {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
-                <span class="input-group-addon">บาท</span>
-              </label>
-            </section>
-          </div>  -->
-
           <div class="row">
             <section class="col-xs-12">
-              <label class="label">ชื่อเจ้าของบัตร</label>
+              <label class="label">ชื่อผู้ถือบัตร</label>
               <label class="input">
                 {{Form::text('holder_name', null, array('id' => 'holder_name', 'autocomplete' => 'off'))}}
               </label>
@@ -210,14 +202,6 @@
                 </label>
               </section>
             </div>
-
-            <!-- <section>
-              <label class="label">จำนวนเงินบริจาค</label>
-              <label class="input-group">
-                {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
-                <span class="input-group-addon">บาท</span>
-              </label>
-            </section> -->
 
           </fieldset>
 

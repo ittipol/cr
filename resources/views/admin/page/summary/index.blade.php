@@ -8,7 +8,6 @@
   {{Form::open(['id' => 'main_form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
     
     <div class="alert alert-danger fade in">
-      <h4>หมายเหตุ</h4>
       <p>
         * ค้าหารายวันให้ป้อนทั้ง 3 ช่อง วัน เดือน ปี
         <br>
@@ -48,6 +47,12 @@
       <div class="col-sm-2">
         {{Form::submit('แสดง', array('class' => 'btn-u btn-block btn-u-blue'))}}
       </div>
+      <br>
+      <div class="col-xs-12">
+        {{Form::checkbox('record', 'sum', null,array('id' => 'record_chk'))}}
+        {{Form::label('record_chk', 'แสดงรายการรวม')}}
+      </div>
+
     </div>
 
   {{Form::close()}}
