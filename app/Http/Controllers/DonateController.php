@@ -245,7 +245,7 @@ class DonateController extends Controller
     // Save donation record
     if(!$donation->save()) {
       return Redirect::back()->withErrors(array(
-        array('มีข้อบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
+        array('มีข้อมูลบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
       ));
     }
 

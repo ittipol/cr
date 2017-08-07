@@ -80,7 +80,7 @@ label.profile-image .profile-image-preview {
 	background-position: center;
   background-size: auto 100%;
   background-repeat: no-repeat;
-  background-color: #fff;
+  /*background-color: #fff;*/
   z-index: 5;
 }
 

@@ -16,7 +16,7 @@
         <div id="profile_image_preview" class="profile-image-preview"></div>
         <a href="javascript:void(0);" id="profile_image_remove_btn" class="image-remove-btn">×</a>
         @else
-        <div id="profile_image_preview" class="profile-image-preview" style="background-image: url({{URL::to('avatar')}}/{{$data->avatar}});"></div>
+        <div id="profile_image_preview" class="profile-image-preview" style="background-color:#fff; background-image: url({{URL::to('avatar')}}/{{$data->avatar}});"></div>
         <a href="javascript:void(0);" id="profile_image_remove_btn" class="image-remove-btn" style="display:block;">×</a>
         @endif
         <p class="error-message"></p>
@@ -36,6 +36,8 @@
       </label>
     </section>
   </div>
+
+  <input type="hidden" id="remove" name="remove">
 
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}
 
@@ -96,16 +98,10 @@
             let reader = new FileReader();
 
             reader.onload = function (e) {
-              $('#profile_image_preview').css('background-image', 'url(' + e.target.result + ')');
+              $('#profile_image_preview').css('background-image', 'url(' + e.target.result + ')').css('background-color','#fff');
             }
 
             reader.readAsDataURL(input.files[0]);
-
-            // let formData = new FormData();
-            // formData.append('_token', $('input[name="_token"]').val());  
-            // formData.append('image', input.files[0]);
-
-            // this.uploadImage(parent,input,formData);
 
           }
         }
@@ -115,11 +111,13 @@
     }
 
     removePreview(elem){
-      // let parent = $(elem).parent();
-
       $('#profile_image_input').val('');
       $('#profile_image_remove_btn').css('display','none');
-      $('#profile_image_preview').css('background-image', 'none');
+      $('#profile_image_preview').css({
+        'background-image': 'none',
+        'background-color': 'transparent'
+      });
+      $('#remove').val(1);
     }
 
     checkImageType(type){

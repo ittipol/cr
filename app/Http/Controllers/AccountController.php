@@ -62,9 +62,31 @@ class AccountController extends Controller
 
     $user = Service::loadModel('User')->find(Auth::user()->id);
 
-    $user->name = $request->get('name');
+    $user->name = $request->name;
 
-    if($user->save() && !empty($request->file('profile_image'))) {
+    if(!$user->save()) {
+      return Redirect::back()->withErrors(array(
+        array('มีข้อมูลบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
+      ));
+    }
+
+    // Avatar
+    if(!empty($request->remove) && !empty($user->avatar) && empty($request->file('profile_image'))) {
+
+      $target = storage_path('app/public/users/'.$user->id.'/avatar/');
+      if(!is_dir($target)){
+        mkdir($target,0777,true);
+      }
+
+      if(!empty($user->avatar)) {
+        File::delete($target.$user->avatar);
+      }
+
+      $user->avatar = null;
+      $user->save();
+
+    }elseif(!empty($request->file('profile_image'))) {
+
       $handle = new handleStockImage($request->file('profile_image'));
 
       $filename = $handle->getFileName();
