@@ -9,7 +9,7 @@ class Donation extends Model
   protected $table = 'donations';
   protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','fee','balance','transaction_date','get_reward','reward','shipping_address','donation_via_id','verified'];
 
-  private $feeRate = 0.3; // 30%
+  private $feeRate = 0.1; // 30%
 
   public $validation = array(
     'rules' => array(

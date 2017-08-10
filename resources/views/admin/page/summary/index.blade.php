@@ -73,7 +73,7 @@
       <thead>
         <tr>
           <th>ชื่อมูลนิธิ/โครงการ</th>
-          <th>ยอดรวม</th>
+          <th>ยอดทั้งสิ้น</th>
           <th>ยอดที่หัก</th>
           <th>ยอดส่งมอบ</th>
         </tr>
@@ -110,7 +110,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <td>สรุป</td>
+          <td>ทั้งสิ้น</td>
           <td>{{$summartAmount['total']}}</td>
           <td>{{$summartAmount['deducted']}}</td>
           <td>{{$summartAmount['balance']}}</td>

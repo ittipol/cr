@@ -253,8 +253,8 @@ class DonateController extends Controller
     if(request()->method == 'method_1') {
       
       define('OMISE_API_VERSION', '2015-11-17');
-      define('OMISE_PUBLIC_KEY', 'pkey_test_58v3kcsit84cakasj3s');
-      define('OMISE_SECRET_KEY', 'skey_test_58v3kcsjcszyrzyidsx');
+      define('OMISE_PUBLIC_KEY', 'pkey_test_58x7mn3lfybowau4r98');
+      define('OMISE_SECRET_KEY', 'skey_test_58x7mn3lob7b7m832t4');
 
       if(strpos(request()->amount, '.') !== false ) {
         $amount = str_replace('.', '', request()->amount);

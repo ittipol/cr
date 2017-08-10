@@ -101,6 +101,12 @@ class ProjectController extends Controller
     $images = array(null,null,null,null,null,null,null,null,null,null);
     if(!empty($data->images)) {
       $images = json_decode($data->images,true);
+
+      $remain = 10 - count($images);
+
+      for ($i=1; $i <= $remain; $i++) { 
+        $images[] = null;
+      }
     }
 
     $this->setData('data',$data);

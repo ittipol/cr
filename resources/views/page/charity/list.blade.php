@@ -39,7 +39,12 @@
                 ?>
 
                 <div class="main-content margin-bottom-20">
-                  <a href="{{URL::to('charity')}}/{{$data->id}}"><img src="{{$data->logo}}">{{$data->name}}</a>
+                  <a href="{{URL::to('charity')}}/{{$data->id}}">
+                    @if(!empty($data->logo))
+                    <img src="{{$data->logo}}">
+                    @endif
+                    {{$data->name}}
+                  </a>
                   — {{$shortDesc}}
                 </div>
                 

@@ -69,7 +69,8 @@
           <div class="clearfix margin-bottom-20"></div>
 
           <div class="alert alert-info fade in">
-            เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ
+            เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ <br>
+            ข้อมูลทั้งหมดที่คุณกรอกมาจะถูกส่งผ่านการเชื่อมต่อที่ปลอดภัย แบบ SSL คุณจึงมั่นใจได้ในความปลอดภัยของข้อมูล 
           </div>
 
           <div id="card_error" class="alert alert-danger fade in" style="display:none"></div> 
@@ -97,7 +98,7 @@
 
           <div class="row">
             <section class="col-xs-12">
-              <label class="label">CVC</label>
+              <label class="label">CVC <a href="javascript:void(0);" data-toggle="modal" data-target="#cvc_modal">คืออะไร</a></label>
               <label class="input">
                 {{Form::text('cvc', null, array('id' => 'cvc', 'class' => 'cc-input', 'placeholder' => 'CVC', 'autocomplete' => 'off'))}}
               </label>
@@ -117,19 +118,19 @@
 
         </div>
 
-        <div class="clearfix margin-bottom-30"></div>
-
-        <div class="modal fade" id="bank_account_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cvc_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                <h4 id="myModalLabel1" class="modal-title">บัญชีธนาคาร</h4>
+                <h4 id="myModalLabel1" class="modal-title">CVC คืออะไร</h4>
               </div>
               <div class="modal-body">
-                <div class="tag-box tag-box-v3">
-                  @include('content.bank_account')
-                </div>
+                รหัสยืนยันบัตรหรือ CVC เป็นรหัสพิเศษที่พิมพ์อยู่บนบัตรเดบิตหรือบัตรเครดิตของคุณ <br><br>
+                สำหรับบัตรอเมริกันเอ็กซ์เพรส CVC จะปรากฏเป็นรหัส 4 หลักที่แยกต่างหากพิมพ์อยู่บนด้านหน้าของบัตรของคุณ ส่วนบัตรอื่น ๆ ทั้งหมด (Visa, Master Card, บัตรของธนาคารอื่น ๆ ) จะเป็นตัวเลขสามหลักที่พิมพ์อยู่ถัดจากแถบลายเซ็นด้านหลังของบัตรของคุณ โปรดสังเกตว่ารหัส CVC จะไม่นูน (ต่างจากหมายเลขบัตร หลักด้านหน้า) <br><br>
+                CVC จะไม่ได้ถูกพิมพ์บนใบเสร็จรับเงินใด ๆ ด้วยเหตุนี้มันจึงไม่เป็นที่ทราบหรือพบเห็นโดยบุคคลอื่นที่ไม่ใช่เจ้าของบัตรที่แท้จริง <br><br>
+                กรอกรหัส CVC เพื่อยืนยันว่าคุณคือผู้ถือบัตรสำหรับการทำรายการในครั้งนี้และเพื่อหลีกเลี่ยงบุคคลอื่นที่ไม่ใช่คุณไม่ให้สามารถทำการซื้อสินค้าโดยใช้หมายเลขบัตรของคุณได้ <br><br>
+                *** โปรดสังเกตว่าชื่อของรหัสนี้อาจเรียกแตกต่างกันไปตามบริษัทผู้ออกบัตร เช่น Card Verification Value (CVV), the Card Security Code หรือ the Personal Security Code ซึ่งทั้งหมดนี้เป็นข้อมูลแบบเดียวกัน
               </div>
               <div class="modal-footer">
                 <button data-dismiss="modal" class="btn-u btn-u-default" type="button">ปิด</button>
@@ -137,6 +138,10 @@
             </div>
           </div>
         </div>
+
+        <div class="clearfix margin-bottom-30"></div>
+
+        
 
 
 
@@ -173,7 +178,26 @@
             ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชีที่ระบุ 
             <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">เลขที่บัญชีธนาคาร</a>
             หลังจากโอนเงินแล้ว กรุณาแจ้งโอนเงินบริจาคได้ที่แบบฟอร์มด้านล่าง
-          </div>   
+          </div>
+
+          <div class="modal fade" id="bank_account_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                  <h4 id="myModalLabel1" class="modal-title">บัญชีธนาคาร</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="tag-box tag-box-v3">
+                    @include('content.bank_account')
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn-u btn-u-default" type="button">ปิด</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div class="clearfix margin-bottom-10"></div>
 

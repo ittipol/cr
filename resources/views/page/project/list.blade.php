@@ -39,9 +39,11 @@
                 </div>
 
                 <div class="project-by-charity margin-bottom-20">
+                  @if(!empty($data->charity->logo))
                   <a href="{{URL::to('charity')}}/{{$data->charity->id}}">
                     <img class="charity-logo" src="{{$data->charity->logo}}">
                   </a>
+                  @endif
                   <span>โดย <a href="{{URL::to('charity')}}/{{$data->charity->id}}">{{$data->charity->name}}</a></span>
                 </div>
             

@@ -21,7 +21,7 @@
 
   <div class="form-group">
     {{Form::label('description', 'รายละเอียด')}}
-    {{Form::textarea('description', null, array('class' => 'form-control'))}}
+    {{Form::textarea('description', null, array('class' => 'form-control', 'id' => 'editor'))}}
   </div>
 
   <div class="form-group">
@@ -71,9 +71,11 @@
 
 {{Form::close()}}
 
+<script type="text/javascript" src="/js/app/code/ckeditor.js"></script>
+<script type="text/javascript" src="/js/loader.js"></script>
+
 <script type="text/javascript">
-  const textEditor = new TextEditor();
-  textEditor.load();
+  initSample();
 </script>
 
 @stop

@@ -14,8 +14,8 @@
     'assets/plugins/jquery/jquery.min.js',
     'assets/plugins/jquery/jquery-migrate.min.js',
     'assets/plugins/bootstrap/js/bootstrap.min.js',
-    'js/app/app.js', // tinymce
-    'js/app/loader.js', // tinymce loader
+    // 'js/app/app.js', // tinymce
+    // 'js/app/loader.js', // tinymce loader
     'js/library/token.js',
     'js/form/stock-images.js',
     'assets/js/custom.js',
