@@ -168,7 +168,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                   <h3>บริจาคให้กับมูลนิธินี้</h3>
 
                   <div class="donate-box">
@@ -178,7 +178,7 @@
                       <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
 
             </div>

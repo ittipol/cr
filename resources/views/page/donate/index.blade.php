@@ -452,7 +452,7 @@
 
       </div>
 
-      <div class="col-md-4">
+      <!-- <div class="col-md-4">
 
         <div class="clearfix sm-margin-bottom-100"></div>
 
@@ -466,7 +466,7 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
     </div>
 
   {{Form::close()}}
