@@ -11,6 +11,20 @@ hr {
 	border-color: #05AF3C;
 }
 
+/*.fixed-notice {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	line-height: 50px;
+	color: #fff;
+	font-size: 18px;
+	background-color: #1565C0;
+	text-transform: uppercase;
+	text-align: center;
+	z-index: 999;
+}*/
+
 .user-avatar {
 	background-position: center;
 	background-size: auto 100%;

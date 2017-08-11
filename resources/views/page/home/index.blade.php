@@ -101,13 +101,10 @@
 
   <!-- Promo section -->
   <div class="promo-section">
-    <div class="promo-item" style="background-image: url(/images/common/promo_bg.jpg);">
+    <div class="promo-item" style="background-image: url(/images/promo/1_1.jpg);">
       <div class="container">
         <div class="promo-item-content">
-          <h3>ร่วมช่วยเหลือมูลนิธิ<br> <strong>มูลนิธิช่วยเหลือแมวจร</strong></h3>
-          <!-- <div class="g-mb-45">
-            <div class="money-type-1 g-mr-10 g-mb-10--4x"><em>การบริจาคในเดือนนี้</em> <strong>7200 บาท</strong></div>
-          </div> -->
+          <h3>สุนัขจร<br> <strong>ร่วมเป็นหนึ่งในการช่วยเหลือพวกเค้า</strong></h3>
           <p class="g-color-white--dark g-mb-45">จะทำหน้าที่ช่วยเหลือแมวจร ที่บ้านเจ็บ ไร้บ้าน และพร้อมโครงการที่จะช่วยเหลือแมวในการหาเจ้าของ</p>
           <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="#"><i class="fa fa-heart"></i> บริจาคให้กับมูลนิธินี้</a>
           <a class="btn-u btn-u-lg btn-u-upper" href="#">ไปยังมูลนิธิ</a>
@@ -147,7 +144,12 @@
               ?>
 
               <div class="main-content margin-bottom-20">
-                <a href="{{URL::to('charity')}}/{{$data->id}}"><img src="{{$data->logo}}">{{$data->name}}</a>
+                <a href="{{URL::to('charity')}}/{{$data->id}}">
+                  @if(!empty($data->logo))
+                  <img src="{{$data->logo}}">
+                  @endif
+                  {{$data->name}}
+                </a>
                 — {{$shortDesc}}
               </div>
               
