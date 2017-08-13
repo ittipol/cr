@@ -204,6 +204,23 @@
           <fieldset>
 
             <div class="row">
+
+              <section class=" col-md-12">
+                <label class="label">บัญชีที่รับโอน</label>
+                <label class="radio">
+                  {{Form::radio('bank_acc', 1, true)}}<i class="rounded-x"></i>ธ.กสิกรไทย
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;025-8-81991-8
+                </label>
+                <label class="radio">
+                  {{Form::radio('bank_acc', 2, false)}}<i class="rounded-x"></i>ธ.ไทยพาณิชย์ 
+                  &nbsp;&nbsp;&nbsp;814-273724-4
+                </label>
+                <label class="radio">
+                  {{Form::radio('bank_acc', 3, false)}}<i class="rounded-x"></i>ธ.กรุงไทย 
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;764-0-41836-4
+                </label>
+              </section>
+
               <section class="col col-6">
                 <label class="label">วันที่โอน</label>
                 <label class="input floating-label">
@@ -485,7 +502,7 @@
 
 <script type="text/javascript" src="/js/omise.js"></script>
 <script type="text/javascript">
-  Omise.setPublicKey("pkey_test_58v3kcsit84cakasj3s");
+  Omise.setPublicKey("pkey_test_58x7mn3lfybowau4r98");
 </script>
 
 <!-- <script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
@@ -606,7 +623,6 @@
 
     Validation.initValidation();
     Datepicker.initDatepicker();
-    // Masking.initMasking();
   });
 
 </script>

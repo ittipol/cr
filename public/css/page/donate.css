@@ -19,8 +19,6 @@
 	position: absolute;
 	top: 1px;
 	left: 1px;
-	/*width: 358px;
-	height: 32px;*/
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
 	font-size: 14px;
@@ -50,6 +48,46 @@
 
 .donation-search-block h1 {
 	font-size: 28px;
+}
+
+.donate.share > .container {
+	padding-top: 820px;
+	position: relative;
+	z-index: 9;
+}
+
+.donate.share .content {
+	position: relative;
+}
+
+.donate.share .shared-content-bg {
+	position: absolute;
+	width: 100%;
+	height: 900px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+.donate.share .shared-content-bg h1 {
+	color: #fff;
+	margin-top: 180px;
+	font-size: 40px;
+	line-height: 54px;
+}
+
+.donate.share .shared-content-bg h2 {
+	color: #fff;
+	margin-top: 60px;
+	display: inline-block;
+	padding: 6px 15px;
+}
+
+.donate.share .shered-content {
+	border-top: 4px solid #05AF3C;
+  background-color: #fff;
+  padding: 0 20px;
 }
 
 @media only screen and (max-width : 480px) {

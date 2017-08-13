@@ -15,11 +15,12 @@
     
     <div class="row invoice-header">
       <div class="col-xs-6">
-        <img src="{{$charityLogo}}">
+        @if(!empty($charityLogo))
+          <img src="{{$charityLogo}}">
+        @endif
       </div>
       <div class="col-xs-6 invoice-numb">
         {{$for}}
-        <!-- <span>{{$name}}</span> -->
         @if($_for == 'charity')
           <span><a href="{{URL::to('charity')}}/{{$id}}">{{$name}}</a></span>
         @elseif($_for == 'project')
@@ -105,43 +106,5 @@
   @endif
 
 </div>
-
-<script type="text/javascript">
-
-  $('#fb_post_btn').on('click',function(e){
-    
-    FB.login(function(response) {
-
-      if (response.authResponse) {
-
-        // console.log(response.authResponse.accessToken);
-        window.location.href = "/donation/share?code="+response.authResponse.accessToken+"&_code={{$code}}";
-
-        //user just authorized your app
-
-        // FB.api("/me/feed","POST",
-        //     {
-        //       message: "ABCDEF ... \nnew line test ...",
-        //       privacy: {value:"SELF"},
-        //       link: 'http://103.13.228.35/'
-        //     },
-        //     function (response) {
-
-        //       console.log(response.error);
-
-        //       $('#fb_post_btn').fadeOut(220);
-
-        //       if (response && !response.error) {
-        //         /* handle the result */
-        //         console.log('axxxx');
-        //       }
-        //     }
-        // );
-
-      }
-    }, {scope: 'email,public_profile'});
-  });
-
-</script>
 
 @stop

@@ -26,3 +26,7 @@
 	float: none;
 	margin: 0 5px 0 0;
 }
+
+.btn-u.btn-custom-color {
+	background-color: #05AF3C;
+}
