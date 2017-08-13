@@ -100,11 +100,21 @@
 
 .donation.share .promo-section h3 {
 	font-size: 40px;
-	color: #ede9dd;
-	background-color: rgba(2,239,179,.6);
+	/*color: #ede9dd;*/
+	/*background-color: rgba(2,239,179,.6);*/
+	/*background-color: rgba(38,50,56,.6);*/
 	/*background-color: rgba(1,139,90,.6);*/
 	/*background-color: rgba(148,217,212,.6);*/
-	padding: 40px 15px;
+	/*color: #0D47A1;*/
+	color: rgb(35,31,193);
+	background-color: rgba(255,255,255,.8);
+	/*border: 2px solid rgb(237,41,131);*/
+	background-image: url(/images/logo/logo_2.png);
+	background-position: 99% 10px;
+	background-repeat: no-repeat;
+	padding: 30px 15px;
+	background-size: 80px;
+	padding: 30px 15px;
 }
 
 .donation.share .promo-item:after {
@@ -136,7 +146,7 @@
 	}
 
 	.donation.share .promo-section h3 {
-		font-size: 30px;
+		font-size: 22px;
 	}
 }
 
@@ -156,7 +166,11 @@
 	}
 
 	.donation.share .promo-section h3 {
-		font-size: 28px;
+		font-size: 20px;
+	}
+
+	.promo-item-content {
+		top: 43%;
 	}
 
 }
