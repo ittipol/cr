@@ -40,6 +40,10 @@ p, li a {
 	color: #fd5c3d;
 }
 
+.one-page-header.charity-header .navbar-brand img {
+	max-height: 50px;
+}
+
 .one-page-header.charity-header .navbar-nav > li > a {
 	font-size: 14px;
 	font-weight: 100;

@@ -50,7 +50,7 @@
 	font-size: 28px;
 }
 
-.donate.share > .container {
+/*.donate.share > .container {
 	padding-top: 820px;
 	position: relative;
 	z-index: 9;
@@ -88,6 +88,38 @@
 	border-top: 4px solid #05AF3C;
   background-color: #fff;
   padding: 0 20px;
+}*/
+
+.donation.share .navbar-brand {
+	width: 100%;
+}
+
+.donation.share .navbar-brand img {
+	max-height: 60px;
+}
+
+.donation.share .promo-section h3 {
+	font-size: 40px;
+	color: #ede9dd;
+	background-color: rgba(2,239,179,.6);
+	/*background-color: rgba(1,139,90,.6);*/
+	/*background-color: rgba(148,217,212,.6);*/
+	padding: 40px 15px;
+}
+
+.donation.share .promo-item:after {
+	background: transparent;
+	/*background: rgba(115,150,74,.2);*/
+}
+
+.donation.share .story-content {
+	margin-top: -60px;
+}
+
+@media only screen and (max-width : 768px) {
+  .donation.share .promo-section h3 {
+  	font-size: 40px;
+  }
 }
 
 @media only screen and (max-width : 480px) {
@@ -101,6 +133,10 @@
 
 	.donation-search-block h1 {
 		font-size: 24px;
+	}
+
+	.donation.share .promo-section h3 {
+		font-size: 30px;
 	}
 }
 
@@ -117,6 +153,10 @@
 	.donation-search-block h1 {
 		font-size: 18px;
 		margin: 10px 0;
+	}
+
+	.donation.share .promo-section h3 {
+		font-size: 28px;
 	}
 
 }

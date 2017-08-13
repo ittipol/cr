@@ -7,10 +7,6 @@ a:hover {
 	text-decoration: none;
 }
 
-hr {
-	border-color: #05AF3C;
-}
-
 .white-bg {
 	background-color: #fff !important;
 }
@@ -187,7 +183,6 @@ h2 > img.provider-logo {
 
 .one-page-header.charity-header .navbar-brand img {
 	margin: 0 auto;
-	/*max-height: 43px;*/
 	max-height: 50px;
 }
 .navbar-brand > img.shrink-logo {
