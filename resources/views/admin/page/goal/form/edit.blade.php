@@ -70,7 +70,7 @@
   </div>
 
   <div class="form-group">
-    {{Form::label('active', 'การเข้าถึง'))}}
+    {{Form::label('active', 'การเข้าถึง')}}
     {{Form::radio('active', 1, false)}} เปิดการเข้าถึง
     <br>
     {{Form::radio('active', 0, true)}} ปิดการเข้าถึง
@@ -80,9 +80,10 @@
 
 {{Form::close()}}
 
+<script type="text/javascript" src="/js/app/code/ckeditor.js"></script>
+<script type="text/javascript" src="/js/loader.js"></script>
+
 <script type="text/javascript">
-  const textEditor = new TextEditor();
-  textEditor.load();
-</script>
+  initSample();
 
 @stop

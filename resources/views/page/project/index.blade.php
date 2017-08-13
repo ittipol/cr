@@ -15,7 +15,7 @@
         <h2>{{$project->name}}</h2>
         <p>{{$project->short_desc}}</p>
       </div> -->
-      <img class="rounded-x" src="{{$charity->logo}}">
+      <img src="{{$charity->logo}}">
       <span class="testimonials-author">
         โครงการจาก<br>
         <a href="{{URL::to('charity')}}/{{$charity->id}}">{{$charity->name}}</a>
@@ -94,7 +94,7 @@
                 <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
-                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนี่งในการบริจาคให้กับมูลนิธิ {{$charity->name}}" target="_blank">
+                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน {{$project->name}}" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
                 <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">

@@ -43,7 +43,7 @@ class DonateController extends Controller
       case 'project':
         
         $data = Service::loadModel('Project')
-        ->select('id','charity_id','short_desc','thumbnail')
+        ->select('id','name','charity_id','short_desc','thumbnail')
         ->where([
           ['id','=',request()->id],
           ['end_date','>',date('Y-m-d H:i:s')]

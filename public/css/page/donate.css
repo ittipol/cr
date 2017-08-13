@@ -50,46 +50,6 @@
 	font-size: 28px;
 }
 
-/*.donate.share > .container {
-	padding-top: 820px;
-	position: relative;
-	z-index: 9;
-}
-
-.donate.share .content {
-	position: relative;
-}
-
-.donate.share .shared-content-bg {
-	position: absolute;
-	width: 100%;
-	height: 900px;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	z-index: 0;
-}
-
-.donate.share .shared-content-bg h1 {
-	color: #fff;
-	margin-top: 180px;
-	font-size: 40px;
-	line-height: 54px;
-}
-
-.donate.share .shared-content-bg h2 {
-	color: #fff;
-	margin-top: 60px;
-	display: inline-block;
-	padding: 6px 15px;
-}
-
-.donate.share .shered-content {
-	border-top: 4px solid #05AF3C;
-  background-color: #fff;
-  padding: 0 20px;
-}*/
-
 .donation.share .navbar-brand {
 	width: 100%;
 }
@@ -99,7 +59,7 @@
 }
 
 .donation.share .promo-section h3 {
-	font-size: 40px;
+	font-size: 35px;
 	/*color: #ede9dd;*/
 	/*background-color: rgba(2,239,179,.6);*/
 	/*background-color: rgba(38,50,56,.6);*/
@@ -126,10 +86,10 @@
 	margin-top: -60px;
 }
 
-@media only screen and (max-width : 768px) {
-  .donation.share .promo-section h3 {
-  	font-size: 40px;
-  }
+.donation.share img.charity-logo {
+	width: 40px;
+	height: 40px;
+	margin-left: 4px;
 }
 
 @media only screen and (max-width : 480px) {

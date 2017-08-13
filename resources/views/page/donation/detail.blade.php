@@ -67,8 +67,7 @@
         <div class="tag-box tag-box-v3">
           <h2>รายละเอียดการบริจาค</h2>
           <div class="row">
-            <div class="col-md-4"><strong>บริจาคให้กับ:</strong> {{$for}}</div>
-            <div class="col-md-4"><strong>ชื่อ{{$for}}</strong> {{$name}}</div>
+            <div class="col-md-4"><strong>บริจาคให้กับ:</strong> {{$for}} {{$name}}</div>
 
             <div class="col-md-4">
               <strong>จำนวนเงิน:</strong> {{number_format($donation->amount, 0, '.', ',')}} บาท

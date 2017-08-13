@@ -91,7 +91,7 @@ class DonationController extends Controller
           return $this->error('ไม่พบมูลนิธินี้');
         }
 
-        $this->setData('for','มูลนิธิ');
+        $this->setData('for','');
         $this->setData('charityName',$data->name);
         $this->setData('charityLogo',$data->logo);
 
@@ -149,9 +149,8 @@ class DonationController extends Controller
           return $this->error('ไม่พบมูลนิธินี้');
         }
 
-        $this->setData('for','มูลนิธิ');
-        $this->setData('charityName',$data->name);
-        $this->setData('charityLogo',$data->logo);
+        $this->setData('for','');
+        $this->setData('charity',$data);
 
         break;
 
@@ -161,11 +160,10 @@ class DonationController extends Controller
           return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
 
-        $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
+        $charity = Service::loadModel('Charity')->select('name','logo')->find($data->charity_id);
 
         $this->setData('for','โครงการ');
-        $this->setData('charityName',$charity->name);
-        $this->setData('charityLogo',$charity->logo);
+        $this->setData('charity',$charity);
 
         break;
       
@@ -177,7 +175,8 @@ class DonationController extends Controller
     // SET DATA
     $this->setData('id',$data->id);
     $this->setData('name',$data->name);
-    $this->setData('code',$code);
+    $this->setData('data',$data);
+    // $this->setData('code',$code);
     $this->setData('donation',$donation);
     $this->setData('_for',strtolower($donation->model));
 

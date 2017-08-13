@@ -76,19 +76,21 @@
   </div>
 
   <div class="form-group">
-    {{Form::label('active', 'การเข้าถึง'))}}
-    {{Form::radio('active', 1, false)}} เปิดการเข้าถึง
+    {{Form::label('active', 'การเข้าถึง')}}
     <br>
-    {{Form::radio('active', 0, true)}} ปิดการเข้าถึง
+    {{Form::radio('active', 1, false)}} <label>เปิดการเข้าถึง</label>
+    <br>
+    {{Form::radio('active', 0, true)}} <label>ปิดการเข้าถึง</label>
   </div>
 
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}
 
 {{Form::close()}}
 
+<script type="text/javascript" src="/js/app/code/ckeditor.js"></script>
+<script type="text/javascript" src="/js/loader.js"></script>
+
 <script type="text/javascript">
-  const textEditor = new TextEditor();
-  textEditor.load();
-</script>
+  initSample();
 
 @stop

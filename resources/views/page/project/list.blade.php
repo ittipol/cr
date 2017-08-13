@@ -34,7 +34,7 @@
                 ?>
 
                 <div class="main-content margin-bottom-10">
-                  <a href="{{URL::to('charity')}}/{{$data->id}}">{{$data->name}}</a>
+                  <a href="{{URL::to('project')}}/{{$data->id}}">{{$data->name}}</a>
                   — {{$shortDesc}}
                 </div>
 
@@ -55,7 +55,7 @@
                   ?>
 
                   <div class="statistics">
-                    <h3 class="heading-xs"><strong>{{$donationModel->countDonor('Project',$data->id)}}</strong> / {{number_format($data->target_amount, 0, '.', ',')}} บาท<span class="pull-right">{{$percent}}%</span></h3>
+                    <h3 class="heading-xs"><strong>{{number_format($amount, 0, '.', ',')}}</strong> / {{number_format($data->target_amount, 0, '.', ',')}} บาท<span class="pull-right">{{$percent}}%</span></h3>
                     <div class="progress progress-u progress-xxs">
                       <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
                       </div>
@@ -65,7 +65,7 @@
                   <div class="clearfix margin-bottom-10"></div>
 
                   <div class="statistics">
-                    <h3 class="heading-xs">เหลือเวลาบริจาคอีก <strong>{{$dateLib->remainingDate($data->end_date)}}</strong></h3>
+                    <h3 class="heading-xs">สิ้นสุดการรับบริจาคในอีก <strong>{{$dateLib->remainingDate($data->end_date)}}</strong></h3>
                   </div>
 
                   <div class="clearfix margin-bottom-20"></div>

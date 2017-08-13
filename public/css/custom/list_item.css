@@ -68,7 +68,8 @@
 .news-v3 .project-by-charity .charity-logo {
 	width: 30px;
 	height: 30px;
-	border-radius: 30px;
+	/*border-radius: 30px;*/
+	margin-right: 4px;
 }
 
 .news-v3 .project-by-charity span {

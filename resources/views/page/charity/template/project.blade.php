@@ -48,7 +48,7 @@
                 <div class="clearfix margin-bottom-10"></div>
 
                 <div class="statistics">
-                  <h3 class="heading-xs">เหลือเวลาบริจาคอีก <strong>{{$dateLib->remainingDate($value->end_date)}}</strong></h3>
+                  <h3 class="heading-xs">สิ้นสุดการรับบริจาคในอีก <strong>{{$dateLib->remainingDate($value->end_date)}}</strong></h3>
                 </div>
 
                 <div class="clearfix margin-bottom-20"></div>
