@@ -47,11 +47,11 @@
         <div class="promo-item-content">
           <h3 class="text-center">
             @if($donation->unidentified) 
-              บริจาคโดยไม่ออกนาม<br>ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+              ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
             @elseif(!empty($donation->user_id))
-              ขอขอบคุณ {{$donation->user->name}}<br>ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+              ขอขอบคุณ คุณ {{$donation->user->name}}<br>ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
             @else
-              ขอขอบคุณ {{$donation->guest_name}}<br>ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+              ขอขอบคุณ คุณ {{$donation->guest_name}}<br>ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
             @endif
           </h3>
         </div>

@@ -6,6 +6,7 @@ use Illuminate\Pagination\Paginator;
 use App\library\service;
 use App\library\date;
 use Redirect;
+use Cookie;
 
 class DonationController extends Controller
 {
@@ -114,6 +115,13 @@ class DonationController extends Controller
       default:
         return Redirect::to('/');
         break;
+    }
+
+    if (Cookie::get('donation_d_'.md5($code)) !== null) {
+      $this->setData('popup',false);
+    }else {
+      Cookie::queue('donation_d_'.md5($code), 1, 43200);
+      $this->setData('popup',true);
     }
 
     // SET LIB
