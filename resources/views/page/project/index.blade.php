@@ -148,6 +148,8 @@
 
       <div class="col-md-12">
 
+        <div class="clearfix margin-bottom-30"></div>
+
         <div class="tab-v1 margin-bottom-60">
           <ul class="nav nav-tabs margin-bottom-20">
             <li class="active"><a href="#project" data-toggle="tab">โครงการ</a></li>

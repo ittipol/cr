@@ -146,11 +146,16 @@
 
       <div class="col-md-12">
 
+        <div class="clearfix margin-bottom-10"></div>
+
         <div class="tab-v1 margin-bottom-60">
           <ul class="nav nav-tabs margin-bottom-20">
             <li class="active"><a href="#about" data-toggle="tab">เกี่ยวกับ</a></li>
             <li><a href="#news" data-toggle="tab">ข่าวสาร</a></li>
-            <li><a href="#project" data-toggle="tab">โครงการ</a></li>
+            <li>
+              <a href="#project" data-toggle="tab">โครงการ</a>
+              <span class="badge badge-blue rounded-x">{{$projects->count()}}</span>
+            </li>
             <li><a href="#collaboration" data-toggle="tab">การบริจาค</a></li>
           </ul>
           <div class="tab-content">
