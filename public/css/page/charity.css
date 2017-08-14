@@ -299,10 +299,6 @@
 	background-color: rgba(49, 72, 110, 0.5);
 }
 
-/*@media only screen and (max-width : 992px) {
-  
-}*/
-
 @media only screen and (max-width : 768px) {
   .charity-header .charity-info {
   	width: 80%;

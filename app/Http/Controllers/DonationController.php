@@ -160,6 +160,9 @@ class DonationController extends Controller
         $this->setData('for','');
         $this->setData('charity',$data);
 
+        $for = '';
+        $charityName = $data->name; 
+
         break;
 
       case 'Project':
@@ -173,6 +176,9 @@ class DonationController extends Controller
         $this->setData('for','โครงการ');
         $this->setData('charity',$charity);
 
+        $for = 'โครงการ';
+        $charityName = $charity->name; 
+
         break;
       
       default:
@@ -184,14 +190,26 @@ class DonationController extends Controller
     $this->setData('id',$data->id);
     $this->setData('name',$data->name);
     $this->setData('data',$data);
-    // $this->setData('code',$code);
     $this->setData('donation',$donation);
     $this->setData('_for',strtolower($donation->model));
 
+    // 
+    $title = 'เราขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน'.$for.' '.$data->name;
+
+    if($donation->unidentified) {
+      $desc = 'ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ'.$for.' '.$data->name;
+    }elseif(!empty($donation->user_id)) {
+      $desc = 'ขอขอบคุณ คุณ '.$donation->user->name.' ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ'.$for.' '.$data->name;
+    }else{
+      $desc = 'ขอขอบคุณ คุณ '.$donation->guest_name.' ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ'.$for.' '.$data->name;
+    }
+
+    $desc .= ' เรา CharityTH และ '.$charityName.' ขอกล่าวขอบพระคุณอย่างสูง';
+
     // SET META
-    $this->setMeta('title','ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาค — CharityTH');
-    $this->setMeta('description','ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ '.$data->name);
-    // $this->setMeta('image','ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาค — CharityTH');
+    $this->setMeta('title',$title.' — CharityTH');
+    $this->setMeta('description',$desc);
+    $this->setMeta('image','/images/common/share_image.jpg');
 
     return $this->view('page.donation.share');
 

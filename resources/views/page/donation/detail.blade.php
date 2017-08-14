@@ -37,7 +37,6 @@
       </div>
     </div>
 
-    @if(!$popup)
     <div id="social_content" class="social-login text-center">      
       <ul class="list-unstyled">       
         <li>             
@@ -58,7 +57,6 @@
         </li>     
       </ul>  
     </div>
-    @endif
 
     <hr>
 
@@ -116,23 +114,25 @@
 
           <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 
+          <img class="shared-social-image" src="/images/common/share_image.jpg">
+
           <h2>เราขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน{{$for}} {{$name}}</h2>
 
           <div class="clearfix margin-bottom-20"></div>
 
           @if($donation->unidentified) 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+            ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
           @elseif(!empty($donation->user_id))
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ขอขอบคุณ คุณ {{$donation->user->name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+            ขอขอบคุณ คุณ {{$donation->user->name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
           @else
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ขอขอบคุณ คุณ {{$donation->guest_name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+            ขอขอบคุณ คุณ {{$donation->guest_name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
           @endif
 
           ขอให้ท่านมีความสุขความเจริญ ชีวิตก้าวหน้าในหน้าที่การงาน อายุมั่นขวัญยืนสุขภาพร่างกายแข็งแรงทั้งตัวท่านเองและครอบท่านด้วย
 
           <br><br>
 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เรา CharityTH และ {{$charityName}} ขอกล่าวขอบพระคุณอย่างสูง
+          เรา CharityTH และ {{$charityName}} ขอกล่าวขอบพระคุณอย่างสูง
 
           <div class="clearfix margin-bottom-40"></div>
 
