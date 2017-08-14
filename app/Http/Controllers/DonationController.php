@@ -96,6 +96,8 @@ class DonationController extends Controller
         $this->setData('charityName',$data->name);
         $this->setData('charityLogo',$data->logo);
 
+        $for = '';
+
         break;
 
       case 'Project':
@@ -110,6 +112,8 @@ class DonationController extends Controller
         $this->setData('charityName',$charity->name);
         $this->setData('charityLogo',$charity->logo);
 
+        $for = 'โครงการ';
+
         break;
       
       default:
@@ -121,6 +125,7 @@ class DonationController extends Controller
       $this->setData('popup',false);
     }else {
       Cookie::queue('donation_d_'.md5($code), 1, 43200);
+      $this->setData('sharedImage','/images/common/share_image.jpg');
       $this->setData('popup',true);
     }
 
@@ -134,8 +139,20 @@ class DonationController extends Controller
     $this->setData('donation',$donation);
     $this->setData('_for',strtolower($donation->model));
 
+    $title = 'เราขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน'.$for.' '.$data->name;
+
+    if($donation->unidentified) {
+      $desc = 'ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ'.$for.' '.$data->name;
+    }elseif(!empty($donation->user_id)) {
+      $desc = 'ขอขอบคุณ คุณ '.$donation->user->name.' ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ'.$for.' '.$data->name;
+    }else{
+      $desc = 'ขอขอบคุณ คุณ '.$donation->guest_name.' ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ'.$for.' '.$data->name;
+    }
+
     // SET META
-    $this->setMeta('title','การบริจาค — CharityTH');
+    $this->setMeta('title',$title.' — CharityTH');
+    $this->setMeta('description',$desc);
+    // $this->setMeta('image','/images/common/share_image.jpg');
 
     return $this->view('page.donation.detail');
   }

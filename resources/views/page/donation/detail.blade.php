@@ -37,10 +37,9 @@
       </div>
     </div>
 
-    <div id="social_content" class="social-login text-center">      
+    <div id="social_share_btn" class="social-login text-center" @if($popup) style="display:none;" @endif>      
       <ul class="list-unstyled">       
         <li>             
-
           <div class="donation-box text-center">
             <h4>แชร์การบริจาคนี้และคำขอบคุณจากเรา</h4>
             <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::root()}}/share/{{$code}}" target="_blank">
@@ -53,7 +52,6 @@
               <i class="fa fa-google-plus"></i>
             </a>
           </div>
-
         </li>     
       </ul>  
     </div>
@@ -105,68 +103,79 @@
   @endif
 
   @if($popup)
-  <a href="javascript:void(0);" id="socaial_share_popup_btn" data-toggle="modal" data-target="#socaial_share" style="display:none;"></a>
 
-  <div class="modal fade" id="socaial_share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
+    <a href="javascript:void(0);" id="socaial_share_popup_btn" data-toggle="modal" data-target="#socaial_share_box" style="display:none;"></a>
 
-          <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+    <div class="modal fade" id="socaial_share_box" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
 
-          <img class="shared-social-image" src="/images/common/share_image.jpg">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 
-          <h2>เราขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน{{$for}} {{$name}}</h2>
+            <img class="shared-social-image" src="{{$sharedImage}}">
 
-          <div class="clearfix margin-bottom-20"></div>
+            <h2>เราขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน{{$for}} {{$name}}</h2>
 
-          @if($donation->unidentified) 
-            ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
-          @elseif(!empty($donation->user_id))
-            ขอขอบคุณ คุณ {{$donation->user->name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
-          @else
-            ขอขอบคุณ คุณ {{$donation->guest_name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
-          @endif
+            <div class="clearfix margin-bottom-20"></div>
 
-          ขอให้ท่านมีความสุขความเจริญ ชีวิตก้าวหน้าในหน้าที่การงาน อายุมั่นขวัญยืนสุขภาพร่างกายแข็งแรงทั้งตัวท่านเองและครอบท่านด้วย
+            @if($donation->unidentified) 
+              ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+            @elseif(!empty($donation->user_id))
+              ขอขอบคุณ คุณ {{$donation->user->name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+            @else
+              ขอขอบคุณ คุณ {{$donation->guest_name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
+            @endif
 
-          <br><br>
+            ขอให้ท่านมีความสุขความเจริญ ชีวิตก้าวหน้าในหน้าที่การงาน อายุมั่นขวัญยืนสุขภาพร่างกายแข็งแรงทั้งตัวท่านเองและครอบท่านด้วย
 
-          เรา CharityTH และ {{$charityName}} ขอกล่าวขอบพระคุณอย่างสูง
+            <br><br>
 
-          <div class="clearfix margin-bottom-40"></div>
+            เรา CharityTH และ {{$charityName}} ขอกล่าวขอบพระคุณอย่างสูง
 
-          <hr>
+            <div class="clearfix margin-bottom-40"></div>
 
-          <div class="donation-box text-center">
-            <h4>แชร์การบริจาคนี้และคำขอบคุณจากเรา</h4>
-            <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::root()}}/share/{{$code}}" target="_blank">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::root()}}/share/{{$code}}&text=ขอบคุณที่คุณร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}" target="_blank">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::root()}}/share/{{$code}}" target="_blank">
-              <i class="fa fa-google-plus"></i>
-            </a>
+            <hr>
+
+            <div class="donation-box text-center">
+              <h4>แชร์การบริจาคนี้และคำขอบคุณจากเรา</h4>
+              <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::root()}}/share/{{$code}}" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::root()}}/share/{{$code}}&text=ขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน{{$for}} {{$name}}" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::root()}}/share/{{$code}}" target="_blank">
+                <i class="fa fa-google-plus"></i>
+              </a>
+            </div>
+
+            <div class="clearfix margin-bottom-20"></div>
+
           </div>
-
-          <div class="clearfix margin-bottom-20"></div>
-
         </div>
       </div>
     </div>
-  </div>
 
-  <script type="text/javascript">
-    
-    $(document).ready(function(){
-      setTimeout(function(){
-        $('#socaial_share_popup_btn').trigger('click');
-      },500);
-    });
+    <script type="text/javascript">
+      
+      $(document).ready(function(){
+        setTimeout(function(){
+          $('#socaial_share_popup_btn').trigger('click');
+        },500);
 
-  </script>
+        $('#socaial_share_box').on('click',function(){
+          $('#social_share_btn').delay(500).fadeIn(400);
+        });
+
+
+        $('#socaial_share button.close').on('click',function(){
+          $('#social_share_btn').delay(500).fadeIn(400);
+        });
+
+      });
+
+    </script>
 
   @endif
 
