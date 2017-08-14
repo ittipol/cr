@@ -1,6 +1,7 @@
 <div class="panel panel-profile">
   <div class="panel-heading overflow-h">
     <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>โครงการ</h2>
+    <a href="{{URL::to('charity/$charity->id/projects')}}/" class="btn-u btn-brd btn-brd-hover btn-u-dark pull-right">ทั้งหมด</a>
   </div>
 </div>
 
@@ -8,7 +9,7 @@
   <div class="clearfix margin-bottom-20"></div>
   <div class="container">
     <div class="row">
-      @foreach($projects->get() as $value)
+      @foreach($projects->take(12)->get() as $value)
 
         <div class="col-lg-4 col-sm-6 col-xs-12">
 

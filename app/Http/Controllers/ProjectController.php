@@ -93,4 +93,29 @@ class ProjectController extends Controller
     return $this->view('page.project.list');
 
   }
+
+  public function listByCharity($id) {
+
+    $model = Service::loadModel('Project');
+
+    $currentPage = 1;
+    if(!empty(request()->page)) {
+      $currentPage = request()->page;
+    }
+
+    //set page
+    Paginator::currentPageResolver(function() use ($currentPage) {
+        return $currentPage;
+    });
+
+    $projects = $model->where([
+      ['charity_id','=',$id],
+      ['end_date','>',date('Y-m-d H:i:s')]
+    ])->paginate(24);
+
+    $this->setData('projects',$projects);
+
+    return $this->view('page.news.list_by_charity');
+
+  }
 }

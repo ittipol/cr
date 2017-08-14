@@ -25,8 +25,7 @@ class CharityController extends Controller
     $news = Service::loadModel('News')
     ->select('id','charity_id','title','short_desc','thumbnail','created_at')
     ->where('charity_id','=',$id)
-    ->orderBy('created_at','desc')
-    ->take(12);
+    ->orderBy('created_at','desc');
 
     $projects = Service::loadModel('Project')
     ->select('id','name','short_desc','thumbnail','end_date','target_amount')
@@ -34,8 +33,7 @@ class CharityController extends Controller
       ['charity_id','=',$id],
       ['end_date','>',date('Y-m-d H:i:s')]
     ])
-    ->orderBy('created_at','desc')
-    ->take(12);
+    ->orderBy('created_at','asc');
 
     // GET IMAGES
     $images = array();

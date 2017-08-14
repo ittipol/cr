@@ -104,6 +104,12 @@ Route::get('charity/{id}', 'CharityController@index');
 Route::get('project/list', 'ProjectController@listView');
 Route::get('project/{id}', 'ProjectController@index');
 
+Route::get('news/list', 'NewsController@listView');
+Route::get('news/{id}', 'NewsController@index');
+
+Route::get('charity/{id}/project', 'ProjectController@listByCharity');
+Route::get('charity/{id}/news', 'NewsController@listByCharity');
+
 Route::get('donate', 'DonateController@index');
 Route::post('donate', 'DonateController@donationSubmit');
 
@@ -111,6 +117,3 @@ Route::get('donation', 'DonationController@index');
 // Route::get('donation/share', 'DonationController@share');
 Route::get('donation/{code}', 'DonationController@detail');
 Route::get('share/{code}', 'DonationController@share');
-
-Route::get('news/list', 'NewsController@listView');
-Route::get('news/{id}', 'NewsController@index');

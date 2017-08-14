@@ -36,7 +36,6 @@ class NewsController extends Controller
 
     $currentPage = 1;
     if(!empty(request()->page)) {
-      // request()->page
       $currentPage = request()->page;
     }
 
@@ -58,6 +57,28 @@ class NewsController extends Controller
     // $this->setMeta('image',null);
 
     return $this->view('page.news.list');
+
+  }
+
+  public function listByCharity($id) {
+   
+    $model = Service::loadModel('News');
+
+    $currentPage = 1;
+    if(!empty(request()->page)) {
+      $currentPage = request()->page;
+    }
+
+    //set page
+    Paginator::currentPageResolver(function() use ($currentPage) {
+        return $currentPage;
+    });
+
+    $news = $model->where('charity_id','=',$id)->paginate(24);
+
+    $this->setData('news',$news);
+
+    return $this->view('page.news.list_by_charity');
 
   }
 }
