@@ -108,14 +108,28 @@ class ProjectController extends Controller
         return $currentPage;
     });
 
+    // GET Charity
+    $charity = Service::loadModel('Charity')->find($id);
+
     $projects = $model->where([
       ['charity_id','=',$id],
       ['end_date','>',date('Y-m-d H:i:s')]
     ])->paginate(24);
 
-    $this->setData('projects',$projects);
+    // SET LIB
+    $this->setData('stringLib',new stringHelper);
+    $this->setData('dateLib',new Date);
 
-    return $this->view('page.news.list_by_charity');
+    // SET DATA
+    $this->setData('donationModel',Service::loadModel('Donation'));
+    $this->setData('projects',$projects);
+    $this->setData('charity',$charity);
+
+    // SET META
+    $this->setMeta('title','โครงการ - '.$charity->name.' — CharityTH');
+    $this->setMeta('description',$charity->short_desc);
+
+    return $this->view('page.project.list_by_charity');
 
   }
 }

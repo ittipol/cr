@@ -1,10 +1,5 @@
-/*.charity-list-item {
-	height: 416px;
-}*/
-
 .news-v3.custom-item-list {
 	margin-bottom: 30px;
-	/*border: 1px solid rgb(220, 222, 221);*/
 	border: 1px solid #ced3db;
 }
 
@@ -12,7 +7,7 @@
 	font-size: 18px;
 }
 
-.news-v3.custom-item-list .full-width-cover {
+.custom-item-list .full-width-cover {
 	width: 100%;
 	height: 220px;
 	background-position: center;
@@ -20,12 +15,6 @@
 	background-repeat: no-repeat;
 	background-color: #bbb;
 }
-
-/*.news-v3.custom-item-list img.full-width {
-	width: 360px;
-	height: 200px;
-	background-color: #bbb;
-}*/
 
 .news-v3.custom-item-list .news-v3-in-sm {
 	background-color: #fff !important;
@@ -81,7 +70,7 @@
 }
 
 .news-v1 .news-v1-in {
-	border: 1px solid #E8E8E8;
+	border: 1px solid #ced3db;
 }
 
 .news-v1-in img {

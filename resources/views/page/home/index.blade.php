@@ -63,10 +63,10 @@
               <a href="{{URL::to('project/list')}}">โครงการ</a>
             </li>
             <li class="page-scroll">
-              <a href="{{URL::to('donation')}}">การบริจาค</a>
+              <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
             </li>
             <li class="page-scroll">
-              <a href="{{URL::to('news/list')}}">ข่าวสาร</a>
+              <a href="{{URL::to('donation')}}">การบริจาค</a>
             </li>
             @if(!Auth::check())
             <li class="page-scroll">

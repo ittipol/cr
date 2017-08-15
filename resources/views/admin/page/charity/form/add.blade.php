@@ -75,6 +75,7 @@
 
   <div class="form-group">
     {{Form::label('active', 'การเข้าถึง')}}
+    <br>
     {{Form::radio('active', 1, false)}} เปิดการเข้าถึง
     <br>
     {{Form::radio('active', 0, true)}} ปิดการเข้าถึง

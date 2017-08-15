@@ -3,11 +3,67 @@
 
 <div class="project list">
 
-  <div class="clearfix margin-top-60"></div>
+  <div class="charity-profile">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">
+              @if(!empty($charity->logo))
+              <img class="charity-profile-logo" src="{{$charity->logo}}">
+              @endif
+              <div class="charity-profile-content">
+                <h2>{{$charity->name}}</h2>
+              </div>
+              <div class="tagging-item-list">
+                <span class="tagging-item">
+                  <div class="location-name"><i class="fa fa-map-marker"></i>{{$charity->province->name}}</div>
+                </span>
+                <span class="tagging-item">
+                  <div class="location-name"><i class="fa fa-flag"></i>{{$charity->charityType->name}}</div>
+                </span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-v1 text-center">
+    <ul class="nav nav-tabs tab-border-bottom no-margin">
+      <li><a href="{{URL::to('charity')}}/{{$charity->id}}">หน้าหลัก</a></li>
+      <li class="active">
+        <a href="{{URL::to('charity')}}/{{$charity->id}}/project">โครงการ</a>
+      </li>
+      <li>
+        <a href="{{URL::to('charity')}}/{{$charity->id}}/news">ข่าวสาร</a>
+      </li>
+      <li><a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}">บริจาค</a></li>
+    </ul>
+  </div>
 
   <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
     <div class="container">
       <h1>โครงการ</h1>
+    </div>
+  </div>
+
+  <div class="custom-search-bar">
+    <div class="container">
+      <div class="row">
+        {{Form::open(['class' => 'sky-form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
+        <div class="col-sm-8 md-margin-bottom-10">
+          <div class="input-group">
+            <label class="checkbox">
+              {{Form::checkbox('opened', 1)}}
+              <i></i>แสดงเฉพาะโครงการที่ยังเปิดรับบริจาค
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <button type="submit" class="btn-u btn-block btn-u-dark-blue">ค้นหา</button>
+        </div>
+        {{Form::close()}}
+      </div>
     </div>
   </div>
 

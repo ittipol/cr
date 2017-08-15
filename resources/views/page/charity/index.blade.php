@@ -6,7 +6,9 @@
   <div class="container">
 
     <div class="charity-header clearfix">
+      @if(!empty($charity->logo))
       <img class="charity-logo" src="{{$charity->logo}}">
+      @endif
       <div class="charity-info">
         <h2 class="charity-name">{{$charity->name}}</h2>
         <p class="charity-short-desc">{{$charity->short_desc}}</p>
@@ -191,9 +193,7 @@
 
             </div>
             <div class="tab-pane fade in" id="news">
-              <div class="panel panel-profile">
-                @include('page.charity.template.news')
-              </div>
+              @include('page.charity.template.news')
             </div>
             <div class="tab-pane fade in" id="project">
               @include('page.charity.template.project')

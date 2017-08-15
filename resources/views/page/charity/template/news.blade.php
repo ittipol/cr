@@ -1,7 +1,7 @@
 <div class="panel panel-profile">
   <div class="panel-heading overflow-h">
     <h2 class="panel-title heading-sm pull-left"><i class="fa fa-sticky-note"></i>ข่าวสาร</h2>
-    <a href="{{URL::to('charity/$charity->id/news')}}" class="btn-u btn-brd btn-brd-hover btn-u-dark pull-right">ทั้งหมด</a>
+    <a href="{{URL::to('charity')}}/{{$charity->id}}/news" class="btn-u btn-brd btn-brd-hover btn-u-dark pull-right">ทั้งหมด</a>
   </div>
 </div>
 
@@ -11,12 +11,12 @@
 
   <div class="container">
     <div class="row news-v1">
-      @foreach($news->take(12)->get() as $value)
+      @foreach($news->take(6)->get() as $value)
 
         <div class="col-md-4 md-margin-bottom-40">
           <div class="news-v1-in custom-item-list">
             <a href="{{URL::to('news')}}/{{$value->id}}">
-              <img class="full-width-cover" style="background-image: url('{{$value->thumbnail}}');">
+              <div class="full-width-cover" style="background-image: url('{{$value->thumbnail}}');"></div>
             </a>
             <h3><a href="{{URL::to('news')}}/{{$value->id}}">{{$value->title}}</a></h3>
             <p>{{$value->short_desc}}</p>

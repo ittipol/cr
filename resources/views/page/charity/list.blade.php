@@ -11,6 +11,30 @@
     </div>
   </div>
 
+  <div class="custom-search-bar">
+    <div class="container">
+      <div class="row">
+        {{Form::open(['class' => 'sky-form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
+        <div class="col-sm-4 md-margin-bottom-10">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+            <input type="text" placeholder="what job you are looking for" class="form-control">
+          </div>
+        </div>
+        <div class="col-sm-4 md-margin-bottom-10">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+            <input type="text" placeholder="where would you like to work" class="form-control">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <button type="submit" class="btn-u btn-block btn-u-dark-blue">ค้นหา</button>
+        </div>
+        {{Form::close()}}
+      </div>
+    </div>
+  </div>
+
   <div class="container padding-bottom-100">
     
     @if($charities->currentPage() <= $charities->lastPage())

@@ -53,7 +53,7 @@ class NewsController extends Controller
 
     // SET META
     $this->setMeta('title','ข่าวสาร — CharityTH');
-    $this->setMeta('description','');
+    // $this->setMeta('description','');
     // $this->setMeta('image',null);
 
     return $this->view('page.news.list');
@@ -74,9 +74,27 @@ class NewsController extends Controller
         return $currentPage;
     });
 
+    // GET Charity
+    $charity = Service::loadModel('Charity')->find($id);
+
+    if(empty($charity)) {
+      return $this->error('ไม่พบมูลนิธิ');
+    }
+
     $news = $model->where('charity_id','=',$id)->paginate(24);
 
+    // SET LIB
+    $this->setData('stringLib',new stringHelper);
+    $this->setData('dateLib',new Date);
+
+    // SET DATA
     $this->setData('news',$news);
+    $this->setData('charity',$charity);
+
+    // SET META
+    $this->setMeta('title','ข่าวสาร - '.$charity->name.' — CharityTH');
+    $this->setMeta('description',$charity->short_desc);
+    // $this->setMeta('image',null);
 
     return $this->view('page.news.list_by_charity');
 

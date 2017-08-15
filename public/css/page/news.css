@@ -1,3 +1,11 @@
+.news-v1 h3 a {
+	color: #000;
+}
+
+.news-v1 h3 a:hover {
+	color: #2752ff;
+}
+
 .news .news-thumbnail {
 	width: 100%;
 }
