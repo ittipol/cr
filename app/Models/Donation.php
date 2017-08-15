@@ -7,7 +7,7 @@ use DB;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','fee','balance','transaction_date','get_reward','reward','shipping_address','donation_via_id','verified'];
+  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','fee','balance','transaction_date','bank_account_id','get_reward','reward','shipping_address','donation_via_id','verified'];
 
   private $feeRate = 0.1; // 30%
 
@@ -29,7 +29,7 @@ class Donation extends Model
       'omise_token' => 'required',
     ),
     'messages' => array(
-      'date.required' => 'มีข้อมูลบางอย่างไม่ถูกต้อง ไม่สามารถดำเนินการต่อได้',
+      'omise_token.required' => 'มีข้อมูลบางอย่างไม่ถูกต้อง ไม่สามารถดำเนินการต่อได้',
     )
   );
 

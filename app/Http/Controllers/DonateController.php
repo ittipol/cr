@@ -132,6 +132,9 @@ class DonateController extends Controller
     switch (request()->method) {
       case 'method_1':
 
+        // rules for credit card
+        $validation = $donation->validationCreditCard;
+
         $donation->transaction_date = date('Y-m-d H:i:s');
         $donation->donation_via_id = 1;
 
@@ -143,22 +146,22 @@ class DonateController extends Controller
         $validation = $donation->validation;
 
         $donation->transaction_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
+        $donation->bank_account_id = request()->bank_acc;
         $donation->donation_via_id = 2;
 
         break;
     }
 
-    // array merge if get reward exist
-
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
-      $validation = array_merge($validation,$donation->validationWithAddress);
+      $validation['rules'] = array_merge($validation['rules'],$donation->validationWithAddress['rules']);
+      $validation['messages'] = array_merge($validation['messages'],$donation->validationWithAddress['messages']);
     }
 
-    // $validator = Validator::make(request()->all(), $validation['rules'],$validation['messages']);
+    $validator = Validator::make(request()->all(), $validation['rules'],$validation['messages']);
     
-    // if($validator->fails()) {
-    //   return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
-    // }
+    if($validator->fails()) {
+      return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
+    }
 
     // Reward
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
@@ -238,11 +241,11 @@ class DonateController extends Controller
       $donation->unidentified = 1;
     }
 
-    // charging
+    // cal Fee
     $donation->fee = request()->amount * $donation->getFeeRate();
     $donation->balance = request()->amount - $donation->fee;
 
-    // Save donation record
+    // Save record
     if(!$donation->save()) {
       return Redirect::back()->withErrors(array(
         array('มีข้อมูลบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
