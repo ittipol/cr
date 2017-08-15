@@ -107,7 +107,20 @@ h2 > img.provider-logo {
 	margin-left: 1%;
 }
 
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+ul.pagination > li > a:hover, 
+ul.pagination > li > span:hover, 
+ul.pagination > li > a:focus, 
+ul.pagination > li > span:focus {
+	border-color: #ececec;
+	background-color: #1f4b8e;
+}
+
+.pagination > .active > a, 
+.pagination > .active > span, 
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus {
 	border-color: #ececec;
 	background-color: #1f4b8e;
 }

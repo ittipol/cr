@@ -6,17 +6,6 @@
 	font-size: 16px;
 }
 
-.project .donation-box > i {
-	color: #000;
-	margin-right: 10px;
-	font-size: 26px;
-}
-
-.project .donation-box .counter {
-	font-size: 24px;
-	color: #05AF3C;
-}
-
 .timeline-v2 .timeline-start {
 	text-align: center;
 	background-color: #072a16;
@@ -46,6 +35,17 @@
 	margin-bottom: 20px;
 }
 
+.project .donation-box > i {
+	color: #000;
+	margin-right: 10px;
+	font-size: 26px;
+}
+
+.project-donation-info > .project-donation-item .counter {
+	font-size: 24px;
+	color: #05AF3C;
+}
+
 .news-v3 .donation-box .counter {
 	font-size: 18px;
 }
@@ -65,7 +65,7 @@
 		font-size: 24px;
 	}
 
-	.project .donation-box .counter {
+	.project-donation-info > .project-donation-item .counter {
 		font-size: 18px;
 	}
 

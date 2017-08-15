@@ -82,7 +82,44 @@ class CharityController extends Controller
         return $currentPage;
     });
 
+    // Search Query String
+    $conditions = array();
+
+    if(!empty(request()->q)) {
+      $conditions[] = array('name','=','%'.request()->q.'%');
+    }
+
+    if(!empty(request()->type) && (request()->type != 'all')) {
+      $conditions[] = array('charity_type_id','=',request()->type);
+    }
+
+    if(!empty(request()->location) && (request()->location != 'all')) {
+      $conditions[] = array('province_id','=',request()->location);
+    }
+
     $date = new Date;
+
+    // Load Additional Data
+    $provinces = Service::loadModel('Province')->select('id','name')->orderBy('top','asc')->orderBy('id','asc')->get();
+    $charityTypes = Service::loadModel('CharityType')->select('id','name')->get();
+
+    $_provinces['all'] = 'ทั้งหมด';
+    foreach ($provinces as $province) {
+        $_provinces[$province->id] = $province->name;
+    }
+
+    $_charityTypes['all'] = 'ทั้งหมด';
+    foreach ($charityTypes as $charityType) {
+        $_charityTypes[$charityType->id] = $charityType->name;
+    }
+
+    if(!empty($conditions)) {
+      $charities = $model->where($conditions)->paginate(24);
+    }else{
+      $charities = $model->paginate(24);
+    }
+
+    $charities->appends(request()->all());
 
     // SET MODEL
     $this->setData('donationModel',Service::loadModel('Donation'));
@@ -91,14 +128,16 @@ class CharityController extends Controller
     $this->setData('stringLib',new stringHelper);
 
     // SET DATA
-    $this->setData('charities',$model->paginate(24));
+    $this->setData('charities',$charities);
+    $this->setData('provinces',$_provinces);
+    $this->setData('charityTypes',$_charityTypes);
     // $this->setData('remainingDate',$date->remainingDate());
     // $this->setData('percent',round((date('d') * 100) / date('t')));
 
     // SET META
     $this->setMeta('title','มูลนิธิ — CharityTH');
     $this->setMeta('description','');
-    // $this->setMeta('image',null);
+    $this->setMeta('image',null);
 
     return $this->view('page.charity.list');
 

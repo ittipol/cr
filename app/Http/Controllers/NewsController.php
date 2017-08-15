@@ -10,6 +10,11 @@ use Redirect;
 
 class NewsController extends Controller
 {
+  private $sorting = array(
+    'created_at:desc' => 'ใหม่สุด',
+    'created_at:asc' => 'เก่าสุด',
+  );
+
   public function index($id) {
 
     $news = Service::loadModel('News')->find($id);
@@ -44,12 +49,35 @@ class NewsController extends Controller
         return $currentPage;
     });
 
+    // Search Query String
+    $conditions = array();
+
+    $field = 'created_at';
+    $sorting = 'desc';
+
+    if(!empty(request()->q)) {
+      $conditions[] = array('name','=','%'.request()->q.'%');
+    }
+
+    if(!empty(request()->sort)) {
+      list($field,$sorting) = explode(':', request()->sort);
+    }
+
+    if(!empty($conditions)) {
+      $news = $model->where($conditions)->orderBy($field,$sorting)->paginate(24);
+    }else{
+      $news = $model->orderBy($field,$sorting)->paginate(24);
+    }
+    
+    $news->appends(request()->all());
+
     // SET LIB
     $this->setData('stringLib',new stringHelper);
     $this->setData('dateLib',new Date);
     
     // SET DATA
-    $this->setData('news',$model->paginate(24));
+    $this->setData('news',$news);
+    $this->setData('sorting',$this->sorting);
 
     // SET META
     $this->setMeta('title','ข่าวสาร — CharityTH');
@@ -74,14 +102,30 @@ class NewsController extends Controller
         return $currentPage;
     });
 
+    // Search Query String
+    $conditions = array();
+
+    $conditions[] = array('charity_id','=',$id);
+    $field = 'created_at';
+    $sorting = 'desc';
+
+    if(!empty(request()->q)) {
+      $conditions[] = array('name','=','%'.request()->q.'%');
+    }
+
+    if(!empty(request()->sort)) {
+      list($field,$sorting) = explode(':', request()->sort);
+    }
+
+    $news = $model->where($conditions)->orderBy($field,$sorting)->paginate(24);
+    $news->appends(request()->all());
+
     // GET Charity
     $charity = Service::loadModel('Charity')->find($id);
 
     if(empty($charity)) {
       return $this->error('ไม่พบมูลนิธิ');
     }
-
-    $news = $model->where('charity_id','=',$id)->paginate(24);
 
     // SET LIB
     $this->setData('stringLib',new stringHelper);
@@ -90,11 +134,12 @@ class NewsController extends Controller
     // SET DATA
     $this->setData('news',$news);
     $this->setData('charity',$charity);
+    $this->setData('sorting',$this->sorting);
 
     // SET META
     $this->setMeta('title','ข่าวสาร - '.$charity->name.' — CharityTH');
     $this->setMeta('description',$charity->short_desc);
-    // $this->setMeta('image',null);
+    $this->setMeta('image',$charity->thumbnail);
 
     return $this->view('page.news.list_by_charity');
 

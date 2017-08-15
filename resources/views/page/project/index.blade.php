@@ -173,15 +173,37 @@
                 </div>
 
                 <div class="col-md-4">
-                  <h3>บริจาคให้กับมูลนิธินี้</h3>
+                  <h3>โครงการจาก {{$charity->name}}</h3>
 
-                  <div class="donate-box">
-                    <div class="donate-info">
-                      <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>
-                      <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>
-                      <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
+                  <!-- <div class="donation-box">
+                    <div class="margin-bottom-20">
+                      <div class="service-heading">โครงการทั้งหมด</div>
+                      <div class="counter">{{$countProject}} โครงการ</div>
+                    </div>
+
+                    <div class="margin-bottom-20">
+                      <div class="service-heading">โครงการที่กำลังเปิดรับบริจาค</div>
+                      <div class="counter">{{$countOpenedProject}} โครงการ</div>
+                    </div>
+                  </div> -->
+
+                  <div class="project-donation-info">
+                    <div class="project-donation-item no-margin">
+                      <span>โครงการทั้งหมด</span>
+                      <span class="counter">{{$countProject}}</span>
+                      <span>โครงการ</span>
+                    </div>
+
+                    <div class="project-donation-item no-margin">
+                      <span>โครงการที่กำลังเปิดรับบริจาค</span>
+                      <span class="counter">{{$countOpenedProject}}</span>
+                      <span>โครงการ</span>
                     </div>
                   </div>
+
+                  <div class="clearfix margin-bottom-20"></div>
+
+                  <a href="{{URL::to('charity')}}/{{$charity->id}}/project" class="btn-u btn-u-blue">แสดงโครงการทั้งหมด</a>
                 </div>
               </div>
 

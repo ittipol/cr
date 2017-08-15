@@ -126,13 +126,19 @@ hr {
 }
 
 .custom-search-bar {
-	padding: 10px 0;
-	background-color: #1f4b8e;
+	padding: 10px 0 20px;
+	border-bottom: 1px solid #2752ff;
+	/*background-color: #ececec;*/
+	/*background-color: #1f4b8e;*/
 	/*background-color: #607D8B;*/
 }
 
-.custom-search-bar label {
-	color: #fff !important;
+.custom-search-bar .search-box {
+	margin-bottom: 10px;
+}
+
+.custom-search-bar .search-box .fa {
+	color: #222;
 }
 
 .no-margin {margin: 0 !important;}

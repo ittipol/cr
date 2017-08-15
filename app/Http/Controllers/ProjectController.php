@@ -10,16 +10,19 @@ use Redirect;
 
 class ProjectController extends Controller
 {
+  private $sorting = array(
+    'created_at:desc' => 'ใหม่สุด',
+    'created_at:asc' => 'เก่าสุด',
+    'name:asc' => 'ตัวอักษร A - Z ก - ฮ',
+    'name:desc' => 'ตัวอักษร Z - A ฮ - ก'
+  );
+
   public function index($id) {
 
-    // $project = Service::loadModel('Project')
-    // ->select('id','charity_id','name','short_desc','thumbnail','end_date','target_amount','created_at')
-    // ->where([
-    //   ['id','=',$id],
-    //   ['end_date','>',date('Y-m-d H:i:s')]
-    // ]);
+    $projectModel = Service::loadModel('Project');
+    $now = date('Y-m-d H:i:s');
 
-    $project = Service::loadModel('Project')
+    $project = $projectModel
     ->select('id','charity_id','name','short_desc','thumbnail','end_date','target_amount','created_at')
     ->find($id);
 
@@ -28,7 +31,7 @@ class ProjectController extends Controller
     }
 
     $projectEnd = true;
-    if($project->end_date > date('Y-m-d H:i:s')) {
+    if($project->end_date > $now) {
       $projectEnd = false;
     }
 
@@ -39,6 +42,7 @@ class ProjectController extends Controller
     // Get Charity
     $charity = Service::loadModel('Charity')->select('id','name','logo')->find($project->charity_id);
 
+    // Total
     $amount = $donationModel->getTotalAmount('Project',$id,false,false);
 
     // SEND LIB TO VIEW
@@ -54,9 +58,11 @@ class ProjectController extends Controller
     $this->setData('remainingDate',$date->remainingDate($project->end_date));
     $this->setData('donors',$donationModel->getDonors('Project',$id));
     $this->setData('projectEnd',$projectEnd);
+    $this->setData('countProject',$projectModel->where('charity_id','=',$id)->count());
+    $this->setData('countOpenedProject',$projectModel->where([['charity_id','=',$id],['end_date','>',$now]])->count());
     
     // SET META
-    $this->setMeta('title',$project->name);
+    $this->setMeta('title',$project->name.' — CharityTH');
     $this->setMeta('description',$project->short_desc);
     $this->setMeta('image',$project->thumbnail);
     
@@ -78,16 +84,35 @@ class ProjectController extends Controller
         return $currentPage;
     });
 
+    // Search Query String
+    $conditions = array();
+
+    $conditions[] = array('end_date','>',date('Y-m-d H:i:s'));
+    $field = 'created_at';
+    $sorting = 'desc';
+
+    if(!empty(request()->q)) {
+      $conditions[] = array('name','=','%'.request()->q.'%');
+    }
+
+    if(!empty(request()->sort)) {
+      list($field,$sorting) = explode(':', request()->sort);
+    }
+
+    $projects = $model->where($conditions)->orderBy($field,$sorting)->paginate(24);
+    $projects->appends(request()->all());
+
     // SET LIB
     $this->setData('stringLib',new stringHelper);
+    $this->setData('dateLib',new Date);
 
     // SET DATA
     $this->setData('donationModel',Service::loadModel('Donation'));
-    $this->setData('dateLib',new Date);
-    $this->setData('projects',$model->where('end_date','>',date('Y-m-d H:i:s'))->paginate(24));
+    $this->setData('projects',$projects);
+    $this->setData('sorting',$this->sorting);
 
     $this->setMeta('title','โครงการ — CharityTH');
-    $this->setMeta('description','');
+    // $this->setMeta('description','');
     // $this->setMeta('image',null);
 
     return $this->view('page.project.list');
@@ -111,10 +136,27 @@ class ProjectController extends Controller
     // GET Charity
     $charity = Service::loadModel('Charity')->find($id);
 
-    $projects = $model->where([
-      ['charity_id','=',$id],
-      ['end_date','>',date('Y-m-d H:i:s')]
-    ])->paginate(24);
+    // Search Query String
+    $conditions = array();
+
+    $conditions[] = array('charity_id','=',$id);
+    $field = 'created_at';
+    $sorting = 'desc';
+
+    if(!empty(request()->q)) {
+      $conditions[] = array('name','=','%'.request()->q.'%');
+    }
+
+    if(!empty(request()->opened)) {
+      $conditions[] = array('end_date','>',date('Y-m-d H:i:s'));
+    }
+
+    if(!empty(request()->sort)) {
+      list($field,$sorting) = explode(':', request()->sort);
+    }
+
+    $projects = $model->where($conditions)->orderBy($field,$sorting)->paginate(24);
+    $projects->appends(request()->all());
 
     // SET LIB
     $this->setData('stringLib',new stringHelper);
@@ -124,10 +166,12 @@ class ProjectController extends Controller
     $this->setData('donationModel',Service::loadModel('Donation'));
     $this->setData('projects',$projects);
     $this->setData('charity',$charity);
+    $this->setData('sorting',$this->sorting);
 
     // SET META
     $this->setMeta('title','โครงการ - '.$charity->name.' — CharityTH');
     $this->setMeta('description',$charity->short_desc);
+    $this->setMeta('image',$charity->thumbnail);
 
     return $this->view('page.project.list_by_charity');
 

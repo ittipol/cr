@@ -3,7 +3,7 @@
 
 <div class="charity list">
 
-  <div class="clearfix margin-top-60"></div>
+  <div class="clearfix margin-top-20"></div>
 
   <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
     <div class="container">
@@ -13,20 +13,28 @@
 
   <div class="custom-search-bar">
     <div class="container">
+      <h5>ค้นหา</h5>
       <div class="row">
         {{Form::open(['class' => 'sky-form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
-        <div class="col-sm-4 md-margin-bottom-10">
+        <div class="col-sm-4 search-box">
           <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-            <input type="text" placeholder="what job you are looking for" class="form-control">
+            <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+            {{Form::text('q', null, array('class' => 'form-control', 'placeholder' => 'ค้นหา','autocomplete' => 'off'))}}
           </div>
         </div>
-        <div class="col-sm-4 md-margin-bottom-10">
+        <div class="col-sm-4 search-box">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+            {{Form::select('type', $charityTypes, null, array('class' => 'form-control'))}}
+          </div>
+        </div>
+        <div class="col-sm-4 search-box">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-            <input type="text" placeholder="where would you like to work" class="form-control">
+            {{Form::select('location', $provinces, null, array('class' => 'form-control'))}}
           </div>
         </div>
+        <div class="col-sm-8"></div>
         <div class="col-sm-4">
           <button type="submit" class="btn-u btn-block btn-u-dark-blue">ค้นหา</button>
         </div>
@@ -85,7 +93,7 @@
         @endforeach
       </div>
 
-      @include('pagination.default2', ['paginator' => $charities])
+      {{$charities->links('pagination.default2', ['paginator' => $charities])}}
 
     @else
       <div class="text-center content margin-top-100 margin-bottom-300">

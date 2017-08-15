@@ -41,9 +41,30 @@
     </ul>
   </div>
 
-  <div class="breadcrumbs breadcrumbs-custom margin-top-20 margin-bottom-20">
+  <div class="clearfix margin-top-20"></div>
+
+  <div class="custom-search-bar">
     <div class="container">
-      <h1>ข่าวสาร</h1>
+      <h5>ค้นหา</h5>
+      <div class="row">
+        {{Form::open(['class' => 'sky-form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
+        <div class="col-sm-4 search-box">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+            {{Form::text('q', null, array('class' => 'form-control', 'placeholder' => 'ค้นหา','autocomplete' => 'off'))}}
+          </div>
+        </div>
+        <div class="col-sm-4 search-box">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-sort-amount-asc"></i></span>
+            {{Form::select('sort', $sorting, null, array('class' => 'form-control'))}}
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <button type="submit" class="btn-u btn-block btn-u-dark-blue">ค้นหา</button>
+        </div>
+        {{Form::close()}}
+      </div>
     </div>
   </div>
 

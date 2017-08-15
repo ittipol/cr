@@ -1,7 +1,7 @@
 <div class="panel panel-profile">
   <div class="panel-heading overflow-h">
     <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i>โครงการ</h2>
-    <a href="{{URL::to('charity')}}/{{$charity->id}}/project" class="btn-u btn-brd btn-brd-hover btn-u-dark pull-right">ทั้งหมด</a>
+    <a href="{{URL::to('charity')}}/{{$charity->id}}/project" class="btn-u btn-u-blue pull-right">แสดงทั้งหมด</a>
   </div>
 </div>
 
