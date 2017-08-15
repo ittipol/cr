@@ -52,14 +52,14 @@ class ProjectController extends Controller
     $this->setData('charity',$charity);
     $this->setData('amount',number_format($amount, 0, '.', ','));
     $this->setData('donationTotal',$donationModel->countDonation('Project',$id));
-    $this->setData('donorTotal',$donationModel->countDonor('Project',$id));
+    $this->setData('donorTotal',number_format($donationModel->countDonor('Project',$id), 0, '.', ','));
     $this->setData('targetAmount',number_format($project->target_amount, 0, '.', ','));
     $this->setData('percent',round(($amount*100)/$project->target_amount));
     $this->setData('remainingDate',$date->remainingDate($project->end_date));
     $this->setData('donors',$donationModel->getDonors('Project',$id));
     $this->setData('projectEnd',$projectEnd);
-    $this->setData('countProject',$projectModel->where('charity_id','=',$id)->count());
-    $this->setData('countOpenedProject',$projectModel->where([['charity_id','=',$id],['end_date','>',$now]])->count());
+    $this->setData('countProject',number_format($projectModel->where('charity_id','=',$id)->count(), 0, '.', ','));
+    $this->setData('countOpenedProject',number_format($projectModel->where([['charity_id','=',$id],['end_date','>',$now]])->count(), 0, '.', ','));
     
     // SET META
     $this->setMeta('title',$project->name.' — CharityTH');
@@ -122,6 +122,7 @@ class ProjectController extends Controller
   public function listByCharity($id) {
 
     $model = Service::loadModel('Project');
+    $now = date('Y-m-d H:i:s');
 
     $currentPage = 1;
     if(!empty(request()->page)) {
@@ -148,7 +149,7 @@ class ProjectController extends Controller
     }
 
     if(!empty(request()->opened)) {
-      $conditions[] = array('end_date','>',date('Y-m-d H:i:s'));
+      $conditions[] = array('end_date','>',$now);
     }
 
     if(!empty(request()->sort)) {
@@ -166,6 +167,9 @@ class ProjectController extends Controller
     $this->setData('donationModel',Service::loadModel('Donation'));
     $this->setData('projects',$projects);
     $this->setData('charity',$charity);
+    $this->setData('countProject',number_format($model->where('charity_id','=',$id)->count(), 0, '.', ','));
+    $this->setData('countOpenedProject',number_format($model->where([['charity_id','=',$id],['end_date','>',$now]])->count(), 0, '.', ','));
+    $this->setData('now',$now);
     $this->setData('sorting',$this->sorting);
 
     // SET META

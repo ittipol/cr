@@ -50,6 +50,14 @@
 	font-size: 18px;
 }
 
+.project-summary-info {
+	font-size: 20px;
+}
+
+.project-summary-info .counter {
+	color: #05AF3C;
+}
+
 @media only screen and (max-width : 480px) {
 
 	.project-header p {
@@ -67,6 +75,10 @@
 
 	.project-donation-info > .project-donation-item .counter {
 		font-size: 18px;
+	}
+
+	.project-summary-info {
+		text-align: center;
 	}
 
 }

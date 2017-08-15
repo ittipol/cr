@@ -41,7 +41,7 @@
     </ul>
   </div>
 
-  <div class="clearfix margin-top-20"></div>
+  <div class="clearfix margin-bottom-20"></div>
 
   <div class="custom-search-bar">
     <div class="container">
@@ -80,6 +80,18 @@
   <div class="container padding-bottom-100">
 
     @if($projects->currentPage() <= $projects->lastPage())
+
+      <div class="clearfix margin-bottom-20"></div>
+
+      <div class="project-summary-info">
+        <span>โครงการทั้งหมด</span>
+        <span class="counter">{{$countProject}} โครงการ</span>
+      </div>
+
+      <div class="project-summary-info">
+        <span class="counter">{{$countOpenedProject}} โครงการ</span>
+        <span>ที่กำลังเปิดรับบริจาค</span>
+      </div>
     
       <div class="clearfix margin-bottom-20"></div>
       
@@ -119,6 +131,11 @@
 
                   <?php
                     $amount = $donationModel->getTotalAmount('Project',$data->id,false,false);
+                  ?>
+
+                  @if($data->end_date > $now) 
+
+                  <?php
                     $percent = round(($amount*100)/$data->target_amount);
                   ?>
 
@@ -141,6 +158,17 @@
                   <div>
                     <a href="{{URL::to('donate')}}?for=project&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">สนับสนุนโครงการนี้</a>
                   </div>
+
+                  @else
+
+                  <div class="alert alert-danger fade in">
+                    <i class="fa fa-exclamation-circle"></i> โครงการปิดรับการบริจาคแล้ว
+                  </div>
+
+                  <p>{{number_format($donationModel->countDonor('Project',$data->id, 0, '.', ','))}} ผู้ให้การสนับสนุนและร่วมบริจาคเป็นจำนวนเงิน {{number_format($amount, 0, '.', ',')}} บาทเพื่อช่วยให้โครงการนี้เกิดขึ้นได้จริง</p>
+
+                  @endif
+
                 </div>
 
               </div>

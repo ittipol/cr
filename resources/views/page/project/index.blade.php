@@ -11,10 +11,6 @@
     </div>
     
     <div class="testimonials-v4">
-      <!-- <div class="testimonials-v4-in">
-        <h2>{{$project->name}}</h2>
-        <p>{{$project->short_desc}}</p>
-      </div> -->
       <img src="{{$charity->logo}}">
       <span class="testimonials-author">
         โครงการจาก<br>
@@ -174,18 +170,6 @@
 
                 <div class="col-md-4">
                   <h3>โครงการจาก {{$charity->name}}</h3>
-
-                  <!-- <div class="donation-box">
-                    <div class="margin-bottom-20">
-                      <div class="service-heading">โครงการทั้งหมด</div>
-                      <div class="counter">{{$countProject}} โครงการ</div>
-                    </div>
-
-                    <div class="margin-bottom-20">
-                      <div class="service-heading">โครงการที่กำลังเปิดรับบริจาค</div>
-                      <div class="counter">{{$countOpenedProject}} โครงการ</div>
-                    </div>
-                  </div> -->
 
                   <div class="project-donation-info">
                     <div class="project-donation-item no-margin">

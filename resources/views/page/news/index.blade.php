@@ -32,15 +32,7 @@
 
     <div class="row margin-bottom-20">
       <div class="col-md-10">
-
         <img src="{{$news->thumbnail}}" class="news-thumbnail margin-bottom-20">
-
-        <!-- <h1>{{$news->title}}</h1>
-        
-        <p>
-          <i class="fa fa-clock-o"></i> {{$dateLib->covertDateToSting($news->created_at)}}
-        </p> -->
-
         <p>
           {!!$news->description!!}
         </p>
