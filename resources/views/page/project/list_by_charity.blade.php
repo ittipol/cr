@@ -48,19 +48,19 @@
       <h5>ค้นหา</h5>
       <div class="row">
         {{Form::open(['class' => 'sky-form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
-        <div class="col-sm-4 search-box">
+        <div class="col-sm-3 search-box">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
             {{Form::text('q', null, array('class' => 'form-control', 'placeholder' => 'ค้นหา','autocomplete' => 'off'))}}
           </div>
         </div>
-        <div class="col-sm-4 search-box">
+        <div class="col-sm-3 search-box">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-sort-amount-asc"></i></span>
             {{Form::select('sort', $sorting, null, array('class' => 'form-control'))}}
           </div>
         </div>
-        <div class="col-sm-4 search-box">
+        <div class="col-sm-3 search-box">
           <div class="input-group">
             <label class="checkbox">
               {{Form::checkbox('opened', 1)}}
@@ -68,8 +68,7 @@
             </label>
           </div>
         </div>
-        <div class="col-sm-8"></div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <button type="submit" class="btn-u btn-block btn-u-dark-blue">ค้นหา</button>
         </div>
         {{Form::close()}}
