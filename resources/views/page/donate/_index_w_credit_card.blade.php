@@ -38,21 +38,147 @@
     <div class="row">
       <div class="col-md-8">
 
-        <div>
+
+
+
+        <section>
+          <label class="label">จำนวนเงินบริจาค</label>
+          <label class="input-group">
+            {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+            <span class="input-group-addon">บาท</span>
+          </label>
+        </section>
+
+
+
+
+
+        <section>
+          <label class="label">บริจาคโดย</label>
+        </section>
+
+        <div class="sky-form">
+          <label class="radio">
+            <input type="radio" name="method" class="method-rdo" value="method_1" checked>
+            <i class="rounded-x"></i>บัตรเครคิต
+          </label>
+        </div>
+
+        <div id="method_1" style="display:none;">
+
+          <div class="clearfix margin-bottom-20"></div>
+
+          <div class="alert alert-info fade in">
+            เราจะไม่เก็บข้อมูลบัตรเครดิตหรืออะไรทั้งสิ้น โดยไม่ได้รับอนุญาตจากคุณ <br>
+            ข้อมูลทั้งหมดที่คุณกรอกมาจะถูกส่งผ่านการเชื่อมต่อที่ปลอดภัย แบบ SSL คุณจึงมั่นใจได้ในความปลอดภัยของข้อมูล 
+          </div>
+
+          <div id="card_error" class="alert alert-danger fade in" style="display:none"></div> 
+
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">ชื่อผู้ถือบัตร</label>
+              <label class="input">
+                {{Form::text('holder_name', null, array('id' => 'holder_name', 'autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
+
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">หมายเลขบัตร</label>
+              <label class="input">
+                <div class="icon-prepend">
+                  <img id="credit_card_image" src="/images/credit_card/card.png" class="displayed">
+                </div>
+                {{Form::text('card_number', null, array('id' => 'card_number', 'class' => 'cc-input', 'placeholder' => '---- ---- ---- ----', 'autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
+
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">CVC <a href="javascript:void(0);" data-toggle="modal" data-target="#cvc_modal">คืออะไร</a></label>
+              <label class="input">
+                {{Form::text('cvc', null, array('id' => 'cvc', 'class' => 'cc-input', 'placeholder' => 'CVC', 'autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
+
+          <div class="row">
+            <section class="col-xs-12">
+              <label class="label">วันหมดอายุ</label>
+              <label class="input">
+                {{Form::text('card_expire', null, array('id' => 'card_expire', 'class' => 'cc-input', 'placeholder' => 'MM / YY', 'autocomplete' => 'off'))}}
+              </label>
+            </section>
+          </div>
+
+          <input type="hidden" name="omise_token">
+
+        </div>
+
+        <div class="modal fade" id="cvc_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 id="myModalLabel1" class="modal-title">CVC คืออะไร</h4>
+              </div>
+              <div class="modal-body">
+                รหัสยืนยันบัตรหรือ CVC เป็นรหัสพิเศษที่พิมพ์อยู่บนบัตรเดบิตหรือบัตรเครดิตของคุณ <br><br>
+                สำหรับบัตรอเมริกันเอ็กซ์เพรส CVC จะปรากฏเป็นรหัส 4 หลักที่แยกต่างหากพิมพ์อยู่บนด้านหน้าของบัตรของคุณ ส่วนบัตรอื่น ๆ ทั้งหมด (Visa, Master Card, บัตรของธนาคารอื่น ๆ ) จะเป็นตัวเลขสามหลักที่พิมพ์อยู่ถัดจากแถบลายเซ็นด้านหลังของบัตรของคุณ โปรดสังเกตว่ารหัส CVC จะไม่นูน (ต่างจากหมายเลขบัตร หลักด้านหน้า) <br><br>
+                CVC จะไม่ได้ถูกพิมพ์บนใบเสร็จรับเงินใด ๆ ด้วยเหตุนี้มันจึงไม่เป็นที่ทราบหรือพบเห็นโดยบุคคลอื่นที่ไม่ใช่เจ้าของบัตรที่แท้จริง <br><br>
+                กรอกรหัส CVC เพื่อยืนยันว่าคุณคือผู้ถือบัตรสำหรับการทำรายการในครั้งนี้และเพื่อหลีกเลี่ยงบุคคลอื่นที่ไม่ใช่คุณไม่ให้สามารถทำการซื้อสินค้าโดยใช้หมายเลขบัตรของคุณได้ <br><br>
+                *** โปรดสังเกตว่าชื่อของรหัสนี้อาจเรียกแตกต่างกันไปตามบริษัทผู้ออกบัตร เช่น Card Verification Value (CVV), the Card Security Code หรือ the Personal Security Code ซึ่งทั้งหมดนี้เป็นข้อมูลแบบเดียวกัน
+              </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" class="btn-u btn-u-default" type="button">ปิด</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix margin-bottom-30"></div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="sky-form">
+          <label class="radio">
+            <input type="radio" name="method" class="method-rdo" value="method_2">
+            <i class="rounded-x"></i>โอนเงินผ่านธนาคาร
+          </label>
+        </div>
+
+        <div id="method_2" style="display:none;">
+
+          <div class="clearfix margin-bottom-30"></div>
 
           <div class="alert alert-info fade in">
             ท่านสามารถโอนเงินบริจาคผ่านบัญชีธนาคารได้ตามเลขที่บัญชีที่ระบุ 
             <a href="javascript:void(0);" data-toggle="modal" data-target="#bank_account_modal">เลขที่บัญชีธนาคาร</a>
             หลังจากโอนเงินแล้ว กรุณาแจ้งโอนเงินบริจาคได้ที่แบบฟอร์มด้านล่าง
           </div>
-
-          <section>
-            <label class="label">จำนวนเงินบริจาค</label>
-            <label class="input-group">
-              {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
-              <span class="input-group-addon">บาท</span>
-            </label>
-          </section>
 
           <div class="modal fade" id="bank_account_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -364,7 +490,24 @@
 
 </div>
 
+<div class="global-overlay"></div>
+<div class="global-loading-icon"></div>
 
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/omise.js"></script>
+<script type="text/javascript">
+  Omise.setPublicKey("pkey_test_58x7mn3lfybowau4r98");
+</script>
+
+<!-- <script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="/js/form/credit-card-masking.js"></script>
+ -->
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-validation.js"></script>
 
@@ -383,18 +526,49 @@
     }
 
     load() {
+
+      let _this = this;
+
       this.bind();
+
+      setTimeout(function(){
+        _this.currentMethod = $('.method-rdo:checked').val();
+        $('#'+_this.currentMethod).slideDown(300);
+      },750);
+      
+      if($('#open_address_form_chkbox').is(':checked')) {
+        $('#address_form').slideDown(300);
+      }
     }
 
     bind() {
 
       let _this = this;
 
+      // remove
+      $("#donation_form").submit(function () {
+        return false;
+      }); 
+
+      $('.method-rdo').on('click',function(){
+
+        if($('.method-rdo:checked').val() == _this.currentMethod) {
+          return false;
+        }
+
+        $('#'+_this.currentMethod).slideUp(300);
+
+        _this.currentMethod = $('.method-rdo:checked').val();
+        $('#'+_this.currentMethod).delay(420).slideDown(300);
+      });
+
       $('#date').on('change',function(){
 
         if($(this).val() != '') {
+
           let date = $(this).val().split('-');
           $('#date-input-label').text(parseInt(date[2])+' '+_this.findMonthName(parseInt(date[1]))+' '+(parseInt(date[0])+543));
+
         }
 
       });

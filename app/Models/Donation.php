@@ -35,18 +35,12 @@ class Donation extends Model
 
   public $validationWithAddress = array(
     'rules' => array(
-      // 'date' => 'required|date_format:Y-m-d',
-      // 'amount' => 'required|regex:/^[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$/',
       'receiver_name' => 'required',
       'address_no' => 'required',
       'sub_district' => 'required',
       'post_code' => 'required|min:5|numeric',
     ),
     'messages' => array(
-      // 'date.required' => 'วันที่โอนห้ามว่าง',
-      // 'date.date_format' => 'วันที่โอนไม่ถูกต้อง',
-      // 'amount.required' => 'จำนวนเงินห้ามว่าง',
-      // 'amount.regex' => 'จำนวนเงินไม่ถูกต้อง',
       'receiver_name.required' => 'ชื่อ นามสกุลผู้รับห้ามว่าง',
       'address_no.required' => 'บ้านเลขที่ห้ามว่าง',
       'sub_district.required' => 'ตำบล/แขวงห้ามว่าง',

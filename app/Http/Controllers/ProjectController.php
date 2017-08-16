@@ -58,8 +58,8 @@ class ProjectController extends Controller
     $this->setData('remainingDate',$date->remainingDate($project->end_date));
     $this->setData('donors',$donationModel->getDonors('Project',$id));
     $this->setData('projectEnd',$projectEnd);
-    $this->setData('countProject',number_format($projectModel->where('charity_id','=',$id)->count(), 0, '.', ','));
-    $this->setData('countOpenedProject',number_format($projectModel->where([['charity_id','=',$id],['end_date','>',$now]])->count(), 0, '.', ','));
+    // $this->setData('countProject',number_format($projectModel->where('charity_id','=',$charity->id)->count(), 0, '.', ','));
+    // $this->setData('countOpenedProject',number_format($projectModel->where([['charity_id','=',$charity->id],['end_date','>',$now]])->count(), 0, '.', ','));
     
     // SET META
     $this->setMeta('title',$project->name.' — CharityTH');

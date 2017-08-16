@@ -20,26 +20,24 @@ var Validation = function () {
               name: {
                 required: true
               },
-              holder_name:
-              {
-                required: true
-              },
-              card_number:
-              {
-                required: true,
-                creditcard: true
-                // digits: true
-              },
-              cvc:
-              {
-                required: true,
-                regx: /^[0-9]{3,4}$/
-                // digits: true
-              },
-              card_expire:
-              {
-                required: true
-              },
+              // holder_name:
+              // {
+              //   required: true
+              // },
+              // card_number:
+              // {
+              //   required: true,
+              //   creditcard: true
+              // },
+              // cvc:
+              // {
+              //   required: true,
+              //   regx: /^[0-9]{3,4}$/
+              // },
+              // card_expire:
+              // {
+              //   required: true
+              // },
               email:
               {
                 email: true
@@ -86,26 +84,25 @@ var Validation = function () {
               {
                 required: 'ชื่อ นามสกุลผู้บริจาคห้ามว่าง'
               },
-              holder_name:
-              {
-                required: 'ชื่อเจ้าของบัตรห้ามว่าง'
-              },
-              card_number:
-              {
-                required: 'หมายเลขบัตรห้ามว่าง',
-                creditcard: 'หมายเลขบัตรไม่ถูกต้อง'
-                // digits: 'กรุณาป้อนหมายเลขบัตรด้วยตัวเลข'
-              },
-              cvc:
-              {
-                required: 'CVC ห้ามว่าง',
-                // digits: 'กรุณาป้อน CVC ด้วยตัวเลข',
-                regx: 'CVC ไม่ถูกต้อง'
-              },
-              card_expire:
-              {
-                required: 'วันหมดอายุห้ามว่าง'
-              },
+              // holder_name:
+              // {
+              //   required: 'ชื่อเจ้าของบัตรห้ามว่าง'
+              // },
+              // card_number:
+              // {
+              //   required: 'หมายเลขบัตรห้ามว่าง',
+              //   creditcard: 'หมายเลขบัตรไม่ถูกต้อง'
+              // },
+              // cvc:
+              // {
+              //   required: 'CVC ห้ามว่าง',
+              //   // digits: 'กรุณาป้อน CVC ด้วยตัวเลข',
+              //   regx: 'CVC ไม่ถูกต้อง'
+              // },
+              // card_expire:
+              // {
+              //   required: 'วันหมดอายุห้ามว่าง'
+              // },
               email:
               {
                   email: 'อีเมลไม่ถูกต้อง'
@@ -145,69 +142,67 @@ var Validation = function () {
               },
             },    
 
-            submitHandler: function(form) {
+            // submitHandler: function(form) {
 
-              let _form = $(form);
+            //   let _form = $(form);
 
-              // Disable the submit button to avoid repeated click.
-              _form.find("input[type=submit]").prop("disabled", true);
+            //   // Disable the submit button to avoid repeated click.
+            //   _form.find("input[type=submit]").prop("disabled", true);
 
-              $('.global-overlay').addClass('displayed');
-              $('.global-loading-icon').addClass('displayed');
+            //   $('.global-overlay').addClass('displayed');
+            //   $('.global-loading-icon').addClass('displayed');
 
-              switch($('.method-rdo:checked').val()) {
+            //   switch($('.method-rdo:checked').val()) {
 
-                case 'method_1':
+            //     case 'method_1':
 
-                  let cardExpire = $('#card_expire').val().split(' / ');
-                  let card = {
-                    "name":  $('#holder_name').val(),
-                    "number": $('#card_number').val().replace(/\s/g,''),
-                    "expiration_month": cardExpire[0],
-                    "expiration_year": cardExpire[1],
-                    "security_code": $('#cvc').val()
-                  };
+            //       let cardExpire = $('#card_expire').val().split(' / ');
+            //       let card = {
+            //         "name":  $('#holder_name').val(),
+            //         "number": $('#card_number').val().replace(/\s/g,''),
+            //         "expiration_month": cardExpire[0],
+            //         "expiration_year": cardExpire[1],
+            //         "security_code": $('#cvc').val()
+            //       };
                 
-                  Omise.createToken("card", card, function (statusCode, response) {
-                    if(response.object == "error") {
+            //       Omise.createToken("card", card, function (statusCode, response) {
+            //         if(response.object == "error") {
 
-                      // let message_text = response.message;
+            //           $("#card_error").html('หมายเลขบัตรเครดิตไม่ถูกต้องหรือระบบไม่รองรับบัตรเครดิตนี้').css('display','block');
+            //           $(document).scrollTop($("#card_error").position().top);
 
-                      $("#card_error").html('หมายเลขบัตรเครดิตไม่ถูกต้องหรือระบบไม่รองรับบัตรเครดิตนี้').css('display','block');
-                      $(document).scrollTop($("#card_error").position().top);
+            //           // Re-enable the submit button.
+            //           _form.find("input[type=submit]").prop("disabled", false);
 
-                      // Re-enable the submit button.
-                      _form.find("input[type=submit]").prop("disabled", false);
+            //           $('.global-overlay').removeClass('displayed');
+            //           $('.global-loading-icon').removeClass('displayed');
 
-                      $('.global-overlay').removeClass('displayed');
-                      $('.global-loading-icon').removeClass('displayed');
+            //         }else {
+            //           // Then fill the omise_token.
+            //           _form.find("[name=omise_token]").val(response.id);
 
-                    }else {
-                      // Then fill the omise_token.
-                      _form.find("[name=omise_token]").val(response.id);
+            //           // Remove card number from form before submiting to server.
+            //           $('#card_number').val('');
+            //           $('#cvc').val('');
 
-                      // Remove card number from form before submiting to server.
-                      $('#card_number').val('');
-                      $('#cvc').val('');
+            //           // submit token to server.
+            //           _form.get(0).submit();
+            //         };
+            //       });
 
-                      // submit token to server.
-                      _form.get(0).submit();
-                    };
-                  });
+            //     break;
 
-                break;
+            //     default:
 
-                default:
+            //       setTimeout(function(){
+            //         _form.get(0).submit();
+            //       },400);
 
-                  setTimeout(function(){
-                    _form.get(0).submit();
-                  },400);
+            //   }
 
-              }
+            //   return false;
 
-              return false;
-
-            },             
+            // },             
 	            
 	            // Do not change code below
             errorPlacement: function(error, element)

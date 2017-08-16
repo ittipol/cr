@@ -23,8 +23,15 @@ class NewsController extends Controller
       return $this->error('ไม่พบข่าวสารนี้');
     }
 
+    // Get Charity
+    $charity = Service::loadModel('Charity')->select('id','name','logo')->find($news->charity_id);
+
+    // SET LIB
     $this->setData('dateLib',new Date);
+
+    // SET DATA
     $this->setData('news',$news);
+    $this->setData('charity',$charity);
 
     // SET META
     $this->setMeta('title',$news->title);

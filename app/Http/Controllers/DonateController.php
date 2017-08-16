@@ -120,37 +120,19 @@ class DonateController extends Controller
   }
 
   public function donationSubmit() {
-    // dd(request()->all());
+
     if(empty(request()->for) || empty(request()->id)) {
       return $this->error('URL ไม่ถูกต้อง');
     }
     
     $donation = Service::loadModel('Donation');
 
-    $validation = array();
+    // rules for bank transfer
+    $validation = $donation->validation;
 
-    switch (request()->method) {
-      case 'method_1':
-
-        // rules for credit card
-        $validation = $donation->validationCreditCard;
-
-        $donation->transaction_date = date('Y-m-d H:i:s');
-        $donation->donation_via_id = 1;
-
-        break;
-      
-      case 'method_2':
-
-        // rules for bank transfer
-        $validation = $donation->validation;
-
-        $donation->transaction_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
-        $donation->bank_account_id = request()->bank_acc;
-        $donation->donation_via_id = 2;
-
-        break;
-    }
+    $donation->transaction_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
+    $donation->bank_account_id = request()->bank_acc;
+    $donation->donation_via_id = 2;
 
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
       $validation['rules'] = array_merge($validation['rules'],$donation->validationWithAddress['rules']);
@@ -227,21 +209,23 @@ class DonateController extends Controller
         return Redirect::to('/');
         break;
     }
-    
-    $donation->amount = request()->amount;
-    $donation->code = strtoupper(date('Yd').'-'.Token::generateSecureKey(8));
-
+  
     if(Auth::check()) {
       $donation->user_id = Auth::user()->id;
     }elseif(!empty(request()->name)){
       $donation->guest_name = trim(request()->name);      
     }
 
+    // unidentified
     if(isset(request()->unidentified) && request()->unidentified) {
       $donation->unidentified = 1;
     }
 
-    // cal Fee
+    //
+    $donation->amount = request()->amount;
+    $donation->code = strtoupper(date('Yd').'-'.Token::generateSecureKey(8));
+
+    // Fee
     $donation->fee = request()->amount * $donation->getFeeRate();
     $donation->balance = request()->amount - $donation->fee;
 
@@ -250,36 +234,6 @@ class DonateController extends Controller
       return Redirect::back()->withErrors(array(
         array('มีข้อมูลบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
       ));
-    }
-
-    // Credit Card paymemt
-    if(request()->method == 'method_1') {
-      
-      define('OMISE_API_VERSION', '2015-11-17');
-      define('OMISE_PUBLIC_KEY', 'pkey_test_58x7mn3lfybowau4r98');
-      define('OMISE_SECRET_KEY', 'skey_test_58x7mn3lob7b7m832t4');
-
-      if(strpos(request()->amount, '.') !== false ) {
-        $amount = str_replace('.', '', request()->amount);
-      }else{
-        $amount = request()->amount.'00';
-      }
-
-      $charge = OmiseCharge::create(array(
-        'amount' => $amount, //2050 = 20.50 บาท
-        'currency' => 'thb',
-        'card' => request()->omise_token
-      ));
-
-      if ($charge['status'] != 'successful') {
-        return Redirect::back()->withErrors(array(
-          array('ไม่สามารถตัดเงินจากบัตรเครดิตได้')
-        ));
-      }
-
-      $donation->verified = 1;
-      $donation->save();
-
     }
 
     // if(Auth::check()) {}
@@ -293,5 +247,180 @@ class DonateController extends Controller
     return Redirect::to('donation/'.$donation->code);
 
   }
+
+  // public function donationSubmit() {
+
+  //   if(empty(request()->for) || empty(request()->id)) {
+  //     return $this->error('URL ไม่ถูกต้อง');
+  //   }
+    
+  //   $donation = Service::loadModel('Donation');
+
+  //   $validation = array();
+
+  //   switch (request()->method) {
+  //     case 'method_1':
+
+  //       // rules for credit card
+  //       $validation = $donation->validationCreditCard;
+
+  //       $donation->transaction_date = date('Y-m-d H:i:s');
+  //       $donation->donation_via_id = 1;
+
+  //       break;
+      
+  //     case 'method_2':
+
+  //       // rules for bank transfer
+  //       $validation = $donation->validation;
+
+  //       $donation->transaction_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
+  //       $donation->bank_account_id = request()->bank_acc;
+  //       $donation->donation_via_id = 2;
+
+  //       break;
+  //   }
+
+  //   if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
+  //     $validation['rules'] = array_merge($validation['rules'],$donation->validationWithAddress['rules']);
+  //     $validation['messages'] = array_merge($validation['messages'],$donation->validationWithAddress['messages']);
+  //   }
+
+  //   $validator = Validator::make(request()->all(), $validation['rules'],$validation['messages']);
+    
+  //   if($validator->fails()) {
+  //     return Redirect::back()->withErrors($validator->getMessageBag())->withInput(request()->all());
+  //   }
+
+  //   // Reward
+  //   if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
+
+  //     $donation->get_reward = 1;
+
+  //     $donation->reward = json_encode(array(
+  //       'selected' => 'shirt',
+  //       'option' => array(
+  //         'size' => request()->reward_option
+  //       )
+  //     ));
+
+  //     $donation->shipping_address = json_encode(array(
+  //       'receiver_name' => trim(request()->receiver_name),
+  //       'tel_no' => request()->tel_no,
+  //       'email' => trim(request()->email),
+  //       'address_no' => request()->address_no,
+  //       'building' => request()->building,
+  //       'floor' => request()->floor,
+  //       'squad' => request()->squad,
+  //       'road' => request()->road,
+  //       'alley' => request()->alley,
+  //       'province' => Service::loadModel('Province')->find(request()->province)->name,
+  //       'district' => Service::loadModel('District')->find(request()->district)->name,
+  //       'sub_district' => request()->sub_district,
+  //       'post_code' => request()->post_code
+  //     ));
+
+  //   }
+
+  //   switch (request()->for) {
+  //     case 'charity':
+
+  //       if(empty(Service::loadModel('Charity')->select('name')->find(request()->id))) {
+  //         return $this->error('ไม่พบมูลนิธินี้');
+  //       }
+
+  //       $donation->model = 'Charity';
+  //       $donation->model_id = request()->id;
+
+  //       break;
+
+  //     case 'project':
+
+  //       $project = Service::loadModel('Project')
+  //       ->select('id')
+  //       ->where([
+  //         ['id','=',request()->id],
+  //         ['end_date','>',date('Y-m-d H:i:s')]
+  //       ]);
+
+  //       if(!$project->exists()) {
+  //         return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
+  //       }
+
+  //       $donation->model = 'Project';
+  //       $donation->model_id = request()->id;
+
+  //       break;
+      
+  //     default:
+  //       return Redirect::to('/');
+  //       break;
+  //   }
+    
+  //   $donation->amount = request()->amount;
+  //   $donation->code = strtoupper(date('Yd').'-'.Token::generateSecureKey(8));
+
+  //   if(Auth::check()) {
+  //     $donation->user_id = Auth::user()->id;
+  //   }elseif(!empty(request()->name)){
+  //     $donation->guest_name = trim(request()->name);      
+  //   }
+
+  //   if(isset(request()->unidentified) && request()->unidentified) {
+  //     $donation->unidentified = 1;
+  //   }
+
+  //   // cal Fee
+  //   $donation->fee = request()->amount * $donation->getFeeRate();
+  //   $donation->balance = request()->amount - $donation->fee;
+
+  //   // Save record
+  //   if(!$donation->save()) {
+  //     return Redirect::back()->withErrors(array(
+  //       array('มีข้อมูลบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
+  //     ));
+  //   }
+
+  //   // Credit Card paymemt
+  //   if(request()->method == 'method_1') {
+      
+  //     define('OMISE_API_VERSION', '2015-11-17');
+  //     define('OMISE_PUBLIC_KEY', 'pkey_test_58x7mn3lfybowau4r98');
+  //     define('OMISE_SECRET_KEY', 'skey_test_58x7mn3lob7b7m832t4');
+
+  //     if(strpos(request()->amount, '.') !== false ) {
+  //       $amount = str_replace('.', '', request()->amount);
+  //     }else{
+  //       $amount = request()->amount.'00';
+  //     }
+
+  //     $charge = OmiseCharge::create(array(
+  //       'amount' => $amount, //2050 = 20.50 บาท
+  //       'currency' => 'thb',
+  //       'card' => request()->omise_token
+  //     ));
+
+  //     if ($charge['status'] != 'successful') {
+  //       return Redirect::back()->withErrors(array(
+  //         array('ไม่สามารถตัดเงินจากบัตรเครดิตได้')
+  //       ));
+  //     }
+
+  //     $donation->verified = 1;
+  //     $donation->save();
+
+  //   }
+
+  //   // if(Auth::check()) {}
+
+  //   // If logged in and address is empty
+  //   // add address to user address field
+  //   // $user = Service::loadModel('User')->find();
+  //   // $user->shipping_address = $donation->address;
+  //   // $user->save();
+
+  //   return Redirect::to('donation/'.$donation->code);
+
+  // }
 
 }

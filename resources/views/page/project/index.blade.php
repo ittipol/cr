@@ -90,7 +90,7 @@
                 <a class="btn btn-xs btn-facebook fa-fixed btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
-                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน {{$project->name}}" target="_blank">
+                <a class="btn btn-xs btn-twitter fa-fixed btn-share" href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text=ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุนโครงการ {{$project->name}}" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
                 <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank">
@@ -158,6 +158,7 @@
               <div class="panel panel-profile">
                 <div class="panel-heading overflow-h">
                   <h2 class="panel-title heading-sm pull-left"><i class="fa fa-info-circle"></i>เกี่ยวกับโครงการ</h2>
+                  <a href="{{URL::to('charity')}}/{{$charity->id}}/project" class="btn-u btn-u-blue pull-right">แสดงโครงการทั้งหมด</a>
                 </div>
               </div>
 
@@ -168,27 +169,11 @@
                   </div>
                 </div>
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                   <h3>โครงการจาก {{$charity->name}}</h3>
-
-                  <div class="project-donation-info">
-                    <div class="project-donation-item no-margin">
-                      <span>โครงการทั้งหมด</span>
-                      <span class="counter">{{$countProject}}</span>
-                      <span>โครงการ</span>
-                    </div>
-
-                    <div class="project-donation-item no-margin">
-                      <span>โครงการที่กำลังเปิดรับบริจาค</span>
-                      <span class="counter">{{$countOpenedProject}}</span>
-                      <span>โครงการ</span>
-                    </div>
-                  </div>
-
                   <div class="clearfix margin-bottom-20"></div>
-
                   <a href="{{URL::to('charity')}}/{{$charity->id}}/project" class="btn-u btn-u-blue">แสดงโครงการทั้งหมด</a>
-                </div>
+                </div> -->
               </div>
 
             </div>

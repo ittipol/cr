@@ -16,26 +16,25 @@
       <h5>ค้นหา</h5>
       <div class="row">
         {{Form::open(['class' => 'sky-form','method' => 'get', 'enctype' => 'multipart/form-data'])}}
-        <div class="col-sm-4 search-box">
+        <div class="col-sm-6 search-box">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
             {{Form::text('q', null, array('class' => 'form-control', 'placeholder' => 'ค้นหา','autocomplete' => 'off'))}}
           </div>
         </div>
-        <div class="col-sm-4 search-box">
+        <div class="col-sm-6 search-box">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-flag"></i></span>
             {{Form::select('type', $charityTypes, null, array('class' => 'form-control'))}}
           </div>
         </div>
-        <div class="col-sm-4 search-box">
+        <div class="col-sm-6 search-box">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
             {{Form::select('location', $provinces, null, array('class' => 'form-control'))}}
           </div>
         </div>
-        <div class="col-sm-8"></div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <button type="submit" class="btn-u btn-block btn-u-dark-blue">ค้นหา</button>
         </div>
         {{Form::close()}}
