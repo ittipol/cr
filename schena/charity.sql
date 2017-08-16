@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2017 at 12:48 PM
+-- Generation Time: Aug 16, 2017 at 01:52 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `charity`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_accounts`
+--
+
+CREATE TABLE `bank_accounts` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `display_name` varchar(255) NOT NULL,
+  `acc_no` varchar(255) DEFAULT NULL,
+  `branch_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bank_accounts`
+--
+
+INSERT INTO `bank_accounts` (`id`, `display_name`, `acc_no`, `branch_name`) VALUES
+(1, 'ธ.กสิกรไทย 025-8-81991-8', NULL, NULL),
+(2, 'ธ.ไทยพาณิชย์ 814-273724-4', NULL, NULL),
+(3, 'ธ.กรุงไทย 764-0-41836-4', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -41,21 +63,10 @@ CREATE TABLE `charities` (
   `province_id` int(11) UNSIGNED NOT NULL,
   `has_reward` tinyint(1) NOT NULL DEFAULT '0',
   `reward` text,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `charities`
---
-
-INSERT INTO `charities` (`id`, `name`, `short_desc`, `description`, `charity_type_id`, `logo`, `thumbnail`, `vdo_url`, `images`, `address`, `district_id`, `province_id`, `has_reward`, `reward`, `created_at`, `updated_at`) VALUES
-(2, 'Animal wants org.', 'รองเท้าวิ่งผู้ชาย Nike Air Zoom Pegasus 34 ใหม่ล่าสุด โดดเด่นด้วยผ้า Flymesh ปรับใหม่เพื่อการระบายอากาศเหนือชั้นและการลดแรงกระแทกเบาตอบสนองได้ดี ช่วยให้คุณรู้สึกสบายตลอดทุกระยะทาง', '<div class="pi-tier3" style="margin: 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">\r\n<div class="pi-pdpmainbody" style="margin: 0px; padding: 0px;">\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 0px; padding-bottom: 12px; display: inline-block; line-height: 1.1; margin-bottom: 4px;">รวดเร็วและสอดรับทุกการใช้งาน</span></p>\r\n<p style="margin: 0px; padding: 0px;">รองเท้าวิ่งผู้ชาย Nike Air Zoom Pegasus 34 ใหม่ล่าสุด โดดเด่นด้วยผ้า Flymesh ปรับใหม่เพื่อการระบายอากาศเหนือชั้นและการลดแรงกระแทกเบาตอบสนองได้ดี ช่วยให้คุณรู้สึกสบายตลอดทุกระยะทาง</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">สบายระบายอากาศได้ดี</span></p>\r\n<p style="margin: 0px; padding: 0px;">ผ้า Flymesh ไร้รอยต่อ เนื้อเบา และระบายอากาศได้ดี ช่วยระบายความร้อนเพื่อความเย็นสบายยาวนาน</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">ล็อคกระชับมั่นคง</span></p>\r\n<p style="margin: 0px; padding: 0px;">เส้นใย Dynamic Flywire โอบรับส่วนโค้งของเท้า เพื่อการรองรับกระชับพอดีและสัมผัสล็อคกระชับมั่นคง</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">ตอบสนองต่อแรงกระแทก</span></p>\r\n<p style="margin: 0px; padding: 0px;">โฟม Cushlon ระดับพรีเมียมและ Zoom Air ที่ส่วนปลายเท้าและส้นเท้า มอบสัมผัสที่สปริงตัวและตอบสนองได้ดีใต้ฝ่าเท้า</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">รายละเอียดเพิ่มเติม</span></p>\r\n<ul>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ตาข่ายชั้นในบางส่วนเพื่อเสริมความสบายยิ่งขึ้น</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ส้นด้านหลังแข็งแน่นกระชับเพื่อสัมผัสมั่นคง</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ขอบยางกันกระแทกบริเวณด้านข้างพื้นรองเท้าชั้นนอกช่วยให้ถ่ายเทน้ำหนักได้ราบรื่น</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ยางยกสูงช่วยดูดซับแรงกระแทกและเสริมการยึดเกาะ</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">รอบตัดเล็กๆ ที่พื้นรองเท้าชั้นนอกเสริมความยืดหยุ่น</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">น้ำหนัก: 10.4 ออนซ์ (รองเท้าผู้ชายไซส์ 10)</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">ระยะถ่วง: 10 มม.</li>\r\n</ul>\r\n</div>\r\n</div>\r\n<div class="exp-pdp-country-of-origin" style="margin: 14px 0px 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">ประเทศที่ผลิต: เวียดนาม</div>', 4, 'http://www.cr.com/get_image/149966811580313407350182983851.png', 'http://www.cr.com/get_image/1500634727188287412538749203888.jpg', 'https://www.youtube.com/embed/lyceTa-1mis', '["http:\\/\\/cr.local\\/get_image\\/15000881099083081180391795969586.jpg","http:\\/\\/cr.local\\/get_image\\/15000131262921095852874431737505.jpg","http:\\/\\/cr.local\\/get_image\\/1500012938990680376654253239362.png","http:\\/\\/cr.local\\/get_image\\/15000880658250522215136290995745.jpg","http:\\/\\/cr.local\\/get_image\\/150008807337661997238569991186213.jpg","http:\\/\\/cr.local\\/get_image\\/150008807761490074201500091436825.jpg","http:\\/\\/cr.local\\/get_image\\/150008808286703663179186221196998.jpg","http:\\/\\/cr.local\\/get_image\\/150008808980670764734587571376682.jpg","http:\\/\\/cr.local\\/get_image\\/150008809764120378294622941140301.jpg","http:\\/\\/cr.local\\/get_image\\/150008810137243393650402331094555.jpg"]', NULL, NULL, 18, 1, '<div class="donate-box">\n                    <div class="donate-info">\n                      <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>\n                      <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>\n                      <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>\n                    </div>\n                  </div>', '2017-07-10 01:48:56', '2017-07-21 18:00:08'),
-(3, 'The Electric State - Simon Stålenhag''s New Narrative Artbook', 'From acclaimed artist Simon Stålenhag comes a new narrative artbook about a girl and her robot traveling west in an alternate 90s USA.', '<p>aaaa</p>', 1, NULL, 'http://www.cr.com/get_image/150063450071653987242306953716.jpg', NULL, '[]', NULL, NULL, 13, 0, NULL, '2017-07-10 02:06:25', '2017-07-21 17:55:30'),
-(4, 'A''losh - Spreading confidence and positivity.', '"ไม่มีผู้ใดที่สมัครรักใคร่ในความเจ็บปวด หรือเสาะแสวงหาและปรารถนาจะครอบครองความเจ็บปวด นั่นก็เป็นเพราะว่ามันเจ็บปวด..."', '<h2 style="margin: 0px 0px 10px; padding: 0px; font-weight: 400; line-height: 24px; font-family: DauphinPlain; font-size: 24px;">Lorem Ipsum คืออะไร?</h2>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: ''Open Sans'', Arial, sans-serif;">Lorem Ipsum คือ เนื้อหาจำลองแบบเรียบๆ ที่ใช้กันในธุรกิจงานพิมพ์หรืองานเรียงพิมพ์ มันได้กลายมาเป็นเนื้อหาจำลองมาตรฐานของธุรกิจดังกล่าวมาตั้งแต่ศตวรรษที่ 16 เมื่อเครื่องพิมพ์โนเนมเครื่องหนึ่งนำรางตัวพิมพ์มาสลับสับตำแหน่งตัวอักษรเพื่อทำหนังสือตัวอย่าง Lorem Ipsum อยู่ยงคงกระพันมาไม่ใช่แค่เพียงห้าศตวรรษ แต่อยู่มาจนถึงยุคที่พลิกโฉมเข้าสู่งานเรียงพิมพ์ด้วยวิธีทางอิเล็กทรอนิกส์ และยังคงสภาพเดิมไว้อย่างไม่มีการเปลี่ยนแปลง มันได้รับความนิยมมากขึ้นในยุค ค.ศ. 1960 เมื่อแผ่น Letraset วางจำหน่ายโดยมีข้อความบนนั้นเป็น Lorem Ipsum และล่าสุดกว่านั้น คือเมื่อซอฟท์แวร์การทำสื่อสิ่งพิมพ์ (Desktop Publishing) อย่าง Aldus PageMaker ได้รวมเอา Lorem Ipsum เวอร์ชั่นต่างๆ เข้าไว้ในซอฟท์แวร์ด้วย</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: ''Open Sans'', Arial, sans-serif;">&nbsp;</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; font-family: ''Open Sans'', Arial, sans-serif; text-align: center;"><img src="../../../get_image/1500634915213720200346050133585.jpg" width="960" height="540" /></p>', 1, 'http://cr.local/get_image/149966811580313407350182983851.png', 'http://www.cr.com/get_image/1500634915213720200346050133585.jpg', 'https://www.youtube.com/embed/nX5gd4GXcv0', '[]', NULL, NULL, 2, 0, NULL, '2017-07-14 06:27:26', '2017-07-21 18:02:51'),
-(5, 'A Dollar for a little Mystery Sketch', 'For a dollar I''ll draw a random sketch for you and mail it right to your door. It''ll be filled with thought and a little bit of mystery', NULL, 1, NULL, NULL, NULL, '["http:\\/\\/cr.local\\/safe_image\\/15000129296087674556165354143181.jpg","http:\\/\\/cr.local\\/safe_image\\/1500012938990680376654253239362.png"]', NULL, NULL, 2, 0, NULL, '2017-07-14 06:47:30', '2017-07-21 18:00:55'),
-(6, 'qqqq', NULL, NULL, 1, NULL, NULL, NULL, '["http:\\/\\/cr.local\\/safe_image\\/15000129296087674556165354143181.jpg","http:\\/\\/cr.local\\/safe_image\\/1500012938990680376654253239362.png",null,null,null,null,null,null,null,null]', NULL, NULL, 2, 0, NULL, '2017-07-14 06:47:31', '2017-07-14 06:50:00'),
-(7, 'CORAL: The Art of Pernille Ørum', 'A follow-up book to ''Blush'' and a collection of my off-the-clock artwork.', '<p style="margin: 0px 0px 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-stretch: inherit; line-height: inherit; font-family: ''Maison Neue Book'', ''Helvetica Neue'', Helvetica, Arial, ''Liberation Sans'', FreeSans, sans-serif; font-size: 1.6rem; vertical-align: baseline; color: #353535;">WELCOME TO MY KICKSTARTER</p>\r\n<p style="margin: 0px 0px 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-stretch: inherit; line-height: inherit; font-family: ''Maison Neue Book'', ''Helvetica Neue'', Helvetica, Arial, ''Liberation Sans'', FreeSans, sans-serif; font-size: 1.6rem; vertical-align: baseline; color: #353535;">My name is Pernille &Oslash;rum. I''m a Freelance Illustrator and Visual Artist living in Copenhagen, Denmark.&nbsp;I have done work for companies like Disney Publishing, Nickelodeon Jr., Mattel, DreamWorks and recently Warner Brothers where I were the Lead Character Designer on DC Superhero Girls.&nbsp;</p>', 1, NULL, 'http://www.cr.com/get_image/150063111142251719195425042258.jpg', NULL, '[]', NULL, NULL, 2, 1, NULL, '2017-07-21 17:02:02', '2017-07-21 17:02:02');
 
 -- --------------------------------------------------------
 
@@ -1017,26 +1028,6 @@ INSERT INTO `districts` (`id`, `province_id`, `name`, `name_en`, `zip_code`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `donate_vias`
---
-
-CREATE TABLE `donate_vias` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `alias` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `donate_vias`
---
-
-INSERT INTO `donate_vias` (`id`, `name`, `alias`) VALUES
-(1, 'โอนเงินผ่านบัญชีธนาคาร', NULL),
-(2, 'paypal', NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `donations`
 --
 
@@ -1048,34 +1039,39 @@ CREATE TABLE `donations` (
   `unidentified` tinyint(1) NOT NULL DEFAULT '0',
   `user_id` int(11) UNSIGNED DEFAULT NULL,
   `guest_name` varchar(255) DEFAULT NULL,
-  `acc_no` varchar(128) DEFAULT NULL,
   `amount` decimal(15,2) NOT NULL,
-  `transfer_date` datetime NOT NULL,
+  `fee` decimal(15,2) NOT NULL,
+  `balance` decimal(15,2) NOT NULL,
+  `transaction_date` datetime NOT NULL,
+  `bank_account_id` int(11) UNSIGNED DEFAULT NULL,
   `get_reward` tinyint(1) NOT NULL DEFAULT '0',
   `reward` text,
   `shipping_address` text,
-  `donate_via_id` int(11) UNSIGNED NOT NULL,
+  `donation_via_id` int(11) UNSIGNED NOT NULL,
   `verified` tinyint(1) DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `donations`
+-- Table structure for table `donation_vias`
 --
 
-INSERT INTO `donations` (`id`, `model`, `model_id`, `code`, `unidentified`, `user_id`, `guest_name`, `acc_no`, `amount`, `transfer_date`, `get_reward`, `reward`, `shipping_address`, `donate_via_id`, `verified`, `created_at`, `updated_at`) VALUES
-(1, 'Charity', 2, '201718-E9C546FF', 0, 1, NULL, NULL, '1000.00', '2017-07-04 00:00:00', 0, NULL, NULL, 0, 1, '2017-07-18 13:05:46', '2017-07-18 13:37:26'),
-(2, 'Charity', 2, '201721-0967C350', 0, NULL, 'xxx', NULL, '600.00', '2017-07-05 04:00:00', 0, NULL, NULL, 0, 0, '2017-07-21 15:58:01', '2017-07-21 15:58:01'),
-(3, 'Charity', 4, '201723-3EA5C61F', 0, NULL, 'aaa', NULL, '100.00', '2017-07-26 00:00:00', 0, NULL, NULL, 0, 0, '2017-07-23 09:49:16', '2017-07-23 09:49:16'),
-(4, 'Charity', 2, '201723-658A1D0E', 0, NULL, 'xxx', NULL, '1111.00', '2017-07-25 00:00:00', 0, NULL, NULL, 0, 0, '2017-07-23 23:42:17', '2017-07-23 23:42:17'),
-(5, 'Charity', 2, '201724-60435CB8', 0, NULL, 'xxx', NULL, '1000.00', '2017-07-27 17:00:00', 0, NULL, NULL, 0, 0, '2017-07-24 10:18:16', '2017-07-24 10:18:16'),
-(6, 'Charity', 2, '201724-D5979E20', 0, NULL, 'xxx', NULL, '1000.00', '2017-07-10 03:00:00', 0, NULL, NULL, 0, 0, '2017-07-24 11:50:02', '2017-07-24 11:50:02'),
-(7, 'Charity', 3, '201724-6D625357', 0, 2, NULL, NULL, '1000.00', '2017-07-06 00:00:00', 0, NULL, NULL, 0, 0, '2017-07-24 11:55:27', '2017-07-24 11:55:27'),
-(8, 'Charity', 2, '201724-ECBE3FBB', 0, 2, NULL, NULL, '1111.00', '2017-07-03 00:00:00', 0, NULL, NULL, 0, 0, '2017-07-24 12:07:39', '2017-07-24 12:07:39'),
-(9, 'Charity', 2, '201724-90CE1366', 0, 3, NULL, NULL, '2000.00', '2017-07-03 00:00:00', 0, NULL, NULL, 0, 0, '2017-07-24 13:15:03', '2017-07-24 13:15:03'),
-(10, 'Charity', 2, '201729-D6AF94A5', 0, 3, NULL, NULL, '1000.00', '2017-07-06 00:00:00', 0, NULL, NULL, 0, 0, '2017-07-29 14:24:20', '2017-07-29 14:24:20'),
-(11, 'Charity', 4, '201702-D16E62D9', 0, 3, NULL, NULL, '2200.00', '2017-08-22 17:00:00', 0, NULL, NULL, 1, 1, '2017-08-02 17:22:28', '2017-08-02 17:38:20');
+CREATE TABLE `donation_vias` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `alias` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `donation_vias`
+--
+
+INSERT INTO `donation_vias` (`id`, `name`, `alias`) VALUES
+(1, 'บัตรเครดิต', NULL),
+(2, 'โอนเงินผ่านธนาคาร', NULL);
 
 -- --------------------------------------------------------
 
@@ -1089,18 +1085,11 @@ CREATE TABLE `news` (
   `title` varchar(255) NOT NULL,
   `short_desc` varchar(255) DEFAULT NULL,
   `description` text NOT NULL,
-  `thumbnail` varchar(255) NOT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `news`
---
-
-INSERT INTO `news` (`id`, `charity_id`, `title`, `short_desc`, `description`, `thumbnail`, `created_at`, `updated_at`) VALUES
-(1, 2, 'new news', NULL, '<p>sdfsdfs</p>', 'http://sundaysquare.com/safe_image/14993228903503831079596525114985.jpg', '2017-07-10 16:13:50', '2017-07-10 16:23:55'),
-(2, 2, 'จะนำมาใช้ได้จากที่ไหน?', 'มีท่อนต่างๆ ของ Lorem Ipsum ให้หยิบมาใช้งานได้มากมาย แต่ส่วนใหญ่แล้วจะถูกนำไปปรับให้เป็นรูปแบบอื่นๆ', '<p><span style="font-family: ''Open Sans'', Arial, sans-serif; text-align: justify;">มีท่อนต่างๆ ของ Lorem Ipsum ให้หยิบมาใช้งานได้มากมาย แต่ส่วนใหญ่แล้วจะถูกนำไปปรับให้เป็นรูปแบบอื่นๆ อาจจะด้วยการสอดแทรกมุกตลก หรือด้วยคำที่มั่วขึ้นมาซึ่งถึงอย่างไรก็ไม่มีทางเป็นเรื่องจริงได้เลยแม้แต่น้อย ถ้าคุณกำลังคิดจะใช้ Lorem Ipsum สักท่อนหนึ่ง คุณจำเป็นจะต้องตรวจให้แน่ใจว่าไม่มีอะไรน่าอับอายซ่อนอยู่ภายในท่อนนั้นๆ ตัวสร้าง Lorem Ipsum บนอินเทอร์เน็ตทุกตัวมักจะเอาท่อนที่แน่ใจแล้วมาใช้ซ้ำๆ ทำให้กลายเป็นที่มาของตัวสร้างที่แท้จริงบนอินเทอร์เน็ต ในการสร้าง Lorem Ipsum ที่ดูเข้าท่า ต้องใช้คำจากพจนานุกรมภาษาละตินถึงกว่า 200 คำ ผสมกับรูปแบบโครงสร้างประโยคอีกจำนวนหนึ่ง เพราะฉะนั้น Lorem Ipsum ที่ถูกสร้างขึ้นใหม่นี้ก็จะไม่ซ้ำไปซ้ำมา ไม่มีมุกตลกซุกแฝงไว้ภายใน หรือไม่มีคำใดๆ ที่ไม่บ่งบอกความหมาย</span></p>', 'http://cr.local/get_image/150008808286703663179186221196998.jpg', '2017-07-15 14:08:35', '2017-07-15 14:09:29');
 
 -- --------------------------------------------------------
 
@@ -1113,24 +1102,17 @@ CREATE TABLE `projects` (
   `charity_id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `short_desc` varchar(255) DEFAULT NULL,
-  `description` text NOT NULL,
+  `description` text,
   `current_amount` decimal(15,0) DEFAULT '0',
   `target_amount` decimal(15,0) NOT NULL,
   `end_date` datetime NOT NULL,
   `thumbnail` varchar(255) DEFAULT NULL,
   `vdo_url` varchar(255) DEFAULT NULL,
   `images` text,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `projects`
---
-
-INSERT INTO `projects` (`id`, `charity_id`, `name`, `short_desc`, `description`, `current_amount`, `target_amount`, `end_date`, `thumbnail`, `vdo_url`, `images`, `created_at`, `updated_at`) VALUES
-(1, 2, 'สร้างบ้านให้หมา แมว', 'องเท้าวิ่งผู้ชาย Nike Air Zoom Pegasus 34 ใหม่ล่าสุด โดดเด่นด้วยผ้า Flymesh ปรับใหม่เพื่อการระบายอากาศเหนือชั้นและการลดแรงกระแทกเบาตอบสนองได้ดี ช่วยให้คุณรู้สึกสบายตลอดทุกระยะทาง', '<div class="pi-tier3" style="margin: 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">\r\n<div class="pi-pdpmainbody" style="margin: 0px; padding: 0px;">\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 0px; padding-bottom: 12px; display: inline-block; line-height: 1.1; margin-bottom: 4px;">ประสิทธิภาพเหนือแรงโน้มถ่วง</span></p>\r\n<p style="margin: 0px; padding: 0px;">รองเท้าบาสเก็ตบอลผู้ชาย Air Jordan XXXI Low ตอบสนองระดับสูงสุด และลดแรงกระแทกมากขึ้น เพื่อช่วยให้ว่องไว และสบายในระหว่างเกมแข่งขันอันตึงเครียด</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">การระเบิดพลังที่ตอบสนองได้ดี</span></p>\r\n<p style="margin: 0px; padding: 0px;">เทคโนโลยี FlightSpeed กระจายการรัดกล้ามเนื้ออย่างสม่ำเสมอทั่วทั้งเท้าที่ส่วนบน ใช้ Nike Zoom Air เต็มฝ่าเท้า และยังให้การตอบสนองที่ดีดตัวกลับได้ดีระดับสูงสุดเพื่อระเบิดพลังก้าวของคุณได้มากขึ้น</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">การรองรับยืดหยุ่น</span></p>\r\n<p style="margin: 0px; padding: 0px;">หนังสังเคราะห์ที่ส้น และ Flyweave ยืดหยุ่นที่ปลายเท้า ผสานกันแบบไร้รอยต่อ เท้าจึงเคลื่อนไหวได้อย่างเป็นธรรมชาติ พร้อมทั้งยังคงการรองรับระหว่างการเปลี่ยนทิศทางอย่างรวดเร็วและการถ่ายเทน้ำหนัก</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">ความสบายเหนือระดับ</span></p>\r\n<p style="margin: 0px; padding: 0px;">ชั้นบุด้านในโอบรับเท้าของคุณเพื่อความพอดีแบบเฉพาะตัว</p>\r\n<p style="margin: 0px; padding: 0px;"><span class="nsg-font-family--platform" style="font-family: OneNikeCurrency, ''TradeGothicW01-BoldCn20 675334'', ''Helvetica Neue W31'', Helvetica, ''Arial Bold'', Arial, Tahoma, Thonburi, Ayuthaya, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; color: #333333; padding-top: 22px; padding-bottom: 12px; display: inline-block;">รายละเอียดเพิ่มเติม</span></p>\r\n<ul>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">เส้นใย Flywire โอบรับส่วนกลางเท้าเพื่อให้ล็อคกระชับพอดี</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">พื้นรองเท้าด้านนอกผลิตจากยางทึบและทนทาน</li>\r\n<li style="margin: 0px; padding: 0px; list-style: disc inside;">องค์ประกอบงานดีไซน์ทำให้หวนคิดถึง Jordan รุ่นออริจินัล</li>\r\n</ul>\r\n</div>\r\n</div>\r\n<div class="exp-pdp-country-of-origin" style="margin: 14px 0px 0px; padding: 0px; color: #666666; font-family: Helvetica, ArialMT, sans-serif; font-size: 12px;">ประเทศที่ผลิต: เวียดนาม</div>', '0', '50000', '2017-07-21 23:59:59', 'http://www.cr.com/get_image/1500644646340779741748326243381.jpg', 'https://www.youtube.com/watch?v=rphE_jdX35k', '[]', '2017-07-10 08:02:01', '2017-07-21 20:44:50'),
-(2, 2, 'Persephone - One-volume comic adaptation', 'Sensual and inspired comic retelling of the classic Greek romance of Hades and Persephone.', '<p style="margin: 0px 0px 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-stretch: inherit; line-height: inherit; font-family: ''Maison Neue Book'', ''Helvetica Neue'', Helvetica, Arial, ''Liberation Sans'', FreeSans, sans-serif; font-size: 1.6rem; vertical-align: baseline; color: #353535;">In his ancient hymns, Homer tells us of the unyielding Lord of the Dead who kidnapped the innocent daughter of Demeter. He tells us quite a bit, in fact, for someone who wasn&rsquo;t there.</p>\r\n<p style="margin: 0px 0px 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-stretch: inherit; line-height: inherit; font-family: ''Maison Neue Book'', ''Helvetica Neue'', Helvetica, Arial, ''Liberation Sans'', FreeSans, sans-serif; font-size: 1.6rem; vertical-align: baseline; color: #353535;">Persephone is no tragic victim, but a kind young woman held in place by her overbearing mother. A failed scheme by Apollo leads her to a chance encounter with the humorless Hades, who is struck by love&rsquo;s arrow. Now he must wrestle with his aching heart before he loses control entirely.</p>\r\n<p style="margin: 0px 0px 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-stretch: inherit; line-height: inherit; font-family: ''Maison Neue Book'', ''Helvetica Neue'', Helvetica, Arial, ''Liberation Sans'', FreeSans, sans-serif; font-size: 1.6rem; vertical-align: baseline; color: #353535;">...Not that the infatuated Persephone has any complaints regarding Hades'' plight. &nbsp;</p>\r\n<p style="margin: 0px 0px 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-stretch: inherit; line-height: inherit; font-family: ''Maison Neue Book'', ''Helvetica Neue'', Helvetica, Arial, ''Liberation Sans'', FreeSans, sans-serif; font-size: 1.6rem; vertical-align: baseline; color: #353535;">As desire blooms between the secluded goddess of the harvest and the ruler of the underworld, the world changes both above and below.</p>', '0', '25000', '2017-07-31 23:59:59', 'http://www.cr.com/get_image/1500692673243710637696948399449.png', NULL, '[]', '2017-07-22 10:04:51', '2017-07-22 10:04:51');
 
 -- --------------------------------------------------------
 
@@ -1261,38 +1243,6 @@ CREATE TABLE `stock_images` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `stock_images`
---
-
-INSERT INTO `stock_images` (`id`, `filename`, `created_at`, `updated_at`) VALUES
-(1, '1499668107900801580066789216278.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
-(2, '149966811140360576880568894455.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
-(3, '149966811580313407350182983851.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
-(4, '149966811900829830725431002808.png', '2017-07-10 06:28:40', '2017-07-10 06:28:40'),
-(5, '1500012897808897208373420816278.png', '2017-07-14 06:14:59', '2017-07-14 06:14:59'),
-(6, '15000129296087674556165354143181.jpg', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
-(7, '1500012938990680376654253239362.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
-(8, '1500012942250854466365473846214.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
-(9, '1500012947478379745540005320697.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
-(10, '1500012957642235315398249620180.png', '2017-07-14 06:15:58', '2017-07-14 06:15:58'),
-(11, '15000131262921095852874431737505.jpg', '2017-07-14 06:18:47', '2017-07-14 06:18:47'),
-(12, '15000880658250522215136290995745.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
-(13, '150008807337661997238569991186213.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
-(14, '150008807761490074201500091436825.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
-(15, '150008808286703663179186221196998.jpg', '2017-07-15 10:08:34', '2017-07-15 10:08:34'),
-(16, '150008808980670764734587571376682.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
-(17, '150008809764120378294622941140301.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
-(18, '150008810137243393650402331094555.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
-(19, '15000881099083081180391795969586.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
-(20, '1500088113231008519612576879506.jpg', '2017-07-15 10:08:35', '2017-07-15 10:08:35'),
-(21, '150063111142251719195425042258.jpg', '2017-07-21 16:58:32', '2017-07-21 16:58:32'),
-(22, '150063450071653987242306953716.jpg', '2017-07-21 17:55:01', '2017-07-21 17:55:01'),
-(23, '1500634727188287412538749203888.jpg', '2017-07-21 17:58:50', '2017-07-21 17:58:50'),
-(24, '1500634915213720200346050133585.jpg', '2017-07-21 18:01:59', '2017-07-21 18:01:59'),
-(25, '1500644646340779741748326243381.jpg', '2017-07-21 20:44:07', '2017-07-21 20:44:07'),
-(26, '1500692673243710637696948399449.png', '2017-07-22 10:04:34', '2017-07-22 10:04:34');
-
 -- --------------------------------------------------------
 
 --
@@ -1315,17 +1265,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `social_provider_id`, `social_user_id`, `email`, `password`, `name`, `avatar`, `shipping_address`, `remember_token`, `email_verified`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, '1', '$2y$10$6jLCCDdQojI7ppn0LpeUPunvNsu8B7JeMFknKMMXCbIes9YEyW7gm', 'zzz', NULL, NULL, 'B4dTA2PTEoOg8Y52y2vw6FtDns4Y4gJnbwR9Sj5dOpvmsKoPG1vIg4V8UTBA', 0, '2017-07-13 08:25:55', '2017-07-20 11:23:15'),
-(2, 1, '114320059216837', 'sundaysquare.contact@gmail.com', '$2y$10$y3x6hZM/sVBwt/HlinhyzeLJCimxa9UeOZKxaf873UijF4hF.pDau', 'Ittipol Kaewprasert', NULL, NULL, 'FdsAmYllC37CQXxNtILKik8vs6Qc18s2Kp63HMUsFU1lMAr2nzq2prmXMvAf', 0, '2017-07-24 11:50:34', '2017-07-24 13:13:00'),
-(3, 1, '1345823938847781', 'ittipol_master@hotmail.com', '$2y$10$URwutbQcIwoplATS6UFARerEAvEyYixszv2JmS5ZSa93dsHFZHj.S', 'test', '1501583311050447192539910399449.png', NULL, 'p4lOrKe0POsXSIxnj7KEIKMo9IKsP2xnwtCvjXyFIfIRpd7gCIf4bm2FJbRF', 0, '2017-07-24 11:53:35', '2017-08-01 17:31:29');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bank_accounts`
+--
+ALTER TABLE `bank_accounts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `charities`
@@ -1346,15 +1293,15 @@ ALTER TABLE `districts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `donate_vias`
---
-ALTER TABLE `donate_vias`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `donations`
 --
 ALTER TABLE `donations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `donation_vias`
+--
+ALTER TABLE `donation_vias`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1398,6 +1345,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bank_accounts`
+--
+ALTER TABLE `bank_accounts`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `charities`
 --
 ALTER TABLE `charities`
@@ -1413,20 +1365,20 @@ ALTER TABLE `charity_types`
 ALTER TABLE `districts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=914;
 --
--- AUTO_INCREMENT for table `donate_vias`
---
-ALTER TABLE `donate_vias`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- AUTO_INCREMENT for table `donation_vias`
+--
+ALTER TABLE `donation_vias`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `projects`
 --
@@ -1446,7 +1398,7 @@ ALTER TABLE `social_providers`
 -- AUTO_INCREMENT for table `stock_images`
 --
 ALTER TABLE `stock_images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
