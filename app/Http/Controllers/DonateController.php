@@ -1,4 +1,4 @@
-<?php
+1<?php
 
 namespace App\Http\Controllers;
 
@@ -132,7 +132,7 @@ class DonateController extends Controller
 
     $donation->transaction_date = request()->date.' '.request()->time_hour.':'.request()->time_min.':00';
     $donation->bank_account_id = request()->bank_acc;
-    $donation->donation_via_id = 2;
+    $donation->donation_via_id = 1;
 
     if(isset(request()->reward_chkbox) && request()->reward_chkbox) {
       $validation['rules'] = array_merge($validation['rules'],$donation->validationWithAddress['rules']);

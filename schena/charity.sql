@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2017 at 01:52 PM
+-- Generation Time: Aug 17, 2017 at 03:23 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -1070,8 +1070,7 @@ CREATE TABLE `donation_vias` (
 --
 
 INSERT INTO `donation_vias` (`id`, `name`, `alias`) VALUES
-(1, 'บัตรเครดิต', NULL),
-(2, 'โอนเงินผ่านธนาคาร', NULL);
+(1, 'โอนเงินผ่านธนาคาร', NULL);
 
 -- --------------------------------------------------------
 
@@ -1373,7 +1372,7 @@ ALTER TABLE `donations`
 -- AUTO_INCREMENT for table `donation_vias`
 --
 ALTER TABLE `donation_vias`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `news`
 --
