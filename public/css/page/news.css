@@ -6,6 +6,10 @@
 	color: #2752ff;
 }
 
+.news-v1 h3 {
+	height: 80px;
+}
+
 .news .news-thumbnail {
 	width: 100%;
 }

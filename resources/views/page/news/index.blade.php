@@ -69,7 +69,9 @@
       <div class="col-md-2">
 
         <div class="testimonials-v4">
+          @if(!empty($charity->logo))
           <img src="{{$charity->logo}}">
+          @endif
           <span class="testimonials-author">
             ข่าวสารจาก<br>
             <a href="{{URL::to('charity')}}/{{$charity->id}}">{{$charity->name}}</a>
@@ -83,10 +85,10 @@
       </div>
 
       <div class="col-md-10">
+        @if(!empty($news->thumbnail))
         <img src="{{$news->thumbnail}}" class="news-thumbnail margin-bottom-20">
-        <p>
-          {!!$news->description!!}
-        </p>
+        @endif
+        {!!$news->description!!}
       </div>
 
     </div>
