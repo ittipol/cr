@@ -6,13 +6,15 @@
 	width: 40px;
 	height: 40px;
 	background-color: #fff;
-	border: 1px solid #eaeaea;
+	border: 1px solid rgb(160,194,255);
 	border-radius: 40px;
 	overflow: hidden;
 }
 
 .navbar-fixed-top .profile-image i {
-	color: #263238;
+	/*color: #263238;*/
+	color: rgb(68,116,224);
+	background-color: rgb(160,194,255);
 	font-size: 44px;
 	text-align: center;
 	display: block;
