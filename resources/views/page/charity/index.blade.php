@@ -204,7 +204,7 @@
               <div class="parallax-quote parallaxBg">
                 <div class="container">
                   <div class="parallax-quote-in">
-                    <p>การบริจาคให้กับมูลนิธินี้</p>
+                    <p>การบริจาคให้กับ {{$charity->name}}</p>
                   </div>
                 </div>
               </div>
