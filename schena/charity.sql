@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2017 at 03:23 AM
+-- Generation Time: Aug 25, 2017 at 11:45 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -57,6 +57,7 @@ CREATE TABLE `charities` (
   `logo` varchar(255) DEFAULT NULL,
   `thumbnail` varchar(255) DEFAULT NULL,
   `vdo_url` varchar(255) DEFAULT NULL,
+  `shared_image` varchar(255) NOT NULL,
   `images` text,
   `address` varchar(255) DEFAULT NULL,
   `district_id` int(11) UNSIGNED DEFAULT NULL,
@@ -1367,7 +1368,7 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `donation_vias`
 --
@@ -1377,7 +1378,7 @@ ALTER TABLE `donation_vias`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `projects`
 --

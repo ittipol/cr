@@ -152,9 +152,9 @@ class DonateController extends Controller
 
       $donation->reward = json_encode(array(
         'selected' => 'shirt',
-        'option' => array(
-          'size' => request()->reward_option
-        )
+        // 'option' => array(
+        //   'size' => request()->reward_option
+        // )
       ));
 
       $donation->shipping_address = json_encode(array(
