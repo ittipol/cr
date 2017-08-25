@@ -33,8 +33,9 @@
     <div class="row">
 
       <div class="col-md-8">
-        <div class="image-thumbnail" style="background-image:url(/images/common/b_image.jpg)"></div>
-        @if(!empty($charity->vdo_url))
+        @if(empty($charity->vdo_url))
+          <div class="image-thumbnail" style="background-image:url({{$charity->thumbnail}})"></div>
+        @else
         <div class="embedded-video">
           <iframe width="100%" height="100%" src="{{$charity->vdo_url}}" frameborder="0" allowfullscreen></iframe>
         </div>

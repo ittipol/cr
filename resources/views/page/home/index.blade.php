@@ -98,10 +98,10 @@
     <div class="promo-item" style="background-image: url(/images/promo/1_1.jpg);">
       <div class="container">
         <div class="promo-item-content">
-          <h3>สุนัขจร<br> <strong>ร่วมเป็นหนึ่งในการช่วยเหลือพวกเค้า</strong></h3>
-          <p class="g-color-white--dark g-mb-45">จะทำหน้าที่ช่วยเหลือแมวจร ที่บ้านเจ็บ ไร้บ้าน และพร้อมโครงการที่จะช่วยเหลือแมวในการหาเจ้าของ</p>
-          <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="#"><i class="fa fa-heart"></i> บริจาคให้กับมูลนิธินี้</a>
-          <a class="btn-u btn-u-lg btn-u-upper" href="#">ไปยังมูลนิธิ</a>
+          <h3>แม่จิ๋มบ้านสุนัข</h3>
+          <p class="g-color-white--dark g-mb-45">ป้าจิ๋มผู้ที่อุทิศชีวิตของตัวเอง ให้กับการช่วยเหลือน้องหมา มามากว่า 30ปี เพียงคนเดียว ถึงร่างกายตัวเองจะเจ็บป่วยแต่แม่ก็ยังทนทำมันด้วยความรัก ที่มีต่อสิ่งมีชีวิตเล็กๆ</p>
+          <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="#"><i class="fa fa-heart"></i> บริจาคให้กับแม่จิ๋มบ้านสุนัข</a>
+          <a class="btn-u btn-u-lg btn-u-upper" href="#">เพิ่มเติม</a>
         </div>
       </div>
     </div>
