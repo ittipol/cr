@@ -45,6 +45,11 @@
   </div>
 
   <div class="form-group">
+    {{Form::label('shared_image', 'รูปภาพขอบคุณ / แชร์', array('class' => 'required'))}}
+    {{Form::text('shared_image', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+  </div>
+
+  <div class="form-group">
     {{Form::label('images', 'รูปภาพของมูลนิธิ (มากสุด 10 รูป)', array('class' => 'required'))}}
     {{Form::text('_images[0]', null, array('class' => 'form-control', 'placeholder' => '#1', 'autocomplete' => 'off'))}}
     {{Form::text('_images[1]', null, array('class' => 'form-control', 'placeholder' => '#2', 'autocomplete' => 'off'))}}

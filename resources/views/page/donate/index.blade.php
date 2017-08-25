@@ -49,7 +49,7 @@
           <section>
             <label class="label">จำนวนเงินบริจาค</label>
             <label class="input-group">
-              {{Form::text('amount', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+              {{Form::text('amount', null, array('id' => 'amount_input','class' => 'form-control', 'autocomplete' => 'off'))}}
               <span class="input-group-addon">บาท</span>
             </label>
           </section>
@@ -188,7 +188,7 @@
         <div class="clearfix margin-bottom-10"></div>
 
         <label class="checkbox state-success">
-          {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'open_address_form_chkbox'))}}<i></i>รับของที่ระลึก
+          {{Form::checkbox('reward_chkbox', 1, false, array('id' => 'reward_chkbox', 'disabled' => true))}}<i></i>รับของที่ระลึก
         </label>
 
         <div id="address_form">
@@ -199,7 +199,7 @@
 
           <fieldset>
 
-            <div class="row">
+            <!-- <div class="row">
               <section class="col col-md-12">
                 <label class="label">ระบุ size เสื้อ <a href="javascript:void(0);" data-toggle="modal" data-target="#chart_size_model">ตาราง size เสื้อ</a></label>
                 <label class="radio">
@@ -212,7 +212,7 @@
                   <input type="radio" name="reward_option" value="l"><i></i>L
                 </label>
               </section>
-            </div>
+            </div> -->
 
             <div class="row">
               <section class="col col-md-12">
@@ -399,12 +399,25 @@
 
       });
 
-      $('#open_address_form_chkbox').on('click',function(){
+      $('#reward_chkbox').on('click',function(){
         if($(this).is(':checked')) {
           $('#address_form').stop().slideDown(300);
         }else{
           $('#address_form').stop().slideUp(300);
         }
+      });
+
+      $('#amount_input').on('keyup',function(){
+        
+        if($(this).val() > 299) {
+          $('#reward_chkbox').prop('disabled',false);
+        }else{
+          if($('#reward_chkbox').is(':checked')) {
+            $('#reward_chkbox').trigger('click');
+          }
+          $('#reward_chkbox').prop('disabled',true);
+        }
+
       });
 
       $('#donation_form').on('submit',function(){

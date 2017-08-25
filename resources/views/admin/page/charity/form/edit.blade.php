@@ -45,6 +45,11 @@
   </div>
 
   <div class="form-group">
+    {{Form::label('shared_image', 'รูปภาพขอบคุณ / แชร์', array('class' => 'required'))}}
+    {{Form::text('shared_image', null, array('class' => 'form-control', 'autocomplete' => 'off'))}}
+  </div>
+
+  <div class="form-group">
     {{Form::label('images', 'รูปภาพของมูลนิธิ (มากสุด 10 รูป)', array('class' => 'required'))}}
     
     @foreach($_images as $key => $images)

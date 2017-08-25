@@ -92,12 +92,10 @@ class DonationController extends Controller
           return $this->error('ไม่พบมูลนิธินี้');
         }
 
-        $this->setData('for','');
-        $this->setData('charityName',$data->name);
-        $this->setData('charityLogo',$data->logo);
+        $charity = $data;
 
         $for = '';
-
+        
         break;
 
       case 'Project':
@@ -106,11 +104,7 @@ class DonationController extends Controller
           return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
 
-        $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
-
-        $this->setData('for','โครงการ');
-        $this->setData('charityName',$charity->name);
-        $this->setData('charityLogo',$charity->logo);
+        $charity = Service::loadModel('Charity')->select('name','logo','shared_image')->find($data->charity_id);
 
         $for = 'โครงการ';
 
@@ -125,7 +119,6 @@ class DonationController extends Controller
       $this->setData('popup',false);
     }else {
       Cookie::queue('donation_d_'.md5($code), 1, 43200);
-      $this->setData('sharedImage','/images/common/share_image.jpg');
       $this->setData('popup',true);
     }
 
@@ -137,7 +130,12 @@ class DonationController extends Controller
     $this->setData('name',$data->name);
     $this->setData('code',$code);
     $this->setData('donation',$donation);
+    $this->setData('for',$for);
     $this->setData('_for',strtolower($donation->model));
+
+    $this->setData('charityName',$charity->name);
+    $this->setData('charityLogo',$charity->logo);
+    $this->setData('sharedImage',$charity->shared_image);
 
     $title = 'เราขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน'.$for.' '.$data->name;
 
@@ -152,7 +150,7 @@ class DonationController extends Controller
     // SET META
     $this->setMeta('title',$title.' — CharityTH');
     $this->setMeta('description',$desc);
-    // $this->setMeta('image','/images/common/share_image.jpg');
+    $this->setMeta('image',$charity->shared_image);
 
     return $this->view('page.donation.detail');
   }
@@ -174,11 +172,9 @@ class DonationController extends Controller
           return $this->error('ไม่พบมูลนิธินี้');
         }
 
-        $this->setData('for','');
-        $this->setData('charity',$data);
+        $charity = $data;
 
         $for = '';
-        $charityName = $data->name; 
 
         break;
 
@@ -188,13 +184,9 @@ class DonationController extends Controller
           return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
         }
 
-        $charity = Service::loadModel('Charity')->select('name','logo')->find($data->charity_id);
-
-        $this->setData('for','โครงการ');
-        $this->setData('charity',$charity);
+        $charity = Service::loadModel('Charity')->select('name','logo','shared_image')->find($data->charity_id);
 
         $for = 'โครงการ';
-        $charityName = $charity->name; 
 
         break;
       
@@ -208,7 +200,10 @@ class DonationController extends Controller
     $this->setData('name',$data->name);
     $this->setData('data',$data);
     $this->setData('donation',$donation);
+    $this->setData('for','');
     $this->setData('_for',strtolower($donation->model));
+
+    $this->setData('charity',$charity);
 
     // 
     $title = 'เราขอขอบคุณที่คุณได้ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุน'.$for.' '.$data->name;
@@ -221,12 +216,12 @@ class DonationController extends Controller
       $desc = 'ขอขอบคุณ คุณ '.$donation->guest_name.' ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ'.$for.' '.$data->name;
     }
 
-    $desc .= ' เรา CharityTH และ '.$charityName.' ขอกล่าวขอบพระคุณอย่างสูง';
+    $desc .= ' เรา CharityTH และ '.$charity->name.' ขอกล่าวขอบพระคุณอย่างสูง';
 
     // SET META
     $this->setMeta('title',$title.' — CharityTH');
     $this->setMeta('description',$desc);
-    $this->setMeta('image','/images/common/share_image.jpg');
+    $this->setMeta('image',$charity->shared_image);
 
     return $this->view('page.donation.share');
 

@@ -68,17 +68,24 @@
 	/*color: #0D47A1;*/
 	color: rgb(35,31,193);
 	background-color: rgba(255,255,255,.8);
-	/*border: 2px solid rgb(237,41,131);*/
-	background-image: url(/images/logo/logo_2.png);
+	/*background-image: url(/images/logo/logo_2.png);
 	background-position: 99% 10px;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;*/
 	padding: 30px 15px;
 	background-size: 80px;
 	padding: 30px 15px;
 }
 
+.donation.share .promo-item {
+	background-color: #fff;
+	background-size: auto 80%;
+	background-position: center;
+	border-bottom: 5px solid #0D47A1;
+}
+
 .donation.share .promo-item:after {
 	background: transparent;
+	/*background: rgba(13,71,161,.2);*/
 	/*background: rgba(115,150,74,.2);*/
 }
 
@@ -150,8 +157,13 @@
 		font-size: 24px;
 	}
 
+	.donation.share .promo-item {
+		background-size: 100% auto;
+	}
+
 	.donation.share .promo-section h3 {
 		font-size: 22px;
+		/*background-size: 50px;*/
 	}
 
 	#socaial_share_box .modal-dialog {

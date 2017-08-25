@@ -34,7 +34,7 @@
     <div class="container">
       <div class="menu-container page-scroll">
         <a class="navbar-brand" href="{{URL::to('/')}}">
-          <img class="default-logo" src="/images/logo/logo-light.png" alt="Logo">
+          <img class="default-logo" src="/images/logo/logo-dark.png" alt="Logo">
           <img class="shrink-logo" src="/images/logo/logo-dark.png" alt="Logo">
         </a>
       </div>
@@ -42,7 +42,7 @@
   </nav>
 
   <div class="promo-section">
-    <div class="promo-item" style="background-image: url(/images/promo/1_1.jpg);">
+    <div class="promo-item" style="background-image: url('{{$charity->shared_image}}');">
       <div class="container">
         <div class="promo-item-content">
           <h3 class="text-center">

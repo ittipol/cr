@@ -13,7 +13,7 @@
           <div class="donate-info">
             <h2 class="donate-amount">บริจาค 300 บาทขึ้นไป</h2>
             <h3 class="reward-title">รับเสื้อมูลนิธิ</h3>
-            <p class="reward-info">เสื้อสวยๆจากมูลนิธิ (คำอธิบายของรางวัล)</p>
+            <p class="reward-info"></p>
           </div>
         </div>
 
