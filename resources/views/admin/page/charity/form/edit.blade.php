@@ -74,9 +74,9 @@
 
   <div class="form-group">
     <span>การเข้าถึง</span><br>
-    {{Form::radio('active', 1, false)}} <span>เปิดการเข้าถึง</span>
+    {{Form::radio('active', 1)}} <span>เปิดการเข้าถึง</span>
     <br>
-    {{Form::radio('active', 0, true)}} <span>ปิดการเข้าถึง</span>
+    {{Form::radio('active', 0)}} <span>ปิดการเข้าถึง</span>
   </div>
 
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}
