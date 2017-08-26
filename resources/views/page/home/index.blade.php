@@ -149,7 +149,7 @@
               </div>
               
               <div class="service-block-v3 donation-box for-charity">
-                <a href="{{URL::to('donate')}}?for=charity&id={{$data->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
+                <a href="{{URL::to('charity')}}/{{$data->id}}" class="btn-u btn-custom margin-bottom-10">แสดงรายละเอียด</a>
               </div>
 
             </div>
