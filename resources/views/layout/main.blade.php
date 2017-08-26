@@ -4,6 +4,7 @@
   <!-- Meta data -->
   @include('script.meta') 
   <!-- CSS & JS -->
+  @include('script.analyticstracking') 
   @include('script.script')
   <!-- Title  -->
 </head>

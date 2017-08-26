@@ -4,6 +4,7 @@
 <head>
   <!-- Meta -->
   @include('script.meta')
+  @include('script.analyticstracking') 
   
   <!-- CSS Global Compulsory -->
   <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">

@@ -1,9 +1,4 @@
 <?php
-  require 'minify/minify-js.php';
-  require 'minify/minify-css.php';
-?>
-
-<?php
   $combine = false;
 ?>
 
