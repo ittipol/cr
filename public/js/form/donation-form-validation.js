@@ -145,6 +145,7 @@ var Validation = function () {
             submitHandler: function(form) {
               $('.global-overlay').addClass('displayed');
               $('.global-loading-icon').addClass('displayed');
+              $(form).get(0).submit();
             },
 
             // submitHandler: function(form) {

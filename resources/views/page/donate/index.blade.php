@@ -422,13 +422,18 @@
 
       let _this = this;
 
-      $('#date').on('change',function(){
+      $('#date').on('click',function(e){
+        e.preventDefault();
+        return false;
+      });
 
+      $('#date').on('change',function(e){
+        e.preventDefault();
         if($(this).val() != '') {
           let date = $(this).val().split('-');
           $('#date-input-label').text(parseInt(date[2])+' '+_this.findMonthName(parseInt(date[1]))+' '+(parseInt(date[0])+543));
         }
-
+        return false;
       });
 
       $('#reward_chkbox').on('click',function(){
