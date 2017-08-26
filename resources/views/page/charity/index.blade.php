@@ -155,7 +155,7 @@
               </div>
 
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                   <div class="description padding-15">
                     {!!$charity->description!!}
                   </div>
