@@ -34,7 +34,7 @@ class DonateController extends Controller
           return $this->error('ไม่พบมูลนิธินี้');
         }
 
-        $for = 'มูลนิธิ';
+        $for = '';
 
         $this->setData('charity',$data);
 
