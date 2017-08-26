@@ -73,10 +73,10 @@
   </div>
 
   <div class="form-group">
-    {{Form::label('active', 'การเข้าถึง')}}
-    {{Form::radio('active', 1, false)}} เปิดการเข้าถึง
+    <span>การเข้าถึง</span><br>
+    {{Form::radio('active', 1, false)}} <span>เปิดการเข้าถึง</span>
     <br>
-    {{Form::radio('active', 0, true)}} ปิดการเข้าถึง
+    {{Form::radio('active', 0, true)}} <span>ปิดการเข้าถึง</span>
   </div>
 
   {{Form::submit('บันทึก', array('class' => 'btn-u btn-u-blue'))}}
