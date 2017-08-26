@@ -7,7 +7,7 @@ use DB;
 class Donation extends Model
 {
   protected $table = 'donations';
-  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','fee','balance','transaction_date','bank_account_id','get_reward','reward','shipping_address','donation_via_id','verified'];
+  protected $fillable = ['model','model_id','code','unidentified','user_id','guest_name','amount','fee','balance','transaction_date','transfer_slip','bank_account_id','get_reward','reward','shipping_address','donation_via_id','verified'];
 
   private $feeRate = 0.1; // 30%
 

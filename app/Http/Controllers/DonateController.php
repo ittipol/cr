@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-// use OmiseCharge;
-
 use App\library\service;
 use App\library\token;
 use App\library\date;
-// use App\library\creditcardValidation;
 use Redirect;
 use Auth;
 use Validator;
+use File;
 
 class DonateController extends Controller
 {
@@ -234,6 +232,21 @@ class DonateController extends Controller
       return Redirect::back()->withErrors(array(
         array('มีข้อมูลบางอย่างไม่ถูกต้อง ทำให้ไม่สามารถบันทึกข้อมูลได้')
       ));
+    }
+
+    // save slip
+    if(!empty(request()->transfer_slip)) {
+
+      $target = storage_path('app/public/donation/'.$donation->id.'/transfer_slip/');
+      if(!is_dir($target)){
+        mkdir($target,0777,true);
+      }
+
+      File::move(request()->transfer_slip->getRealPath(), $target.request()->transfer_slip->getClientOriginalName());
+
+      // update donation
+      $donation->transfer_slip = request()->transfer_slip->getClientOriginalName();
+      $donation->save();
     }
 
     // if(Auth::check()) {}

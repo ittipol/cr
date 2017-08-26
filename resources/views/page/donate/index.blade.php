@@ -119,6 +119,39 @@
 
                 </label>
               </section>
+
+            </div>
+
+          </fieldset>
+
+          <fieldset>
+
+            <div class="row">
+
+              <section class="col col-6">
+
+                <div class="alert alert-info fade in">
+                  <h4>รูปภาพหลักฐานการโอน</h4>
+                  <ul>
+                    <li>ไฟล์ใหญ่ได้ไม่เกิน 5 MB</li> 
+                    <li>รูปแบบไฟล์ JPG, PNG เท่านั้นเพื่อป้องกันไวรัส</li> 
+                  </ul>
+                </div>
+
+                <label class="file-input-box">
+                  <input id="file_input" class="file-input" type="file" name="transfer_slip">
+                  <div class="clearfix">
+                    <i class="fa fa-cloud-upload pull-left"></i>
+                    <div id="preview_name" class="preview-name pull-left">รูปภาพหลักฐานการโอน</div>
+                  </div>
+                  <a href="javascript:void(0);" id="file_remove_btn" class="file-remove-btn">×</a>
+                  <p class="file-error-message"></p>
+                  <!-- <div class="progress-bar">
+                    <div class="status"></div>
+                  </div> -->
+                </label>
+              </section>
+
             </div>
 
           </fieldset>
@@ -430,6 +463,86 @@
 
       });
 
+      $('#file_input').on('change', function(e){
+        e.preventDefault();
+        return false
+      });
+
+      $('#file_input').on('change', function(){
+        _this.preview(this);
+      });
+
+      $('#file_remove_btn').on('click',function(){
+        _this.removePreview(this);
+      });
+
+    }
+
+    preview(input){
+
+      if (input.files && input.files[0]) {
+
+        if(!window.File && window.FileReader && window.FileList && window.Blob){ //if browser doesn't supports File API
+          alert("Your browser does not support new File API! Please upgrade.");
+          return false;
+        }else{
+          let fileSize = input.files[0].size;
+          let mimeType = input.files[0].type;
+
+          if(!this.checkImageType(mimeType) || !this.checkImageSize(fileSize)) {
+            $('.file-error-message').css('display','block').text('ไฟล์ไม่ถูกต้องตามเงื่อนไข');
+          }else {
+
+            $('.file-error-message').css('display','none').text('');
+            $('#file_remove_btn').css('display','block');
+
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+              $('#preview_name').text(input.files[0].name);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+
+          }
+        }
+
+      }
+
+    }
+
+    removePreview(elem){
+      $('#file_input').val('');
+      $('#file_remove_btn').css('display','none');
+      $('#preview_name').text('รูปภาพหลักฐานการโอน');
+    }
+
+    checkImageType(type){
+      let allowedFileTypes = ['image/jpg','image/jpeg','image/png', 'image/pjpeg'];
+
+      let allowed = false;
+
+      for (let i = 0; i < allowedFileTypes.length; i++) {
+        if(type == allowedFileTypes[i]){
+          allowed = true;
+          break;            
+        }
+      };
+
+      return allowed;
+    }
+
+    checkImageSize(size) {
+      // 5MB
+      let maxSize = 5242880;
+
+      let allowed = false;
+
+      if(size <= maxSize){
+        allowed = true;
+      }
+
+      return allowed;
     }
 
     findMonthName(month) {
