@@ -9,7 +9,7 @@ use Redirect;
 use Auth;
 use Validator;
 // use File;
-use Input;
+// use Input;
 
 class DonateController extends Controller
 {
@@ -245,7 +245,8 @@ class DonateController extends Controller
 
       // File::move(request()->transfer_slip->getRealPath(), $target.request()->transfer_slip->getClientOriginalName());
 
-      $input = Input::file('transfer_slip');
+      // $input = Input::file('transfer_slip');
+      $input = $request->file('transfer_slip');
       $filename = $input->getClientOriginalName();
       $input->move($target,$filename); 
 
