@@ -99,6 +99,10 @@
 	margin-left: 4px;
 }
 
+.donation.share .parallax-quote {
+	background: url(/images/common/people_bg.jpg) 50% 0 repeat fixed;
+}
+
 #socaial_share_box .modal-content {
 	border-radius: 0;
 }
