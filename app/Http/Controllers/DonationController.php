@@ -35,10 +35,10 @@ class DonationController extends Controller
             return $this->error('ไม่พบมูลนิธินี้');
           }
 
-          $this->setData('for','มูลนิธิ');
-          $this->setData('charityName',$data->name);
-          $this->setData('charityLogo',$data->logo);
+          // $charity = $data;
 
+          $for = '';
+          
           break;
 
         case 'Project':
@@ -47,18 +47,25 @@ class DonationController extends Controller
             return $this->error('ไม่พบโครงการนี้หรือการเปิดรับบริจาคโครงการนี้สิ้นสุดแล้ว');
           }
 
-          $charity = Service::loadModel('Charity')->select('name')->find($data->charity_id);
+          // $charity = Service::loadModel('Charity')->select('name','logo','shared_image')->find($data->charity_id);
 
-          $this->setData('for','โครงการ');
-          $this->setData('charityName',$charity->name);
-          $this->setData('charityLogo',$charity->logo);
+          $for = 'โครงการ';
 
           break;
-
+        
+        default:
+          return Redirect::to('/');
+          break;
       }
+
+      $this->setData('popup',false);
 
       $this->setData('id',$data->id);
       $this->setData('name',$data->name);
+      $this->setData('code',request()->code);
+      $this->setData('for',$for);
+      $this->setData('_for',strtolower($donation->model));
+
 
     }
 

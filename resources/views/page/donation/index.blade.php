@@ -58,71 +58,13 @@
           <div class="content margin-top-20 margin-bottom-100">
 
             @if($search && !empty($donation))
-              
-              <div class="row invoice-header">
-                <div class="col-xs-6">
-                  <img src="{{$charityLogo}}">
-                </div>
-                <div class="col-xs-6 invoice-numb">
-                  {{$for}}
-                  <span>{{$name}}</span>
-                </div>
-              </div>
-
-              <div id="social_content" class="social-login text-center">      
-                <ul class="list-unstyled">       
-                  <li>             
-                    <a href="javascript:void(0);" id="fb_post_btn" class="btn rounded btn-lg btn-facebook-inversed margin-bottom-10">           
-                      <i class="fa fa-facebook"></i> โพสต์คำขอบคุณจากเราไปยัง Facebook ของคุณ       
-                    </a>         
-                    <div class="text-center">           
-                      <small>เราจะไม่โพสต์อะไรทั้งสิ้นใน Facebook<br>โดยไม่ได้รับอนุญาตจากคุณ</small>         
-                    </div>       
-                  </li>     
-                </ul>  
-              </div>
-
-              <hr>
-
-              <div class="row">
-
-                <div class="col-xs-12">
-
-                  <div class="tag-box tag-box-v3">
-                    <h2>รายละเอียดการบริจาค</h2>
-                    <div class="row">
-                      <div class="col-md-4"><strong>บริจาคให้กับ:</strong> {{$for}}</div>
-                      <div class="col-md-4"><strong>ชื่อ{{$for}}</strong> {{$name}}</div>
-
-                      <div class="col-md-4">
-                        <strong>จำนวนเงิน:</strong> {{number_format($donation->amount, 0, '.', ',')}} บาท
-                      </div>
-
-                      <div class="col-md-4">
-                        <strong>ชื่อ นามสกุล:</strong>
-                        @if($donation->unidentified)
-                          ไม่ระบุ
-                        @elseif(!empty($donation->user_id))
-                          {{$donation->user->name}}
-                        @else
-                          {{$donation->guest_name}}
-                        @endif
-                      </div>
-
-                      <div class="col-md-4">
-                        <strong>วันที่:</strong> {{$dateLib->covertDateTimeToSting($donation->created_at)}}
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-
-              </div>
-
+              @include('page.donation.content') 
             @elseif($search)
-              <div class="text-center margin-top-60">
+              <div class="text-center margin-top-60 margin-bottom-400">
                 <h2>ไม่พบการบริจาคที่กำลังค้นหา</h2>
               </div>
+            @else
+              <div class="clearfix margin-bottom-400"></div>
             @endif
 
             <div class="clearfix margin-bottom-100"></div>
