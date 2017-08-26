@@ -242,10 +242,15 @@ class DonateController extends Controller
         mkdir($target,0777,true);
       }
 
-      File::move(request()->transfer_slip->getRealPath(), $target.request()->transfer_slip->getClientOriginalName());
+      // File::move(request()->transfer_slip->getRealPath(), $target.request()->transfer_slip->getClientOriginalName());
+
+      $input = \Input::file('transfer_slip');
+      $filename = $input->getClientOriginalName();
+      $input->move($target,$filename); 
 
       // update donation
-      $donation->transfer_slip = request()->transfer_slip->getClientOriginalName();
+      $donation->transfer_slip = $filename;
+      // $donation->transfer_slip = request()->transfer_slip->getClientOriginalName();
       $donation->save();
     }
 

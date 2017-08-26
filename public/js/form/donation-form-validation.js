@@ -17,9 +17,9 @@ var Validation = function () {
 	            // Rules for form validation
             rules:
             {
-              name: {
-                required: true
-              },
+              // name: {
+              //   required: true
+              // },
               // holder_name:
               // {
               //   required: true
@@ -80,10 +80,10 @@ var Validation = function () {
             // Messages for form validation
             messages:
             {
-              name:
-              {
-                required: 'ชื่อ นามสกุลผู้บริจาคห้ามว่าง'
-              },
+              // name:
+              // {
+              //   required: 'ชื่อ นามสกุลผู้บริจาคห้ามว่าง'
+              // },
               // holder_name:
               // {
               //   required: 'ชื่อเจ้าของบัตรห้ามว่าง'
