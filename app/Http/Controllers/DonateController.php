@@ -246,7 +246,7 @@ class DonateController extends Controller
       // File::move(request()->transfer_slip->getRealPath(), $target.request()->transfer_slip->getClientOriginalName());
 
       // $input = Input::file('transfer_slip');
-      $input = $request->file('transfer_slip');
+      $input = request()->file('transfer_slip');
       $filename = $input->getClientOriginalName();
       $input->move($target,$filename); 
 
