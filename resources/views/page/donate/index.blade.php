@@ -393,6 +393,9 @@
 
 </div>
 
+<div class="global-overlay"></div>
+<div class="global-loading-icon"></div>
+
 
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-validation.js"></script>

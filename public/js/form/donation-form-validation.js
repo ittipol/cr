@@ -140,7 +140,12 @@ var Validation = function () {
                 minlength: 'รหัสไปรษณีย์ไม่ถูกต้อง',
                 maxlength: 'รหัสไปรษณีย์ไม่ถูกต้อง'
               },
-            },    
+            },
+
+            submitHandler: function(form) {
+              $('.global-overlay').addClass('displayed');
+              $('.global-loading-icon').addClass('displayed');
+            },
 
             // submitHandler: function(form) {
 
