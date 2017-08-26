@@ -92,7 +92,7 @@
 
     @include('content.bank_account_modal')
 
-    @if(!empty($images) || !empty($charity->thumbnail))
+    @if(!empty($images))
 
     <div class="clearfix margin-bottom-40"></div>
 
@@ -102,24 +102,6 @@
       </div>
 
       <div id="image_slider">
-
-        @if(!empty($charity->thumbnail))
-        <div class="cbp-item">
-          <a href="{{$charity->thumbnail}}" class="cbp-caption cbp-lightbox" data-title="">
-            <div class="cbp-caption-defaultWrap">
-              <img src="{{$charity->thumbnail}}" alt="">
-            </div>
-            <div class="cbp-caption-activeWrap">
-              <div class="cbp-l-caption-alignLeft">
-                <div class="cbp-l-caption-body">
-                  <div class="cbp-l-caption-title"></div>
-                  <div class="cbp-l-caption-desc"></div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        @endif
 
         @foreach($images as $key => $image)
           <div class="cbp-item">
