@@ -122,10 +122,6 @@
 
             </div>
 
-          </fieldset>
-
-          <fieldset>
-
             <div class="row">
 
               <section class="col col-6">
