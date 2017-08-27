@@ -99,7 +99,7 @@
                 <label class="label">วันที่โอน</label>
                 <label class="input floating-label">
                   <i class="icon-append fa fa-calendar"></i>
-                  {{Form::text('date', null, array('id' => 'date' ,'autocomplete' => 'off'))}}
+                  {{Form::text('date', null, array('id' => 'date' ,'autocomplete' => 'off', 'readonly' => 'true'))}}
                   <div class="floating-label-box" id="date-input-label"></div>
                 </label>
               </section>
@@ -403,8 +403,8 @@
 <script src="/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/form/donation-form-datepicker.js"></script>
 
-<script src="/js/jquery.payform.min.js"></script>
-<script type="text/javascript" src="/js/form/credit-card-validation.js"></script>
+<!-- <script src="/js/jquery.payform.min.js"></script>
+<script type="text/javascript" src="/js/form/credit-card-validation.js"></script> -->
 
 <script type="text/javascript">
 
@@ -422,10 +422,13 @@
 
       let _this = this;
 
-      // $('#date').on('click',function(e){
-      //   e.preventDefault();
-      //   return false;
-      // });
+      $('#date').on('click',function(){
+        $(this).removeAttr('readonly').select();
+      });
+
+      $( "#date" ).on('blur',function(){
+        $(this).attr('readonly', 'true');
+      });
 
       $('#date').on('change',function(){
         if($(this).val() != '') {
