@@ -214,7 +214,7 @@
 
                 <div class="clearfix margin-bottom-40"></div>
 
-                <h2 class="text-center">ผู้คนที่ร่วมบริจาคให้กับมูลนิธินี้</h2>
+                <h2 class="text-center">ผู้คนที่ร่วมบริจาค</h2>
 
                 <div class="container content-sm">
                   <div class="row team-v4 people-list">

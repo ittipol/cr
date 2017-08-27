@@ -34,8 +34,16 @@ span {
 	font-size: 28px;
 }
 
+.promo-item-content {
+	text-align: center;
+}
+
 .promo-section h3 {
-	font-size: 60px;
+	font-size: 45px;
+}
+
+.promo-section p {
+	margin: 0 auto;
 }
 
 .g-color-default {
@@ -111,4 +119,16 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 
 .infoblock-v2 {
 	background-image: url(/images/common/header-bg.jpg);
+}
+
+@media only screen and (max-width : 480px) {
+	.promo-section p {
+		max-width: 95%;
+	}
+}
+
+@media only screen and (max-width : 320px) {
+	.promo-section p {
+		max-width: 100%;
+	}
 }

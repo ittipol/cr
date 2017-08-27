@@ -96,7 +96,7 @@
 
   <!-- Promo section -->
   <div class="promo-section">
-    <div class="promo-item" style="background-image: url(/images/promo/1_1.jpg);">
+    <div class="promo-item" style="background-image: url(/images/common/header-bg.jpg);">
       <div class="container">
         <div class="promo-item-content">
           <h3>แม่จิ๋มบ้านสุนัข</h3>

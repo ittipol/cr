@@ -104,11 +104,11 @@
       @if($_for == 'charity')
         <h4>หากต้องการติดตามเรื่องราว ข่าวสารหรือต้องการช่วยเหลือ</h4>
         <a class="btn-u btn-custom-color" href="{{URL::to('charity')}}/{{$id}}">เพิ่มเติม</a>
-        <a class="btn-u btn-custom-color" href="{{URL::to('donate')}}?for=charity&id={{$id}}"><i class="fa fa-heart"></i> ช่วยเหลือด้วยการบริจาค</a>
+        <a class="btn-u btn-custom-color" href="{{URL::to('donate')}}?for=charity&id={{$id}}"><i class="fa fa-heart"></i> ร่วมบริจาค</a>
       @elseif($_for == 'project')
         <h4>หากต้องการติดตามโครงการ หรือต้องการช่วยเหลือ</h4>
         <a class="btn-u btn-custom-color" href="{{URL::to('project')}}/{{$id}}">เพิ่มเติม</a>
-        <a class="btn-u btn-custom-color" href="{{URL::to('donate')}}?for=project&id={{$id}}"><i class="fa fa-heart"></i> ช่วยเหลือด้วยการบริจาค</a>
+        <a class="btn-u btn-custom-color" href="{{URL::to('donate')}}?for=project&id={{$id}}"><i class="fa fa-heart"></i> ร่วมบริจาค</a>
       @endif
       </div>
 
