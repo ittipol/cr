@@ -422,13 +422,13 @@
 
       let _this = this;
 
-      $('#date').on('click',function(){
-        $(this).removeAttr('readonly').select();
-      });
+      // $('#date').on('click',function(){
+      //   $(this).removeAttr('readonly').select();
+      // });
 
-      $( "#date" ).on('blur',function(){
-        $(this).attr('readonly', 'true');
-      });
+      // $( "#date" ).on('blur',function(){
+      //   $(this).attr('readonly', 'true');
+      // });
 
       $('#date').on('change',function(){
         if($(this).val() != '') {
