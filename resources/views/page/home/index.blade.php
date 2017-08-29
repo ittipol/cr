@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="assets/plugins/animate.css">
   <link rel="stylesheet" href="assets/plugins/line-icons-pro/styles.css">
   <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="assets/plugins/slick/slick.css">
+  <!-- <link rel="stylesheet" href="assets/plugins/slick/slick.css"> -->
 
   <!-- CSS Theme -->
   <link rel="stylesheet" href="css/style/custom/charity.style.css">
@@ -54,7 +54,7 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <div class="menu-container">
           <ul class="nav navbar-nav @if(Auth::check()) margin-right-50 @endif">
-            <li class="page-scroll home active">
+            <li class="page-scroll home">
               <a href="{{URL::to('/')}}">หน้าแรก</a>
             </li>
             <li class="page-scroll">
@@ -96,13 +96,20 @@
 
   <!-- Promo section -->
   <div class="promo-section">
-    <div class="promo-item" style="background-image: url(/images/common/header-bg.jpg);">
+    <div class="promo-item-custom">
       <div class="container">
-        <div class="promo-item-content">
-          <h3>แม่จิ๋มบ้านสุนัข</h3>
-          <p class="g-color-white--dark g-mb-45">ป้าจิ๋มผู้ที่อุทิศชีวิตของตัวเอง ให้กับการช่วยเหลือน้องหมา มามากว่า 30ปี เพียงคนเดียว ถึงร่างกายตัวเองจะเจ็บป่วยแต่แม่ก็ยังทนทำมันด้วยความรัก ที่มีต่อสิ่งมีชีวิตเล็กๆ</p>
-          <a class="btn-u btn-u-lg btn-u-upper" href="/charity/1">เพิ่มเติม</a>
-          <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i> ร่วมบริจาค</a>
+        <div class="promo-item-box clearfix">
+          <div class="promo-item-image">
+            <div class="floating-image" style="background-image: url(/images/promo/1_2.png);"></div>
+          </div>
+          <div class="promo-item-content">
+            <h3>แม่จิ๋มบ้านสุนัข</h3>
+            <p class="g-color-white--dark g-mb-45">ป้าจิ๋มผู้ที่อุทิศชีวิตของตัวเอง ให้กับการช่วยเหลือน้องหมา มามากว่า 30ปี เพียงคนเดียว ถึงร่างกายตัวเองจะเจ็บป่วยแต่แม่ก็ยังทนทำมันด้วยความรัก ที่มีต่อสิ่งมีชีวิตเล็กๆ</p>
+            <!-- <a class="btn-u btn-u-lg btn-u-upper" href="/charity/1">เพิ่มเติม</a>
+            <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i> ร่วมบริจาค</a> -->
+            <a class="btn-u btn-line" href="/charity/1">เพิ่มเติม</a>
+            <a class="btn-u btn-line" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i> ร่วมบริจาค</a>
+          </div>
         </div>
       </div>
     </div>

@@ -34,16 +34,60 @@ span {
 	font-size: 28px;
 }
 
-.promo-item-content {
-	text-align: center;
-}
-
 .promo-section h3 {
 	font-size: 45px;
 }
 
-.promo-section p {
+/*.promo-section p {
 	margin: 0 auto;
+}
+
+.promo-item-content {
+	text-align: center;
+}*/
+
+.promo-section p {
+	max-width: 100%;
+	font-size: 18px;
+}
+
+.promo-section .promo-item-custom {
+	width: 100%;
+	height: 700px;
+	position: relative;
+	/*background-color: rgb(196,69,94);*/
+	background-color: #2196F3;
+	/*background-color: #448AFF;*/
+}
+
+/*.promo-item-custom .container {
+	height: 700px;
+}*/
+
+.promo-item-custom .promo-item-box {
+	height: 700px;
+}
+
+.promo-item-custom .promo-item-content {
+	float: left;
+	width: 50%;
+}
+
+.promo-item-custom .promo-item-image {
+	float: right;
+	width: 50%;
+	height: 700px;
+	position: relative;
+}
+
+.promo-item-custom .floating-image {
+	width: 700px;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: absolute;
+	left: -140px;
 }
 
 .g-color-default {
@@ -121,13 +165,57 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 	background-image: url(/images/common/header-bg.jpg);
 }
 
+@media only screen and (min-width: 992px) {
+	.promo-item-custom .floating-image {
+		left: -190px;
+	}
+}
+
+@media only screen and (max-width : 768px) {
+	.promo-item-custom .floating-image {
+		left: -290px;
+	}
+}
+
 @media only screen and (max-width : 480px) {
+	.promo-section .promo-item-custom {
+		height: auto;
+		padding-bottom: 50px;
+	}
+
+	.promo-item-custom .promo-item-box {
+		height: auto;
+	}
+
+	.promo-item-custom .promo-item-content {
+		width: 100%;
+		text-align: center;
+		top: 0; 
+		transform: translateY(0); 
+	}
+
+	.promo-item-custom .floating-image {
+		width: 100%;
+		left: 0;
+	}
+
+	.promo-item-custom .promo-item-image {
+		width: 100%;
+		height: 300px;
+		margin-top: 40px;
+	}
+
 	.promo-section p {
 		max-width: 95%;
+		font-size: 16px;
 	}
 }
 
 @media only screen and (max-width : 320px) {
+	.promo-item-custom .promo-item-image {
+		height: 240px;
+	}
+
 	.promo-section p {
 		max-width: 100%;
 	}
