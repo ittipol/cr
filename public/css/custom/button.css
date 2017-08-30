@@ -37,5 +37,6 @@
 }
 
 .btn-u.btn-line:hover {
-	background-color: #1565C0;
+	/*background-color: #1565C0;*/
+	background-color: rgba(240,240,240,.2);
 }
