@@ -39,18 +39,10 @@ span {
 	animation: blurFadeIn .8s linear backwards;
 }
 
-/*.promo-section p {
-	margin: 0 auto;
-}
-
-.promo-item-content {
-	text-align: center;
-}*/
-
 .promo-section p {
 	max-width: 100%;
 	font-size: 18px;
-	animation: blurFadeIn .8s linear .8s backwards;
+	animation: blurFadeIn .6s linear .8s backwards;
 }
 
 .promo-section .promo-item-custom {
