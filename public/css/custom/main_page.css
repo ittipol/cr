@@ -170,7 +170,16 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 }
 
 .infoblock-v2 {
-	background-image: url(/images/common/header-bg.jpg);
+	/*background-image: url(/images/common/header-bg.jpg);*/
+	/*background: #134E5E;
+	background: linear-gradient(to left, #71B280, #134E5E);*/
+	background: #74ebd5;  /* fallback for old browsers */
+	background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.infoblock-v2:before {
+	/*background: transparent;*/
 }
 
 @keyframes swing {
@@ -313,6 +322,19 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 	.promo-section p {
 		max-width: 95%;
 		font-size: 16px;
+	}
+
+	.infoblock-v2 > .container {
+		padding: 0 30px;
+	}
+
+	.infoblock-v2 h2 {
+		font-size: 24px;
+	}
+
+	.infoblock-v2 h2 strong {
+		margin-top: 20px;
+		font-size: 40px;
 	}
 }
 

@@ -33,7 +33,7 @@
 
         <div class="tab-pane fade in @if($search) active @endif" id="search">
 
-          <div class="search-block parallaxBg donation-search-block" style="background-image: url(/images/common/input-code-bg.png); background-position: 50% 16px;">
+          <div class="search-block parallaxBg donation-search-block">
             <div class="container">
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
