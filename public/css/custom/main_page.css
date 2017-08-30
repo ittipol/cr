@@ -36,6 +36,7 @@ span {
 
 .promo-section h3 {
 	font-size: 45px;
+	animation: blurFadeIn .8s linear backwards;
 }
 
 /*.promo-section p {
@@ -49,6 +50,7 @@ span {
 .promo-section p {
 	max-width: 100%;
 	font-size: 18px;
+	animation: blurFadeIn .8s linear 1s backwards;
 }
 
 .promo-section .promo-item-custom {
@@ -56,7 +58,8 @@ span {
 	height: 700px;
 	position: relative;
 	/*background-color: rgb(196,69,94);*/
-	background-color: #2196F3;
+	/*background-color: #2196F3;*/
+	background: linear-gradient(to bottom, #241d33 0%, #171930 51%, #091119 100%);
 	/*background-color: #448AFF;*/
 }
 
@@ -88,6 +91,11 @@ span {
 	background-size: 100%;
 	position: absolute;
 	left: -140px;
+	/*animation-name: bounceIn;
+  animation-duration: 450ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;*/
+  animation: blurFadeIn .8s linear  backwards;
 }
 
 .g-color-default {
@@ -163,6 +171,103 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 
 .infoblock-v2 {
 	background-image: url(/images/common/header-bg.jpg);
+}
+
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+
+@keyframes bounceIn{
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
+
+@keyframes blurFadeInOut{
+	0%{
+		opacity: 0;
+		text-shadow: 0px 0px 40px #fff;
+		transform: scale(1.3);
+	}
+	20%,75%{
+		opacity: 1;
+		text-shadow: 0px 0px 1px #fff;
+		transform: scale(1);
+	}
+	100%{
+		opacity: 0;
+		text-shadow: 0px 0px 50px #fff;
+		transform: scale(0);
+	}
+}
+@keyframes blurFadeIn{
+	0%{
+		opacity: 0;
+		/*text-shadow: 0px 0px 40px #fff;*/
+		transform: scale(1.3);
+	}
+	50%{
+		opacity: 0.5;
+		/*text-shadow: 0px 0px 10px #fff;*/
+		transform: scale(1.1);
+	}
+	100%{
+		opacity: 1;
+		/*text-shadow: 0px 0px 1px #fff;*/
+		transform: scale(1);
+	}
+}
+@keyframes fadeInBack{
+	0%{
+		opacity: 0;
+		transform: scale(0);
+	}
+	50%{
+		opacity: 0.4;
+		transform: scale(2);
+	}
+	100%{
+		opacity: 0.2;
+		transform: scale(5);
+	}
+}
+@keyframes fadeInRotate{
+	0%{
+		opacity: 0;
+		transform: scale(0) rotate(360deg);
+	}
+	100%{
+		opacity: 1;
+		transform: scale(1) rotate(0deg);
+	}
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0%;
+  }
 }
 
 @media only screen and (min-width: 992px) {
