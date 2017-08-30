@@ -158,5 +158,18 @@
 
   @include('layout.footer')
 
+  <!-- JS Global Compulsory -->
+  <script src="/assets/plugins/jquery/jquery.min.js"></script>
+  <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- JS Page Level-->
+  <script src="/js/plugins/one.app.js"></script>
+
+  <script>
+    $(function() {
+      App.init();
+    });
+  </script>
+
 </body>
 </html>
