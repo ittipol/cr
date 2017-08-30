@@ -27,5 +27,15 @@
 
   @include('layout.footer')
 
+
+  <!-- JS Page Level-->
+  <script src="/js/plugins/one.app.js"></script>
+
+  <script>
+    $(function() {
+      App.init();
+    });
+  </script>
+
 </body>
 </html>
