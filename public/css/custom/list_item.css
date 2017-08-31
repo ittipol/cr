@@ -11,7 +11,7 @@
 	width: 100%;
 	height: 220px;
 	background-position: center;
-	background-size: cover;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	background-color: #bbb;
 }
@@ -83,27 +83,29 @@
 	height: 60px;
 }
 
+@media (min-width: 1200px) {
+	.container.list-container {
+		width: 1275px;
+	}
+}
+
 @media only screen and (max-width : 1200px) {
-  
 	.news-v3.custom-item-list .full-width-cover {
 		height: 240px;
 	}
-
-	/*.news-v3.custom-item-list img.full-width {
-		width: 440px;
-		height: 230px;
-	}*/
-
 }
 
-/*@media only screen and (max-width : 992px) {
-
-	.news-v3.custom-item-list img.full-width {
-		width: 345px;
-		height: 195px;
+@media only screen and (max-width : 1024px) {
+	.news-v3.custom-item-list .full-width-cover {
+		height: 253px;
 	}
+}
 
-}*/
+@media only screen and (max-width : 768px) {
+	.news-v3.custom-item-list .full-width-cover {
+		height: 192px;
+	}
+}
 
 @media only screen and (max-width : 480px) {
 	.news-v3.custom-item-list {
@@ -112,7 +114,7 @@
 	}
 
 	.news-v3.custom-item-list .full-width-cover {
-		height: 200px;
+		height: 198px;
 	}
 
 	.donation-box .counter {
@@ -125,9 +127,19 @@
 	}
 }
 
+@media only screen and (max-width : 375px) {
+	.news-v3.custom-item-list .full-width-cover {
+		height: 176px;
+	}
+}
+
 @media only screen and (max-width : 320px) {
 	.news-v3.custom-item-list {
 		margin-left: 0;
 		margin-right: 0;
+	}
+
+	.news-v3.custom-item-list .full-width-cover {
+		height: 162px;
 	}
 }
