@@ -210,7 +210,7 @@
         <hr>
 
         <h4 class="no-margin-top">ของที่ระลึกจากมูลนิธิ</h4>
-        <p>บริจาคให้กับมูลนิธินี้ตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของที่ระลึกจากมูลนิธิ <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">ของที่ระลึก</a></p>
+        <p>ร่วมบริจาคเพื่อช่วยเหลือตั้งแต่ 300 บาทขึ้นไป คุณจะได้รับของที่ระลึกจากมูลนิธิ <a href="javascript:void(0);" data-toggle="modal" data-target="#reward_modal">ของที่ระลึก</a></p>
 
         @include('content.donate_reward')
 

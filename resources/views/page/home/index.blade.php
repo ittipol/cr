@@ -108,7 +108,7 @@
             <!-- <a class="btn-u btn-u-lg btn-u-upper" href="/charity/1">เพิ่มเติม</a>
             <a class="btn-u btn-u-lg btn-u-upper g-mr-10" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i> ร่วมบริจาค</a> -->
             <a class="btn-u btn-line" href="/charity/1">เพิ่มเติม</a>
-            <a class="btn-u btn-line" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i> ร่วมบริจาค</a>
+            <a class="btn-u btn-line" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i> บริจาคช่วยเหลือสนุขจร</a>
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@
           </div>
 
           <div class="statistics">
-            <h3 class="heading-xs">จะส่งมอบเงินให้กับมูลนิธิในอีก <span class="pull-right">{{$remainingDate}}</span></h3>
+            <h3 class="heading-xs">สิ้นสุดการรับบริจาคเดือนนี้ในอีก <span class="pull-right">{{$remainingDate}}</span></h3>
             <div class="progress progress-u progress-xxs">
               <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
               </div>
@@ -61,7 +61,7 @@
           <div class="clearfix margin-bottom-20"></div>
 
           <div class="margin-bottom-20">
-            <a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}" class="btn-u btn-custom margin-bottom-10">บริจาคให้กับมูลนิธินี้</a>
+            <a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}" class="btn-u btn-custom margin-bottom-10">ร่วมบริจาคเพื่อช่วยเหลือ</a>
           </div>
 
           <div class="row">
@@ -162,7 +162,7 @@
                 </div>
 
                 <!-- <div class="col-md-4">
-                  <h3>บริจาคให้กับมูลนิธินี้</h3>
+                  <h3>ร่วมบริจาคเพื่อช่วยเหลือ</h3>
 
                   <div class="donate-box">
                     <div class="donate-info">
