@@ -112,7 +112,7 @@
     </div>
   </div>
 
-  <div class="container list-container">
+  <div class="container">
 
     <div class="clearfix margin-bottom-100"></div>
 

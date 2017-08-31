@@ -84,7 +84,7 @@
 }
 
 @media (min-width: 1200px) {
-	.container.list-container {
+	.container {
 		width: 1275px;
 	}
 }
