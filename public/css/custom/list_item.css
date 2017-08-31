@@ -106,16 +106,10 @@
 }*/
 
 @media only screen and (max-width : 480px) {
-
 	.news-v3.custom-item-list {
 		margin-left: 15px;
 		margin-right: 15px;
 	}
-
-	/*.news-v3.custom-item-list img.full-width {
-		width: 100%;
-		height: 200px;
-	}*/
 
 	.news-v3.custom-item-list .full-width-cover {
 		height: 200px;
@@ -129,5 +123,11 @@
 		font-size: 28px;
 		margin-top: 0;
 	}
+}
 
+@media only screen and (max-width : 320px) {
+	.news-v3.custom-item-list {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }

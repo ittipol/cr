@@ -15,7 +15,7 @@ class Controller extends BaseController
 
   protected $meta = array(
     'title' => 'CharityTh',
-    'description' => 'ร่วมเป็นส่วนหนึ่งในการช่วยเหลือมูลนิธิ',
+    'description' => 'ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุนมูลนิธิและโครงการ',
     'image' => 'http://www.charityth.com/images/logo/logo_thumbnail.png'
   );
 

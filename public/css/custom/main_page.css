@@ -340,4 +340,8 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 	.promo-section p {
 		max-width: 100%;
 	}
+
+	.infoblock-v2 p, .infoblock-v2 li, .infoblock-v2 a {
+		margin-bottom: 4px;
+	}
 }
