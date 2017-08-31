@@ -5,7 +5,7 @@
 
   <div class="heading heading-v4 margin-bottom-40">
     @if($for == 'charity')
-      <h2>บริจาคให้กับมูลนิธิ</h2>
+      <h2>บริจาคให้กับ</h2>
       <h3><a href="{{URL::to('charity')}}/{{$id}}">{{$name}}</a></h3>
     @elseif($for == 'project')
       <h2>บริจาคให้กับโครงการ</h2>
