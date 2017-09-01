@@ -26,7 +26,7 @@
     <p>คุณสามารถบริจาคได้โดยไม่ต้องมีบัญชี สามารถสร้างบัญชีได้ในภายหลังหากต้องการ</p>
     <p>
       <a class="btn-u btn-u-xs btn-u-dark" href="{{URL::to('login')}}"><i class="fa fa-pencil"></i> เข้าสู่ระบบ</a>
-      <a class="btn-u btn-u-xs btn-u-red" href="{{URL::to('register')}}"><i class="fa fa-cog"></i> ต้องการสร้างบัญชี</a>
+      <a class="btn-u btn-u-xs btn-u-red" href="{{URL::to('subscription')}}"><i class="fa fa-cog"></i> ต้องการสร้างบัญชี</a>
     </p>
   </div>
   @endif

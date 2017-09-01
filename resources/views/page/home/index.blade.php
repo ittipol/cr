@@ -104,8 +104,7 @@
           <div class="promo-item-content">
             <h3>แม่จิ๋มบ้านสุนัข</h3>
             <p class="g-color-white--dark g-mb-45">ป้าจิ๋มผู้ที่อุทิศชีวิตของตัวเอง ให้กับการช่วยเหลือน้องหมา มามากว่า 30ปี เพียงคนเดียว ถึงร่างกายตัวเองจะเจ็บป่วยแต่แม่ก็ยังทนทำมันด้วยความรัก ที่มีต่อสิ่งมีชีวิตเล็กๆ</p>
-            <a class="btn-u btn-line" href="/charity/1">เพิ่มเติม</a>
-            <a class="btn-u btn-line" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i> บริจาคช่วยเหลือสนุขจร</a>
+            <a class="btn-u btn-line" href="/charity/1"><i class="fa fa-heart"></i> บริจาคช่วยเหลือสุนัขจร</a>
           </div>
         </div>
       </div>
