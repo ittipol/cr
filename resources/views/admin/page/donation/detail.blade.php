@@ -35,12 +35,12 @@ $date = new \App\library\Date;
   <dd><h4>{{$donation->{strtolower($donation->model)}->name}}</h4></dd>
   <dt>ชื่อผู้บริจาค</dt>
   <dd><h4>
-    @if($data->unidentified) 
+    @if($donation->unidentified) 
       ไม่ออกนาม
-    @elseif(!empty($data->user_id))
-      {{$data->user->name}}
+    @elseif(!empty($donation->user_id))
+      {{$donation->user->name}}
     @else
-      {{$data->guest_name}}
+      {{$donation->guest_name}}
     @endif
   </h4></dd>
   <dt>จำนวนเงินบริจาค</dt>
