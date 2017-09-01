@@ -79,10 +79,42 @@ class Donation extends Model
     ]);
 
     if($thisMonth) {
-      $donations->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
+      $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
 
     return $donation->count();
+  }
+
+  public function getDonors($model,$modelId,$thisMonth = false) {
+
+    // return $this
+    // ->select('user_id')
+    // ->where([
+    //   ['model','like',$model],
+    //   ['model_id','=',$modelId],
+    //   ['verified','=',1],
+    //   ['user_id','!=',null],
+    //   ['unidentified','=',0]
+    // ])
+    // ->distinct('user_id');
+
+    $donation = $this
+    ->select('user_id')
+    ->where([
+      ['model','like',$model],
+      ['model_id','=',$modelId],
+      ['verified','=',1],
+      ['user_id','!=',null],
+      ['unidentified','=',0]
+    ])
+    ->distinct('user_id');
+
+    if($thisMonth) {
+      $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
+    }
+
+    return $donation;
+
   }
 
   public function countDonor($model,$modelId,$thisMonth = false) {
@@ -195,21 +227,6 @@ class Donation extends Model
     }
 
     return $donations->first()->amount;
-
-  }
-
-  public function getDonors($model,$modelId) {
-
-    return $this
-    ->select('user_id')
-    ->where([
-      ['model','like',$model],
-      ['model_id','=',$modelId],
-      ['verified','=',1],
-      ['user_id','!=',null],
-      ['unidentified','=',0]
-    ])
-    ->distinct('user_id');
 
   }
 

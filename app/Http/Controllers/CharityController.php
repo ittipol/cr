@@ -52,12 +52,14 @@ class CharityController extends Controller
     $this->setData('projects',$projects);
     $this->setData('news',$news);
     $this->setData('images',$images);
-    $this->setData('amount',$donationModel->getTotalAmount('Charity',$id,true));
-    $this->setData('donationTotal',$donationModel->countDonation('Charity',$id));
+    
+    $this->setData('donationTotal',$donationModel->countDonation('Charity',$id,true));
     $this->setData('donorTotal',$donationModel->countDonor('Charity',$id,true));
+    $this->setData('donors',$donationModel->getDonors('Charity',$id,true));
+
+    $this->setData('amount',$donationModel->getTotalAmount('Charity',$id,true));
     $this->setData('remainingDate',$date->remainingDate());
     $this->setData('percent',round((date('d') * 100) / date('t')));
-    $this->setData('donors',$donationModel->getDonors('Charity',$id));
 
     // SET META
     $this->setMeta('title',$charity->name.' — CharityTH');
