@@ -78,4 +78,22 @@ class StaticFileController extends Controller
     abort(404);
 
   }
+
+  public function slip($id,$filename) {
+
+    $this->botDisallowed();
+
+    $path = storage_path('app/public/donation/'.$id.'/transfer_slip/').$filename;
+
+    if (!file_exists($path)) {
+      abort(404);
+    }
+
+    $headers = array(
+      'Cache-Control' => 'public, max-age=1800',
+      'Content-Type' => mime_content_type($path),
+    );
+
+    return Response::make(file_get_contents($path), 200, $headers);
+  }
 }

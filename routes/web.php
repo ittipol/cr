@@ -70,6 +70,10 @@ Route::group(['middleware' => ['admin.auth'], 'namespace' => 'Admin', 'prefix' =
   Route::post('stock_image/upload', 'StockImageController@upload');
 });
 
+Route::group(['middleware' => 'admin.auth'],  function () {
+  Route::get('slip/{id}/{filename}', 'StaticFileController@slip');
+});
+
 // =====================================================================
 
 Route::get('/', 'HomeController@index');

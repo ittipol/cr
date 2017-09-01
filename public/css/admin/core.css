@@ -1,9 +1,15 @@
 body {
+	color: #fff;
   background-color: #2e3d50;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   color: #fff;
+}
+
+dt {
+	color: #FF3D00;
+	margin-top: 20px;
 }
 
 label {
@@ -18,10 +24,14 @@ input[type="text"], input[type="password"] {
 	width: 100%;
 }
 
-table.table-summary {
-	color: #222;
+table {
+	color: #000;
 	background-color: #fff;
 }
+
+/*table.table-summary {
+	background-color: #fff;
+}*/
 
 table.table-summary thead {
 	color: #fff;
@@ -30,4 +40,12 @@ table.table-summary thead {
 
 .table-striped > tbody > tr:nth-of-type(even) {
 	background-color: #ececec;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.transfer-slip {
+	width: 100%;
 }

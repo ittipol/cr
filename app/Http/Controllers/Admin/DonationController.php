@@ -33,7 +33,7 @@ class DonationController extends Controller
   public function detail($id) {
     
     $data = Service::loadModel('Donation')->find($id);
-
+    
     $this->setData('donation',$data);
     $this->setData('reward',json_decode($data->reward,true));
     $this->setData('address',json_decode($data->address,true));
@@ -63,6 +63,8 @@ class DonationController extends Controller
 
       return Redirect::to('admin/donation/list/');
     }
+
+    $this->setData('id',$id);
 
     return $this->view('admin.page.donation.delete');
 

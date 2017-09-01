@@ -12,12 +12,12 @@ $date = new \App\library\Date;
   </div>
 </div>
 
-<h2>การบริจาค</h2>
+<h2>การบริจาค #{{$donation->id}}</h2>
 <h4>หมายเลขการบริจาค: <strong>{{$donation->code}}</strong></h4>
 
 @if($donation->verified)
 <div class="alert alert-success fade in">
-  <h4>ตรจวสอบการบริจาคแล้ว</h4>
+  <h4 class="no-margin">ตรจวสอบการบริจาคแล้ว</h4>
 </div>
 @else
 <div class="alert alert-danger fade in">
@@ -27,8 +27,6 @@ $date = new \App\library\Date;
   </p>
 </div>
 @endif
-
-<h4>@if($donation->verified) ตรจวสอบการบริจาคแล้ว @else ยังไม่ได้ตรวจสอบการบริจาค @endif</h4>
 
 <dl>
   <dt>บริจาคไปยัง</dt>
@@ -43,9 +41,18 @@ $date = new \App\library\Date;
   <dd><h4>{{$date->covertDateTimeToSting($donation->transaction_date)}}</h4></dd>
 </dl>
 
+<h2>หลักฐานการโอน</h2>
+@if(!empty($donation->transfer_slip))
+  <img src="/slip/{{$donation->id}}/{{$donation->transfer_slip}}" class="transfer-slip">
+  <div class="clearfix margin-bottom-20"></div>
+  <a href="/slip/{{$donation->id}}/{{$donation->transfer_slip}}" target="_blank">ดูรูปเต็ม</a>
+@else
+  <h4>ไม่มี</h4>
+@endif
+
 <hr>
 
-<h3>ของรางวัล</h3>
+<h3>ของที่ระลึก</h3>
 <h4>@if($donation->get_reward) ต้องการ @else ไม่ต้องการ @endif</h4>
 
 @if($donation->get_reward)
@@ -53,8 +60,6 @@ $date = new \App\library\Date;
   <dl>
     <dt>ของรางวัลที่เลือก</dt>
     <dd><h4>{{$reward['selected']}}</h4></dd>
-    <dt>ขนาดเสื้อ</dt>
-    <dd><h4>{{$reward['option']['size']}}</h4></dd>
   </dl>
 
   <h3>ที่อยู่สำหรับจัดส่ง</h3>

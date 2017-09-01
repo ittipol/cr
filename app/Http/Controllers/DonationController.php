@@ -125,7 +125,7 @@ class DonationController extends Controller
     if (Cookie::get('donation_d_'.md5($code)) !== null) {
       $this->setData('popup',false);
     }else {
-      Cookie::queue('donation_d_'.md5($code), 1, 43200);
+      Cookie::queue('donation_d_'.md5($code), 1, 7200);
       $this->setData('popup',true);
     }
 
