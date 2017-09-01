@@ -23,9 +23,9 @@
 
   <div class="row margin-bottom-20">
 
-    <div class="col-md-12 margin-bottom-10">
+    <!-- <div class="col-md-12 margin-bottom-10">
       <a href="">ลืมรหัสผ่าน</a>
-    </div>
+    </div> -->
 
     <div class="col-md-12 margin-bottom-10">
       {{Form::submit('เข้าสู่ระบบ', array('class' => 'btn-u btn-custom btn-block rounded'))}}
@@ -57,6 +57,7 @@
 
 {{Form::close()}}
 
+<div class="clearfix margin-top-100"></div>
 <div class="clearfix margin-top-100"></div>
 
 <script type="text/javascript">
