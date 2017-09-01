@@ -46,7 +46,7 @@
         <div class="service-block-v3 donation-box for-charity">
 
           <div class="margin-bottom-20">
-            <span class="service-heading">การบริจาคในเดือนนี้</span>
+            <span class="service-heading">ยอดรวมการบริจาคในเดือนนี้</span>
             <span class="counter">{{$amount}} บาท</span>
           </div>
 
