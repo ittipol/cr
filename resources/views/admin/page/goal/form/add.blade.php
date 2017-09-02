@@ -25,8 +25,8 @@
   </div>
 
   <div class="form-group">
-    {{Form::label('description', 'รายละเอียด', array('class' => 'required'))}}
-    {{Form::textarea('description', null, array('class' => 'form-control'))}}
+    {{Form::label('description', 'รายละเอียด')}}
+    {{Form::textarea('description', null, array('class' => 'form-control', 'id' => 'editor'))}}
   </div>
 
   <div class="form-group">
@@ -92,5 +92,6 @@
 
 <script type="text/javascript">
   initSample();
+</script>
 
 @stop
