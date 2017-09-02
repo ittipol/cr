@@ -129,7 +129,7 @@ class Donation extends Model
     ])
     ->distinct('user_id')
     ->take(8)
-    ->orderBy('id','desc');
+    ->orderBy('donations.id','desc');
 
     if($thisMonth) {
       $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
