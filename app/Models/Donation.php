@@ -99,12 +99,12 @@ class Donation extends Model
     // ->distinct('user_id');
 
     $donation = $this
-    ->select('user_id')
+    ->select('user_id','guest_name')
     ->where([
       ['model','like',$model],
       ['model_id','=',$modelId],
       ['verified','=',1],
-      ['user_id','!=',null],
+      // ['user_id','!=',null],
       ['unidentified','=',0]
     ])
     ->distinct('user_id');
@@ -112,7 +112,7 @@ class Donation extends Model
     if($thisMonth) {
       $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
-
+// dd($donation);
     return $donation;
 
   }
