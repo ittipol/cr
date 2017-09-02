@@ -98,6 +98,26 @@ class Donation extends Model
     // ])
     // ->distinct('user_id');
 
+    // $donation = $this
+    // ->where([
+    //   ['model','like',$model],
+    //   ['model_id','=',$modelId],
+    //   ['verified','=',1],
+    // ])
+    // ->where(function($q) {
+    //   $q->where('user_id','=',null)
+    //     ->orWhere([
+    //       ['user_id','!=',null],
+    //       ['unidentified','=',1]
+    //     ]);
+    // });
+
+    // if($thisMonth) {
+    //   $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
+    // }
+
+
+
     $donation = $this
     ->select('user_id','guest_name')
     ->where([
@@ -112,7 +132,7 @@ class Donation extends Model
     if($thisMonth) {
       $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
     }
-// dd($donation);
+
     return $donation;
 
   }

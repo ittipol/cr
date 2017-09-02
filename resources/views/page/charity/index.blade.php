@@ -220,7 +220,7 @@
                   <div class="row team-v4 people-list">
                     @foreach($donors->get() as $donor)
 
-                    @if(!empty($donation->user_id))
+                    @if(!empty($donor->user_id))
                       <?php
                         $_donor = $donor->user;
                       ?>
