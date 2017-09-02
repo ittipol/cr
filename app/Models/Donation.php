@@ -127,7 +127,8 @@ class Donation extends Model
       // ['user_id','!=',null],
       ['unidentified','=',0]
     ])
-    ->distinct('user_id');
+    ->distinct('user_id')
+    ->take(8);
 
     if($thisMonth) {
       $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
