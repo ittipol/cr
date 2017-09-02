@@ -128,8 +128,8 @@ class Donation extends Model
       ['unidentified','=',0]
     ])
     ->distinct('user_id')
-    ->take(8)
-    ->orderBy('donations.id','desc');
+    ->take(8);
+    // ->orderBy('donations.id','desc');
 
     if($thisMonth) {
       $donation->whereBetween('transaction_date', [date('Y-m-1'), date('Y-m-t')]);
