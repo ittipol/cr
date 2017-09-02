@@ -104,7 +104,7 @@ class Donation extends Model
       ['model','like',$model],
       ['model_id','=',$modelId],
       ['verified','=',1],
-      ['user_id','!=',null],
+      // ['user_id','!=',null],
       ['unidentified','=',0]
     ])
     ->distinct('user_id');
