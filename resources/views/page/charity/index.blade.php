@@ -1,5 +1,9 @@
 @extends('layout.main')
 @section('content')
+
+<script>
+  fbq('track', 'ViewContent');
+</script>
   
 <div class="charity index detail margin-top-20 margin-bottom-100" >
 
