@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div id="social_share_btn" class="social-login text-center" @if($popup) style="display:none;" @endif>      
+<div id="social_share_btn" class="social-login text-center" @if($popup) style="display:none;" @endif>  
   <ul class="list-unstyled">       
     <li>             
       <div class="donation-box text-center">
@@ -36,6 +36,10 @@
         <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::root()}}/share/{{$code}}" target="_blank">
           <i class="fa fa-google-plus"></i>
         </a>
+        <div class="clearfix margin-bottom-10"></div>
+        <div class="alert alert-info alert-inline-block fade in">
+          <strong>หมายเหตุ</strong> นี้ไม่ใช่หน้าที่จะแสดงเมื่อคุณได้แชร์ จะมีหน้าที่แสดงโดยเฉพาะสำหรับการแชร์ <a href="{{URL::to('share')}}/{{$code}}">คลิกเพื่อแสดงหน้าสำหรับการแชร์</a>
+        </div>
       </div>
     </li>     
   </ul>  
@@ -112,7 +116,8 @@
             ขอขอบคุณ คุณ {{$donation->guest_name}} ที่ร่วมเป็นส่วนหนึ่งในการบริจาคให้กับ{{$for}} {{$name}}
           @endif
 
-          ขอให้ท่านมีความสุขความเจริญ ชีวิตก้าวหน้าในหน้าที่การงาน อายุมั่นขวัญยืนสุขภาพร่างกายแข็งแรงทั้งตัวท่านเองและครอบครัวของท่านด้วย
+          <!-- ขอให้ท่านมีความสุขความเจริญ ชีวิตก้าวหน้าในหน้าที่การงาน อายุมั่นขวัญยืนสุขภาพร่างกายแข็งแรงทั้งตัวท่านเองและครอบครัวของท่านด้วย -->
+          เราขอขอบคุณสำหรับการช่วยเหลือสุนัขจร ขออนุโมทนาบุญและการช่วยเหลือของท่านจะช่วยหนุนนำให้ท่านที่มีความสุขความเจริญอยุ่แล้วก็จะได้มีความสุขความเจริญยิ่งๆขึ้นไปทั้งตัวท่านเองและครอบครัวของท่านด้วย
 
           <br><br>
 
@@ -133,6 +138,10 @@
             <a class="btn btn-xs btn-googleplus fa-fixed btn-share" href="https://plus.google.com/share?url={{Request::root()}}/share/{{$code}}" target="_blank">
               <i class="fa fa-google-plus"></i>
             </a>
+            <div class="clearfix margin-bottom-10"></div>
+            <div class="alert alert-info alert-inline-block fade in">
+              <strong>หมายเหตุ</strong> นี้ไม่ใช่หน้าที่จะแสดงเมื่อคุณได้แชร์ จะมีหน้าที่แสดงโดยเฉพาะสำหรับการแชร์ <a href="{{URL::to('share')}}/{{$code}}">คลิกเพื่อแสดงหน้าสำหรับการแชร์</a>
+            </div>
           </div>
 
           <div class="clearfix margin-bottom-20"></div>

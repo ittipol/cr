@@ -1,14 +1,18 @@
-a {
+a, li a {
 	color: #2752ff;
 }
 
-a:hover {
+a:hover, li a:hover {
 	color: #2752ff;
 	text-decoration: none;
 }
 
 hr {
 	border-color: #05AF3C;
+}
+
+.alert.alert-inline-block {
+	display: inline-block !important;
 }
 
 .sky-form {
@@ -74,6 +78,10 @@ hr {
 
 .tab-v1 .nav-tabs.tab-border-bottom {
 	border-bottom: 1px solid #ccc;
+}
+
+.tab-v1 .nav-tabs > li > a {
+	color: #000;
 }
 
 .tab-v1 .nav-tabs > li > a:focus {

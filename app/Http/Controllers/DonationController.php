@@ -7,6 +7,7 @@ use App\library\service;
 use App\library\date;
 use Redirect;
 use Cookie;
+use Auth;
 
 class DonationController extends Controller
 {
@@ -22,6 +23,11 @@ class DonationController extends Controller
     if(!empty(request()->code)) {
       $search = true;
       $donation = Service::loadModel('Donation')->where('code','like',request()->code)->first();
+
+      // check donation had user_id
+      if(!empty($donation->user_id) && (!Auth::check() || (Auth::user()->id != $donation->user_id))) {
+        $donation = null;
+      }
     }
 
     if(!empty($donation)) {
@@ -87,7 +93,12 @@ class DonationController extends Controller
     $donation = Service::loadModel('Donation')->where('code','like',$code)->first();
 
     if(empty($donation)) {
-      return $this->error('ไม่พบการบริจาคที่คุณกำลังค้นหา');
+      return $this->error('ไม่พบข้อมูลที่คุณกำลังค้นหา');
+    }
+
+    // check donation had user_id
+    if(!empty($donation->user_id) && (!Auth::check() || (Auth::user()->id != $donation->user_id))) {
+      return $this->error('ไม่พบข้อมูลที่คุณกำลังค้นหา');
     }
 
     $data = Service::loadModel($donation->model)->find($donation->model_id);

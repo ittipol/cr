@@ -35,6 +35,10 @@
 	height: 100%;
 }
 
+.account .sidebar-nav-v1 li a {
+	color: #444;
+}
+
 .account .donation-info-block {
 	background-color: #e8e8e8;
 }

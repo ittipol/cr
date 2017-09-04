@@ -1,6 +1,10 @@
 @extends('layout.main')
 @section('content')
 
+<script>
+  fbq('track', 'ViewContent');
+</script>
+
 <div class="donate container margin-top-20 margin-bottom-100">
 
   <div class="heading heading-v4 margin-bottom-40">

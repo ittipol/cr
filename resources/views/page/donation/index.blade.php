@@ -12,7 +12,7 @@
   <div class="container">
 
     <div class="tab-v1 margin-bottom-60">
-      <ul class="nav nav-tabs margin-bottom-20">
+      <ul class="nav nav-tabs tab-border-bottom margin-bottom-20">
         <li @if(!$search) class="active" @endif><a href="#about" data-toggle="tab">วิธีการบริจาค</a></li>
         <li @if($search) class="active" @endif><a href="#search" data-toggle="tab">ค้นหาการบริจาคของคุณ</a></li>
       </ul>

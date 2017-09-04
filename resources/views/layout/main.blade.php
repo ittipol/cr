@@ -21,9 +21,9 @@
 
   @include('layout.header')
 
-  <div>
+  <!-- <div> -->
     @yield('content')
-  </div>
+  <!-- </div> -->
 
   @include('layout.footer')
 

@@ -5,6 +5,10 @@
   <!-- Meta -->
   @include('script.meta')
   @include('script.analyticstracking')
+
+  <script>
+    fbq('track', 'ViewContent');
+  </script>
   
   <!-- CSS Global Compulsory -->
   <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
