@@ -11,6 +11,10 @@ hr {
 	border-color: #05AF3C;
 }
 
+.footer a {
+	color: #fff !important;
+}
+
 .alert.alert-inline-block {
 	display: inline-block !important;
 }
