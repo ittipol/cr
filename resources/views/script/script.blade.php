@@ -72,6 +72,7 @@
     'css/custom/list_item.css',
     'css/custom/tab.css',
     'css/custom/button.css',
+    'css/page/about.css',
     'css/page/user.css',
     'css/page/account.css',
     'css/page/charity.css',

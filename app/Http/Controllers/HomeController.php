@@ -29,4 +29,10 @@ class HomeController extends Controller
 
     return $this->view('page.home.index');
   }
+
+  public function about() {
+
+    return $this->view('page.home.about');
+    
+  }
 }

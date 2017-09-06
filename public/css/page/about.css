@@ -1,0 +1,41 @@
+.about .parallaxBg .headline-center h2,
+.about .parallaxBg .headline-center p {
+	color: #fff;
+}
+
+.about .parallaxBg img.logo {
+	width: 50%;
+	position: relative;
+	z-index: 9;
+}
+
+.about .header {
+	width: 100%;
+	background: #74ebd5;
+	background: linear-gradient(to right, #ACB6E5, #74ebd5);
+	position: relative;
+}
+
+.about .header:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,.5);
+}
+
+.about .parallaxBg .service-block-v4 {
+	background-color: transparent;
+}
+
+.about .service-block-v4:after {
+	display: none;
+}
+
+@media only screen and (max-width : 480px) {
+	.about .parallaxBg img.logo {
+		width: 95%;
+	}
+}	

@@ -366,6 +366,10 @@ ul.pagination > li > span:focus {
   display: block;
 }
 
+.footer a {
+	color: #fff;
+}
+
 
 /* Header transition on scroll */
 @media (min-width: 992px) {
