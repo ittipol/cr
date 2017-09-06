@@ -24,6 +24,7 @@
 
   <div class="container">
 
+    <div class="clearfix margin-bottom-10"></div>
     <div class="row about-me">
       <div class="col-xs-12">
         <div class="overflow-h">
@@ -33,6 +34,7 @@
         </div>
       </div>
     </div>
+    <div class="clearfix margin-bottom-10"></div>
 
     <div class="headline-center margin-bottom-60">
       <h2>การดำเนินการ</h2>

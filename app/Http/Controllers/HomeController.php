@@ -31,8 +31,7 @@ class HomeController extends Controller
   }
 
   public function about() {
-
+    $this->setMeta('title','เกี่ยวกับเรา — CharityTH');
     return $this->view('page.home.about');
-    
   }
 }
