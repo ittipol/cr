@@ -102,7 +102,7 @@
 
     <div class="content-images-list">
       <div class="text-center margin-bottom-50">
-        <h2 class="title-v2 title-center">รูปภาพมูลนิธิ</h2>
+        <h2 class="title-v2 title-center">รูปภาพ</h2>
       </div>
 
       <div id="image_slider">
