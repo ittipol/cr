@@ -2,7 +2,8 @@
 @section('content')
 
 <script>
-  fbq('track', 'ViewContent');
+  // fbq('track', 'ViewContent');
+  fbq('track', 'donationPageOpened');
 </script>
 
 <div class="donate container margin-top-20 margin-bottom-100">
