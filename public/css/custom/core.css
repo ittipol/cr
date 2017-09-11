@@ -366,6 +366,10 @@ ul.pagination > li > span:focus {
   display: block;
 }
 
+.yt-embed > p {
+	width: 100%;
+	height: 480px;
+}
 
 /* Header transition on scroll */
 @media (min-width: 992px) {
@@ -397,6 +401,10 @@ ul.pagination > li > span:focus {
 
 	.breadcrumbs.breadcrumbs-custom h1 {
 		text-align: center;
+	}
+
+	.yt-embed > p {
+		height: 215px;
 	}
 
 }

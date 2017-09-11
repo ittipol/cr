@@ -12,6 +12,7 @@ if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 // unless user specified own height.
 CKEDITOR.config.height = 500;
 CKEDITOR.config.width = 'auto';
+CKEDITOR.config.extraPlugins = 'youtube';
 
 var initSample = ( function() {
 	var wysiwygareaAvailable = isWysiwygareaAvailable(),

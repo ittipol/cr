@@ -12,6 +12,10 @@ dt {
 	margin-top: 20px;
 }
 
+textarea.cke_source {
+	color: #000 !important;
+}
+
 label {
 	color: #fff;
 }
