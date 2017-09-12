@@ -1,6 +1,6 @@
-.charity.index {
+/*.charity.index {
 	margin-top: 40px;
-}
+}*/
 
 .charity.list {
 	/*background-color: #3b3e48;*/
@@ -15,7 +15,7 @@
 }
 
 .list .search-block {
-	background-image: url('/images/common/bbb.jpg');
+	/*background-image: url('/images/common/bbb.jpg');*/
 	/*background-color: #17A1E5;*/
 	padding: 40px 0;
 }
@@ -206,11 +206,6 @@
 	border-radius: 30px;
 }
 
-.embedded-video {
-	width: 100%;
-	height: 380px;
-}
-
 .people-list-item .profile-image {
 	width: 100px;
 	height: 100px;
@@ -222,8 +217,36 @@
 }
 
 .charity-profile {
+	position: relative;
 	padding: 50px 0 30px 0;
 	background-color: #ECEFF1;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 400px;
+}
+
+.charity-profile h2 {
+	color: #fff;
+}
+
+.charity-profile:after {
+	content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,.5);
+}
+
+.charity-profile .charity-profile-header {
+	position: absolute;
+  top: 20%;
+  width: 100%;
+  z-index: 9;
+  text-align: center;
+  padding: 0 30px;
 }
 
 .charity-profile .charity-profile-logo {
@@ -232,8 +255,28 @@
 	border: 1px solid #ddd;
 }
 
+.charity-profile .tagging-item {
+	color: #fff;
+}
+
+.charity-profile .tagging-item .location-name i {
+	color: #ececec;
+	background-color: transparent;
+	padding: 0;
+}
+
 .content-images-list .cbp-caption-zoom .cbp-caption-activeWrap {
 	background-color: rgba(49, 72, 110, 0.5);
+}
+
+@media only screen and (max-width : 1200px) {
+	.charity-profile {
+		height: 340px;
+	}
+
+	.charity-profile .charity-profile-header {
+		text-align: left;
+	}
 }
 
 @media only screen and (max-width : 768px) {
@@ -244,9 +287,9 @@
 
 @media only screen and (max-width : 480px) {
 
-	.charity.index {
+	/*.charity.index {
 		margin-top: 20px;
-	}
+	}*/
 
 	.charity-header .charity-logo {
 		width: 60px;
@@ -264,13 +307,18 @@
 		display: block;
 	}
 
-	.embedded-video {
-		height: 215px;
-	}
-
 	.index .donation-box {
 		padding: 20px 15px;
 		background-color: #e7edef;
+	}
+
+	.charity-profile {
+		height: 280px;
+	}
+
+	.charity-profile .charity-profile-logo {
+		width: 100px;
+		height: 100px;
 	}
 
 }

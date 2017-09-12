@@ -12,7 +12,7 @@ class Controller extends BaseController
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
   protected $data = array();
-
+  protected $pageName = null; 
   protected $meta = array(
     'title' => 'CharityTh',
     'description' => 'ร่วมเป็นส่วนหนึ่งในการช่วยเหลือและสนับสนุนมูลนิธิและโครงการ',
@@ -54,6 +54,7 @@ class Controller extends BaseController
     // Request::url()
     // Request::ip()
 
+    $this->data['_pageName'] = $this->pageName;
     $this->data['_meta'] = $this->meta;
     $this->data['_bot'] = $this->botDisallowed;
 

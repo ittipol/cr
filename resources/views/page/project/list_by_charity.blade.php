@@ -3,43 +3,8 @@
 
 <div class="project list">
 
-  <div class="charity-profile">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="text-center">
-              @if(!empty($charity->logo))
-              <img class="charity-profile-logo" src="{{$charity->logo}}">
-              @endif
-              <div class="charity-profile-content">
-                <h2>{{$charity->name}}</h2>
-              </div>
-              <div class="tagging-item-list">
-                <span class="tagging-item">
-                  <div class="location-name"><i class="fa fa-map-marker"></i>{{$charity->province->name}}</div>
-                </span>
-                <span class="tagging-item">
-                  <div class="location-name"><i class="fa fa-flag"></i>{{$charity->charityType->name}}</div>
-                </span>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tab-v1 text-center">
-    <ul class="nav nav-tabs tab-border-bottom no-margin">
-      <li><a href="{{URL::to('charity')}}/{{$charity->id}}">หน้าหลัก</a></li>
-      <li class="active">
-        <a href="{{URL::to('charity')}}/{{$charity->id}}/project">โครงการ</a>
-      </li>
-      <li>
-        <a href="{{URL::to('charity')}}/{{$charity->id}}/news">ข่าวสาร</a>
-      </li>
-      <li><a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}">บริจาค</a></li>
-    </ul>
-  </div>
+  @include('page.charity.header')
+  @include('page.charity.nav')
 
   <div class="clearfix margin-bottom-20"></div>
 

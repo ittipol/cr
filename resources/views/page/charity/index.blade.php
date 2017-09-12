@@ -5,11 +5,14 @@
   fbq('track', 'ViewContent');
 </script>
   
-<div class="charity index detail margin-top-20 margin-bottom-100" >
+<div class="charity index detail margin-bottom-100" >
 
-  <div class="container">
+  @include('page.charity.header')
+  @include('page.charity.nav')
 
-    <div class="charity-header clearfix">
+  <div class="container margin-top-60">
+
+    <!-- <div class="charity-header clearfix">
       @if(!empty($charity->logo))
       <img class="charity-logo" src="{{$charity->logo}}">
       @endif
@@ -18,9 +21,9 @@
         <p class="charity-short-desc">{{$charity->short_desc}}</p>
       </div>
       <p class="charity-short-desc display-mobile">{{$charity->short_desc}}</p>
-    </div>
+    </div> -->
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-xs-12">
         <div class="tagging-item-list">
           <span class="tagging-item">
@@ -32,7 +35,7 @@
         </div>
         <div class="clearfix margin-bottom-10"></div>
       </div>
-    </div>
+    </div> -->
 
     <div class="row">
 
@@ -148,6 +151,10 @@
               <a href="#project" data-toggle="tab">โครงการ</a>
               <span class="badge badge-blue rounded-x">{{$projects->count()}}</span>
             </li>
+            <li>
+              <a href="#video" data-toggle="tab">วีดีโอ</a>
+              <span class="badge badge-blue rounded-x">{{$videos->count()}}</span>
+            </li>
             <li><a href="#collaboration" data-toggle="tab">การบริจาค</a></li>
           </ul>
           <div class="tab-content">
@@ -184,6 +191,9 @@
             </div>
             <div class="tab-pane fade in" id="project">
               @include('page.charity.template.project')
+            </div>
+            <div class="tab-pane fade in" id="video">
+              @include('page.charity.template.video')
             </div>
             <div class="tab-pane fade in" id="collaboration">
 

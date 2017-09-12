@@ -1,0 +1,9 @@
+.news-v1.video-list h3 {
+	height: 35px;
+	overflow: hidden;
+	/*padding: 10px 15px 0 15px;*/
+}
+
+.news-v1.video-list .news-v1-info {
+	margin-top: 0;
+}

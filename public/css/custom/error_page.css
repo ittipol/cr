@@ -5,3 +5,13 @@
 .error-v6 span.sorry {
 	padding-bottom: 30px;
 }
+
+@media only screen and (max-width : 480px) {
+	.logo-a > img.logo {
+		width: 100%;
+	}
+
+	.error-v6 .h1 {
+		line-height: 160px;
+	}
+}

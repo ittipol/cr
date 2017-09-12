@@ -10,6 +10,8 @@ use Redirect;
 
 class ProjectController extends Controller
 {
+  protected $pageName = 'Project'; 
+  
   private $sorting = array(
     'created_at:desc' => 'ใหม่สุด',
     'created_at:asc' => 'เก่าสุด',

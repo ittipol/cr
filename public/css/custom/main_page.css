@@ -34,30 +34,63 @@ span {
 	font-size: 28px;
 }
 
+.promo-section {
+	height: 700px;
+	overflow: hidden;
+}
+
 .promo-section h3 {
 	font-size: 45px;
-	animation: blurFadeIn .8s linear backwards;
+	/*animation: blurFadeIn .8s linear backwards;*/
 }
 
 .promo-section p {
 	max-width: 100%;
 	font-size: 18px;
-	animation: blurFadeIn .6s linear .8s backwards;
+	/*animation: blurFadeIn .6s linear .8s backwards;*/
 }
 
 .promo-section .promo-item-custom {
 	width: 100%;
 	height: 700px;
 	position: relative;
-	/*background-color: rgb(196,69,94);*/
-	/*background-color: #2196F3;*/
-	background: linear-gradient(to bottom, #241d33 0%, #171930 51%, #091119 100%);
-	/*background-color: #448AFF;*/
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	/*background: linear-gradient(to bottom, #241d33 0%, #171930 51%, #091119 100%);*/
 }
 
-/*.promo-item-custom .container {
-	height: 700px;
-}*/
+.promo-section .promo-item-custom.promo-bg-1 {
+	background: #0575E6;
+	background: -webkit-linear-gradient(to right, #021B79, #0575E6);
+	background: linear-gradient(to right, #021B79, #0575E6);
+
+}
+
+.promo-section .promo-item-custom.promo-bg-2 {
+	background: #0575E6;
+}
+
+.promo-section .promo-item-custom.promo-bg-overlay:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,.5);
+}
+
+.promo-item-custom.promo-split-screen-content .promo-split-screen-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 
 .promo-item-custom .promo-item-box {
 	height: 700px;
@@ -68,7 +101,7 @@ span {
 	width: 50%;
 }
 
-.promo-item-custom .promo-item-image {
+.promo-item-custom .promo-item-media {
 	float: right;
 	width: 50%;
 	height: 700px;
@@ -83,16 +116,21 @@ span {
 	background-size: 100%;
 	position: absolute;
 	left: -140px;
-	/*animation-name: bounceIn;
-  animation-duration: 450ms;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;*/
-  animation: blurFadeIn .8s linear  backwards;
+	z-index: 9;
+  /*animation: blurFadeIn .8s linear  backwards;*/
 }
 
 .g-color-default {
-	/*color: #fd5c3d;*/
 	color: rgb(235,45,64);
+}
+
+.slick-dots li {
+	width: 8px;
+	height: 8px;
+}
+
+.slick-dots li.slick-active {
+	background: #2196F3;
 }
 
 .one-page-header.charity-header .navbar-brand img {
@@ -163,13 +201,8 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 }
 
 .infoblock-v2 {
-	/*background-image: url(/images/common/header-bg.jpg);*/
-	/*background: #74ebd5;
-	background: linear-gradient(to right, #ACB6E5, #74ebd5);*/
-	/*background: cornflowerblue;*/
 	background: #2BC0E4;
 	background: linear-gradient(to right, #EAECC6, #2BC0E4);
-	/*background: royalblue;*/
 }
 
 .infoblock-v2:before {
@@ -287,7 +320,6 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 
 @media only screen and (max-width : 480px) {
 	.promo-section .promo-item-custom {
-		height: auto;
 		padding-bottom: 50px;
 	}
 
@@ -307,10 +339,27 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 		left: 0;
 	}
 
-	.promo-item-custom .promo-item-image {
+	.promo-item-custom .promo-item-media {
 		width: 100%;
 		height: 300px;
 		margin-top: 40px;
+	}
+
+	.promo-item-custom.promo-split-screen-content .promo-split-screen-image {
+		width: 100%;
+		height: 50%;
+	}
+
+	.promo-item-custom.promo-split-screen-content .promo-item-box {
+		margin-top: 407px;
+	}
+
+	.promo-item-custom.promo-news .promo-item-box {
+		margin-top: 155px;
+	}
+
+	.promo-item-custom.promo-split-screen-content h3 {
+		font-size: 33px;
 	}
 
 	.promo-section p {
@@ -333,7 +382,7 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 }
 
 @media only screen and (max-width : 320px) {
-	.promo-item-custom .promo-item-image {
+	.promo-item-custom .promo-item-media {
 		height: 240px;
 	}
 

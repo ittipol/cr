@@ -10,12 +10,15 @@ use Redirect;
 
 class CharityController extends Controller
 {
+
+  protected $pageName = 'Charity'; 
+
   public function index($id) {
 
     $charity = Service::loadModel('Charity')->find($id);
 
     if(empty($charity)) {
-      return $this->error('ไม่พบมูลนิธินี้');
+      return $this->error('ไม่พบสถานที่นี้');
     }
 
     $date = new Date();
@@ -35,6 +38,11 @@ class CharityController extends Controller
     ])
     ->orderBy('created_at','asc');
 
+    $videos = Service::loadModel('Video')
+    ->select('id','charity_id','title','short_desc','thumbnail','created_at')
+    ->where('charity_id','=',$id)
+    ->orderBy('created_at','desc');
+
     // GET IMAGES
     $images = array();
     if(!empty($charity->images)) {
@@ -51,6 +59,7 @@ class CharityController extends Controller
     $this->setData('charity',$charity);
     $this->setData('projects',$projects);
     $this->setData('news',$news);
+    $this->setData('videos',$videos);
     $this->setData('images',$images);
     
     $this->setData('donationTotal',$donationModel->countDonation('Charity',$id,true));

@@ -34,5 +34,5 @@
 
 @else
   <div class="clearfix margin-bottom-40"></div>
-  <h4 class="text-center">ยังไม่มีข่าวสารจากมูลนิธินี้</h4>
+  <h4 class="text-center">ยังไม่มีข่าวสาร</h4>
 @endif

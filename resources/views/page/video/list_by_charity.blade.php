@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-<div class="news list">
+<div class="video list">
 
   @include('page.charity.header')
   @include('page.charity.nav')
@@ -35,27 +35,21 @@
 
   <div class="container padding-bottom-100">
 
-    @if($news->currentPage() <= $news->lastPage())
+    @if($video->currentPage() <= $video->lastPage())
   
       <div class="clearfix margin-bottom-20"></div>
 
-      <div class="row news-v1">
-        @foreach($news as $data)
+      <div class="row news-v1 video-list">
+        @foreach($video as $data)
 
           <div class="col-lg-4 col-sm-6 col-xs-12 md-margin-bottom-40">
             <div class="news-v1-in custom-item-list">
-              <a href="{{URL::to('news')}}/{{$data->id}}">
-                <div class="full-width-cover" style="background-image: url('{{$data->thumbnail}}');"></div>
+              <a href="{{URL::to('video')}}/{{$data->id}}">
+                <div class="full-width-cover video-play-icon" style="background-image: url('{{$data->thumbnail}}');">
+                  <i class="fa fa-caret-right"></i>
+                </div>
               </a>
-
-              <?php
-                $strLimit = 120;
-                $descLen = $strLimit - mb_strlen($data->name);
-                $shortDesc = $stringLib->truncString($data->short_desc,$descLen);
-              ?>
-
-              <h3><a href="{{URL::to('news')}}/{{$data->id}}">{{$data->title}}</a></h3>
-              <p>{{$shortDesc}}</p>
+              <h3><a href="{{URL::to('video')}}/{{$data->id}}">{{$data->title}}</a></h3>
               <ul class="list-inline news-v1-info">
                 <li><a href="{{URL::to('charity')}}/{{$data->charity->id}}">{{$data->charity->name}}</a></li>
                 <li>|</li>
@@ -68,11 +62,11 @@
 
       </div>
 
-      @include('pagination.default2', ['paginator' => $news])
+      @include('pagination.default2', ['paginator' => $video])
 
     @else
       <div class="text-center content margin-top-100 margin-bottom-300">
-        <h2>ไม่มีข่าวสารให้แสดง</h2>
+        <h2>ไม่มีวีดีโอให้แสดง</h2>
       </div>
     @endif
 

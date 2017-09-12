@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="assets/plugins/animate.css">
   <link rel="stylesheet" href="assets/plugins/line-icons-pro/styles.css">
   <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="assets/plugins/slick/slick.css"> -->
+  <link rel="stylesheet" href="assets/plugins/slick/slick.css">
 
   <!-- CSS Theme -->
   <link rel="stylesheet" href="css/style/custom/charity.style.css">
@@ -43,16 +43,38 @@
   </nav>
 
   <div class="promo-section">
-    <div class="promo-item-custom">
+    <div class="promo-item-custom promo-bg-1 promo-content">
       <div class="container">
         <div class="promo-item-box clearfix">
-          <div class="promo-item-image">
+          <div class="promo-item-media">
             <div class="floating-image" style="background-image: url(/images/promo/1_2.png);"></div>
           </div>
           <div class="promo-item-content">
             <h3>แม่จิ๋มบ้านสุนัข</h3>
             <p class="g-color-white--dark g-mb-45">ป้าจิ๋มผู้ที่อุทิศชีวิตของตัวเอง ให้กับการช่วยเหลือน้องหมา มามากว่า 30ปี เพียงคนเดียว ถึงร่างกายตัวเองจะเจ็บป่วยแต่แม่ก็ยังทนทำมันด้วยความรัก ที่มีต่อสิ่งมีชีวิตเล็กๆ</p>
-            <a class="btn-u btn-line" href="/charity/1"><i class="fa fa-heart"></i> บริจาคช่วยเหลือสุนัขจร</a>
+            <a class="btn-u btn-line" href="/charity/1">แสดงรายละเอียด</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="promo-item-custom promo-bg-2 promo-split-screen-content">
+      <div class="container">
+        <div class="promo-item-box clearfix">
+          <div class="promo-item-content">
+            <h3>น้ำใจเพียงเล็กน้อยจากคุณคือชีวิตและการเยียวยาของสุนัขเหล่านี้</h3>
+            <a class="btn-u btn-line" href="/donate?for=charity&id=1"><i class="fa fa-heart"></i>&nbsp;&nbsp;บริจาค มอบการเยียวยาแก่สุนัข</a>
+          </div>
+        </div>
+      </div>
+      <div class="promo-split-screen-image" style="background-image: url(/images/promo/1_3.jpg);"></div>
+    </div>
+    <div class="promo-item-custom promo-bg-overlay promo-news" style="background-image: url(/images/promo/1_4.jpg);">
+      <div class="container">
+        <div class="promo-item-box clearfix">
+          <div class="promo-item-content">
+            <h3>เปลี่ยนผ้าใบเพื่อกันแดดและฝนให้น้องหมา</h3>
+            <p class="g-color-white--dark g-mb-45">ที่บ้านแม่จิ๋ม จะใช้ผ้าใบเป็นหลังคากันฝนกันแดดให้น้องหมาบริเวณหน้าบ้าน เพราะด้านใน ไม่พอรองรับจำนวนพวกเขา จุดนี้จะมีจำนวน 100 กว่าชีวิตและยังมีเพิ่มอยู่เรื่อยๆ แต่ใช้ไปไม่นานก็ขาด เพราะพายุและฝน ต้องคอยเปลี่ยนตลอด ถ้าวันนี้น้องหมาเหล่านี้มีหลังคาที่คอยกันฝนให้พวกเขาได้ตลอดก็คงดี</p>
+            <a class="btn-u btn-line" href="/news/1"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;รับชมวีดีโอ</a>
           </div>
         </div>
       </div>
@@ -188,19 +210,24 @@
 
   <!-- JS Page Level-->
   <script src="/js/plugins/one.app.js"></script>
-  <script src="/js/plugins/promo.js"></script>
-  <script src="/js/plugins/projects.js"></script>
-  <script src="/js/plugins/circles-master.js"></script>
-  <script src="/js/plugins/progress-bar.js"></script>
-  <script src="/js/plugins/posts.js"></script>
-  <script src="/js/plugins/success-stories.js"></script>
-  <script src="/js/plugins/helping.js"></script>
-  <script src="/js/plugins/map-pin.js"></script>
 
   <script>
     $(function() {
       App.init();
     });
+
+    $('.promo-section').slick({
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      infinite: true,
+      arrows:false,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+    });
+
   </script>
   <!--[if lt IE 10]>
     <script src="../assets/plugins/sky-forms-pro/skyforms/js/jquery.placeholder.min.js"></script>

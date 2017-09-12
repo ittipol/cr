@@ -79,6 +79,7 @@
     'css/page/project.css',
     'css/page/donate.css',
     'css/page/news.css',
+    'css/page/video.css',
   );
 
   if($combine){

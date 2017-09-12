@@ -10,6 +10,8 @@ use Redirect;
 
 class NewsController extends Controller
 {
+  protected $pageName = 'News';
+  
   private $sorting = array(
     'created_at:desc' => 'ใหม่สุด',
     'created_at:asc' => 'เก่าสุด',
@@ -63,7 +65,7 @@ class NewsController extends Controller
     $sorting = 'desc';
 
     if(!empty(request()->q)) {
-      $conditions[] = array('name','=','%'.request()->q.'%');
+      $conditions[] = array('title','=','%'.request()->q.'%');
     }
 
     if(!empty(request()->sort)) {
@@ -117,7 +119,7 @@ class NewsController extends Controller
     $sorting = 'desc';
 
     if(!empty(request()->q)) {
-      $conditions[] = array('name','=','%'.request()->q.'%');
+      $conditions[] = array('title','=','%'.request()->q.'%');
     }
 
     if(!empty(request()->sort)) {
@@ -131,7 +133,7 @@ class NewsController extends Controller
     $charity = Service::loadModel('Charity')->find($id);
 
     if(empty($charity)) {
-      return $this->error('ไม่พบมูลนิธิ');
+      return $this->error('ไม่พบสถานที่');
     }
 
     // SET LIB

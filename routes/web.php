@@ -58,6 +58,13 @@ Route::group(['middleware' => 'admin.auth', 'namespace' => 'Admin', 'prefix' => 
   Route::patch('news/edit/{id}', 'NewsController@editingSubmit');
   Route::get('news/delete/{id}', 'NewsController@delete');
 
+  Route::get('video/list', 'VideoController@listView');
+  Route::get('video/add', 'VideoController@add');
+  Route::post('video/add', 'VideoController@addingSubmit');
+  Route::get('video/edit/{id}', 'VideoController@edit');
+  Route::patch('video/edit/{id}', 'VideoController@editingSubmit');
+  Route::get('video/delete/{id}', 'VideoController@delete');
+
   Route::get('donation/list', 'DonationController@listView');
   Route::get('donation/detail/{id}', 'DonationController@detail');
   Route::get('donation/delete/{id}', 'DonationController@delete');
@@ -112,8 +119,11 @@ Route::get('project/{id}', 'ProjectController@index');
 Route::get('news/list', 'NewsController@listView');
 Route::get('news/{id}', 'NewsController@index');
 
+Route::get('video/{id}', 'VideoController@index');
+
 Route::get('charity/{id}/project', 'ProjectController@listByCharity');
 Route::get('charity/{id}/news', 'NewsController@listByCharity');
+Route::get('charity/{id}/video', 'VideoController@listByCharity');
 
 Route::get('donate', 'DonateController@index');
 Route::post('donate', 'DonateController@donationSubmit');
