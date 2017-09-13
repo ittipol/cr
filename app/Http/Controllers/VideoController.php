@@ -101,7 +101,7 @@ class VideoController extends Controller
     $this->setData('sorting',$this->sorting);
 
     // SET META
-    $this->setMeta('title','ข่าวสาร - '.$charity->name.' — CharityTH');
+    $this->setMeta('title','วีดีโอ - '.$charity->name.' — CharityTH');
     $this->setMeta('description',$charity->short_desc);
     $this->setMeta('image',$charity->thumbnail);
 
