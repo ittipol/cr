@@ -38,7 +38,7 @@ class DonationController extends Controller
         case 'Charity':
 
           if(empty($data)) {
-            return $this->error('ไม่พบมูลนิธินี้');
+            return $this->error('ไม่พบสถานที่นี้');
           }
 
           // $charity = $data;
@@ -107,7 +107,7 @@ class DonationController extends Controller
       case 'Charity':
 
         if(empty($data)) {
-          return $this->error('ไม่พบมูลนิธินี้');
+          return $this->error('ไม่พบสถานที่นี้');
         }
 
         $charity = $data;
@@ -187,7 +187,7 @@ class DonationController extends Controller
       case 'Charity':
 
         if(empty($data)) {
-          return $this->error('ไม่พบมูลนิธินี้');
+          return $this->error('ไม่พบสถานที่นี้');
         }
 
         $charity = $data;

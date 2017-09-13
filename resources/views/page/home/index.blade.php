@@ -181,7 +181,7 @@
     <div class="container">
 
       <div class="g-heading-v13 text-center g-max-width--770 g-margin-side-auto g-mb-30">
-        <h2>เรื่องราวและข่าวสารจากมูลนิธิ</h2>
+        <h2>เรื่องราวและข่าวสาร</h2>
         <p>ติดตามเรื่องราวและข่าวสารต่างๆจากมูลนิธิ ไม่ว่าจะเป็นการช่วยเหลือมูลนิธิ การพัฒนาและความคืบหน้าของโครงการ และอื่นๆ</p>
         <a class="btn-u btn-u-upper" href="{{URL::to('news/list')}}">ข่าวสาร</a>
       </div>
@@ -228,7 +228,7 @@
       pauseOnHover: false,
       responsive: [
       {
-        breakpoint: 321,
+        breakpoint: 481,
         settings: {
           dots: false
         }
