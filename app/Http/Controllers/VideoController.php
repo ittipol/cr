@@ -28,7 +28,7 @@ class VideoController extends Controller
     // Get Related Video
     $relatedVideo = Service::loadModel('Video')
     ->select('id','charity_id','title','short_desc','thumbnail','created_at')
-    ->where('charity_id','!=',$id)
+    ->where('id','!=',$id)
     ->orderBy('created_at','desc')
     ->take(12);
 

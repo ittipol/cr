@@ -72,8 +72,10 @@
     @else
       <div class="clearfix margin-bottom-40"></div>
       <h4 class="text-center">ยังไม่มีวีดีโอที่เกี่ยวข้อง</h4>
-      <div class="clearfix margin-bottom-200"></div>
+      <div class="clearfix margin-bottom-100"></div>
     @endif
+
+    <div class="clearfix margin-bottom-100"></div>
 
   </div>
 

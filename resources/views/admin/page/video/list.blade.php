@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-md-12 margin-bottom-20">
     <div class="pull-right">
-      <a href="{{URL::to('admin/charity/add')}}" class="btn-u btn-u-blue">+ เพิ่ม</a>
+      <a href="{{URL::to('admin/video/add')}}" class="btn-u btn-u-blue">+ เพิ่ม</a>
     </div>
   </div>
 </div>
