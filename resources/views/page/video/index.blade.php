@@ -41,6 +41,11 @@
 
     </div>
 
+    @if(!empty($video->description))
+    <div class="clearfix margin-bottom-20"></div>
+    <p>{!!$video->description!!}</p>
+    @endif
+
     <hr>
 
     <h3>วีดีโอที่เกี่ยวข้อง</h3>

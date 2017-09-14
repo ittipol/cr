@@ -68,13 +68,24 @@
       </div>
       <div class="promo-split-screen-image" style="background-image: url(/images/promo/1_3.jpg);"></div>
     </div>
+    <div class="promo-item-custom promo-bg-overlay promo-news" style="background-image: url(/images/promo/1_5.jpg);">
+      <div class="container">
+        <div class="promo-item-box clearfix">
+          <div class="promo-item-content">
+            <h3>เตรียมนำอาหารไปให้สุนัขที่อยู่รอบนอก</h3>
+            <p class="g-color-white--dark g-mb-45">นอกเหลือจากในบ้านสุนัขแล้วยังมีสุนัขอีก 300 ชีวิตที่อยู่รอบนอกที่จะต้องนำอาหารไปให้ โดยหลักๆจะเป็นอาหารเม็ด</p>
+            <a class="btn-u btn-line" href="/video/2"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;รับชมวีดีโอ</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="promo-item-custom promo-bg-overlay promo-news" style="background-image: url(/images/promo/1_4.jpg);">
       <div class="container">
         <div class="promo-item-box clearfix">
           <div class="promo-item-content">
             <h3>เปลี่ยนผ้าใบเพื่อกันแดดและฝนให้น้องหมา</h3>
             <p class="g-color-white--dark g-mb-45">ที่บ้านแม่จิ๋ม จะใช้ผ้าใบเป็นหลังคากันฝนกันแดดให้น้องหมาบริเวณหน้าบ้าน เพราะด้านใน ไม่พอรองรับจำนวนพวกเขา จุดนี้จะมีจำนวน 100 กว่าชีวิตและยังมีเพิ่มอยู่เรื่อยๆ แต่ใช้ไปไม่นานก็ขาด เพราะพายุและฝน ต้องคอยเปลี่ยนตลอด ถ้าวันนี้น้องหมาเหล่านี้มีหลังคาที่คอยกันฝนให้พวกเขาได้ตลอดก็คงดี</p>
-            <a class="btn-u btn-line" href="/news/1"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;รับชมวีดีโอ</a>
+            <a class="btn-u btn-line" href="/news/1"><i class="fa fa-sticky-note"></i>&nbsp;&nbsp;อ่านเพิ่มเติม</a>
           </div>
         </div>
       </div>
