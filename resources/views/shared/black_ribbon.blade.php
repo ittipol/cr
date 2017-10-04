@@ -1,0 +1,1 @@
+<img src="/images/black_ribbon_top_right.png" class="black-ribbon">

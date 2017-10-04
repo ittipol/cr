@@ -2,7 +2,6 @@
 @section('content')
 
 <script>
-  // fbq('track', 'ViewContent');
   fbq('track', 'donationPageOpened');
 </script>
 

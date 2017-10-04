@@ -396,3 +396,11 @@ a.btn-u-lg:hover, button.btn-u-lg:hover {
 		max-width: 100%;
 	}
 }
+
+.black-ribbon {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  width: 90px;
+}

@@ -12,7 +12,7 @@
   </div>
 
   <div class="input-group margin-bottom-20">
-    <span class="input-group-addon rounded-left"><i class="icon-append fa fa-envelope-o"></i></i></span>
+    <span class="input-group-addon rounded-left"><i class="icon-append fa fa-envelope-o"></i></span>
     <input type="text" name="email" class="form-control rounded-right" placeholder="อีเมล">
   </div>
 

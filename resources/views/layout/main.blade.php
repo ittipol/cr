@@ -19,6 +19,8 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
+  @include('shared.black_ribbon')
+
   @include('layout.header')
 
   <!-- <div> -->
