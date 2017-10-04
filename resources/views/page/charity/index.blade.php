@@ -7,12 +7,9 @@
   
 <div class="charity index detail margin-bottom-100" >
 
-  @include('page.charity.header')
-  @include('page.charity.nav')
+  <div class="container margin-top-40">
 
-  <div class="container margin-top-60">
-
-    <!-- <div class="charity-header clearfix">
+    <div class="charity-header clearfix">
       @if(!empty($charity->logo))
       <img class="charity-logo" src="{{$charity->logo}}">
       @endif
@@ -21,9 +18,9 @@
         <p class="charity-short-desc">{{$charity->short_desc}}</p>
       </div>
       <p class="charity-short-desc display-mobile">{{$charity->short_desc}}</p>
-    </div> -->
+    </div>
 
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-xs-12">
         <div class="tagging-item-list">
           <span class="tagging-item">
@@ -35,7 +32,7 @@
         </div>
         <div class="clearfix margin-bottom-10"></div>
       </div>
-    </div> -->
+    </div>
 
     <div class="row">
 
