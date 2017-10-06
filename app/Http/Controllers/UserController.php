@@ -6,12 +6,10 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\library\service;
 use Facebook\Facebook;
-// use App\library\url;
 use App\library\token;
 use Auth;
 use Hash;
 use Redirect;
-// use Cookie;
 
 class UserController extends Controller
 {
@@ -23,11 +21,6 @@ class UserController extends Controller
   }
 
   public function authenticate() {
-
-    // $user = User::find(1);
-    // Auth::login($user,true);
-
-    // return Redirect::intended('/');
 
     if(Auth::attempt([
       'email' => request()->input('email'),
@@ -58,7 +51,7 @@ class UserController extends Controller
     $user->name = trim($request->name);
 
     if($user->save()) {
-      session()->flash('register-success',true);
+      session()->flash('register-done',true);
     }
 
     return Redirect::to('login');

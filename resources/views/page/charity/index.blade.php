@@ -55,7 +55,7 @@
           </div>
 
           <div class="statistics">
-            <h3 class="heading-xs">สิ้นสุดการรับบริจาคเดือนนี้ในอีก <span class="pull-right">{{$remainingDate}}</span></h3>
+            <!-- <h3 class="heading-xs">สิ้นสุดการรับบริจาคเดือนนี้ในอีก <span class="pull-right">{{$remainingDate}}</span></h3> -->
             <div class="progress progress-u progress-xxs">
               <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
               </div>

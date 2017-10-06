@@ -78,6 +78,16 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
+
+    $('#fb_login_btn').on('click',function(e){
+      FB.login(function(response) {
+        if (response.authResponse) {
+          window.location.href = "/facebook/login?code="+response.authResponse.accessToken;
+        }
+      }, {scope: 'email,public_profile'});
+    });
+
+
     Validation.initValidation();
   });
 
