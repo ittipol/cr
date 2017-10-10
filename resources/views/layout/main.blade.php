@@ -32,6 +32,20 @@
   <script src="/js/plugins/one.app.js"></script>
 
   <script>
+
+    $(document).ready(function(){
+      var _socket = io('http://127.0.0.1:44');
+      _socket.on('connect', function(){
+        console.log('_connect');
+      });
+      _socket.on('event', function(data){
+        console.log('_event');
+      });
+      _socket.on('disconnect', function(){
+        console.log('_disconnect');
+      });
+    });
+
     $(function() {
       App.init();
     });

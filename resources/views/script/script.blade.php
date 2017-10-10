@@ -5,6 +5,7 @@
 <?php
 
   $jsFiles = array(
+    'js/socket.io.js',
     // 'js/jquery-3.2.1.min.js',
     'assets/plugins/jquery/jquery.min.js',
     'assets/plugins/jquery/jquery-migrate.min.js',

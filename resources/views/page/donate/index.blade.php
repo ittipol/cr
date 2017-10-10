@@ -104,7 +104,6 @@
                 <label class="input floating-label">
                   <i class="icon-append fa fa-calendar"></i>
                   {{Form::text('date', null, array('id' => 'date' ,'autocomplete' => 'off', 'readonly' => 'true'))}}
-                  <div class="floating-label-box" id="date-input-label"></div>
                 </label>
               </section>
 
