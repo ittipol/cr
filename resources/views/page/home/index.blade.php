@@ -35,8 +35,6 @@
 </head>
 <body id="body">
 
-  @include('shared.black_ribbon')
-
   <nav class="charity-header one-page-header navbar navbar-default navbar-fixed-top one-page-nav-scrolling one-page-nav__fixed" data-role="navigation">
     <div class="container">
       @include('layout.header_nav')
