@@ -49,20 +49,20 @@
       <div class="col-md-4">
         <div class="service-block-v3 donation-box for-charity">
 
-          <div class="margin-bottom-20">
+          <!-- <div class="margin-bottom-20">
             <span class="service-heading">ยอดรวมการบริจาคในเดือนนี้</span>
             <span class="counter">{{$amount}} บาท</span>
           </div>
 
           <div class="statistics">
-            <!-- <h3 class="heading-xs">สิ้นสุดการรับบริจาคเดือนนี้ในอีก <span class="pull-right">{{$remainingDate}}</span></h3> -->
+            <h3 class="heading-xs">สิ้นสุดการรับบริจาคเดือนนี้ในอีก <span class="pull-right">{{$remainingDate}}</span></h3>
             <div class="progress progress-u progress-xxs">
               <div style="width: {{$percent}}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{$percent}}" role="progressbar" class="progress-bar progress-bar-light">
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="clearfix margin-bottom-20"></div>
+          <!-- <div class="clearfix margin-bottom-20"></div> -->
 
           <div class="margin-bottom-20">
             <a href="{{URL::to('donate')}}?for=charity&id={{$charity->id}}" class="btn-u btn-custom margin-bottom-10">ร่วมบริจาคเพื่อช่วยเหลือ</a>
