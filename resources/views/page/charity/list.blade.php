@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="custom-search-bar">
+  <!-- <div class="custom-search-bar">
     <div class="container">
       <h5>ค้นหา</h5>
       <div class="row">
@@ -40,7 +40,7 @@
         {{Form::close()}}
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="container padding-bottom-100">
     
